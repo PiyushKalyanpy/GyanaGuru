@@ -40,4 +40,3 @@ Before submitting a pull request, please ensure that your changes are well-teste
 
 The GyanaGuru website is released under the [MIT License](https://github.com/PiyushKalyanpy/GyanaGuru/blob/main/LICENSE).
 
-
