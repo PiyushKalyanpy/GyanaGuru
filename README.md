@@ -1,10 +1,10 @@
-# Gyana Guru Website
+# GyanaGuru Website
 
-This repository contains the source code for the Gyana Guru website, an online learning platform that provides access to high-quality educational resources in a wide range of subjects.
+This repository contains the source code for the GyanaGuru website, an online learning platform that provides access to high-quality educational resources in a wide range of subjects.
 
 ## Tech Stack
 
-The Gyana Guru website is built using the following technologies:
+The GyanaGuru website is built using the following technologies:
 
 - [Next.js](https://nextjs.org/): a React-based framework for building server-side rendered and statically generated web applications.
 - [Tailwind CSS](https://tailwindcss.com/): a utility-first CSS framework that provides a set of pre-defined classes for quickly building custom user interfaces.
@@ -12,7 +12,7 @@ The Gyana Guru website is built using the following technologies:
 
 ## Getting Started
 
-To run the Gyana Guru website locally, you will need to have Node.js and npm installed on your computer. Once you have cloned this repository to your local machine, navigate to the project directory and run the following command to install the necessary dependencies:
+To run the GyanaGuru website locally, you will need to have Node.js and npm installed on your computer. Once you have cloned this repository to your local machine, navigate to the project directory and run the following command to install the necessary dependencies:
 
 
 To start the development server, run the following command:
@@ -38,6 +38,6 @@ Before submitting a pull request, please ensure that your changes are well-teste
 
 ## License
 
-The Gyana Guru website is released under the [MIT License](https://github.com/PiyushKalyanpy/GyanaGuru/blob/main/LICENSE).
+The GyanaGuru website is released under the [MIT License](https://github.com/PiyushKalyanpy/GyanaGuru/blob/main/LICENSE).
 
 
