@@ -9,15 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.3",
     "@types/node": "18.15.11",
     "@types/react": "18.0.31",
     "@types/react-dom": "18.0.11",
+    "appwrite": "^10.2.0",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
+    "material-icons": "^1.13.3",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.0.2"
+    "react-redux": "^8.0.5",
+    "redux-toolkit": "^1.1.2",
+    "typescript": "5.0.2",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

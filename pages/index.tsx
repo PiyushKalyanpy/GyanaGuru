@@ -1,11 +1,21 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
+"use client";
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import styles from "@/styles/Home.module.css";
+import type { RootState } from "@/GlobalRedux/store";
+import { useSelector, useDispatch } from "react-redux";
+import { increment } from "../GlobalRedux/Features/Counter/counterSlice";
+import { useRouter } from "next/router";
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const count = useSelector((state: RootState) => state.counter.value);
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  
+
   return (
     <>
       <Head>
@@ -14,9 +24,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-     <main>
-
-    </main>
+      <main>
+        {count}
+       
+        <button className="flex px-4  py-2 m-4 bg-blue-200 rounded-full" onClick={() => router.push("/privacy-policy")}>Add</button>
+      </main>
     </>
-  )
+  );
 }
