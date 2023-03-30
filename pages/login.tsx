@@ -16,6 +16,9 @@ const Login = () => {
   const createAccount = () => {
     router.push("/signup");
   };
+  const continueToHomePage = () => {
+    router.push("/dashboard");
+  };
 
   return (
     <div className="flex w-full h-screen bg-gray-200 ">
@@ -83,7 +86,10 @@ const Login = () => {
             </div>
 
             {/* login button */}
-            <div className="flex flex-row space-x-4 py-4 transition hover:scale-[1.02]">
+            <div
+              onClick={() => continueToHomePage()}
+              className="flex flex-row space-x-4 py-4 transition hover:scale-[1.02]"
+            >
               <button className="bg-violet-700 text-white rounded-lg p-2 w-full">
                 Login
               </button>
