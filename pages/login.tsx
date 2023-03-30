@@ -1,6 +1,7 @@
 import { ButtonWithImage } from "@/Components/components";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const Login = () => {
   const router = useRouter();
@@ -22,7 +23,7 @@ const Login = () => {
         <div className="flex flex-col space-y-8 items-center ">
           {/* logo with title */}
           <div className="flex flex-row items-center space-x-4 ">
-            <img src="/logo.svg" alt="logo" width={40} height={40} />
+            <Image src="/logo.svg" alt="logo" width={40} height={40} />
 
             <h1 className="text-md font-semibold ">GyanaGuru</h1>
           </div>
