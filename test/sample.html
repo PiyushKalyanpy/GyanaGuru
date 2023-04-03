@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Video</title>
+  </head>
+  <body>
+    <video width="560" height="315" controls>
+      <source id="video-source" src="" type="video/mp4">
+    </video>
+    <div style="width: 560px; height: 315px; float: none; clear: both; margin: 2px auto;">
+        <embed
+          src="https://www.youtube.com/embed/U0hlUeNjM0s"
+          wmode="transparent"
+          type="video/mp4"
+          width="100%" height="100%"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+          title="Keyboard Cat"
+        >
+      </div>
+    <script>
+      // Replace with your API key
+      const API_KEY = "";
+
+      // Replace with the YouTube video ID you want to play
+      const VIDEO_ID = "U0hlUeNjM0s";
+
+      // Make a request to the YouTube Data API to get the video information
+      fetch(`https://www.googleapis.com/youtube/v3/videos?id=${VIDEO_ID}&key=${API_KEY}&part=snippet,contentDetails,statistics,status`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+          // Get the video URL from the API response
+          const videoUrl = `https://www.youtube.com/watch?v=${VIDEO_ID}`;
+
+          // Set the source attribute of the video element to the video URL
+          document.getElementById("video-source").src = videoUrl;
+        });
+    </script>
+  </body>
+</html>

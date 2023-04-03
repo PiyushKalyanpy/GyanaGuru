@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-const HomeSidebar = ({pageNumber=1} : any) => {
+const HomeSidebar = ({ pageNumber = 1 }: any) => {
   const router = useRouter();
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    setActive(pageNumber);   
-  }, [pageNumber])
-  
+    setActive(pageNumber);
+  }, [pageNumber]);
 
   return (
-    <div className="p-4 w-full">
+    <div className="p-4 w-full space-y-4 ">
       <SidebarItem
         icon="home"
         text="Dashboard"
@@ -48,7 +47,7 @@ const SidebarItem = ({ text, icon, active, onClick }: any) => {
   return (
     <div
       className={`flex w-full items-center p-4 cursor-pointer text-slate-500 ${
-        active ? " bg-violet-100 rounded-lg  text-violet-700 " : ""
+        active ? " bg-indigo-100 rounded-lg  text-indigo-700 " : ""
       }`}
       onClick={onClick}
     >

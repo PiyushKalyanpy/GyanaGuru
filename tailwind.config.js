@@ -14,6 +14,7 @@ module.exports = {
         inter: ["Inter", "sans-serif"],
         space_mono: ["Space Mono", "monospace"],
         urbanist: ["Urbanist", "sans-serif"],
+        archivo: ["Archivo", "sans-serif"],
       },
     },
     plugins: [],
