@@ -65,10 +65,10 @@ const Contributors = () => {
           {ContributorsData.contributors.map((item, index) => {
             return (
               <Image
-                className="rounded-full border border-white grayscale"
+                className="rounded-full border-2 border-white "
                 src={item.imageUrl}
-                width={40}
-                height={40}
+                width={60}
+                height={60}
                 alt={item.name}
                 key={index}
               />
