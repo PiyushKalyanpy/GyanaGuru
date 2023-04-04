@@ -7,7 +7,17 @@ import type { RootState } from "@/GlobalRedux/store";
 import { useSelector, useDispatch } from "react-redux";
 import { increment } from "../GlobalRedux/Features/Counter/counterSlice";
 import { useRouter } from "next/router";
-import {LandingNav, HeroSection, LandingThreeGrid, OurServices, WhyChooseUs} from "../Components/components";
+import {LandingNav, 
+  HeroSection,
+   LandingThreeGrid,
+   OurServices,
+    WhyChooseUs,
+     LandingThreeSecond,
+     LandingContact,
+     LandingFooter,
+     
+    
+    } from "../Components/components";
 
 
 export default function Home() {
@@ -33,6 +43,9 @@ export default function Home() {
         <LandingThreeGrid/>
         <OurServices/>
         <WhyChooseUs/>
+        <LandingThreeSecond/>
+        <LandingContact/>
+        <LandingFooter/>
 
       </main>
     </>

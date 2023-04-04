@@ -17,7 +17,8 @@ module.exports = {
         archivo: ["Archivo", "sans-serif"],
       },
       colors:{
-        "seafoam" : "#C9EEBE"
+        "seafoam" : "#C9EEBE",
+        "champange" : "#F7EDE3"
       }
     },
     plugins: [],

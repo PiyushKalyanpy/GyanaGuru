@@ -9,6 +9,9 @@ import LandingThreeGrid from "./LandingThreeGrid";
 import HeroSection from "./HeroSection";
 import OurServices from "./OurServices";
 import WhyChooseUs from "./WhyChooseUs";
+import LandingThreeSecond from "./LandingThreeSecond";
+import LandingContact from "./LandingContact";
+import LandingFooter from "./LandingFooter";
 
 export {
     PageHeader,
@@ -18,8 +21,12 @@ export {
     ButtonWithImage,
     HomeSidebar, 
     CategoryCard,
+    LandingFooter,
     LandingNav,
     OurServices,
     LandingThreeGrid,
-    HeroSection
+    LandingContact,
+    HeroSection,
+    LandingThreeSecond,
+    
 };
