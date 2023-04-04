@@ -2,7 +2,18 @@ import { useRouter } from "next/router";
 import CourseData from "../../../data/playlist.json";
 import { useState, useEffect } from "react";
 
-
+interface CourseCategory {
+  title: string;
+  description: string;
+  creator: string;
+  imageUrl: string;
+  rating: number;
+  duration: string;
+  totalViews: number;
+  category: string;
+  level: string;
+  courseCode: string;
+}[]
 
 const SubCourse = () => {
   const router = useRouter();
@@ -14,10 +25,9 @@ const SubCourse = () => {
       (course) =>
         course.category.toLowerCase() === subcourse?.toString().toLowerCase()
     );
-    const data = {
-      courses: coursesInCategory,
-    };
-    setFilteredCourses(data.courses);
+    // setFilteredCourses(coursesInCategory);
+    // set the couses in setFilteredCourses
+    // setFilteredCourses(coursesInCategory);
   }, [subcourse]);
 
   const handleCardClick = (course: any) => {
