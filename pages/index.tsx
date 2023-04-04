@@ -37,7 +37,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         
       </Head>
-      <main className="h-fit gap-y-10">
+      <main className="hidden lg:block h-fit gap-y-10">
         <LandingNav/>
         <HeroSection/>
         <LandingThreeGrid/>
@@ -48,6 +48,9 @@ export default function Home() {
         <LandingFooter/>
 
       </main>
+      <div className="lg:hidden text-2xl">
+        Not For MOBILE SCREENS , Please Check on Laptop or Desktop
+      </div>
     </>
   );
 }
