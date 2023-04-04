@@ -1,8 +1,27 @@
 import Image from "next/image";
 import CourseData from "../data/course_categories.json";
+import { useEffect } from "react";
 const OurServices = () => {
+
+  useEffect(() => {
+    const elements = document.querySelectorAll('.transform');
+    
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('translate-y-0', 'opacity-100', 'translate-x-0');
+        }
+      });
+    });
+    
+    elements.forEach(element => {
+      observer.observe(element);
+    });
+  }, []);
+
   return (
     <div className="relative  px-20">
+
       <Image
         className="absolute -top-20 -z-20 right-0 w-full"
         src="/images/strings.svg"
