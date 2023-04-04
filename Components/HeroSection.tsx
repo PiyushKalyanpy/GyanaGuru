@@ -1,10 +1,42 @@
 import Image from "next/image";
+import { useEffect } from "react";
 
 const HeroSection = () => {
+
+  useEffect(() => {
+    const elements = document.querySelectorAll(".transform");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "translate-y-0",
+            "opacity-100",
+            "translate-x-0"
+          );
+          entry.target.classList.remove("translate-x-full", "opacity-0","-translate-x-full");
+        } else {
+          entry.target.classList.remove(
+            "translate-y-0",
+            "opacity-100",
+            "translate-x-0"
+          );
+          entry.target.classList.add(
+            "translate-x-full", "opacity-0", "-translate-x-full"
+          );
+        }
+      });
+    });
+
+    elements.forEach((element) => {
+      observer.observe(element);
+    });
+  }, []);
+
   return (
     <div>
       <div className="flex flex-row px-20 items-center justify-center p-12 w-full h-screen bg-white">
-        <div>
+        <div className="transform -translate-x-full opacity-0 transition duration-500 ease-in-out">
           <h1 className="text-8xl w-fit  font-archivo  text-black">
             Revolutionizing Education in India
           </h1>
@@ -32,6 +64,7 @@ const HeroSection = () => {
         </div>
 
         <img
+        className="transform translate-x-full opacity-0 transition duration-500 ease-in-out"
           src="/images/herosection.png"
           alt="hero"
           width={400}
