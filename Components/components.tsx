@@ -8,9 +8,11 @@ import LandingNav from "./LandingNav";
 import LandingThreeGrid from "./LandingThreeGrid";
 import HeroSection from "./HeroSection";
 import OurServices from "./OurServices";
+import WhyChooseUs from "./WhyChooseUs";
 
 export {
     PageHeader,
+    WhyChooseUs,
     Input,
     HeadingParagraph,
     ButtonWithImage,

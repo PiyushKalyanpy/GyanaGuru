@@ -7,7 +7,7 @@ import type { RootState } from "@/GlobalRedux/store";
 import { useSelector, useDispatch } from "react-redux";
 import { increment } from "../GlobalRedux/Features/Counter/counterSlice";
 import { useRouter } from "next/router";
-import {LandingNav, HeroSection, LandingThreeGrid, OurServices} from "../Components/components";
+import {LandingNav, HeroSection, LandingThreeGrid, OurServices, WhyChooseUs} from "../Components/components";
 
 
 export default function Home() {
@@ -27,12 +27,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         
       </Head>
-      <main className="h-fit ">
+      <main className="h-fit gap-y-10">
         <LandingNav/>
         <HeroSection/>
         <LandingThreeGrid/>
         <OurServices/>
-
+        <WhyChooseUs/>
 
       </main>
     </>

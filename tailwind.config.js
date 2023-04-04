@@ -16,6 +16,9 @@ module.exports = {
         urbanist: ["Urbanist", "sans-serif"],
         archivo: ["Archivo", "sans-serif"],
       },
+      colors:{
+        "seafoam" : "#C9EEBE"
+      }
     },
     plugins: [],
   },
