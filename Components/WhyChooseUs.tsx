@@ -33,10 +33,10 @@ const WhyChooseUs = () => {
 
 const InfoCard = ({ title, description }: any) => {
   return (
-    <div className="relative p-4 hover:bg-seafoam transition-colors font-archivo rounded-3xl ">
-      <span className=" absolute inline-flex -z-10 mt-2 h-4 w-20 rounded-full bg-seafoam opacity-75"></span>
+    <div className=" p-4 hover:bg-seafoam transition-colors font-archivo rounded-3xl ">
+      {/* <span className=" absolute inline-flex -z-10 mt-2 h-4 w-20 rounded-full bg-seafoam opacity-75"></span> */}
       <div className="space-y-4 ">
-        <h3 className="text-xl font-bold">{title}</h3>
+        <h3 className="text-2xl font-semibold font-archivo">{title}</h3>
         <p className="text-black  font-inter ">{description}</p>
       </div>
     </div>

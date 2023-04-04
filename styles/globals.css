@@ -24,3 +24,22 @@ p, a, li, span, input, textarea, button {
   display: none !important;
 }
 
+.marquee span {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.marquee:hover span {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
