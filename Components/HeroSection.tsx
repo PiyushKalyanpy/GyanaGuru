@@ -23,7 +23,9 @@ const HeroSection = () => {
                 height={80}
               />
               <div className="flex flex-row h-fit p-4 gap-4 border-2 bg-black text-white border-black  rounded-full items-center">
-                <h4 className=" text-xl ">Explore Courses</h4>
+              <span className=" bg-black inline-flex "></span>
+
+                <h4 className=" text-xl font-archivo ">Explore Courses</h4>
               </div>
             </div>
           </div>

@@ -4,8 +4,8 @@ const LandingNav = () => {
   const navLinkStyle =
     "font-archivo hover:underline transition duration-300 ease-in-out  ";
   return (
-    <div className="sticky top-0 w-full border-b-2 border-white bg-white/30 backdrop-blur-md">
-      <div className="flex flex-row w-full justify-between items-center px-8 py-4 ">
+    <div className="sticky top-0 w-full border-b-2 border-white bg-white/30 backdrop-blur-md z-20">
+      <div className="flex flex-row w-full justify-between items-center px-20 py-4 ">
         {/* Logo with Title */}
         <div className="flex flex-row items-center">
           <img src="./logo.svg" alt="logo" />

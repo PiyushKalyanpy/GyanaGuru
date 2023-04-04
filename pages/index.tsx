@@ -7,7 +7,7 @@ import type { RootState } from "@/GlobalRedux/store";
 import { useSelector, useDispatch } from "react-redux";
 import { increment } from "../GlobalRedux/Features/Counter/counterSlice";
 import { useRouter } from "next/router";
-import {LandingNav, HeroSection, LandingThreeGrid} from "../Components/components";
+import {LandingNav, HeroSection, LandingThreeGrid, OurServices} from "../Components/components";
 
 
 export default function Home() {
@@ -31,6 +31,7 @@ export default function Home() {
         <LandingNav/>
         <HeroSection/>
         <LandingThreeGrid/>
+        <OurServices/>
 
 
       </main>

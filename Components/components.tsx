@@ -7,6 +7,7 @@ import CategoryCard from "./CategoryCard";
 import LandingNav from "./LandingNav";
 import LandingThreeGrid from "./LandingThreeGrid";
 import HeroSection from "./HeroSection";
+import OurServices from "./OurServices";
 
 export {
     PageHeader,
@@ -16,6 +17,7 @@ export {
     HomeSidebar, 
     CategoryCard,
     LandingNav,
+    OurServices,
     LandingThreeGrid,
     HeroSection
 };
