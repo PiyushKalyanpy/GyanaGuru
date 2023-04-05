@@ -2,26 +2,28 @@ import Image from "next/image";
 import CourseData from "../data/course_categories.json";
 import { useEffect } from "react";
 const OurServices = () => {
-
   useEffect(() => {
-    const elements = document.querySelectorAll('.transform');
-    
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const elements = document.querySelectorAll(".transform");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('translate-y-0', 'opacity-100', 'translate-x-0');
+          entry.target.classList.add(
+            "translate-y-0",
+            "opacity-100",
+            "translate-x-0"
+          );
         }
       });
     });
-    
-    elements.forEach(element => {
+
+    elements.forEach((element) => {
       observer.observe(element);
     });
   }, []);
 
   return (
     <div className="relative  px-20">
-
       <Image
         className="absolute -top-20 -z-20 right-0 w-full"
         src="/images/strings.svg"
@@ -45,7 +47,7 @@ const OurServices = () => {
           </div>
           <div className="col-span-4 flex flex-col p-10 space-y-8 mx-auto z-10">
             <div>
-              <h2 className="text-3xl  font-archivo text-slate-900 ">{`Sucess dosen't have to be hard`}</h2>
+              <h2 className="text-3xl  font-archivo text-slate-900 ">{`Sucess doesn't have to be hard`}</h2>
               <h2 className="text-3xl font-bold font-archivo text-slate-900 ">{`We make it easy.`}</h2>
             </div>
             <h2 className="text-xl font-archivo text-zinc-700 ">{`Get all types of courses`}</h2>
