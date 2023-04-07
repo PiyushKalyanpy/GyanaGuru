@@ -75,7 +75,7 @@ const SignUp = () => {
               <div className="flex w-full space-x-2">
                 <input
                   type={showPassword ? "text" : "password"}
-                  placeholder="Password"
+                  placeholder="Confirm password"
                   value={user.confirmPassword}
                   onChange={(e) =>
                     setUser({ ...user, confirmPassword: e.target.value })

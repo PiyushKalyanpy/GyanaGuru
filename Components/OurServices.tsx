@@ -23,7 +23,7 @@ const OurServices = () => {
   }, []);
 
   return (
-    <div className="relative  px-20">
+    <div id="ourservices" className="relative  px-20">
       <Image
         className="absolute -top-20 -z-20 right-0 w-full"
         src="/images/strings.svg"
