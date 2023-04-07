@@ -2,16 +2,16 @@ import CourseListData from "../data/course_list.json";
 import Image from "next/image";
 
 const CourseListSidebar = () => (
-  <div className="p-8 space-y-6 ">
+  <div className="p-8 space-y-6 h-screen overflow-hidden">
     {/* Course list header with sort and filter function */}
     <CourseListHeader />
     {/* Search bar */}
     <SearchBar />
     {/* List of couses */}
-    <div className="space-y-4">
+    <div className="space-y-4 overflow-y-scroll h-full ">
       {CourseListData.courseList.map((courseDetail, index: any) => {
         return (
-          <CourseListCard
+          <GlassCourseCard
             key={index}
             courseDetail={courseDetail}
             onClick={() => {}}
@@ -21,6 +21,61 @@ const CourseListSidebar = () => (
     </div>
   </div>
 );
+
+const GlassCourseCard = ({ courseDetail, onClick }: any) => {
+  const {
+    courseCategory,
+    courseName,
+    courseDescription,
+    courseImage,
+    youtubeThumbnail,
+    rating,
+    numberOfPersonRated,
+  } = courseDetail;
+
+  return (
+    <div
+      className={`relative w-full h-72 items-end rounded-3xl overflow-hidden bg-cover bg-zinc-200`}
+    >
+      <div>
+        <Image
+          layout="fill"
+          className="object-cover "
+          src={youtubeThumbnail}
+          alt="courseImage"
+        />
+      </div>
+      <div className="absolute bottom-0  w-full">
+        <div className="flex flex-row items-center p-4 w-full bg-black/30 backdrop-blur-md justify-between">
+          <div className=" space-y-2 text-white w-10/12">
+            <div className="flex flex-col w-full space-y-2">
+              <h2 className="truncate overflow-hidden text-xl font-semibold font-archivo ">
+                {courseName}
+              </h2>
+            </div>
+
+            <div className="flex items-center space-x-4 ">
+              <div className="flex flex-row">
+                <span className="material-icons text-yellow-400">star</span>
+                <div className="flex items-center ">
+                  <span>{rating}</span>
+                  <span className="material-icons">·</span>
+                  <span>{numberOfPersonRated}</span>
+                  <span>&nbsp; ratings</span>
+                </div>
+              </div>
+
+              <h6 className="text-white/80">{courseCategory}</h6>
+            </div>
+          </div>
+          <div className="text-white p-4 px-2 hover:bg-white/30 transition rounded-full h-fit w-fit">
+            <span className="material-icons w-fit h-fit">arrow_forward</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const CourseListCard = ({ courseDetail, onClick }: any) => {
   const {
@@ -33,7 +88,7 @@ const CourseListCard = ({ courseDetail, onClick }: any) => {
     numberOfPersonRated,
   } = courseDetail;
   return (
-    <div className="grid grid-cols-8 rounded-2xl bg-zinc-50">
+    <div className="grid grid-cols-8 rounded-2xl bg-zinc-50 ">
       <div className="relative rounded-2xl overflow-hidden col-span-4 p-2 w-full ">
         <div className="relative rounded-2xl overflow-hidden  p-2 w-full h-full  ">
           <Image
