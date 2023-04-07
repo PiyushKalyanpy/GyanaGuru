@@ -10,6 +10,7 @@ const CategoryCard = ({categoryName, imageUrl}:any) => {
         <div onClick={handleCardClick} className="flex flex-col active:bg-indigo-300 hover:bg-indigo-200 hover:text-indigo-600 w-full bg-white p-8 items-center rounded-lg" >
             {/* <Image width={50} height={90} className='rounded-xl' src={imageUrl} alt={categoryName} /> */}
             <h2 className="text-center w-full text-xl ">{categoryName}</h2>
+            
         </div>
     );
 }

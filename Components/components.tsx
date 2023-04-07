@@ -14,6 +14,7 @@ import LandingThreeSecond from "./LandingThreeSecond";
 import LandingContact from "./LandingContact";
 import LogoWithName from "./LogoWithName";
 import LandingFooter from "./LandingFooter";
+import CourseDetails from "./CourseDetails";
 
 export {
     PageHeader,
@@ -24,6 +25,7 @@ export {
     CourseListSidebar,
     ButtonWithImage,
     HomeSidebar, 
+    CourseDetails,
     CategoryCard,
     LandingFooter,
     LandingNav,

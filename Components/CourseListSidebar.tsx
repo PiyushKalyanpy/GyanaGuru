@@ -2,11 +2,14 @@ import CourseListData from "../data/course_list.json";
 import Image from "next/image";
 
 const CourseListSidebar = () => (
-  <div className="p-8 space-y-6 h-screen overflow-hidden">
-    {/* Course list header with sort and filter function */}
-    <CourseListHeader />
-    {/* Search bar */}
-    <SearchBar />
+  <div className="p-8 space-y-10 h-screen overflow-hidden ">
+    <div className="flex  flex-col space-y-6 ">
+      {/* Course list header with sort and filter function */}
+      <CourseListHeader />
+      {/* Search bar */}
+      <SearchBar />
+    </div>
+
     {/* List of couses */}
     <div className="space-y-4 overflow-y-scroll h-full ">
       {CourseListData.courseList.map((courseDetail, index: any) => {
@@ -46,10 +49,10 @@ const GlassCourseCard = ({ courseDetail, onClick }: any) => {
         />
       </div>
       <div className="absolute bottom-0  w-full">
-        <div className="flex flex-row items-center p-4 w-full bg-black/30 backdrop-blur-md justify-between">
-          <div className=" space-y-2 text-white w-10/12">
+        <div className="flex flex-row items-center px-4 py-2 w-full bg-black/30 backdrop-blur-lg justify-between">
+          <div className="  text-white w-10/12">
             <div className="flex flex-col w-full space-y-2">
-              <h2 className="truncate overflow-hidden text-xl font-semibold font-archivo ">
+              <h2 className="truncate overflow-hidden text-lg font-medium font-archivo ">
                 {courseName}
               </h2>
             </div>
@@ -57,7 +60,7 @@ const GlassCourseCard = ({ courseDetail, onClick }: any) => {
             <div className="flex items-center space-x-4 ">
               <div className="flex flex-row">
                 <span className="material-icons text-yellow-400">star</span>
-                <div className="flex items-center ">
+                <div className="flex items-center text-md font-inter">
                   <span>{rating}</span>
                   <span className="material-icons">·</span>
                   <span>{numberOfPersonRated}</span>
@@ -124,13 +127,13 @@ const CourseListCard = ({ courseDetail, onClick }: any) => {
 const CourseListHeader = () => {
   return (
     <div className="flex flex-row justify-between items-center">
-      <h2 className="text-3xl font-semibold font-archivo ">Courses List</h2>
+      <h2 className="text-3xl text-zinc-800 font-semibold font-archivo ">Courses List</h2>
       <div className="flex  space-x-4">
-        <div className="flex flex-row space-x-4 w-fit p-2 rounded-lg hover:bg-zinc-100 border border-zinc-400">
+        <div className="flex flex-row space-x-4 w-fit p-2 rounded-full bg-white px-4">
           <span className="material-icons">filter_list</span>
           <h4>Sort</h4>
         </div>
-        <div className="flex flex-row space-x-4 w-fit p-2 rounded-lg hover:bg-zinc-100 border border-zinc-400">
+        <div className="flex flex-row space-x-4 w-fit p-2 rounded-full bg-white px-4">
           <span className="material-icons">tune</span>
           <h4>Filter</h4>
         </div>
@@ -141,15 +144,19 @@ const CourseListHeader = () => {
 
 const SearchBar = () => {
   return (
-    <div className="flex flex-row items-center p-2 font-archivo overflow-hidden w-full rounded-xl border border-zinc-400">
-      <span className="material-icons cursor-pointer">search</span>
+    <div className="flex flex-row items-center p-1 pl-4 pr-1 font-archivo overflow-hidden w-full rounded-full bg-white">
       <input
         type="text"
-        placeholder="Search"
-        className=" w-full p-2 outline-none border-0 "
+        placeholder="Search for courses"
+        className=" w-full p-2 font-archivo text-xl outline-none border-0 placeholder:font-archivo placeholder:font-light placeholder:text-zinc-400 "
       />
+      <span className="material-icons cursor-pointer hover:bg-zinc-100 active:bg-zinc-200 p-3 rounded-full ">
+        search
+      </span>
     </div>
   );
 };
+
+
 
 export default CourseListSidebar;

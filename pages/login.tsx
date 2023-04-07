@@ -58,7 +58,7 @@ const Login = () => {
                 placeholder="Email"
                 value={user.email}
                 onChange={(e) => setUser({ ...user, email: e.target.value })}
-                className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:border-2 focus:border-violet-500"
+                className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:border-2 focus:border-black"
               />
               <div className="flex w-full space-x-2">
                 <input
@@ -68,10 +68,10 @@ const Login = () => {
                   onChange={(e) =>
                     setUser({ ...user, password: e.target.value })
                   }
-                  className="w-full border focus:outline-none focus:border-2 focus:border-violet-500 border-gray-300 rounded-lg p-2"
+                  className="w-full border focus:outline-none focus:border-2 focus:border-black border-gray-300 rounded-lg p-2"
                 />
                 <div
-                  className="flex items-center text-zinc-500 border focus:outline-none focus:border-2 focus:border-violet-500 border-gray-300 rounded-lg p-2  "
+                  className="flex items-center text-zinc-500 border focus:outline-none focus:border-2 focus:border-black border-gray-300 rounded-lg p-2  "
                   onClick={() => showPasswordToggle()}
                 >
                   <span className="material-icons-outlined ">
@@ -80,7 +80,7 @@ const Login = () => {
                 </div>
               </div>
 
-              <p className="w-fit text-right start-left text-sm text-violet-800 hover:underline cursor-pointer">
+              <p className="w-fit text-right start-left text-sm text-black hover:underline cursor-pointer">
                 Forgot Password?
               </p>
             </div>
@@ -90,7 +90,7 @@ const Login = () => {
               onClick={() => continueToHomePage()}
               className="flex flex-row space-x-4 py-4 transition hover:scale-[1.02]"
             >
-              <button className="bg-violet-700 text-white rounded-lg p-2 w-full">
+              <button className="bg-black text-white rounded-lg p-2 w-full">
                 Login
               </button>
             </div>
@@ -100,7 +100,7 @@ const Login = () => {
               <p className="w-fit text-slate-600">Don&apos;t have an account</p>
               <p
                 onClick={() => createAccount()}
-                className="w-fit text-violet-800 hover:underline cursor-pointer"
+                className="w-fit text-black hover:underline cursor-pointer"
               >
                 Create an account
               </p>

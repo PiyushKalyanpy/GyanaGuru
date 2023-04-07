@@ -43,3 +43,7 @@ p, a, li, span, input, textarea, button {
     transform: translateX(-100%);
   }
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
