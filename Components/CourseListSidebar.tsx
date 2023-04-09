@@ -7,11 +7,11 @@ const CourseListSidebar = () => (
       {/* Course list header with sort and filter function */}
       <CourseListHeader />
       {/* Search bar */}
-      <SearchBar />
+    
     </div>
 
     {/* List of couses */}
-    <div className="space-y-4 overflow-y-scroll h-full ">
+    <div className="grid grid-cols-3 gap-4 overflow-y-scroll h-full ">
       {CourseListData.courseList.map((courseDetail, index: any) => {
         return (
           <GlassCourseCard
@@ -38,18 +38,16 @@ const GlassCourseCard = ({ courseDetail, onClick }: any) => {
 
   return (
     <div
-      className={`relative w-full h-72 items-end rounded-3xl overflow-hidden bg-cover bg-zinc-200`}
+      className={`flex flex-col w-full h-fit  `}
     >
-      <div>
-        <Image
-          layout="fill"
-          className="object-cover "
+        <img
+          className="object-cover rounded-3xl "
           src={youtubeThumbnail}
           alt="courseImage"
         />
-      </div>
-      <div className="absolute bottom-0  w-full">
-        <div className="flex flex-row items-center px-4 py-2 w-full bg-black/30 backdrop-blur-lg justify-between">
+      
+      <div className="flex   w-full">
+        <div className="flex flex-row items-center px-4 py-2 w-full  backdrop-blur-lg justify-between">
           <div className="  text-white w-10/12">
             <div className="flex flex-col w-full space-y-2">
               <h2 className="truncate overflow-hidden text-lg font-medium font-archivo ">
@@ -76,6 +74,7 @@ const GlassCourseCard = ({ courseDetail, onClick }: any) => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };
@@ -128,12 +127,15 @@ const CourseListHeader = () => {
   return (
     <div className="flex flex-row justify-between items-center">
       <h2 className="text-3xl text-zinc-800 font-semibold font-archivo ">Courses List</h2>
-      <div className="flex  space-x-4">
-        <div className="flex flex-row space-x-4 w-fit p-2 rounded-full bg-white px-4">
+      
+      <div className="flex w-1/2  space-x-4">
+      <SearchBar />
+        <div className="flex flex-row space-x-4 w-fit p-4 rounded-full bg-white ">
           <span className="material-icons">filter_list</span>
           <h4>Sort</h4>
         </div>
-        <div className="flex flex-row space-x-4 w-fit p-2 rounded-full bg-white px-4">
+        
+        <div className="flex flex-row space-x-4 w-fit p-4 rounded-full bg-white ">
           <span className="material-icons">tune</span>
           <h4>Filter</h4>
         </div>
@@ -144,7 +146,7 @@ const CourseListHeader = () => {
 
 const SearchBar = () => {
   return (
-    <div className="flex flex-row items-center p-1 pl-4 pr-1 font-archivo overflow-hidden w-full rounded-full bg-white">
+    <div className="flex w-full flex-row items-center p-1 pl-4 pr-1 font-archivo overflow-hidden rounded-full bg-white">
       <input
         type="text"
         placeholder="Search for courses"

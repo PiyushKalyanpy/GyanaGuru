@@ -1,5 +1,4 @@
 import PageHeader from "./PageHeader";
-import Input from "./Input";
 import HeadingParagraph from "./HeadingParagraph";
 import ButtonWithImage  from "./ButtonWithImage";
 import HomeSidebar from "./HomeSidebar";
@@ -14,19 +13,24 @@ import LandingThreeSecond from "./LandingThreeSecond";
 import LandingContact from "./LandingContact";
 import LogoWithName from "./LogoWithName";
 import LandingFooter from "./LandingFooter";
+import Topbar from "./CoursesComponents/Topbar";
+import Banner from "./CoursesComponents/Banner";
+import CourseCardList from "./CoursesComponents/CourseCardList";
 import CourseDetails from "./CourseDetails";
 
 export {
     PageHeader,
     WhyChooseUs,
-    Input,
     LogoWithName,
+    Banner,
     HeadingParagraph,
     CourseListSidebar,
+    Topbar,
     ButtonWithImage,
     HomeSidebar, 
     CourseDetails,
     CategoryCard,
+    CourseCardList, 
     LandingFooter,
     LandingNav,
     OurServices,

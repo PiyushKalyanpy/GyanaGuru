@@ -11,8 +11,8 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
   }, [pageNumber]);
 
   return (
-    <div className="flex  flex-col p-4 w-full h-screen justify-between ">
-      <LogoWithName width={40} height={40} />
+    <div className="flex  flex-col m-auto p-4 w-fit h-screen justify-between ">
+      {/* <LogoWithName width={40} height={40} /> */}
       <div className="flex flex-col space-y-4">
         <SidebarItem
           icon="home"
@@ -31,7 +31,7 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
           active={2 == active}
           onClick={() => {
             setActive(2);
-            router.push("/course");
+            router.push("/courses");
           }}
         />
 
@@ -67,19 +67,19 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
 const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
   return (
     <div
-      className={`flex w-full items-center p-4 cursor-pointer text-zinc-500 ${
-        active ? "bg-white rounded-full " : ""
+      className={`flex w-fit items-center p-4 cursor-pointer text-zinc-500 ${
+        active ? "bg-black rounded-full " : ""
       }`}
       onClick={onClick}
     >
       <span
         className={`material-icons-outlined stroke-2  ${
-          active ? "material-icons-round text-black" : ""
+          active ? "material-icons-round text-white" : ""
         }`}
       >
         <Icon />
       </span>
-      <h3 className="font-medium ml-2 text-zinc-700">{text}</h3>
+      {/* <h3 className="font-medium ml-2 text-zinc-700">{text}</h3> */}
     </div>
   );
 };
@@ -102,7 +102,6 @@ const DashboardIcon = () => {
     </svg>
   );
 };
-
 const AnalyticsIcon = () => {
   return (
     <svg

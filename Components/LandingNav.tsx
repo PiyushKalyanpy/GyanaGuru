@@ -18,19 +18,19 @@ const LandingNav = () => {
         </div>
         {/* Nav Links */}
         <div className="flex flex-row items-center gap-8">
-          <Link className={navLinkStyle} href="/">
+          <Link className={navLinkStyle} href="#">
             Home
           </Link>
-          <Link className={navLinkStyle} href="/courses">
+          <Link className={navLinkStyle} href="#">
             Courses
           </Link>
-          <Link className={navLinkStyle} href="#ourservices">
+          <Link className={navLinkStyle} href="#">
             Our Services
           </Link>
-          <Link className={navLinkStyle} href="#whychooseus">
+          <Link className={navLinkStyle} href="#">
             Benifits
           </Link>
-          <Link className={navLinkStyle} href="/faqs">
+          <Link className={navLinkStyle} href="#">
             FAQ’s
           </Link>
         </div>
