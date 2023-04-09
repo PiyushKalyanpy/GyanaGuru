@@ -36,7 +36,9 @@ Contributions to the GyanaGuru website are welcome! If you would like to contrib
 
 Before submitting a pull request, please ensure that your changes are well-tested and adhere to the project's coding standards.
 
+
 ## Contributors
+
 A hall of fame for those who have contributed to this repo. Thanks once again for your valuable contributions. Kudos !!!
 <br>
 
