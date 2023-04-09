@@ -36,6 +36,14 @@ Contributions to the GyanaGuru website are welcome! If you would like to contrib
 
 Before submitting a pull request, please ensure that your changes are well-tested and adhere to the project's coding standards.
 
+## Contributors
+A hall of fame for those who have contributed to this repo. Thanks once again for your valuable contributions. Kudos !!!
+<br>
+
+<a href="https://github.com/PiyushKalyanpy/GyanaGuru/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=PiyushKalyanpy/GyanaGuru" />
+</a>
+
 ## License
 
 The GyanaGuru website is released under the [MIT License](https://github.com/PiyushKalyanpy/GyanaGuru/blob/main/LICENSE).
