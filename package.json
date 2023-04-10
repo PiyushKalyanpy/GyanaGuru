@@ -16,6 +16,7 @@
     "appwrite": "^10.2.0",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
+    "formik": "^2.2.9",
     "material-icons": "^1.13.3",
     "next": "13.2.4",
     "react": "18.2.0",
@@ -24,7 +25,8 @@
     "react-youtube": "^10.1.0",
     "redux-toolkit": "^1.1.2",
     "typescript": "5.0.2",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "yup": "^1.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

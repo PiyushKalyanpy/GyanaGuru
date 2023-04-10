@@ -1,20 +1,35 @@
 import { ButtonWithImage } from "@/Components/components";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+
+const SignUpSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid email address").required("Required"),
+  password: Yup.string()
+    .required("Required")
+    .min(8, "Password must be at least 8 characters long")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-+])[A-Za-z\d!@#$%^&*()\-+]{8,}$/,
+      "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+    ),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password")], "Passwords must match")
+    .required("Required"),
+});
 
 const SignUp = () => {
   const router = useRouter();
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
   const [showPassword, setShowPassword] = useState(false);
   const showPasswordToggle = () => {
     setShowPassword(!showPassword);
   };
   const moveToSignIn = () => {
     router.push("/login");
+  };
+
+  const handleSubmit = (values) => {
+    console.log(values);
   };
 
   return (
@@ -35,84 +50,126 @@ const SignUp = () => {
           </div>
 
           {/* login form */}
-          <div className="flex flex-col space-y-4 w-full mx-4 ">
-            <ButtonWithImage
-              buttonName="Continue with Google"
-              icon="/images/google.svg"
-            />
-
-            {/* make or with divider */}
-            <div className="flex flex-row space-x-4 my-4 items-center">
-              <hr className="w-full border-gray-300" />
-              <h4 className="font-medium text-zinc-500">or</h4>
-              <hr className="w-full border-gray-300" />
-            </div>
-
-            {/* login with email and password */}
-            <div className="flex flex-col space-y-4">
-              {/* email */}
-              <input
-                type="email"
-                placeholder="Email"
-                value={user.email}
-                onChange={(e) => setUser({ ...user, email: e.target.value })}
-                className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:border-2 focus:border-black"
-              />
-              {/* password */}
-              <div className="flex w-full space-x-2">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Password"
-                  value={user.password}
-                  onChange={(e) =>
-                    setUser({ ...user, password: e.target.value })
-                  }
-                  className="w-full border focus:outline-none focus:border-2 focus:border-black border-gray-300 rounded-lg p-2"
+          <Formik
+            initialValues={{
+              email: "",
+              password: "",
+              confirmPassword: "",
+            }}
+            validationSchema={SignUpSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ values, errors, touched }) => (
+              <Form className="flex flex-col space-y-4 w-full mx-4 cursor-pointer">
+                <ButtonWithImage
+                  buttonName="Continue with Google"
+                  icon="/images/google.svg"
                 />
-                
-              </div>
-              {/* confirm password */}
-              <div className="flex w-full space-x-2">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Confirm password"
-                  value={user.confirmPassword}
-                  onChange={(e) =>
-                    setUser({ ...user, confirmPassword: e.target.value })
-                  }
-                  className="w-full border focus:outline-none focus:border-2 focus:border-black border-gray-300 rounded-lg p-2"
-                />
-                <div
-                  className="flex items-center text-zinc-500 border focus:outline-none focus:border-2 focus:border-black border-gray-300 rounded-lg p-2  "
-                  onClick={() => showPasswordToggle()}
-                >
-                  <span className="material-icons-outlined ">
-                    {showPassword ? "visibility" : "visibility_off"}
-                  </span>
+
+                {/* make or with divider */}
+                <div className="flex flex-row space-x-4 my-4 items-center">
+                  <hr className="w-full border-gray-300" />
+                  <h4 className="font-medium text-zinc-500">or</h4>
+                  <hr className="w-full border-gray-300" />
                 </div>
-              </div>
 
-              
-            </div>
+                {/* login with email and password */}
+                <div className="flex flex-col space-y-4">
+                  {/* email */}
+                  <Field
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    className={`border ${
+                      touched.email && errors.email
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    } rounded-lg p-2 focus:outline-none focus:border-2 focus:border-black`}
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="text-red-500 text-sm"
+                  />
 
-            {/* login button */}
-            <div className="flex flex-row space-x-4 py-4 transition hover:scale-[1.02]">
-              <button className="bg-black text-white rounded-lg p-2 w-full">
-                Sign Up 
-              </button>
-            </div>
+                  {/* password */}
+                  <div className="flex w-full space-x-2">
+                    <Field
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      placeholder="Password"
+                      className={`w-full border ${
+                        touched.password && errors.password
+                          ? "border-red-500"
+                          : "border-gray-300"
+                      } rounded-lg p-2 focus:outline-none focus:border-2 focus:border-black`}
+                    />
+                    <button
+                      type="button"
+                      onClick={showPasswordToggle}
+                      className="bg-gray-100 border border-gray-300 rounded-lg p-2 focus:outline-none focus:border-2 focus:border-black"
+                    >
+                      {/* <img
+                        src={
+                          showPassword
+                            ? "/images/hide-password.svg"
+                            : "/images/show-password.svg"
+                        }
+                        //alt={showPassword ? "Hide Password" : "Show Password"}
+                      /> */}
 
-            {/* Create Account */}
-            <div className="flex flex-col items-center mt-4 text-sm justify-between">
-              <p className="w-fit text-slate-600">Already have an account</p>
-              <p
-                onClick={() => moveToSignIn()}
-                className="w-fit text-black hover:underline cursor-pointer"
-              >
-                Sign In to you account
-              </p>
-            </div>
-          </div>
+                      <span className="material-icons-outlined ">
+                        {showPassword ? "visibility" : "visibility_off"}
+                      </span>
+                    </button>
+                  </div>
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className="text-red-500 text-sm"
+                  />
+                  {/* confirm password */}
+                  <Field
+                    type={showPassword ? "password" : "password"}
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
+                    className={`border ${
+                      touched.confirmPassword && errors.confirmPassword
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    } rounded-lg p-2 focus:outline-none focus:border-2 focus:border-black`}
+                  />
+                  <ErrorMessage
+                    name="confirmPassword"
+                    component="div"
+                    className="text-red-500 text-sm"
+                  />
+                </div>
+
+                {/* submit button */}
+                <button
+                  type="submit"
+                  className="bg-zinc-500 text-white py-2 rounded-lg w-full focus:outline-none"
+                >
+                  Sign Up
+                </button>
+
+                {/* login redirect */}
+                <div className="flex flex-row w-full justify-center ">
+                  <h4 className="text-md font-medium ">
+                    Already have an account?
+                  </h4>
+                  <button
+                    type="button"
+                    onClick={moveToSignIn}
+                    className="text-zinc-500 ml-2"
+                  >
+                    Sign In
+                  </button>
+                </div>
+              </Form>
+            )}
+          </Formik>
         </div>
       </div>
     </div>
