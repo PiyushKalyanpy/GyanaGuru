@@ -15,7 +15,7 @@ const Courses = () => {
         {/* div for Main content */}
         <div className="flex w-full h-full  ">
           {/* main */}
-          <div className="flex flex-col space-y-8 w-3/4 bg-gray-100 p-4">
+          <div className="flex flex-col space-y-8 w-3/4 bg-white p-4">
             {/* banner  */}
             <Banner/>
             <CourseCardList heading="Popular Courses" data={CourseData} />
