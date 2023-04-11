@@ -12,7 +12,7 @@ const CourseCard = ({ item }: any) => {
     voteCount: 34,
   };
   return (
-    <div className="snap-start p-4 bg-white rounded-3xl flex flex-auto  shrink-0 w-fit  m-4 gap-4">
+    <div className="snap-start p-4 bg-white rounded-3xl flex flex-auto hover:bg-gray-50 shrink-0 w-fit  m-4 gap-4">
       {/* course image */}
       <div className="relative rounded-3xl p-6 w-32  h-full ">
         <Image
