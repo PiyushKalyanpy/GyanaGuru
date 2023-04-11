@@ -2,7 +2,6 @@ import Image from "next/image";
 import { useEffect } from "react";
 
 const HeroSection = () => {
-
   useEffect(() => {
     const elements = document.querySelectorAll(".transform");
 
@@ -14,7 +13,11 @@ const HeroSection = () => {
             "opacity-100",
             "translate-x-0"
           );
-          entry.target.classList.remove("translate-x-full", "opacity-0","-translate-x-full");
+          entry.target.classList.remove(
+            "translate-x-full",
+            "opacity-0",
+            "-translate-x-full"
+          );
         } else {
           entry.target.classList.remove(
             "translate-y-0",
@@ -22,7 +25,9 @@ const HeroSection = () => {
             "translate-x-0"
           );
           entry.target.classList.add(
-            "translate-x-full", "opacity-0", "-translate-x-full"
+            "translate-x-full",
+            "opacity-0",
+            "-translate-x-full"
           );
         }
       });
@@ -35,17 +40,17 @@ const HeroSection = () => {
 
   return (
     <div>
-      <div className="flex flex-row pt-40 px-20 items-center justify-center p-12 w-full h-screen bg-white">
-        <div className="transform -translate-x-full opacity-0 transition duration-500 ease-in-out">
-          <h1 className="text-8xl w-fit  font-archivo  text-black">
+      <div className="flex flex-row items-center justify-center w-full h-screen p-12 px-20 pt-40 bg-white">
+        <div className="transition duration-500 ease-in-out transform -translate-x-full opacity-0">
+          <h1 className="text-black text-8xl w-fit font-archivo">
             Revolutionizing Education in India
           </h1>
-          <div className="flex flex-row mt-10 gap-4 items-start">
-            <h2 className="text-2xl  text-zinc-600 ">
+          <div className="flex flex-row items-start gap-4 mt-10">
+            <h2 className="text-2xl text-zinc-600 ">
               Personalized learning for
             </h2>
-            <div className="flex flex-row space-x-8 items-center">
-              <h2 className="text-8xl font-archivo font-medium text-black">
+            <div className="flex flex-row items-center space-x-8">
+              <h2 className="font-medium text-black text-8xl font-archivo">
                 Free
               </h2>
               <Image
@@ -54,17 +59,17 @@ const HeroSection = () => {
                 width={80}
                 height={80}
               />
-              <div className="flex flex-row h-fit p-4 gap-4 border-2 bg-black text-white border-black  rounded-full items-center">
-              <span className=" bg-black inline-flex "></span>
+              <div className="flex flex-row items-center gap-4 p-4 text-white bg-black border-2 border-black rounded-full h-fit">
+                <span className="inline-flex bg-black "></span>
 
-                <h4 className=" text-xl font-archivo ">Explore Courses</h4>
+                <h4 className="text-xl  font-archivo">Explore Courses</h4>
               </div>
             </div>
           </div>
         </div>
 
         <img
-        className="transform translate-x-full opacity-0 transition duration-500 ease-in-out"
+          className="transition duration-500 ease-in-out transform translate-x-full opacity-0"
           src="/images/herosection.png"
           alt="hero"
           width={400}

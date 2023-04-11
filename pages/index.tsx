@@ -56,7 +56,7 @@ export default function Home() {
       </Head>
 
       <main className="hidden lg:block h-fit gap-y-10 ">
-        <div className="fixed w-full transition z-40 ">
+        <div className="fixed z-40 w-full transition ">
           <LandingNav />
           {showNav && <MessageComponnent />}
         </div>
@@ -69,7 +69,7 @@ export default function Home() {
         <LandingContact />
         <LandingFooter />
       </main>
-      <div className="lg:hidden text-2xl">
+      <div className="text-2xl lg:hidden">
         Not For MOBILE SCREENS , Please Check on Laptop or Desktop
       </div>
     </>
@@ -77,9 +77,9 @@ export default function Home() {
 }
 const MessageComponnent = () => {
   return (
-    <div className=" left-0 bg-gray-100 p-4 w-full transition z-40">
-      <div className="marquee overflow-hidden">
-        <span className="flex flex-row space-x-2 text-black font-archivo text-xl">
+    <div className="left-0 z-40 w-full p-4 transition bg-gray-100 ">
+      <div className="overflow-hidden marquee">
+        <span className="flex flex-row space-x-2 text-xl text-black font-archivo">
           <a className="text-blue-600 " href="https://github.com/PiyushKalyanpy/GyanaGuru" target="_blank">Join us &nbsp;</a>
           in developing our open source project on GitHub by reporting issues,
           submitting bug fixes, or adding new features to the ongoing

@@ -12,9 +12,9 @@ const CourseCard = ({ item }: any) => {
     voteCount: 34,
   };
   return (
-    <div className="snap-start p-4 bg-white rounded-3xl flex flex-auto hover:bg-gray-50 shrink-0 w-fit  m-4 gap-4">
+    <div className="flex flex-auto gap-4 p-4 m-4 transition bg-white snap-start rounded-3xl hover:bg-gray-100 shrink-0 w-fit">
       {/* course image */}
-      <div className="relative rounded-3xl p-6 w-32  h-full ">
+      <div className="relative w-32 h-full p-6 rounded-3xl ">
         <Image
           src={courseData.thumbnailUrl}
           layout="fill"
@@ -30,7 +30,7 @@ const CourseCard = ({ item }: any) => {
         <CourseTag tagTitle={courseData.tagTitle} />
         {/* Title and sub tags */}
         <div className="flex flex-col space-y-4">
-          <h3 className="font-archivo text-lg  font-medium">
+          <h3 className="text-lg font-medium font-archivo">
             {courseData.courseTitle}
           </h3>
           <div className="flex flex-row space-x-8">
@@ -38,13 +38,13 @@ const CourseCard = ({ item }: any) => {
             <CourseSubTag Icon={<CourseIcon />} text={courseData.lectures} />
           </div>
         </div>
-        <div className="flex border-t-2 pt-2 items-center justify-between ">
+        <div className="flex items-center justify-between pt-2 border-t-2 ">
             
         <Rating
           ratingCount={courseData.ratingCount}
           voteCount={courseData.voteCount}
         />
-        <span className="material-icons text-blue-500">chevron_right</span>
+        <span className="text-blue-500 material-icons">chevron_right</span>
         </div>
       </div>
     </div>
@@ -54,9 +54,9 @@ const CourseCard = ({ item }: any) => {
 const CourseTag = ({ tagTitle }: any) => {
   return (
     <>
-      <div className="flex  flex-row space-x-2 items-center bg-violet-100 w-fit px-2 py-1 rounded-lg">
+      <div className="flex flex-row items-center px-2 py-1 space-x-2 rounded-lg bg-violet-100 w-fit">
         {/* tag */}
-        <div className="flex w-3 h-3  rounded-full bg-violet-400" />
+        <div className="flex w-3 h-3 rounded-full bg-violet-400" />
         {/* tag title */}
         <p className="text-sm text-violet-600">{tagTitle}</p>
       </div>
@@ -66,7 +66,7 @@ const CourseTag = ({ tagTitle }: any) => {
 const CourseSubTag = ({ Icon, text }: any) => {
   return (
     <div className="flex flex-row space-x-4 text-gray-600">
-      {/* <span className="material-icons  text-xs">{iconClass}</span> */}
+      {/* <span className="text-xs material-icons">{iconClass}</span> */}
       {Icon}
       <h4 className="text-sm font-inter"> {text}</h4>
     </div>
@@ -75,7 +75,7 @@ const CourseSubTag = ({ Icon, text }: any) => {
 
 const Rating = ({ ratingCount, voteCount }: any) => {
   return (
-    <div className="flex flex-row space-x-2  ">
+    <div className="flex flex-row space-x-2 ">
       <div className="flex text-yellow-400 ">
         <FullStarIcon/>
         <FullStarIcon/>
@@ -85,7 +85,7 @@ const Rating = ({ ratingCount, voteCount }: any) => {
       </div>
 
       <p>·</p>
-      <p className="font-inter text-sm">{voteCount} &nbsp; votes</p>
+      <p className="text-sm font-inter">{voteCount} &nbsp; votes</p>
     </div>
   );
 };

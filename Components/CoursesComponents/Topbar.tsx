@@ -3,13 +3,13 @@ import Image from "next/image";
 const Topbar = () => {
   const imageUrl = "https://avatars.githubusercontent.com/u/79275157?s=90&v=4";
   return (
-    <div className="flex  w-full h-fit  p-4">
-      <div className="flex w-full justify-between">
+    <div className="flex w-full p-4 h-fit">
+      <div className="flex justify-between w-full">
         {/* Search bar  */}
         <SearchBar />
 
         {/* Notificaton and profile  */}
-        <div className=" flex h-full w-fit gap-4">
+        <div className="flex h-full gap-4  w-fit">
           <TopBarButtons iconAvailable={true} />
           <TopBarButtons imageAvailable={true} imageUrl={imageUrl} />
         </div>
@@ -20,13 +20,13 @@ const Topbar = () => {
 
 const SearchBar = () => {
   return (
-    <div className="flex w-1/4 flex-row h-fit items-center p-1 pl-4 pr-1 font-archivo overflow-hidden rounded-full bg-white">
+    <div className="flex flex-row items-center w-1/4 p-1 pl-4 pr-1 overflow-hidden bg-gray-100 rounded-full h-fit font-archivo">
       <input
         type="text"
         placeholder="Search for courses"
-        className=" w-full p-2 font-archivo text-xl outline-none border-0 placeholder:font-archivo placeholder:font-light placeholder:text-zinc-400 "
+        className="w-full p-2 text-xl bg-gray-100 border-0 outline-none  font-archivo placeholder:font-archivo placeholder:font-light placeholder:text-zinc-400"
       />
-      <span className="material-icons cursor-pointer hover:bg-zinc-100 active:bg-zinc-200 p-3 rounded-full ">
+      <span className="p-3 rounded-full cursor-pointer material-icons hover:bg-gray-200 active:bg-gray-300 ">
         search
       </span>
     </div>
@@ -41,14 +41,14 @@ const TopBarButtons = ({
   onClick,
 }: any) => {
   return (
-    <div className="flex items-center h-fit p-1 border hover:ring transition hover:ring-gray-200 rounded-full">
+    <div className="flex items-center p-1 transition border rounded-full h-fit hover:ring hover:ring-gray-200">
       {iconAvailable ? (
         <div className="flex ">
           <NotificationIcon />
         </div>
       ) : null}
       {imageAvailable ? (
-        <div className="relative w-12 h-12 rounded-full overflow-hidden">
+        <div className="relative w-12 h-12 overflow-hidden rounded-full">
           <Image src={imageUrl} layout="fill" alt="Profile Image" />s
         </div>
       ) : null}
