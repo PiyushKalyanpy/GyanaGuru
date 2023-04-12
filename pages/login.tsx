@@ -2,6 +2,7 @@ import { ButtonWithImage } from "@/Components/components";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+// @ts-ignore
 import cookieCutter from 'cookie-cutter'
 
 

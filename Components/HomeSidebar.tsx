@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { LogoWithName } from "./components";
+// @ts-ignore
 import cookieCutter from "cookie-cutter";
 
 const HomeSidebar = ({ pageNumber = 1 }: any) => {
