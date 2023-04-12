@@ -1,6 +1,11 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const CourseCard = ({ item }: any) => {
+  const router = useRouter();
+  const handleCardClick = () => {
+    router.push(`/courses/${item.youtubeId}`);
+  };
   const courseData = {
     tagTitle: "Web Development",
     thumbnailUrl:
@@ -12,7 +17,7 @@ const CourseCard = ({ item }: any) => {
     voteCount: 34,
   };
   return (
-    <div className="flex flex-auto gap-4 p-4 m-4 transition bg-white snap-start rounded-3xl hover:bg-gray-100 shrink-0 w-fit">
+    <div onClick={() => handleCardClick()} className="flex select-none flex-auto gap-4 p-4 m-4 transition bg-white snap-start rounded-3xl hover:bg-gray-100 shrink-0 w-fit">
       {/* course image */}
       <div className="relative w-32 h-full p-6 rounded-3xl ">
         <Image

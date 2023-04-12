@@ -20,10 +20,12 @@ const Courses = () => {
         {/* div for Main content */}
         <div className="flex w-full h-full overflow-y-scroll">
           {/* main */}
-          <div className="flex flex-col w-3/4 p-4 space-y-8 bg-white">
+          <div className="flex flex-col w-3/4 p-4 space-y-8 h-screen pb-40 bg-white overflow-y-scroll">
             {/* banner  */}
-            {/* <Banner/> */}
+            <Banner/>
             <CourseCardList heading="Popular Courses" data={CourseData} />
+            <CourseCardList heading="Web Development" data={CourseData} />
+            <CourseCardList heading="Web Development" data={CourseData} />
           </div>
           {/* right sidebar */}
           <div className="flex w-1/4 p-4 rounded-3xl">
