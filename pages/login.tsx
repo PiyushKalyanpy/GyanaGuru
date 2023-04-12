@@ -2,9 +2,12 @@ import { ButtonWithImage } from "@/Components/components";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import cookieCutter from 'cookie-cutter'
+
 
 const Login = () => {
   const router = useRouter();
+
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -17,8 +20,12 @@ const Login = () => {
     router.push("/signup");
   };
   const continueToHomePage = () => {
-    router.push("/dashboard");
+    if(user.email === "abc@123" && user.password === "123456"){
+      cookieCutter.set('login', true)
+      router.push("/dashboard");
+    }
   };
+
 
   return (
     <div className="flex w-full h-screen bg-gray-200 ">

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { LogoWithName } from "./components";
+import cookieCutter from "cookie-cutter";
 
 const HomeSidebar = ({ pageNumber = 1 }: any) => {
   const router = useRouter();
@@ -55,7 +56,7 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
           active={4 == active}
           onClick={() => {
             setActive(4);
-
+            cookieCutter.set("login", false);
             router.push("/login");
           }}
         />
