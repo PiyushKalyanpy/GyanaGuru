@@ -27,7 +27,9 @@ const Login = () => {
 
   return (
     <div className="flex w-full h-screen bg-gray-200 ">
+     
       <div className="flex flex-col w-10/12 md:w-8/12 lg:w-1/4 bg-white rounded-lg h-fit m-auto min-h-1/4 p-4 ">
+        
         <div className="flex flex-col space-y-8 items-center ">
           {/* logo with title */}
           <div
@@ -116,6 +118,13 @@ const Login = () => {
           </div>
         </div>
       </div>
+       {/* test data  */}
+       <div className="text-center m-auto font-inter text-xl text-zinc-400">
+          <p>test email : abc@123</p>
+          <p>test password : 123456</p>
+        </div>
+
+        {/* test data end */}
     </div>
   );
 };

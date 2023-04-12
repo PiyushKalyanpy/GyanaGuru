@@ -13,7 +13,7 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
   }, [pageNumber]);
 
   return (
-    <div className="flex  flex-col m-auto p-4 w-fit h-screen justify-between ">
+    <div className="fixed top-0 flex  flex-col  p-4 w-fit h-screen justify-between ">
       {/* <LogoWithName width={40} height={40} /> */}
       <div className="flex flex-col space-y-4">
         <SidebarItem
