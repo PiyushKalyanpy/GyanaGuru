@@ -84,7 +84,7 @@ const CourseView = ({ videoData }: any) => {
 
 // export async function getServerSideProps(context: any) {
 //   const res = await fetch(
-//     "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=doSFDItcQrk&key=AIzaSyBHrpbzv8WA5A7xoHAYdGL13Gv0XjHZ1Qs"
+//     "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=doSFDItcQrk&key={}"
 //   );
 //   const data = await res.json();
 //   return {
