@@ -4,8 +4,6 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { setCookie, getCookie } from "cookies-next";
 
-
-
 const Login = () => {
   const router = useRouter();
 
@@ -21,19 +19,21 @@ const Login = () => {
     router.push("/signup");
   };
   const continueToHomePage = () => {
-    if(user.email === "abc@123" && user.password === "123456"){
-      setCookie('login', true)
+    if (user.email === "abc@123" && user.password === "123456") {
+      setCookie("login", true);
       router.push("/dashboard");
     }
   };
-
 
   return (
     <div className="flex w-full h-screen bg-gray-200 ">
       <div className="flex flex-col w-10/12 md:w-8/12 lg:w-1/4 bg-white rounded-lg h-fit m-auto min-h-1/4 p-4 ">
         <div className="flex flex-col space-y-8 items-center ">
           {/* logo with title */}
-          <div className="flex flex-row items-center space-x-4 ">
+          <div
+            onClick={() => router.push("/")}
+            className="flex cursor-pointer flex-row items-center space-x-4 "
+          >
             <Image src="/logo.svg" alt="logo" width={40} height={40} />
 
             <h1 className="text-md font-semibold ">GyanaGuru</h1>
