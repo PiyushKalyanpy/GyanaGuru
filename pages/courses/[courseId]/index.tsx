@@ -5,10 +5,8 @@ import YouTube, { YouTubeProps } from "react-youtube";
 const CourseView = ({ videoData }: any) => {
   const router = useRouter();
   const { courseId } = router.query;
-  console.log(videoData);
 
   const [currentTime, setCurrentTime] = useState(0);
-  console.log(currentTime);
   function handleProgress(event: any) {
     setCurrentTime(event.target.getCurrentTime());
   }

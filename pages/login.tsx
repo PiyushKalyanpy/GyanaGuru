@@ -2,8 +2,8 @@ import { ButtonWithImage } from "@/Components/components";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-// @ts-ignore
-import cookieCutter from 'cookie-cutter'
+import { setCookie, getCookie } from "cookies-next";
+
 
 
 const Login = () => {
@@ -22,7 +22,7 @@ const Login = () => {
   };
   const continueToHomePage = () => {
     if(user.email === "abc@123" && user.password === "123456"){
-      cookieCutter.set('login', true)
+      setCookie('login', true)
       router.push("/dashboard");
     }
   };

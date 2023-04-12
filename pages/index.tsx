@@ -1,10 +1,6 @@
 "use client";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
 import type { RootState } from "@/GlobalRedux/store";
 import { useSelector, useDispatch } from "react-redux";
-import { increment } from "../GlobalRedux/Features/Counter/counterSlice";
 import { useRouter } from "next/router";
 import {
   LandingNav,
@@ -17,8 +13,8 @@ import {
   LandingFooter,
 } from "../Components/components";
 import { useEffect, useState } from "react";
-import Head from 'next/head';
-import Script from 'next/script';
+import Head from "next/head";
+import { setCookie } from "cookies-next";
 
 export default function Home() {
   const count = useSelector((state: RootState) => state.counter.value);
@@ -40,7 +36,10 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  console.log(showNav);
+  useEffect(() => {
+    setCookie("login", false);
+  });
+
 
   const handleClick = () => {
     setShowNav(!showNav);
@@ -51,13 +50,15 @@ export default function Home() {
       <Head>
         <title>GyanaGuru</title>
 
-        <meta name="description" content="The Gyana Guru website is an online learning platform that provides access to high-quality educational resources in a wide range of subjects. It offers a vast library of courses, interactive quizzes and exercises, gamification elements, and social features to encourage active participation and collaboration among learners." />
+        <meta
+          name="description"
+          content="The Gyana Guru website is an online learning platform that provides access to high-quality educational resources in a wide range of subjects. It offers a vast library of courses, interactive quizzes and exercises, gamification elements, and social features to encourage active participation and collaboration among learners."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.svg" />
         <Head>
-        <script src="https://www.youtube.com/iframe_api" async></script>
-      </Head>
-
+          <script src="https://www.youtube.com/iframe_api" async></script>
+        </Head>
       </Head>
 
       <main className="hidden lg:block h-fit gap-y-10 ">
@@ -85,7 +86,13 @@ const MessageComponnent = () => {
     <div className="left-0 z-40 w-full p-4 transition bg-gray-100 ">
       <div className="overflow-hidden marquee">
         <span className="flex flex-row space-x-2 text-xl text-black font-archivo">
-          <a className="text-blue-600 " href="https://github.com/PiyushKalyanpy/GyanaGuru" target="_blank">Join us &nbsp;</a>
+          <a
+            className="text-blue-600 "
+            href="https://github.com/PiyushKalyanpy/GyanaGuru"
+            target="_blank"
+          >
+            Join us &nbsp;
+          </a>
           in developing our open source project on GitHub by reporting issues,
           submitting bug fixes, or adding new features to the ongoing
           development.

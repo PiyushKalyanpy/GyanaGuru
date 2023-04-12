@@ -5,7 +5,7 @@ export function middleware(request: NextRequest) {
   let isLoggedIn = request.cookies.get('login')?.value
   console.log("isLoggedIn", isLoggedIn)
 
-  if (!isLoggedIn) {
+  if (!isLoggedIn || isLoggedIn === 'false' || isLoggedIn === 'undefined' || isLoggedIn === 'null') {
     const url = request.nextUrl.clone()
     url.pathname = '/login'
     return NextResponse.rewrite(url)
@@ -14,5 +14,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/about/:path*', '/dashboard/:path*'],
+  matcher: ['/courses/:path*', '/dashboard/:path*', '/dashboard'],
 }
