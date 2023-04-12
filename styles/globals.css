@@ -48,3 +48,10 @@ p, a, li, span, input, textarea, button {
   display: none;
 }
 
+.html5-video-player{
+  background-color: #fff;
+}
+
+iframe{
+  background-color: #fff;
+}

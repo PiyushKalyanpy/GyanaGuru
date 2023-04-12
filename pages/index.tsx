@@ -1,5 +1,4 @@
 "use client";
-import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
@@ -18,6 +17,8 @@ import {
   LandingFooter,
 } from "../Components/components";
 import { useEffect, useState } from "react";
+import Head from 'next/head';
+import Script from 'next/script';
 
 export default function Home() {
   const count = useSelector((state: RootState) => state.counter.value);
@@ -53,6 +54,10 @@ export default function Home() {
         <meta name="description" content="The Gyana Guru website is an online learning platform that provides access to high-quality educational resources in a wide range of subjects. It offers a vast library of courses, interactive quizzes and exercises, gamification elements, and social features to encourage active participation and collaboration among learners." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.svg" />
+        <Head>
+        <script src="https://www.youtube.com/iframe_api" async></script>
+      </Head>
+
       </Head>
 
       <main className="hidden lg:block h-fit gap-y-10 ">
