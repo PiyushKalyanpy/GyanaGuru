@@ -19,7 +19,7 @@ import { CoursesContext } from "../context/CoursesContext";
 import { useContext } from "react";
 
 export default function Home() {
-  const { courses }:any = useContext(CoursesContext);
+  const { courses }: any = useContext(CoursesContext);
   const count = useSelector((state: RootState) => state.counter.value);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -63,7 +63,7 @@ export default function Home() {
         </Head>
       </Head>
 
-      <main className="hidden lg:block h-fit gap-y-10 ">
+      <main className="hidden lg:block h-fit w-screen overflow-hidden gap-y-10 ">
         <div className="fixed z-40 w-full transition ">
           <LandingNav />
           {showNav && <MessageComponnent />}
