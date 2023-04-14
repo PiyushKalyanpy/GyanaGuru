@@ -3,13 +3,13 @@ import Image from "next/image";
 const Topbar = () => {
   const imageUrl = "https://avatars.githubusercontent.com/u/79275157?s=90&v=4";
   return (
-    <div className="flex w-full p-4 h-fit">
+    <div className="flex w-full py-4 h-fit">
       <div className="flex justify-between w-full">
         {/* Search bar  */}
         <SearchBar />
 
         {/* Notificaton and profile  */}
-        <div className="flex h-full gap-4  w-fit">
+        <div className="flex h-full gap-4 w-fit">
           <TopBarButtons iconAvailable={true} />
           <TopBarButtons imageAvailable={true} imageUrl={imageUrl} />
         </div>
@@ -20,11 +20,11 @@ const Topbar = () => {
 
 const SearchBar = () => {
   return (
-    <div className="flex flex-row items-center w-1/4 p-1 pl-4 pr-1 overflow-hidden bg-gray-100 rounded-full h-fit font-archivo">
+    <div className="flex flex-row items-center w-1/4 p-1 pl-4 pr-1 overflow-hidden bg-gray-100 rounded-2xl h-fit font-archivo">
       <input
         type="text"
         placeholder="Search for courses"
-        className="w-full p-2 text-xl bg-gray-100 border-0 outline-none  font-archivo placeholder:font-archivo placeholder:font-light placeholder:text-zinc-400"
+        className="w-full p-2 text-xl bg-gray-100 border-0 outline-none font-archivo placeholder:font-archivo placeholder:font-light placeholder:text-zinc-400"
       />
       <span className="p-3 rounded-full cursor-pointer material-icons hover:bg-gray-200 active:bg-gray-300 ">
         search

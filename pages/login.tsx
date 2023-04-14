@@ -19,7 +19,7 @@ const Login = () => {
     router.push("/signup");
   };
   const continueToHomePage = () => {
-    if (user.email === "abc@123" && user.password === "123456") {
+    if (user.email === "abc@pk01" && user.password === "5258897") {
       setCookie("login", true);
       router.push("/dashboard");
     }
@@ -120,8 +120,14 @@ const Login = () => {
       </div>
        {/* test data  */}
        <div className="text-center m-auto font-inter text-xl text-zinc-400">
-          <p>test email : abc@123</p>
-          <p>test password : 123456</p>
+         
+          {/* add tailwind classes for above message */}
+          <p className="font-archivo text-center m-auto font-thin text-4xl text-zinc-400">
+            Only for developers
+          </p>
+          <p className="text-center m-auto font-archivo font-light text-3xl pt-6 text-zinc-300">
+            Under Construction
+          </p>
         </div>
 
         {/* test data end */}

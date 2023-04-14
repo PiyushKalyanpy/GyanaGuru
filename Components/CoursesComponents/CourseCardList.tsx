@@ -45,7 +45,6 @@ const CourseCardList = ({ heading, data }: any) => {
           style={{ scrollBehavior: "smooth" }}
         >
           {data.courseList.map((item: any, index: any) => {
-            console.log(item);
             return <CourseCard key={index} item={item} />;
           })}
         </div>

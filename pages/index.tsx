@@ -15,8 +15,11 @@ import {
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { setCookie } from "cookies-next";
+import { CoursesContext } from "../context/CoursesContext";
+import { useContext } from "react";
 
 export default function Home() {
+  const { courses }:any = useContext(CoursesContext);
   const count = useSelector((state: RootState) => state.counter.value);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -39,7 +42,6 @@ export default function Home() {
   useEffect(() => {
     setCookie("login", false);
   });
-
 
   const handleClick = () => {
     setShowNav(!showNav);
