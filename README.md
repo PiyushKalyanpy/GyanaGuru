@@ -1,44 +1,46 @@
-# GyanaGuru Website
+
+
+# GyanaGuru
 
 This repository contains the source code for the GyanaGuru website, an online learning platform that provides access to high-quality educational resources in a wide range of subjects.
 
-## Tech Stack
 
-The GyanaGuru website is built using the following technologies:
-
-- [Next.js](https://nextjs.org/): a React-based framework for building server-side rendered and statically generated web applications.
-- [Tailwind CSS](https://tailwindcss.com/): a utility-first CSS framework that provides a set of pre-defined classes for quickly building custom user interfaces.
+# Tech Stack Used
+- [Next.js](https://nextjs.org/) - a framework for building server-rendered React applications
+- [Tailwind CSS](https://tailwindcss.com/) - a CSS framework for styling
 - [Appwrite](https://appwrite.io/): an open-source backend server that provides user authentication, database storage, and other backend services.
 
-## Getting Started
 
-To run the GyanaGuru website locally, you will need to have Node.js and npm installed on your computer. Once you have cloned this repository to your local machine, navigate to the project directory and run the following command to install the necessary dependencies:
+# Getting Started
+## How To SetUp
+- Clone This Project
 
-
-To start the development server, run the following command:
+- Go to directory
+```
+cd GyanaGuru
+```
+- Install Dependencies
 ```
 npm install
 ```
+- Start LocalHost Server
 ```
 npm run dev
 ```
+## [How To Contribute](CONTRIBUTIONS%20GUIDE.md)
+Thanks for for contributing to this project. We greatly appreciate any work contributed, no matter how small!
+<br>
+### Issues & Pull Requests
+When you are ready to start work on an issue:
+- Let us know by leaving a comment on the issue (or you can also raise a new issue if you want to work on something completely new in the project)
+- Once you are assigned the issue (or once you have claimed the issue) only then proceed to make the Pull Request. This will help avoid multiple PRs pertaining to the same issue.
+- Please check out the [contribution guide](CONTRIBUTIONS%20GUIDE.md)
 
-This will launch the website on a local development server, which you can access by visiting `http://localhost:3000` in your web browser.
+# [Code of Conduct](CODE%20OF%20CONDUCT.md)
+# License
+Brandhive is licensed under the MIT License - see the [License File](LICENSE) for details.
 
-## Contributing
-
-Contributions to the GyanaGuru website are welcome! If you would like to contribute to this project, please follow these steps:
-
-1. Fork this repository to your own GitHub account.
-2. Create a new branch in your forked repository.
-3. Make your changes and commit them to your branch.
-4. Submit a pull request to the `main` branch of this repository.
-
-Before submitting a pull request, please ensure that your changes are well-tested and adhere to the project's coding standards.
-
-
-## Contributors
-
+# Contributors
 A hall of fame for those who have contributed to this repo. Thanks once again for your valuable contributions. Kudos !!!
 <br>
 
@@ -46,7 +48,5 @@ A hall of fame for those who have contributed to this repo. Thanks once again fo
   <img src="https://contrib.rocks/image?repo=PiyushKalyanpy/GyanaGuru" />
 </a>
 
-## License
-
-The GyanaGuru website is released under the [MIT License](https://github.com/PiyushKalyanpy/GyanaGuru/blob/main/LICENSE).
-
+# Support
+Do give us a ⭐️ for showing your support...............
