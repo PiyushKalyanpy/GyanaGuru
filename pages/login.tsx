@@ -1,10 +1,12 @@
 import { ButtonWithImage } from "@/Components/components";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { setCookie, getCookie } from "cookies-next";
+import { CoursesContext } from "../context/CoursesContext";
 
 const Login = () => {
+  const { handleUserAuth, currentUser }: any = useContext(CoursesContext);
   const router = useRouter();
 
   const [user, setUser] = useState({
@@ -25,11 +27,14 @@ const Login = () => {
     }
   };
 
+  if (currentUser) {
+    console.log(currentUser);
+    router.push("/dashboard");
+  }
+
   return (
     <div className="flex w-full h-screen bg-gray-200 ">
-     
       <div className="flex flex-col w-10/12 md:w-8/12 lg:w-1/4 bg-white rounded-lg h-fit m-auto min-h-1/4 p-4 ">
-        
         <div className="flex flex-col space-y-8 items-center ">
           {/* logo with title */}
           <div
@@ -50,6 +55,7 @@ const Login = () => {
           {/* login form */}
           <div className="flex flex-col space-y-4 w-full mx-4 ">
             <ButtonWithImage
+              onClick={() => handleUserAuth()}
               buttonName="Login with Google"
               icon="/images/google.svg"
             />
@@ -118,19 +124,18 @@ const Login = () => {
           </div>
         </div>
       </div>
-       {/* test data  */}
-       <div className="text-center m-auto font-inter text-xl text-zinc-400">
-         
-          {/* add tailwind classes for above message */}
-          <p className="font-archivo text-center m-auto font-thin text-4xl text-zinc-400">
-            Only for developers
-          </p>
-          <p className="text-center m-auto font-archivo font-light text-3xl pt-6 text-zinc-300">
-            Under Construction
-          </p>
-        </div>
+      {/* test data  */}
+      <div className="text-center m-auto font-inter text-xl text-zinc-400">
+        {/* add tailwind classes for above message */}
+        <p className="font-archivo text-center m-auto font-thin text-4xl text-zinc-400">
+          Only for developers
+        </p>
+        <p className="text-center m-auto font-archivo font-light text-3xl pt-6 text-zinc-300">
+          Under Construction
+        </p>
+      </div>
 
-        {/* test data end */}
+      {/* test data end */}
     </div>
   );
 };

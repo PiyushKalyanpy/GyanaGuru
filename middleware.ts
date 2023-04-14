@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { useContext } from "react";
+import { CoursesContext } from "./context/CoursesContext";
 
 export function middleware(request: NextRequest) {
+
   let isLoggedIn = request.cookies.get('login')?.value
   console.log("isLoggedIn", isLoggedIn)
 
@@ -14,5 +17,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/courses/:path*', '/dashboard/:path*', '/dashboard'],
+  matcher: ['/courses/:path*', '/dashboard/:path*', '/dashboard', '/login', '/profile/:path*', '/profile'],
 }
