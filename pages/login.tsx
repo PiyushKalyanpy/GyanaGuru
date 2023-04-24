@@ -6,10 +6,10 @@ import { setCookie, getCookie } from "cookies-next";
 import { CoursesContext } from "../context/CoursesContext";
 
 const Login = () => {
-  const { handleUserAuth, currentUser }: any = useContext(CoursesContext);
+  const { loginUser, logoutUser, user }:any = useContext(CoursesContext);
   const router = useRouter();
 
-  const [user, setUser] = useState({
+  const [Local, setUser] = useState({
     email: "",
     password: "",
   });
@@ -21,16 +21,18 @@ const Login = () => {
     router.push("/signup");
   };
   const continueToHomePage = () => {
-    if (user.email === "abc@pk01" && user.password === "5258897") {
+    if (Local.email === "abc@pk01" && Local.password === "5258897") {
       setCookie("login", true);
       router.push("/dashboard");
     }
   };
 
-  if (currentUser) {
-    console.log(currentUser);
-    router.push("/dashboard");
+  console.log(user);
+  if(user) {
+    setCookie("login", true);
+    router.push("/dashboard")
   }
+  
 
   return (
     <div className="flex w-full h-screen bg-gray-200 ">
@@ -55,7 +57,7 @@ const Login = () => {
           {/* login form */}
           <div className="flex flex-col space-y-4 w-full mx-4 ">
             <ButtonWithImage
-              onClick={() => handleUserAuth()}
+              onClick={() => loginUser()}
               buttonName="Login with Google"
               icon="/images/google.svg"
             />
@@ -72,17 +74,17 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="Email"
-                value={user.email}
-                onChange={(e) => setUser({ ...user, email: e.target.value })}
+                value={Local.email}
+                onChange={(e) => setUser({ ...Local, email: e.target.value })}
                 className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:border-2 focus:border-black"
               />
               <div className="flex w-full space-x-2">
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
-                  value={user.password}
+                  value={Local.password}
                   onChange={(e) =>
-                    setUser({ ...user, password: e.target.value })
+                    setUser({ ...Local, password: e.target.value })
                   }
                   className="w-full border focus:outline-none focus:border-2 focus:border-black border-gray-300 rounded-lg p-2"
                 />

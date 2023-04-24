@@ -18,52 +18,42 @@ import { app } from "../database/firebase";
 import { auth, db, provider } from "../database/firebase";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { setCookie } from "cookies-next";
+import { useCollectionData } from "react-firebase-hooks/firestore";
 
 const CoursesContext = createContext({});
 
 const CoursesProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
-
   const db = getFirestore(app);
+  const [user, loadingUser, errorUser] = useAuthState(auth);
 
-  const coursesCollection = useMemo(() => collection(db, "courses"), [db]);
-  const usersCollection = useMemo(() => collection(db, "users"), [db]);
-  const [currentUser, setCurrentUser] = useState(null);
-  const [users, setUsers] = useState([]);
-  const [categories, setCategories] = useState([]);
-
-  const categoriesCollection = useMemo(
-    () => collection(db, "categories"),
-    [db]
-  );
-
-  const [courses, setCourses] = useState([]);
-
-  const addUserToFirebase = async (user) => {
-    await setDoc(doc(db, "users", user && user.email), {
-      name: user && user.displayName,
-      email: user && user.email,
-      photo: user && user.photoURL,
+  const loginUser = () => {
+    signInWithPopup(auth, provider).then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+      // code to set cookie login to true
+      setCookie("login", true);
+      console.log("user", user);
+      router.push("/dashboard");
     });
   };
 
-  const handleUserAuth = async () => {
-    const userData = await signInWithPopup(auth, provider);
-    const user = userData.user;
-    console.log(user, "🚀");
-    setCurrentUser(user);
-    addUserToFirebase(currentUser);
-  };
+  const [categories] = useCollectionData(collection(db, "categories"), {  })
+  const [courses] = useCollectionData(collection(db, "courses"), {  })
 
+  const logoutUser = () => {
+    signOut(auth);
+  };
   return (
     <CoursesContext.Provider
       value={{
+        loginUser, 
+        logoutUser,
+        user, 
         courses,
-        users,
-        categories,
-        loading,
-        handleUserAuth,
-        currentUser,
+        categories
       }}
     >
       {children}

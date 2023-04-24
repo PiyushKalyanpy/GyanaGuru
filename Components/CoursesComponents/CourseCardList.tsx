@@ -44,7 +44,7 @@ const CourseCardList = ({ heading, data }: any) => {
           className="flex overflow-x-scroll scrollable-container snap-x flex-nowrap"
           style={{ scrollBehavior: "smooth" }}
         >
-          {data.courseList.map((item: any, index: any) => {
+          {data && data.map((item: any, index: any) => {
             return <CourseCard key={index} item={item} />;
           })}
         </div>

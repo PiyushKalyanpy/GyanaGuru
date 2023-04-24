@@ -5,9 +5,9 @@ import {
   CourseCardList,
 } from "../../Components/components";
 import CourseData from "../../data/course_list.json";
-import { CoursesContext } from "../../context/CoursesContext";
-import { useContext } from "react";
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
+
+import { CoursesContext } from "@/context/CoursesContext";
 
 const Courses = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -43,32 +43,36 @@ const Courses = () => {
     });
   }, []);
   const { courses, categories }: any = useContext(CoursesContext);
+  console.log("courses", courses);
+
   return (
-    <div className="grid w-full h-screen grid-cols-12 overflow-hidden">
-      {/* sidebar div */}
-      <div className="flex items-center col-span-1 overflow-hidden bg-white ">
-        <HomeSidebar pageNumber={2} />
-      </div>
-      {/* main div */}
-      <div className="flex flex-col col-span-11 ">
-        {/* topbar here */}
-        <Topbar />
+    <div>
+      <div className="grid w-full h-screen grid-cols-12 overflow-hidden">
+        {/* sidebar div */}
+        <div className="flex items-center col-span-1 overflow-hidden bg-white ">
+          <HomeSidebar pageNumber={2} />
+        </div>
+        {/* main div */}
+        <div className="flex flex-col col-span-11 ">
+          {/* topbar here */}
+          <Topbar />
 
-        <Categories data={categories} />
-        {/* div for Main content */}
-        <div className="flex w-full h-full overflow-y-scroll">
-          {/* main */}
-          <div className="flex flex-col w-3/4 h-screen p-4 pb-40 space-y-8 overflow-y-scroll bg-white">
-            {/* banner  */}
-            <Banner />
+          <Categories data={categories} />
+          {/* div for Main content */}
+          <div className="flex w-full h-full overflow-y-scroll">
+            {/* main */}
+            <div className="flex flex-col w-3/4 h-screen p-4 pb-40 space-y-8 overflow-y-scroll bg-white">
+              {/* banner  */}
+              <Banner />
 
-            {/* <CourseCardList heading="Popular Courses" data={CourseData} /> */}
-            {/* <CourseCardList heading="Web Development" data={CourseData} /> */}
-            <CourseCardList heading="Web Development" data={CourseData} />
-          </div>
-          {/* right sidebar */}
-          <div className="flex w-1/4 p-4 rounded-3xl">
-            <div className="flex w-full p-4 bg-gray-50 rounded-3xl"></div>
+              {/* <CourseCardList heading="Popular Courses" data={CourseData} /> */}
+              {/* <CourseCardList heading="Web Development" data={CourseData} /> */}
+              <CourseCardList heading="Web Development" data={courses} />
+            </div>
+            {/* right sidebar */}
+            <div className="flex w-1/4 p-4 rounded-3xl">
+              <div className="flex w-full p-4 bg-gray-50 rounded-3xl"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -86,16 +90,17 @@ const Categories = ({ data }: any) => {
         className="flex gap-4 my-6 overflow-y-visible scrollable-container snap-x flex-nowrap"
         style={{ scrollBehavior: "smooth" }}
       >
-        {data.map((item: any, index: any) => {
-          return (
-            <div
-              key={index}
-              className="flex items-center flex-auto gap-4 p-4 transition bg-gray-100 select-none snap-start rounded-xl shrink-0 w-fit hover:bg-violet-500 hover:shadow-lg hover:shadow-violet-200 font-archivo hover:text-white active:bg-violet-600 active:shadow-lg active:shadow-violet-200 active:text-white"
-            >
-              <p>{item.name}</p>
-            </div>
-          );
-        })}
+        {data &&
+          data.map((item: any, index: any) => {
+            return (
+              <div
+                key={index}
+                className="flex items-center flex-auto gap-4 p-4 transition bg-gray-100 select-none snap-start rounded-xl shrink-0 w-fit hover:bg-violet-500 hover:shadow-lg hover:shadow-violet-200 font-archivo hover:text-white active:bg-violet-600 active:shadow-lg active:shadow-violet-200 active:text-white"
+              >
+                <p>{item.name}</p>
+              </div>
+            );
+          })}
       </div>
     </div>
   );

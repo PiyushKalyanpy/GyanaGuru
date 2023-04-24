@@ -18,6 +18,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/courses/[courseId]", "context/CoursesContext.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/courses/[courseId]", "context/CoursesContext.js", "context/UserContext.js"],
   "exclude": ["node_modules"]
 }

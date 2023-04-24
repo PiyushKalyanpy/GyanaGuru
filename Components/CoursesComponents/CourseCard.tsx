@@ -21,7 +21,7 @@ const CourseCard = ({ item }: any) => {
       {/* course image */}
       <div className="relative w-32 h-full p-6 rounded-3xl ">
         <Image
-          src={courseData.thumbnailUrl}
+          src={item && item.thumbnailUrl}
           layout="fill"
           objectFit="cover"
           alt="Course Thumbnail"
@@ -32,22 +32,22 @@ const CourseCard = ({ item }: any) => {
       {/* course data */}
       <div className="flex flex-col w-64 space-y-6">
         {/* tag */}
-        <CourseTag tagTitle={courseData.tagTitle} />
+        <CourseTag tagTitle={item && item.categoryId} />
         {/* Title and sub tags */}
         <div className="flex flex-col space-y-4">
           <h3 className="text-lg font-medium font-archivo">
-            {courseData.courseTitle}
+            {item && item.courseTitle}
           </h3>
           <div className="flex flex-row space-x-8">
-            <CourseSubTag Icon={<DurationIcon />} text={courseData.duration} />
-            <CourseSubTag Icon={<CourseIcon />} text={courseData.lectures} />
+            <CourseSubTag Icon={<DurationIcon />} text={item && item.duration} courseText="duration"/>
+            <CourseSubTag Icon={<CourseIcon />} text={item && item.lectures} courseText="lectures"/>
           </div>
         </div>
         <div className="flex items-center justify-between pt-2 border-t-2 ">
             
         <Rating
-          ratingCount={courseData.ratingCount}
-          voteCount={courseData.voteCount}
+          ratingCount={item && item.ratingCount}
+          voteCount={item && item.voteCount}
         />
         <span className="text-blue-500 material-icons">chevron_right</span>
         </div>
@@ -68,12 +68,13 @@ const CourseTag = ({ tagTitle }: any) => {
     </>
   );
 };
-const CourseSubTag = ({ Icon, text }: any) => {
+const CourseSubTag = ({ Icon, text , courseText}: any) => {
   return (
-    <div className="flex flex-row space-x-4 text-gray-600">
+    <div className="flex flex-row space-x-2 text-gray-600">
       {/* <span className="text-xs material-icons">{iconClass}</span> */}
       {Icon}
       <h4 className="text-sm font-inter"> {text}</h4>
+      <h4 className="text-sm font-inter"> {courseText}</h4>
     </div>
   );
 };
