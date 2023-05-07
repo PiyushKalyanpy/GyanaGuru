@@ -8,7 +8,7 @@ This repository contains the source code for the GyanaGuru website, an online le
 # Tech Stack Used
 - [Next.js](https://nextjs.org/) - a framework for building server-rendered React applications
 - [Tailwind CSS](https://tailwindcss.com/) - a CSS framework for styling
-- [Appwrite](https://appwrite.io/): an open-source backend server that provides user authentication, database storage, and other backend services.
+- [Firebase](https://firebase.google.com/): a platform that provides a range of backend services, including authentication, real-time databases, cloud storage, and more.
 
 
 # Getting Started
