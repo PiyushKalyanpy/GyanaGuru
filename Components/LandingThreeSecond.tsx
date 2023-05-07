@@ -61,7 +61,7 @@ const Contributors = () => {
   return (
     <div>
       <div>
-        <div className="flex flex-row -space-x-4 mb-4">
+        {/* <div className="flex flex-row -space-x-4 mb-4">
           {ContributorsData.contributors.map((item, index) => {
             return (
               <Image
@@ -74,7 +74,10 @@ const Contributors = () => {
               />
             )
           })}
-        </div>
+        </div> */}
+        <a href="https://github.com/PiyushKalyanpy/GyanaGuru/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=PiyushKalyanpy/GyanaGuru" />
+</a>
       </div>
       <Link title="Our Contributors" />
     </div>

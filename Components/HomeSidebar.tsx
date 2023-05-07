@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { LogoWithName } from "./components";
 import { setCookie } from "cookies-next";
-
+import {signOut } from 'firebase/auth'
+import { auth } from "../database/firebase";
 
 const HomeSidebar = ({ pageNumber = 1 }: any) => {
   const router = useRouter();
@@ -58,6 +59,7 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
           onClick={() => {
             setActive(4);
             setCookie("login", false);
+            signOut(auth)
             router.push("/login");
           }}
         />

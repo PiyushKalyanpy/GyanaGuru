@@ -20,6 +20,7 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { setCookie } from "cookies-next";
 import { useCollectionData } from "react-firebase-hooks/firestore";
+import { useRouter } from "next/router";
 
 const CoursesContext = createContext({});
 
@@ -27,6 +28,7 @@ const CoursesProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const db = getFirestore(app);
   const [user, loadingUser, errorUser] = useAuthState(auth);
+  const router = useRouter();
 
   const loginUser = () => {
     signInWithPopup(auth, provider).then((result) => {
@@ -40,8 +42,8 @@ const CoursesProvider = ({ children }) => {
     });
   };
 
-  const [categories] = useCollectionData(collection(db, "categories"), {  })
-  const [courses] = useCollectionData(collection(db, "courses"), {  })
+  const [categories] = useCollectionData(collection(db, "categories"), {});
+  const [courses] = useCollectionData(collection(db, "courses"), {});
 
   const logoutUser = () => {
     signOut(auth);
@@ -49,11 +51,11 @@ const CoursesProvider = ({ children }) => {
   return (
     <CoursesContext.Provider
       value={{
-        loginUser, 
+        loginUser,
         logoutUser,
-        user, 
+        user,
         courses,
-        categories
+        categories,
       }}
     >
       {children}
