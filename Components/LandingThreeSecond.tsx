@@ -13,7 +13,7 @@ const LandingThreeSecond = () => {
       <div className="flex items-end col-span-3 bg-cover bg-[url('/images/landing0202.png')]">
         <div className="flex w-full flex-col space-y-4 p-4 backdrop-blur-md bg-pink-500/10 ">
           {CourseData.slice(0, 4).map((item, index) => {
-            return <Link key={index} title={item.categoryName} />;
+            return <Link key={index} title={item.categoryName } />;
           })}
         </div>
       </div>
@@ -51,8 +51,10 @@ const Card01 = () => {
 const Link = ({ title }: any) => {
   return (
     <div className="flex justify-between w-full border-b p-4 hover:bg-white/20 border-white">
-      <p className="text-white text-2xl font-archivo">{title}</p>
-      <span className="material-icons text-white ">arrow_outward</span>
+      <a href="#" target="_blank" rel="noopener">
+        <p className="text-white text-2xl font-archivo">{title}</p>
+        <span className="material-icons text-white ">arrow_outward</span>
+      </a>      
     </div>
   );
 };
@@ -75,9 +77,9 @@ const Contributors = () => {
             )
           })}
         </div> */}
-        <a href="https://github.com/PiyushKalyanpy/GyanaGuru/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=PiyushKalyanpy/GyanaGuru" />
-</a>
+        <a href="https://github.com/PiyushKalyanpy/GyanaGuru/graphs/contributors" target="_blank" rel="noopener">
+          <img alt="Profile Pictures of the Contributers" src="https://contrib.rocks/image?repo=PiyushKalyanpy/GyanaGuru" />
+        </a>
       </div>
       <Link title="Our Contributors" />
     </div>
