@@ -1,6 +1,8 @@
 import { ButtonWithImage } from "@/Components/components";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { auth, provider } from "../database/firebase";
 
 const SignUp = () => {
   const router = useRouter();
@@ -16,6 +18,38 @@ const SignUp = () => {
   const moveToSignIn = () => {
     router.push("/login");
   };
+
+  const signUpWithEmailAndPassword = () => {
+    if (user.password !== user.confirmPassword) {
+      console.log("Passwords do not match");
+      return;
+    }
+
+    createUserWithEmailAndPassword(auth, user.email, user.password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log("Successfully signed up:", user);
+        router.push("/dashboard");  // Redirect to the desired page or perform any additional actions
+      })
+      .catch((error) => {
+        console.log("Error signing up:", error);
+      });
+  };
+
+  const signUpWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // Handle successful sign-in
+        const user = result.user;
+        console.log("Signed in with Google:", user);
+        router.push("/dashboard");// Redirect to the desired page or perform any additional actions
+      })
+      .catch((error) => {
+        // Handle sign-in error
+        console.log("Error signing in with Google:", error);
+      });
+  };
+
 
   return (
     <div className="flex w-full h-screen bg-gray-200 ">
@@ -37,6 +71,7 @@ const SignUp = () => {
           {/* login form */}
           <div className="flex flex-col space-y-4 w-full mx-4 ">
             <ButtonWithImage
+              onClick={signUpWithGoogle}
               buttonName="Continue with Google"
               icon="/images/google.svg"
             />
@@ -69,7 +104,7 @@ const SignUp = () => {
                   }
                   className="w-full border focus:outline-none focus:border-2 focus:border-black border-gray-300 rounded-lg p-2"
                 />
-                
+
               </div>
               {/* confirm password */}
               <div className="flex w-full space-x-2">
@@ -92,13 +127,15 @@ const SignUp = () => {
                 </div>
               </div>
 
-              
+
             </div>
 
             {/* login button */}
             <div className="flex flex-row space-x-4 py-4 transition hover:scale-[1.02]">
-              <button className="bg-black text-white rounded-lg p-2 w-full">
-                Sign Up 
+              <button className="bg-black text-white rounded-lg p-2 w-full"
+                onClick={signUpWithEmailAndPassword}
+              >
+                Sign Up
               </button>
             </div>
 
