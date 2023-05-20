@@ -3,7 +3,7 @@ import YouTube from "react-youtube";
 
 export default function Youtube () {
   
-  
+  const videoId = "Nr-gYadj5dw";
     const opts = {
       height: "390",
       width: "640",
@@ -12,7 +12,7 @@ export default function Youtube () {
         rel: 0,
         showinfo: 0,
         modestbranding: 1,
-        start: 300,
+        start: 0,
       },
     };
 
@@ -20,16 +20,8 @@ export default function Youtube () {
       <div>
         <h3>GeeksforGeeks - Youtube</h3>
 
-        <iframe
-          className="video"
-          title="Youtube player"
-        //   sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-presentation"
-          src={`https://youtube.com/embed/Nr-gYadj5dw?autoplay=0`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
+             <YouTube videoId={videoId} opts={opts} />
 
-        ></iframe>
       </div>
     );
   }
