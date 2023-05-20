@@ -1,10 +1,29 @@
 
 # GyanaGuru
+<<<<<<< main
 Gyanaguru website provides you an online learning platform that provides access to high-quality educational resources in a wide range of subjects. 
 It offers a vast library of courses, interactive quizzes and exercises, gamification elements, and social features to encourage active participation and collaboration among learners.
 You can checkout our website [here](https://gyanaguru.vercel.app/)
 
 This repository contains the source code for the GyanaGuru website.
+=======
+<div align="center">
+<img src="https://forthebadge.com/images/badges/built-with-love.svg" />
+<img src="https://forthebadge.com/images/badges/uses-brains.svg" />
+<img src="https://forthebadge.com/images/badges/powered-by-responsibility.svg" />
+  <br>
+   <img src="https://img.shields.io/github/license/PiyushKalyanpy/GyanaGuru?style=for-the-badge" />
+   <img src="https://img.shields.io/github/repo-size/PiyushKalyanpy/GyanaGuru?style=for-the-badge" />
+   <img src="https://img.shields.io/github/issues/PiyushKalyanpy/GyanaGuru?style=for-the-badge" />
+   <img src="https://img.shields.io/github/stars/PiyushKalyanpy/GyanaGuru?style=for-the-badge" /><br>
+  <img src="https://img.shields.io/github/issues-pr/PiyushKalyanpy/GyanaGuru?style=for-the-badge" />
+  <img src="https://img.shields.io/github/contributors/PiyushKalyanpy/GyanaGuru?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues-pr-closed-raw/PiyushKalyanpy/GyanaGuru?style=for-the-badge" />
+  <img src="https://img.shields.io/github/forks/PiyushKalyanpy/GyanaGuru?style=for-the-badge" />
+  <img src="https://img.shields.io/github/last-commit/PiyushKalyanpy/GyanaGuru?style=for-the-badge" />
+   </div>
+This repository contains the source code for the GyanaGuru website, an online learning platform that provides access to high-quality educational resources in a wide range of subjects.
+>>>>>>> main
 
 
 # Tech Stack Used
