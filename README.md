@@ -1,8 +1,10 @@
 
-
 # GyanaGuru
+Gyanaguru website provides you an online learning platform that provides access to high-quality educational resources in a wide range of subjects. 
+It offers a vast library of courses, interactive quizzes and exercises, gamification elements, and social features to encourage active participation and collaboration among learners.
+You can checkout our website [here](https://gyanaguru.vercel.app/)
 
-This repository contains the source code for the GyanaGuru website, an online learning platform that provides access to high-quality educational resources in a wide range of subjects.
+This repository contains the source code for the GyanaGuru website.
 
 
 # Tech Stack Used
@@ -14,7 +16,9 @@ This repository contains the source code for the GyanaGuru website, an online le
 # Getting Started
 ## How To SetUp
 - Clone This Project
-
+```
+you can do this by clicking on the green color button labelled as "Code"
+```
 - Go to directory
 ```
 cd GyanaGuru
@@ -28,7 +32,9 @@ npm install
 npm run dev
 ```
 ## [How To Contribute](CONTRIBUTIONS%20GUIDE.md)
-Thanks for for contributing to this project. We greatly appreciate any work contributed, no matter how small!
+First visit [Gyanguru](https://gyanaguru.vercel.app/) website, explore it
+and findout where your contribution will bring out a positive impact!!  
+We greatly appreciate any work contributed, no matter how big or small it is!
 <br>
 ### Issues & Pull Requests
 When you are ready to start work on an issue:
@@ -49,4 +55,4 @@ A hall of fame for those who have contributed to this repo. Thanks once again fo
 </a>
 
 # Support
-Do give us a ⭐️ for showing your support...............
+Do give us a ⭐️ for showing your support.......
