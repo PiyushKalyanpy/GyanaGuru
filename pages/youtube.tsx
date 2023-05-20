@@ -1,8 +1,9 @@
 import React from "react";
 import YouTube from "react-youtube";
 
-export default class Youtube extends React.Component {
-  render() {
+export default function Youtube () {
+  
+  
     const opts = {
       height: "390",
       width: "640",
@@ -32,4 +33,4 @@ export default class Youtube extends React.Component {
       </div>
     );
   }
-}
+
