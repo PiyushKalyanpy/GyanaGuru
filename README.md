@@ -58,8 +58,8 @@ Brandhive is licensed under the MIT License - see the [License File](LICENSE) fo
 A hall of fame for those who have contributed to this repo. Thanks once again for your valuable contributions. Kudos !!!
 <br>
 
-<a href="https://github.com/PiyushKalyanpy/GyanaGuru/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=PiyushKalyanpy/GyanaGuru" />
+<a href="https://github.com/piyushkalyanpy/GyanaGuru/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=piyushkalyanpy/GyanaGuru" />
 </a>
 
 # Support
