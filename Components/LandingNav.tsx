@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 const LandingNav = () => {
   const router = useRouter();
   const navLinkStyle =
-    "font-archivo relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-500 after:origin-center";
+    "font-archivo relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:rounded-full after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-500 after:origin-center";
   const handleGetStartedClick = () => {
     router.push("/login");
   };
