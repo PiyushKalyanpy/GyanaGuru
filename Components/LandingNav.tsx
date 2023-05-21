@@ -28,7 +28,7 @@ const LandingNav = () => {
             Our Services
           </Link>
           <Link className={navLinkStyle} href="#">
-            Benifits
+            Benefits
           </Link>
           <Link className={navLinkStyle} href="#">
             FAQ’s
