@@ -75,7 +75,7 @@ const OurServices = () => {
 
 const CourseCard = ({ courseName }: any) => {
   return (
-    <button className="flex border-2 hover:border-black hover:scale-[1.04] hover:bg-blue-200 hover:border-blue-400 transition border-zinc-200 rounded-full px-4 py-2">
+    <button className="flex border-2 hover:border-black hover:scale-[1.04] transition border-zinc-200 rounded-full px-4 py-2">
       <h4 className="font-inter">{courseName}</h4>
     </button>
   );
@@ -83,7 +83,7 @@ const CourseCard = ({ courseName }: any) => {
 
 const Show = ({ courseName, onclick }: any) => {
   return (
-    <div onClick={onclick} className="font-medium bg-blue-200 border-2 border-blue-400 border-zinc-200 rounded-full cursor-pointer px-4 py-2">
+    <div onClick={onclick} className="font-medium bg-blue-200 border-zinc-200 rounded-full cursor-pointer px-4 py-2">
       <h4 className="font-inter">{courseName}</h4>
     </div>
   );
