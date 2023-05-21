@@ -15,17 +15,13 @@ import {
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { setCookie } from "cookies-next";
-import { CoursesContext } from "../context/CoursesContext";
 import { useContext } from "react";
-import { UserContext } from "@/context/UserContext";
 
 export default function Home() {
-  const { courses }: any = useContext(CoursesContext);
   const count = useSelector((state: RootState) => state.counter.value);
   const dispatch = useDispatch();
   const router = useRouter();
   const [showNav, setShowNav] = useState(true);
-  const user = useContext(UserContext);
 
   useEffect(() => {
     let prevScrollpos = window.pageYOffset;
