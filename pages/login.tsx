@@ -131,7 +131,7 @@ const Login = () => {
         
         <div className="text-black mt-10 ">
            ------ Text emails and password ------
-          <p className="m-4">Email : abcpk@01</p>
+          <p className="m-4">Email : abc@pk01</p>
           <p>Password : 5258897</p>
         </div>
       </div>
