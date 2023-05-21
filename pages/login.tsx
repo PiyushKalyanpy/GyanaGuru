@@ -25,9 +25,6 @@ const Login = () => {
     }
   };
 
- 
-  
-
   return (
     <div className="flex w-full h-screen bg-gray-200 ">
       <div className="flex flex-col w-10/12 md:w-8/12 lg:w-1/4 bg-white rounded-lg h-fit m-auto min-h-1/4 p-4 ">
@@ -59,7 +56,7 @@ const Login = () => {
             <div className="flex flex-row space-x-4 my-4 items-center">
               <hr className="w-full border-gray-300" />
               <h4 className="font-medium text-zinc-500">or</h4>
-              <hr className="w-full border-gray-300" /> 
+              <hr className="w-full border-gray-300" />
             </div>
 
             {/* login with email and password */}
@@ -128,9 +125,9 @@ const Login = () => {
         <p className="text-center m-auto font-archivo font-light text-3xl pt-6 text-zinc-300">
           Under Construction
         </p>
-        
+
         <div className="text-black mt-10 ">
-           ------ Test emails and password ------
+          ------ Test emails and password ------
           <p className="m-4">Email : abc@pk01</p>
           <p>Password : 5258897</p>
         </div>
