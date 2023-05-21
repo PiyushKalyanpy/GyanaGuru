@@ -12,13 +12,13 @@ const LandingNav = () => {
     <div className="sticky top-0 w-full border-b-2 border-white bg-white/30 backdrop-blur-md z-20">
       <div className="flex flex-row w-full justify-between items-center px-20 py-4 ">
         {/* Logo with Title */}
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center cursor-pointer" onClick={() => router.push("/")}>
           <img src="./logo.svg" alt="logo" />
           <h1 className="font-archivo font-semibold text-lg ">GyanaGuru</h1>
         </div>
         {/* Nav Links */}
         <div className="flex flex-row items-center gap-8">
-          <Link className={navLinkStyle} href="#">
+          <Link className={navLinkStyle} href="/">
             Home
           </Link>
           <Link className={navLinkStyle} href="#">
