@@ -17,7 +17,7 @@ const Dashboard = () => {
             );
           }}
         >
-          Contribute to new dashboard design
+          🤝 Contribute to new dashboard design
         </button>
       </div>
     </div>
