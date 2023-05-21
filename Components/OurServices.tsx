@@ -68,7 +68,7 @@ const OurServices = () => {
 
 const CourseCard = ({ courseName }: any) => {
   return (
-    <div className="flex border-2 hover:border-black hover:scale-[1.04]  transition border-zinc-200 rounded-full px-4 py-2">
+    <div className="flex border-2 bg-sky-200 font-medium border-slate-700 hover:border-black hover:scale-[1.04] hover:bg-sky-300 hover:font-bold rounded-full px-4 py-2">
       <h4 className="font-inter">{courseName}</h4>
     </div>
   );
