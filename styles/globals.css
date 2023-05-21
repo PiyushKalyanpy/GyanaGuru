@@ -31,6 +31,7 @@ p, a, li, span, input, textarea, button {
   white-space: nowrap;
 }
 
+
 .marquee:hover span {
   animation-play-state: paused;
 }
@@ -55,3 +56,4 @@ p, a, li, span, input, textarea, button {
 iframe{
   background-color: #fff;
 }
+
