@@ -36,8 +36,17 @@ const LandingNav = () => {
           <Link className={navLinkStyle} href="#">
             Benefits
           </Link>
-          <Link className={navLinkStyle} href="#">
-            FAQ’s
+          <Link className={navLinkStyle} href="/faq">
+            {/* adding badge on div for new */}
+            <div>
+              FAQ
+              <span className="absolute -top-2 bg-red-500 text-white text-xs rounded-full px-1 py-1 ml-2">
+                {/* on hover show popup - attention needed */}
+                <div className="w-2 h-2"></div>
+
+              </span>
+
+            </div>
           </Link>
         </div>
         {/* Get Started Button */}
