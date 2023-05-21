@@ -4,15 +4,21 @@ import { useRouter } from "next/router";
 const LandingNav = () => {
   const router = useRouter();
   const navLinkStyle =
-    "font-archivo relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-500 after:origin-center";
+    "font-archivo relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:rounded-full after:duration-500 after:origin-center";
   const handleGetStartedClick = () => {
     router.push("/login");
+  };
+  const handleClick = () => {
+    router.push("/");
   };
   return (
     <div className="sticky top-0 w-full border-b-2 border-white bg-white/30 backdrop-blur-md z-20">
       <div className="flex flex-row w-full justify-between items-center px-20 py-4 ">
         {/* Logo with Title */}
-        <div className="flex flex-row items-center">
+        <div
+          className="flex flex-row items-center cursor-pointer"
+          onClick={handleClick}
+        >
           <img src="./logo.svg" alt="logo" />
           <h1 className="font-archivo font-semibold text-lg ">GyanaGuru</h1>
         </div>
@@ -28,7 +34,7 @@ const LandingNav = () => {
             Our Services
           </Link>
           <Link className={navLinkStyle} href="#">
-            Benifits
+            Benefits
           </Link>
           <Link className={navLinkStyle} href="#">
             FAQ’s

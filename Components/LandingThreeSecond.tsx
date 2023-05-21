@@ -50,9 +50,11 @@ const Card01 = () => {
 
 const Link = ({ title }: any) => {
   return (
-    <div className="flex justify-between w-full border-b p-4 hover:bg-white/20 border-white">
-      <p className="text-white text-2xl font-archivo">{title}</p>
-      <span className="material-icons text-white ">arrow_outward</span>
+    <div className="w-full border-b p-4 hover:bg-white/20 border-white">
+      <a href="#" target="_blank" rel="noopener" className="flex justify-between">
+        <p className="text-white text-2xl font-archivo">{title}</p>
+        <span className="material-icons text-white ">arrow_outward</span>
+      </a>
     </div>
   );
 };
@@ -75,9 +77,9 @@ const Contributors = () => {
             )
           })}
         </div> */}
-        <a href="https://github.com/PiyushKalyanpy/GyanaGuru/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=PiyushKalyanpy/GyanaGuru" />
-</a>
+        <a href="https://github.com/PiyushKalyanpy/GyanaGuru/graphs/contributors" target="_blank" rel="noopener">
+          <img alt="Profile pictures of the contributers" src="https://contrib.rocks/image?repo=PiyushKalyanpy/GyanaGuru" />
+        </a>
       </div>
       <Link title="Our Contributors" />
     </div>
