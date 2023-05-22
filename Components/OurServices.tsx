@@ -45,7 +45,7 @@ const OurServices = () => {
           <div className="col-span-2 flex items-center">
             <Image
               className="m-auto -z-20 select-none"
-              src="/images/ourservices.png"
+              src="/images/services.png"
               alt="Picture of the author"
               width={400}
               height={400}

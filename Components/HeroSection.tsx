@@ -75,7 +75,7 @@ const HeroSection = () => {
 
         <img
           className="transition duration-500 ease-in-out transform translate-x-full opacity-0"
-          src="/images/herosection.png"
+          src="/images/hero.png"
           alt="hero"
           width={400}
           height={400}

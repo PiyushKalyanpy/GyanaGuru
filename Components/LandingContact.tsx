@@ -7,10 +7,10 @@ const LandingContact = () => {
         <div className="col-span-2 flex items-center">
           <Image
             className="m-auto -z-20 h-96 object-cover rounded-3xl  select-none"
-            src="/images/contact.png"
+            src="/images/contactUs.png"
             alt="Picture of the author"
-            width={400}
-            height={400}
+            width={600}
+            height={600}
           />
         </div>
         <div className="col-span-4 flex flex-col p-10 space-y-8 mx-auto z-10">
