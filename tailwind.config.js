@@ -19,8 +19,12 @@ module.exports = {
       colors:{
         "seafoam" : "#C9EEBE",
         "champange" : "#F7EDE3"
+      },
+      rotate: {
+        '7': '-7deg',
       }
     },
     plugins: [],
   },
+
 };

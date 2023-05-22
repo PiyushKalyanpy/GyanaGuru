@@ -1,12 +1,14 @@
 import WhyChooseUsData from "../data/why_choose_us.json";
 import Image from "next/image";
+import { TfiArrowRight } from "react-icons/tfi";
+
 
 const WhyChooseUs = () => {
   return (
-    <div id="whychooseus" className="px-20 mt-40">
-      <h1 className="text-4xl text-center font-semibold font-archivo text-slate-900 p-4 mb-10">{`Why Choose Us`}</h1>
-      <div className="grid grid-cols-6  gap-8 w-full items-center">
-        <div className="col-span-4 grid grid-cols-3 gap-8 ">
+    <div id="whychooseus" className="px-20 py-20 mt-40 bg-zinc-100">
+      <h1 className="text-4xl text-center font-semibold font-archivo text-slate-900 p-4 mb-10">{`Why`} <span className="text-red-600 relative bg-blue-200 rounded-3xl p-2">Choose</span> {`Us?`}</h1>
+      <div className="flex w-full">
+        <div className="flex w-full items-center justify-center gap-8 m-full">
           {WhyChooseUsData.whyChooseUs.map((item, index) => {
             return (
               <InfoCard
@@ -17,15 +19,15 @@ const WhyChooseUs = () => {
             );
           })}
         </div>
-        <div className="col-span-2 flex justify-self-end">
+        {/* <div className="col-span-2 flex justify-self-end">
           <Image
-            className=" -z-20 "
-            src="/images/whychooseus.png"
+            className="rounded-xl"
+            src="/images/wcu.jpg"
             alt="Picture of the author"
-            width={300}
-            height={300}
+            width={500}
+            height={500}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -33,11 +35,16 @@ const WhyChooseUs = () => {
 
 const InfoCard = ({ title, description }: any) => {
   return (
-    <div className=" p-4 hover:bg-seafoam transition-colors font-archivo rounded-3xl ">
+    <div className="flex flex-col justify-between w-72 border-2 border-white hover:border-2 hover:border-neutral-600 h-full relative font-archivo rounded-3xl transition duration-300 ease-in-out shadow-md bg-white hover:shadow-xl">
       {/* <span className=" absolute inline-flex -z-10 mt-2 h-4 w-20 rounded-full bg-seafoam opacity-75"></span> */}
-      <div className="space-y-4 ">
+      <div className="h-40 w-full rounded-3xl bg-seafoam p-4">
         <h3 className="text-2xl font-semibold font-archivo">{title}</h3>
-        <p className="text-black  font-inter ">{description}</p>
+      </div>
+      <div className="m-4 h-full">
+        <p className="text-black font-inter break-words text-base">{description}</p>
+      </div>
+      <div className="m-4 inline">
+        <button className="p-2 w-full rounded-3xl transition duration-300 ease-in-out bg-neutral-600 text-white hover:bg-neutral-800 inline flex justify-center items-center gap-1">{`Get Started`} <TfiArrowRight className="inline" /></button>
       </div>
     </div>
   );
