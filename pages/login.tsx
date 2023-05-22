@@ -1,17 +1,34 @@
 import { ButtonWithImage } from "@/Components/components";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { setCookie, getCookie } from "cookies-next";
+import { LoginWithGooglePopUp, auth } from "@/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Login = () => {
   const router = useRouter();
+
+  // user object from useAuthState
+  const [user, _] = useAuthState(auth);
 
   const [Local, setUser] = useState({
     email: "",
     password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
+
+  // watch the user object changes
+  useEffect(() => {
+    if (user) {
+      setCookie("login", true);
+      router.push("/dashboard");
+    }
+  }, [user]);
+
+  // login with google
+  const loginWithGoogle = () => LoginWithGooglePopUp();
+
   const showPasswordToggle = () => {
     setShowPassword(!showPassword);
   };
@@ -27,6 +44,15 @@ const Login = () => {
 
   return (
     <div className="flex w-full h-screen bg-gray-200 ">
+      <p
+        className="bg-black text-white rounded-lg py-2 px-4 cursor-pointer flex items-center absolute left-2 top-2"
+        onClick={() => router.push("/")}
+      >
+        <span className="text-white bg-black rounded-full material-icons">
+          arrow_back_ios
+        </span>
+        Back
+      </p>
       <div className="flex flex-col w-10/12 md:w-8/12 lg:w-1/4 bg-white rounded-lg h-fit m-auto min-h-1/4 p-4 ">
         <div className="flex flex-col space-y-8 items-center ">
           {/* logo with title */}
@@ -50,6 +76,7 @@ const Login = () => {
             <ButtonWithImage
               buttonName="Login with Google"
               icon="/images/google.svg"
+              onClick={loginWithGoogle}
             />
 
             {/* make or with divider */}
