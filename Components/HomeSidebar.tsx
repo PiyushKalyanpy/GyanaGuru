@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { setCookie } from "cookies-next";
 import Image from "next/image";
-
+import LogoWithName from "./LogoWithName";
 const HomeSidebar = ({ pageNumber = 1 }: any) => {
   const router = useRouter();
   const [active, setActive] = useState(0);
@@ -12,13 +12,16 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
   }, [pageNumber]);
 
   return (
-    <div className="fixed top-0 flex  flex-col  p-4 w-fit h-screen justify-between ">
-      {/* <LogoWithName width={40} height={40} /> */}
-      <div className="flex flex-col space-y-4">
+    <div className="absolute top-0 flex  flex-col  p-4 justify-between w-[304px] h-screen left-[1px] bg-gradient-to-b from-[#e2e9f1] to-white">
+      {/* Top Part  */}
+      <LogoWithName width={40} height={40} />
+
+      {/* Center Part  */}
+      <div className="flex flex-col items-start gap-[24px] p-0 w-[304px] h-[360px] top-[207px] left-[calc(50%-152px)] absolute">
         {/* logo */}
-        <div onClick={() => router.push('/')} className="flex cursor-pointer flex-row items-center space-x-4 ">
+        {/* <div onClick={() => router.push('/')} className="flex cursor-pointer flex-row items-center space-x-4">
           <Image src="/logo.svg" alt="logo" width={50} height={40} />
-        </div>
+        </div> */}
 
         <SidebarItem
           icon="home"
@@ -42,29 +45,55 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
         />
 
         <SidebarItem
-          icon="settings"
+          icon="users-people"
           Icon={SettingsIcon}
-          text="Settings"
+          text="Profile"
           active={3 == active}
           onClick={() => {
             setActive(3);
+            router.push("/users");
+          }}
+        />
+        <SidebarItem
+          icon="settings"
+          Icon={SettingsIcon}
+          text="Settings"
+          active={4 == active}
+          onClick={() => {
+            setActive(4);
+            router.push("/settings");
+          }}
+        />
+        <SidebarItem
+          icon="settings"
+          Icon={SettingsIcon}
+          text="Help and Support"
+          active={5 == active}
+          onClick={() => {
+            setActive(5);
+            router.push("/help");
+          }}
+        />
+        <SidebarItem
+          icon="settings"
+          Icon={LogoutIcon}
+          text="Logout"
+          active={6 == active}
+          onClick={() => {
+            setActive(6);
             router.push("/settings");
           }}
         />
       </div>
-
-      <div className="flex flex-col space-y-4">
-        <SidebarItem
-          icon="logout"
-          Icon={LogoutIcon}
-          text="Logout"
-          active={4 == active}
-          onClick={() => {
-            setActive(4);
-            setCookie("login", false);
-            router.push("/login");
-          }}
-        />
+        
+        {/* bottom part  */}
+      <div className="flex flex-col items-center gap-[24px] absolute h-[193px] w-[196px] left-[54px] top-[705px] mb-[34px] p-[24px] bg-[#E1F2FF] rounded-lg ">
+        <div className="font-inter text-base font-normal leading-tight tracking-normal text-center w-[148px] h-[78px] mb-3">
+        <span className="font-inter text-sm font-normal text-[#4486B8]">Upgrade to Pro and unlock exclusive features to enhance your learning experience today!</span>
+        </div>
+        <div className="bg-[#1F77BA] text-white rounded-md flex flex-row items-center justify-center p-[16px] gap-[10px] w-[95px] h-[43px]">
+        <button>Upgrade</button>
+        </div>
       </div>
     </div>
   );
@@ -73,19 +102,22 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
 const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
   return (
     <div
-      className={`flex w-fit items-center p-4 cursor-pointer text-zinc-500 ${
-        active ? "bg-black rounded-full " : ""
+      className={`flex items-center flex-row py-2 px-[39px] gap-4 w-[304px] h-10 cursor-pointer text-zinc-500 ${
+        active ? "border-r-4 border-blue-500" : ""
       }`}
       onClick={onClick}
     >
       <span
         className={`material-icons-outlined stroke-2  ${
-          active ? "material-icons-round text-white" : ""
+          active ? "material-icons-round text-blue-500 font-[500]" : ""
         }`}
       >
         <Icon />
       </span>
-      {/* <h3 className="font-medium ml-2 text-zinc-700">{text}</h3> */}
+      {/* <h3 className={"font-medium ml-2 text-zinc-700"}>{text}</h3> */}
+      <h3 className={`font-medium ml-2 text-base ${
+          active ? "text-black font-extrabold" : ""
+        }`}>{text}</h3>
     </div>
   );
 };
