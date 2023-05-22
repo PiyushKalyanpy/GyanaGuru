@@ -1,6 +1,6 @@
 import PageHeader from "./PageHeader";
 import HeadingParagraph from "./HeadingParagraph";
-import ButtonWithImage  from "./ButtonWithImage";
+import ButtonWithImage from "./ButtonWithImage";
 import HomeSidebar from "./HomeSidebar";
 import CategoryCard from "./CategoryCard";
 import LandingNav from "./LandingNav";
@@ -17,26 +17,27 @@ import Topbar from "./CoursesComponents/Topbar";
 import Banner from "./CoursesComponents/Banner";
 import CourseCardList from "./CoursesComponents/CourseCardList";
 import CourseDetails from "./CourseDetails";
+import RightSideBar from "./RightSideBar/RightSideBar";
 
 export {
-    PageHeader,
-    WhyChooseUs,
-    LogoWithName,
-    Banner,
-    HeadingParagraph,
-    CourseListSidebar,
-    Topbar,
-    ButtonWithImage,
-    HomeSidebar, 
-    CourseDetails,
-    CategoryCard,
-    CourseCardList, 
-    LandingFooter,
-    LandingNav,
-    OurServices,
-    LandingThreeGrid,
-    LandingContact,
-    HeroSection,
-    LandingThreeSecond,
-    
+  PageHeader,
+  WhyChooseUs,
+  LogoWithName,
+  Banner,
+  HeadingParagraph,
+  CourseListSidebar,
+  Topbar,
+  ButtonWithImage,
+  HomeSidebar,
+  CourseDetails,
+  CategoryCard,
+  CourseCardList,
+  LandingFooter,
+  LandingNav,
+  OurServices,
+  LandingThreeGrid,
+  LandingContact,
+  HeroSection,
+  LandingThreeSecond,
+  RightSideBar,
 };
