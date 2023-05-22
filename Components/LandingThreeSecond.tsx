@@ -37,7 +37,7 @@ const Card01 = () => {
         <span className="felx font-archivo text-6xl font-bold ">India </span>
         <br />
         <span className="felx font-archivo text-3xl text-white/80">
-          through accessable
+          through accessible
         </span>
         <br />
         <span className="felx font-archivo  text-4xl font-bold float-right ">
