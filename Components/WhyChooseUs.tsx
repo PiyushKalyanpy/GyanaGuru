@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const WhyChooseUs = () => {
   return (
-    <div id="whychooseus" className="px-20 mt-40">
-      <h1 className="text-4xl text-center font-semibold font-archivo text-slate-900 p-4 mb-10">{`Why Choose Us`}</h1>
+    <div id="whychooseus" className="px-20 mt-40 dark:bg-zinc-800">
+      <h1 className="text-4xl text-center font-semibold font-archivo text-slate-900 dark:text-zinc-50 p-4 mb-10">{`Why Choose Us`}</h1>
       <div className="grid grid-cols-6  gap-8 w-full items-center">
         <div className="col-span-4 grid grid-cols-3 gap-8 ">
           {WhyChooseUsData.whyChooseUs.map((item, index) => {
@@ -19,7 +19,7 @@ const WhyChooseUs = () => {
         </div>
         <div className="col-span-2 flex justify-self-end">
           <Image
-            className=" -z-20 "
+            className=" "
             src="/images/whychooseus.png"
             alt="Picture of the author"
             width={300}
@@ -37,7 +37,7 @@ const InfoCard = ({ title, description }: any) => {
       {/* <span className=" absolute inline-flex -z-10 mt-2 h-4 w-20 rounded-full bg-seafoam opacity-75"></span> */}
       <div className="space-y-4 ">
         <h3 className="text-2xl font-semibold font-archivo">{title}</h3>
-        <p className="text-black  font-inter ">{description}</p>
+        <p className="text-black dark:text-zinc-50 font-inter ">{description}</p>
       </div>
     </div>
   );

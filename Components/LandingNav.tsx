@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { DarkModeToggle } from "../Components/components";
 
 const LandingNav = () => {
   const router = useRouter();
@@ -12,14 +13,15 @@ const LandingNav = () => {
     router.push("/");
   };
   return (
-    <div className="sticky top-0 z-20 w-full border-b-2 border-white bg-white/30 backdrop-blur-md">
+    <div className="sticky top-0 z-20 w-full border-b-2 border-white bg-white/30 backdrop-blur-md dark:bg-zinc-800 dark:border-zinc-700">
       <div className="flex flex-row items-center justify-between w-full px-20 py-4 ">
         {/* Logo with Title */}
         <div
           className="flex flex-row items-center cursor-pointer"
           onClick={handleClick}
         >
-          <img src="./logo.svg" alt="logo" />
+           <img src="./logo.svg" alt="logo" className="dark:hidden"/>
+          <img src="./logodark.svg" alt="dark mode logo" className="hidden dark:block"/>
           <h1 className="text-lg font-semibold font-archivo ">GyanaGuru</h1>
         </div>
         {/* Nav Links */}
@@ -49,15 +51,20 @@ const LandingNav = () => {
             </div>
           </Link>
         </div>
-        {/* Get Started Button */}
+        {/* Get Started Button and Dark Mode Button*/}
+        <div className="flex flex-row gap-4 items-center">
         <div
           onClick={handleGetStartedClick}
-          className="flex flex-row items-center gap-4 p-1 border-2 border-black rounded-full cursor-pointer"
+          className="flex flex-row items-center gap-4 p-1 border-2 border-black rounded-full cursor-pointer dark:border-zinc-50"
         >
-          <h4 className="ml-2 font-medium">Get Started</h4>
-          <span className="p-2 text-white bg-black rounded-full material-icons">
+          <h4 className="ml-2 font-medium ">Get Started</h4>
+          <span className="p-2 text-white bg-black dark:text-zinc-800 dark:bg-zinc-50  rounded-full material-icons">
             arrow_outward
           </span>
+        </div>
+        <div className="mt-1">
+          <DarkModeToggle />
+        </div>
         </div>
       </div>
     </div>

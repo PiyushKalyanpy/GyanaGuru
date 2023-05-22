@@ -17,6 +17,7 @@ import Topbar from "./CoursesComponents/Topbar";
 import Banner from "./CoursesComponents/Banner";
 import CourseCardList from "./CoursesComponents/CourseCardList";
 import CourseDetails from "./CourseDetails";
+import DarkModeToggle from "./DarkModeToggle";
 
 export {
     PageHeader,
@@ -38,5 +39,6 @@ export {
     LandingContact,
     HeroSection,
     LandingThreeSecond,
+    DarkModeToggle,
     
 };
