@@ -6,7 +6,7 @@ import { TfiArrowRight } from "react-icons/tfi";
 const WhyChooseUs = () => {
   return (
     <div id="whychooseus" className="px-20 py-20 mt-40 bg-zinc-100">
-      <h1 className="text-4xl text-center font-semibold font-archivo text-slate-900 p-4 mb-10">{`Why`} <span className="text-red-600 relative bg-blue-200 rounded-3xl p-2">Choose</span> {`Us?`}</h1>
+      <h1 className="text-4xl text-center font-semibold font-archivo text-slate-900 p-4 mb-10">{`Why`} <span className="relative bg-neutral-900 rounded-3xl p-2 text-white">Choose</span> {`Us?`}</h1>
       <div className="flex w-full">
         <div className="flex w-full items-center justify-center gap-8 m-full">
           {WhyChooseUsData.whyChooseUs.map((item, index) => {
