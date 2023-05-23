@@ -36,9 +36,13 @@ This repository contains the source code for the GyanaGuru website, an online le
 
 # Getting Started
 ## How To SetUp
-- Clone This Project
+- Fork The Repo
 ```
-you can do this by clicking on the green color button labelled as "Code"
+you can do this by clicking on the green coloured fork button
+```
+- Clone your forked repo
+```
+$ git clone
 ```
 - Go to directory
 ```
