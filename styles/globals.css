@@ -55,3 +55,54 @@ p, a, li, span, input, textarea, button {
 iframe{
   background-color: #fff;
 }
+
+.pad{
+  @media only screen and (max-width: 1240px){
+    flex-direction: column;
+  }
+  
+}
+
+.card{
+  transition: transform 0.3s;
+}
+
+.card:hover{
+  transform: scale(1.1);
+  /* z-index: 10; */
+
+margin-left: 15px;
+margin-right: 15px; 
+}
+
+.button{
+  padding: 11px;
+  width: 159px;
+  padding: 12px;
+
+}
+.button:hover{
+  color: white;
+  background-color: black;
+}
+
+.button:hover span{
+  background-color: white;
+  color: black;
+  animation-name: arr;
+  animation-duration: 0.5s;
+}
+
+@keyframes arr{
+    from{
+      right: 195px;
+    }
+
+    to{
+      right: 88px;
+    }
+}
+.arr{
+  position: absolute;
+  right: 85px;
+}

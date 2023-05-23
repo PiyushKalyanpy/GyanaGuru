@@ -43,10 +43,10 @@ const LandingNav = () => {
         {/* Get Started Button */}
         <div
           onClick={handleGetStartedClick}
-          className="flex cursor-pointer flex-row gap-4 border-2 border-black p-1 rounded-full items-center"
+          className="button flex cursor-pointer flex-row gap-4 border-2 border-black p-1 rounded-full items-center"
         >
           <h4 className="font-medium ml-2">Get Started</h4>
-          <span className="material-icons bg-black text-white p-2 rounded-full">
+          <span className="arr material-icons bg-black text-white p-2 rounded-full">
             arrow_outward
           </span>
         </div>
