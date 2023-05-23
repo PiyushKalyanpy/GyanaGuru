@@ -55,3 +55,6 @@ p, a, li, span, input, textarea, button {
 iframe{
   background-color: #fff;
 }
+.copyright-section {
+  background: linear-gradient(to right, rgb(121, 220, 247),rgb(248, 215, 245));
+}

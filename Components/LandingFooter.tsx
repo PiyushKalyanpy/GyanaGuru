@@ -5,13 +5,13 @@ const LandingFooter = () => {
     const hoverEffect = "flex items-center transition ease-out duration-200 hover:text-black";
     return (
 
- <footer className="bg-gray-100">
+ <footer className="copyright-section">
      
 <div className="w-80vw mx-auto max-w-1200px">
 {/* <Image width={40} height={40} src="./logo.svg" alt="logo" /> */}
 <div className="flex justify-around flex-wrap">
     
-    <div className="mb-6 mt-8">
+    <div className="mt-10">
         <div className="font-bold text-lg mb-3 text-black text-opacity-90">Quick Links</div>
         <ul className="list-none m-0 p-0">
                <li className="leading-8 text-base text-black text-opacity-80">
@@ -32,7 +32,7 @@ const LandingFooter = () => {
         </ul>
         </div>
         
-        <div className="mb-24 mt-8">
+        <div className="mt-10">
            <div className="font-bold text-lg mb-3 text-black text-opacity-90">Community</div>
            <ul>
                 <li className="leading-8 text-base text-black text-opacity-80">
@@ -53,7 +53,7 @@ const LandingFooter = () => {
              </ul>
         </div>
         
-        <div className="mb-24 mt-8">
+        <div className="mt-10">
            <div className="font-bold text-lg mb-3 text-black text-opacity-90">Help</div>
            <ul>
                 <li className="leading-8 text-base text-black text-opacity-80">
@@ -69,12 +69,12 @@ const LandingFooter = () => {
         </div>
         </div>
 </div>
-<div className="flex flex-row justify-center w-full border-y-2 items-center gap-8 border-black  ">
-            <div className="flex flex-row items-center">
-          <Image width={40} height={40} src="./logo.svg" alt="logo" />
-          <h1 className="font-archivo font-semibold text-lg "><a href="#">GyanaGuru</a></h1>
+<div className="flex flex-col justify-center w-full items-center gap-6">
+            <div className="flex flex-row items-center mt-6">
+          <Image width={60} height={60} src="./logo.svg" alt="logo" />
+          <h1 className="font-archivo font-bold text-2xl "><a href="#">GyanaGuru</a></h1>
         </div>
-        <p>© 2023 Gyana Guru. All rights reserved.</p>
+        <p className="mb-8 items-center">© 2023 Gyana Guru. All rights reserved.</p>
         </div>
  </footer>
  
