@@ -55,3 +55,10 @@ p, a, li, span, input, textarea, button {
 iframe{
   background-color: #fff;
 }
+
+.pad{
+  @media only screen and (max-width: 1240px){
+    flex-direction: column;
+  }
+  
+}
