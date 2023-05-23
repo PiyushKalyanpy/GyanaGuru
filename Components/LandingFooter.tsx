@@ -1,8 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import {AiFillGithub ,AiFillTwitterCircle ,AiFillLinkedin ,AiFillInstagram,AiFillFacebook} from "react-icons/ai"
+
 const LandingFooter = () => {
     const hoverEffect = "flex items-center transition ease-out duration-200 hover:text-black";
+    
+    const currentYear = new Date().getFullYear();
+    
     return (
 
  <footer className="bg-gray-100">
@@ -74,7 +78,7 @@ const LandingFooter = () => {
           <Image width={40} height={40} src="./logo.svg" alt="logo" />
           <h1 className="font-archivo font-semibold text-lg "><a href="#">GyanaGuru</a></h1>
         </div>
-        <p>© 2023 Gyana Guru. All rights reserved.</p>
+        <p>© {currentYear} Gyana Guru. All rights reserved.</p>
         </div>
  </footer>
  
