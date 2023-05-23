@@ -53,7 +53,7 @@ const OurServices = () => {
           </div>
           <div className="col-span-4 flex flex-col p-10 space-y-8 mx-auto z-10">
             <div>
-              <h2 className="text-3xl  font-archivo text-slate-900 ">{`Sucess doesn't have to be hard`}</h2>
+              <h2 className="text-3xl  font-archivo text-slate-900 ">{`Success doesn't have to be hard`}</h2>
               <h2 className="text-3xl font-bold font-archivo text-slate-900 ">{`We make it easy.`}</h2>
             </div>
             <h2 className="text-xl font-archivo text-zinc-700 ">{`Get all types of courses`}</h2>
