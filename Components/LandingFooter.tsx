@@ -15,19 +15,19 @@ const LandingFooter = () => {
         <div className="font-bold text-lg mb-3 text-black text-opacity-90">Quick Links</div>
         <ul className="list-none m-0 p-0">
                <li className="leading-8 text-base text-black text-opacity-80">
-                <Link href="#" className={hoverEffect}>Home</Link>
+                <Link href="/" className={hoverEffect}>Home</Link>
                 </li>
                 <li className="leading-8 text-base text-black text-opacity-80">
-                <Link href="#" className={hoverEffect}>Courses</Link>
+                <Link href="/" className={hoverEffect}>Courses</Link>
                 </li>
                 <li className="leading-8 text-base text-black text-opacity-80">
-                <Link href="#" className={hoverEffect}>Our Services</Link>
+                <Link href="/OurServices" className={hoverEffect}>Our Services</Link>
                 </li>
                 <li className="leading-8 text-base text-black text-opacity-80">
-                <Link href="#" className={hoverEffect}>Benefits</Link>
+                <Link href="/" className={hoverEffect}>Benefits</Link>
                 </li>
                 <li className="leading-8 text-base text-black text-opacity-80">
-                <Link href="#" className={hoverEffect}>FAQ</Link>
+                <Link href="/faq" className={hoverEffect}>FAQ</Link>
                 </li>
         </ul>
         </div>
