@@ -1,3 +1,5 @@
+<div id="top"></div>
+
 
 # GyanaGuru
 
@@ -80,4 +82,8 @@ A hall of fame for those who have contributed to this repo. Thanks once again fo
 </a>
 
 # Support
-Do give us a ⭐️ for showing your support.......
+Do give us a ⭐️ for showing your support...............
+
+
+<p align="right">(<a href="#top">Back to top</a>)</p>
+
