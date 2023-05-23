@@ -7,7 +7,7 @@ You can checkout our website [here](https://gyanaguru.vercel.app/)
 
 This repository contains the source code for the GyanaGuru website.
 =======
-=======
+
 
 <div align="center">
 <img src="https://forthebadge.com/images/badges/built-with-love.svg" />
@@ -69,7 +69,7 @@ When you are ready to start work on an issue:
 
 # [Code of Conduct](CODE%20OF%20CONDUCT.md)
 # License
-Brandhive is licensed under the MIT License - see the [License File](LICENSE) for details.
+Gyanaguru is licensed under the MIT License - see the [License File](LICENSE) for details.
 
 # Contributors
 A hall of fame for those who have contributed to this repo. Thanks once again for your valuable contributions. Kudos !!!
