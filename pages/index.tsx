@@ -47,7 +47,6 @@ export default function Home() {
 
   return (
     <>
-      
       <Head>
         <title>GyanaGuru</title>
 
@@ -70,7 +69,6 @@ export default function Home() {
         <HeroSection />
         <LandingThreeGrid />
         <OurServices />
-       
 
         <WhyChooseUs />
         <div></div>

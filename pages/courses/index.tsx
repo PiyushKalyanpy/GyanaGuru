@@ -7,7 +7,6 @@ import {
 import CourseData from "../../data/course_list.json";
 import React, { useContext, useEffect, useRef } from "react";
 
-
 const Courses = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -54,7 +53,7 @@ const Courses = () => {
           {/* topbar here */}
           <Topbar />
 
-          <Categories  />
+          <Categories />
           {/* div for Main content */}
           <div className="flex w-full h-full overflow-y-scroll">
             {/* main */}
