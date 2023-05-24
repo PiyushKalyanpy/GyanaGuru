@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const LandingContact = () => {
   return (
-    <div className="w-full h-fit p-20 dark:bg-zinc-800">
+    <div className="w-full h-fit p-20 dark:bg-neutral-950">
       <div className="grid grid-cols-6  gap-8 w-full items-center">
         <div className="col-span-2 flex items-center">
           <Image

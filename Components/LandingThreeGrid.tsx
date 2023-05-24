@@ -31,7 +31,7 @@ const LandingThreeGrid = () => {
     });
   }, []);
   return (
-    <div className="grid grid-cols-11 h-96 px-20  gap-4 mb-20 dark:bg-zinc-800">
+    <div className="grid grid-cols-11 h-96 px-20  gap-4 mb-20 dark:bg-neutral-950">
       {/* Showcase 1 */}
       <div className="transform translate-x-full opacity-0 transition duration-500 ease-in-out flex  col-span-4 bg-[url('/images/landing0101.jpg')] bg-orange-50 rounded-3xl ">
         <div className="flex flex-col justify-end items-end">

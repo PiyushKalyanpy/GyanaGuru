@@ -9,9 +9,12 @@ const Dashboard = () => {
       </div>
      
       <div className="flex col-span-8 w-full h-full bg-gray-100 ">
-        {/* button to contribute to new dashboard design */}
+        {/* button to contribute to n
+        ew dashboard design */}
+        
         <button
-          className="flex m-auto shadow-xl shadow-violet-200  text-white bg-violet-500  rounded-full p-4 hover:bg-violet-600"
+        
+        className="flex m-auto shadow-xl shadow-violet-200  text-white bg-violet-500  rounded-full p-4 hover:bg-violet-600"
           onClick={() => {
             window.open(
               "https://github.com/PiyushKalyanpy/GyanaGuru/issues/48",

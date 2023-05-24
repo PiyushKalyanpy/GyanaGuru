@@ -34,8 +34,8 @@ const Login = () => {
     <div className="absolute right-14 top-5">
     <DarkModeToggle/>
     </div>
-    <div className="flex w-full h-screen bg-gray-200 dark:bg-zinc-800">
-      <div className="flex flex-col w-10/12 md:w-8/12 lg:w-1/4 bg-white rounded-lg h-fit m-auto min-h-1/4 p-4 dark:bg-zinc-700 ">
+    <div className="flex w-full h-screen bg-gray-200 dark:bg-neutral-950">
+      <div className="flex flex-col w-10/12 md:w-8/12 lg:w-1/4 bg-white rounded-lg h-fit m-auto min-h-1/4 p-4 dark:bg-neutral-900 ">
         <div className="flex flex-col space-y-8 items-center ">
           {/* logo with title */}
           <div
@@ -63,9 +63,9 @@ const Login = () => {
 
             {/* make or with divider */}
             <div className="flex flex-row space-x-4 my-4 items-center">
-              <hr className="w-full border-gray-300" />
+              <hr className="w-full border-neutral-600" />
               <h4 className="font-medium text-zinc-500 dark:text-zinc-50">or</h4>
-              <hr className="w-full border-gray-300" /> 
+              <hr className="w-full border-neutral-600" /> 
             </div>
 
             {/* login with email and password */}
@@ -75,7 +75,7 @@ const Login = () => {
                 placeholder="Email"
                 value={Local.email}
                 onChange={(e) => setUser({ ...Local, email: e.target.value })}
-                className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:border-2 focus:border-black dark:bg-zinc-700 dark:placeholder:text-zinc-50" 
+                className="border border-neutral-600 rounded-lg p-2 focus:outline-none focus:border-2 focus:border-black dark:bg-neutral-900 dark:placeholder:text-zinc-50" 
               />
               <div className="flex w-full space-x-2">
                 <input
@@ -85,10 +85,10 @@ const Login = () => {
                   onChange={(e) =>
                     setUser({ ...Local, password: e.target.value })
                   }
-                  className="w-full border focus:outline-none focus:border-2 focus:border-black  dark:bg-zinc-700  border-gray-300 rounded-lg p-2 dark:placeholder:text-zinc-50"
+                  className="w-full border focus:outline-none focus:border-2 focus:border-black  dark:bg-neutral-900  border-neutral-600 rounded-lg p-2 dark:placeholder:text-zinc-50"
                 />
                 <div
-                  className="flex items-center text-zinc-500 border focus:outline-none focus:border-2 focus:border-black border-gray-300 rounded-lg p-2  "
+                  className="flex items-center text-zinc-500 border focus:outline-none focus:border-2 focus:border-black border-neutral-600 rounded-lg p-2  "
                   onClick={() => showPasswordToggle()}
                 >
                   <span className="material-icons-outlined dark:text-zinc-300 ">
@@ -107,7 +107,7 @@ const Login = () => {
               onClick={() => continueToHomePage()}
               className="flex flex-row space-x-4 py-4 transition hover:scale-[1.02]"
             >
-              <button className="w-full border focus:outline-none focus:border-2 focus:border-black  dark:bg-zinc-700  border-gray-300 rounded-lg p-2 dark:placeholder:text-white bg-black text-white">
+              <button className="w-full border focus:outline-none focus:border-2 focus:border-black  dark:bg-white dark:text-black  border-neutral-600 rounded-lg p-2 dark:placeholder:text-white bg-black text-white">
                 Login
               </button>
             </div>

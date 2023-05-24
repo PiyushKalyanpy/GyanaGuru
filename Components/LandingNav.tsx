@@ -38,7 +38,7 @@ const LandingNav = () => {
 
   
   return (
-    <div className="sticky top-0 z-20 w-full border-b-2 border-white bg-white/30 backdrop-blur-md dark:bg-zinc-800 dark:border-zinc-700">
+    <div className="sticky top-0 z-20 w-full border-b-2 border-white bg-white/30 backdrop-blur-md dark:bg-neutral-950/50 dark:border-zinc-700">
       <div className="flex flex-row items-center justify-between w-full px-20 py-4 ">
         {/* Logo with Title */}
         <div

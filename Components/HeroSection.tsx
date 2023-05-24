@@ -42,7 +42,7 @@ const HeroSection = () => {
 
   return (
     <div>
-      <div className="flex flex-row items-center justify-center w-full h-screen p-12 px-20 pt-40 bg-white dark:bg-zinc-800">
+      <div className="flex flex-row items-center justify-center w-full h-screen p-12 px-20 pt-40 bg-white dark:bg-neutral-950">
 
       
       

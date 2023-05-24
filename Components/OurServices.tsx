@@ -29,7 +29,7 @@ const OurServices = () => {
   }, []);
 
   return (
-    <div id="ourservices" className="relative  px-20 dark:bg-zinc-800">
+    <div id="ourservices" className="relative  px-20 dark:bg-neutral-950">
       <Image
         className="absolute -top-20  right-0 w-full"
         src="/images/strings.svg"

@@ -1,4 +1,5 @@
 // components/FAQ.js
+
 import { useState } from "react";
 import { DarkModeToggle } from "../Components/components";
 
