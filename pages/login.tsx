@@ -1,18 +1,36 @@
 import { ButtonWithImage } from "@/Components/components";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { setCookie, getCookie } from "cookies-next";
+import { LoginWithGooglePopUp, auth } from "@/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 import { DarkModeToggle } from "../Components/components";
 
 const Login = () => {
   const router = useRouter();
+
+  // user object from useAuthState
+  const [user, _] = useAuthState(auth);
 
   const [Local, setUser] = useState({
     email: "",
     password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
+
+  // watch the user object changes
+  useEffect(() => {
+    if (user) {
+      setCookie("login", true);
+      router.push("/dashboard");
+    }
+  }, [user]);
+
+  // login with google
+  const loginWithGoogle = () => LoginWithGooglePopUp();
+
   const showPasswordToggle = () => {
     setShowPassword(!showPassword);
   };
@@ -30,6 +48,7 @@ const Login = () => {
   
 
   return (
+
     <>
     <div className="absolute right-14 top-5">
     <DarkModeToggle/>
@@ -59,6 +78,7 @@ const Login = () => {
             <ButtonWithImage
               buttonName="Login with Google"
               icon="/images/google.svg"
+              onClick={loginWithGoogle}
             />
 
             {/* make or with divider */}
