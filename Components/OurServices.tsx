@@ -29,9 +29,9 @@ const OurServices = () => {
   }, []);
 
   return (
-    <div id="ourservices" className="relative  px-20">
+    <div id="ourservices" className="relative  px-20 dark:bg-neutral-950">
       <Image
-        className="absolute -top-20 -z-20 right-0 w-full"
+        className="absolute -top-20  right-0 w-full"
         src="/images/strings.svg"
         alt="Picture of the author"
         width={900}
@@ -39,12 +39,12 @@ const OurServices = () => {
       />
 
       <div className="flex flex-col justify-center items-center ">
-        <h1 className="text-4xl font-semibold font-archivo text-slate-900 p-4 my-20">{`Our Services`}</h1>
+        <h1 className="text-4xl font-semibold font-archivo text-slate-900 dark:text-zinc-50 p-4 my-20">{`Our Services`}</h1>
 
         <div className="grid grid-cols-6  gap-8 w-full items-center">
           <div className="col-span-2 flex items-center">
             <Image
-              className="m-auto -z-20 select-none"
+              className="m-auto select-none"
               src="/images/ourservices.png"
               alt="Picture of the author"
               width={400}
@@ -53,10 +53,10 @@ const OurServices = () => {
           </div>
           <div className="col-span-4 flex flex-col p-10 space-y-8 mx-auto z-10">
             <div>
-              <h2 className="text-3xl  font-archivo text-slate-900 ">{`Success doesn't have to be hard`}</h2>
-              <h2 className="text-3xl font-bold font-archivo text-slate-900 ">{`We make it easy.`}</h2>
+              <h2 className="text-3xl  font-archivo text-slate-900 dark:text-zinc-50">{`Success doesn't have to be hard`}</h2>
+              <h2 className="text-3xl font-bold font-archivo text-slate-900 dark:text-zinc-50">{`We make it easy.`}</h2>
             </div>
-            <h2 className="text-xl font-archivo text-zinc-700 ">{`Get all types of courses`}</h2>
+            <h2 className="text-xl font-archivo text-zinc-700 dark:text-zinc-100">{`Get all types of courses`}</h2>
             <div className="flex flex-wrap w-full gap-4 ">
 
               {coursestoshow.map((course, index) => {
@@ -83,7 +83,7 @@ const CourseCard = ({ courseName }: any) => {
 
 const Show = ({ courseName, onclick }: any) => {
   return (
-    <div onClick={onclick} className="font-medium bg-blue-200 border-zinc-200 rounded-full cursor-pointer px-4 py-2">
+    <div onClick={onclick} className="font-medium bg-blue-200 border-zinc-200 rounded-full cursor-pointer px-4 py-2 dark:bg-blue-600">
       <h4 className="font-inter">{courseName}</h4>
     </div>
   );
