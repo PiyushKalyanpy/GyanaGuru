@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const LandingThreeSecond = () => {
   return (
-    <div className="grid grid-cols-10 w-full h-[580px] gap-4 mb-20 mt-40">
+    <div className="grid grid-cols-10 w-full h-[580px] gap-4 mb-20 mt-40 dark:bg-neutral-950">
       {/* Showcase 01 */}
       <div className="flex  items-center col-span-3  bg-cover bg-[url('/images/landing0201.png')]">
         <Card01 />
