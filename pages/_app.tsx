@@ -3,9 +3,11 @@ import type { AppProps } from "next/app";
 import { Providers } from "@/GlobalRedux/provider";
 import "material-icons/iconfont/material-icons.css";
 import Script from "next/script";
+import { ThemeProvider } from "next-themes";
 
 function App({ Component, pageProps }: AppProps) {
   return (
+    <ThemeProvider attribute="class">
       <Providers>
       <Script
         strategy="lazyOnload"
@@ -21,6 +23,7 @@ function App({ Component, pageProps }: AppProps) {
       </Script>
         <Component {...pageProps} />
       </Providers>
+      </ThemeProvider>
   );
 }
 
