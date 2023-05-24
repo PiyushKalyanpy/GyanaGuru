@@ -62,7 +62,8 @@ export default function Home() {
         </Head>
       </Head>
 
-      <main className="hidden lg:block h-fit w-screen overflow-hidden gap-y-10 ">
+      <main className="hidden lg:block h-fit w-screen overflow-hidden gap-y-10 dark:bg-neutral-950">
+
 
         <div className="fixed right-0 top-40 z-10">
         <ConnectWithMe/>
@@ -90,11 +91,11 @@ export default function Home() {
 }
 const MessageComponnent = () => {
   return (
-    <div className="left-0 z-40 w-full p-4 transition bg-gray-100 ">
+    <div className="left-0 z-40 w-full p-4 transition bg-gray-100 dark:bg-neutral-900/70 backdrop-blur-2xl">
       <div className="overflow-hidden marquee">
-        <span className="flex flex-row space-x-2 text-xl text-black font-archivo">
+        <span className="flex flex-row space-x-2 text-xl text-black font-archivo dark:text-zinc-100">
           <a
-            className="text-blue-600 "
+            className="text-blue-600 dark:text-blue-400 "
             href="https://github.com/PiyushKalyanpy/GyanaGuru"
             target="_blank"
           >
