@@ -17,21 +17,24 @@ const LandingContact = () => {
           <div className="w-3/4">
             <h2 className="text-3xl  font-archivo text-slate-900 dark:text-zinc-100">{`Contact Us`}</h2>
             <h2 className=" font-archivo text-zinc-700 dark:text-zinc-100">{`Have questions or feedback? We'd love to hear from you. Please fill out the form below and we'll get back to you as soon as possible.`}</h2>
-            <form action="https://formsubmit.co/email@gmail.com" method="POST">
+            <form action="https://formsubmit.co/kalyanpiyushp@gmail.com" method="POST"> {/*use your emailhere */}
+
               <input
                 className="w-full bg-champange h-12 mt-4 p-4 outline-none focus:outline-orange-200 text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50 "
                 type="text"
                 placeholder="Name"
+                required
               />
               <input
                 className="w-full bg-champange h-12 mt-4 p-4 outline-none focus:outline-orange-200 text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50 "
-                type="text"
+                type="email"
                 placeholder="E-mail"
                 required
               />
               <textarea
-                className="w-full bg-champange h-30 mt-4 p-4 outline-none focus:outline-orange-200 text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50"
-                placeholder="Message.."
+                className="w-full bg-champange h-40 mt-4 p-4 outline-none focus:outline-orange-200 text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50 resize-none"
+                placeholder="Message"
+                required
               />
               <button
                 className="w-20% bg-champange h-12 mt-4 p-2 outline-none hover:outline-orange-200 transition text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50 hover:scale-[1.04]"
