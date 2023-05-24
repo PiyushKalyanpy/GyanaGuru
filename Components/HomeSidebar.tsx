@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { LogoWithName } from "./components";
 import { setCookie } from "cookies-next";
-import {signOut } from 'firebase/auth'
-import { auth } from "../database/firebase";
+import Image from "next/image";
 
 const HomeSidebar = ({ pageNumber = 1 }: any) => {
   const router = useRouter();
@@ -17,6 +15,11 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
     <div className="fixed top-0 flex  flex-col  p-4 w-fit h-screen justify-between ">
       {/* <LogoWithName width={40} height={40} /> */}
       <div className="flex flex-col space-y-4">
+        {/* logo */}
+        <div onClick={() => router.push('/')} className="flex cursor-pointer flex-row items-center space-x-4 ">
+          <Image src="/logo.svg" alt="logo" width={50} height={40} />
+        </div>
+
         <SidebarItem
           icon="home"
           Icon={DashboardIcon}
@@ -59,7 +62,6 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
           onClick={() => {
             setActive(4);
             setCookie("login", false);
-            signOut(auth)
             router.push("/login");
           }}
         />

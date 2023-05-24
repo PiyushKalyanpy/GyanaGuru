@@ -7,8 +7,6 @@ import {
 import CourseData from "../../data/course_list.json";
 import React, { useContext, useEffect, useRef } from "react";
 
-import { CoursesContext } from "@/context/CoursesContext";
-
 const Courses = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -42,8 +40,6 @@ const Courses = () => {
       container.scrollLeft = scrollLeft - walk;
     });
   }, []);
-  const { courses, categories }: any = useContext(CoursesContext);
-  console.log("courses", courses);
 
   return (
     <div>
@@ -57,7 +53,7 @@ const Courses = () => {
           {/* topbar here */}
           <Topbar />
 
-          <Categories data={categories} />
+          <Categories />
           {/* div for Main content */}
           <div className="flex w-full h-full overflow-y-scroll">
             {/* main */}
@@ -67,7 +63,7 @@ const Courses = () => {
 
               {/* <CourseCardList heading="Popular Courses" data={CourseData} /> */}
               {/* <CourseCardList heading="Web Development" data={CourseData} /> */}
-              <CourseCardList heading="Web Development" data={courses} />
+              {/* <CourseCardList heading="Web Development" data={CourseData} /> */}
             </div>
             {/* right sidebar */}
             <div className="flex w-1/4 p-4 rounded-3xl">
