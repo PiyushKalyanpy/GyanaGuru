@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { useContext } from "react";
-import { CoursesContext } from "./context/CoursesContext";
 
 export function middleware(request: NextRequest) {
 

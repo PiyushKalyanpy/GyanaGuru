@@ -1,6 +1,11 @@
 import { ButtonWithImage } from "@/Components/components";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import {
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "firebase/auth";
 
 const SignUp = () => {
   const router = useRouter();
@@ -69,7 +74,6 @@ const SignUp = () => {
                   }
                   className="w-full border focus:outline-none focus:border-2 focus:border-black border-gray-300 rounded-lg p-2"
                 />
-                
               </div>
               {/* confirm password */}
               <div className="flex w-full space-x-2">
@@ -91,14 +95,12 @@ const SignUp = () => {
                   </span>
                 </div>
               </div>
-
-              
             </div>
 
             {/* login button */}
             <div className="flex flex-row space-x-4 py-4 transition hover:scale-[1.02]">
               <button className="bg-black text-white rounded-lg p-2 w-full">
-                Sign Up 
+                Sign Up
               </button>
             </div>
 

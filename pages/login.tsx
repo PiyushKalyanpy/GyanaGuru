@@ -3,10 +3,8 @@ import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { setCookie, getCookie } from "cookies-next";
-import { CoursesContext } from "../context/CoursesContext";
 
 const Login = () => {
-  const { loginUser, logoutUser, user }:any = useContext(CoursesContext);
   const router = useRouter();
 
   const [Local, setUser] = useState({
@@ -26,13 +24,6 @@ const Login = () => {
       router.push("/dashboard");
     }
   };
-
-  console.log(user);
-  if(user) {
-    setCookie("login", true);
-    router.push("/dashboard")
-  }
-  
 
   return (
     <div className="flex w-full h-screen bg-gray-200 ">
@@ -57,7 +48,6 @@ const Login = () => {
           {/* login form */}
           <div className="flex flex-col space-y-4 w-full mx-4 ">
             <ButtonWithImage
-              onClick={() => loginUser()}
               buttonName="Login with Google"
               icon="/images/google.svg"
             />
@@ -135,6 +125,12 @@ const Login = () => {
         <p className="text-center m-auto font-archivo font-light text-3xl pt-6 text-zinc-300">
           Under Construction
         </p>
+
+        <div className="text-black mt-10 ">
+          ------ Test emails and password ------
+          <p className="m-4">Email : abc@pk01</p>
+          <p>Password : 5258897</p>
+        </div>
       </div>
 
       {/* test data end */}
