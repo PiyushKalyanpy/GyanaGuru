@@ -28,7 +28,7 @@ const SignUp = () => {
   };
 
   const warning=()=>{
-    toast.warn('Please Complete all the fields', {
+    toast.warn('Please Complete all fields', {
       position: "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,
