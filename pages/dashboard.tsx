@@ -7,10 +7,8 @@ const Dashboard = () => {
       <div className="col-span-1">
         <HomeSidebar pageNumber={1} />
       </div>
-      <div className="col-start-4 col-end-12">
-        <RightSideBar />
-       </div>
-      <div className="flex col-span-7 w-full h-full ">
+     
+      <div className="flex col-span-8 w-full h-full bg-gray-100 ">
         {/* button to contribute to new dashboard design */}
         <button
           className="flex m-auto shadow-xl shadow-violet-200  text-white bg-violet-500  rounded-full p-4 hover:bg-violet-600"
@@ -24,6 +22,9 @@ const Dashboard = () => {
           🤝 Contribute to new dashboard design
         </button>
       </div>
+       <div className="col-span-3">
+        <RightSideBar />
+       </div>
     </div>
   );
 };
