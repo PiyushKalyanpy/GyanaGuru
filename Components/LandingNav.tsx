@@ -6,12 +6,37 @@ const LandingNav = () => {
   const router = useRouter();
   const navLinkStyle =
     "font-archivo relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:rounded-full after:duration-500 after:origin-center";
-  const handleGetStartedClick = () => {
+  
+    const handleGetStartedClick = () => {
     router.push("/login");
   };
+  
   const handleClick = () => {
     router.push("/");
   };
+  
+  const handleCoursesClick = () => {
+    const courseSection = document.getElementById("courses");
+    if (courseSection) {
+      courseSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleOurServicesClick = () => {
+    const ourservicesSection = document.getElementById("ourservices");
+    if (ourservicesSection) {
+      ourservicesSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleBenefitsClick = () => {
+    const benefitsSection = document.getElementById("whychooseus");
+    if (benefitsSection) {
+      benefitsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  
   return (
     <div className="sticky top-0 z-20 w-full border-b-2 border-white bg-white/30 backdrop-blur-md dark:bg-zinc-800 dark:border-zinc-700">
       <div className="flex flex-row items-center justify-between w-full px-20 py-4 ">
@@ -29,13 +54,13 @@ const LandingNav = () => {
           <Link className={navLinkStyle} href="#">
             Home
           </Link>
-          <Link className={navLinkStyle} href="#">
+          <Link className={navLinkStyle} href="#" onClick={handleCoursesClick}>
             Courses
           </Link>
-          <Link className={navLinkStyle} href="#">
+          <Link className={navLinkStyle} href="#ourservices" onClick={handleOurServicesClick}>
             Our Services
           </Link>
-          <Link className={navLinkStyle} href="#">
+          <Link className={navLinkStyle} href="#benefits" onClick={handleBenefitsClick}>
             Benefits
           </Link>
           <Link className={navLinkStyle} href="/faq">
