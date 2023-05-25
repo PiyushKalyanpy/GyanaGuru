@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { setCookie } from "cookies-next";
 import Image from "next/image";
+import { LogoutFromGoogleAuth } from "@/firebase";
 
 const HomeSidebar = ({ pageNumber = 1 }: any) => {
   const router = useRouter();
@@ -11,12 +12,22 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
     setActive(pageNumber);
   }, [pageNumber]);
 
+  const logOut = () => {
+    LogoutFromGoogleAuth();
+    setActive(4);
+    setCookie("login", false);
+    router.push("/login");
+  };
+
   return (
     <div className="fixed top-0 flex  flex-col  p-4 w-fit h-screen justify-between ">
       {/* <LogoWithName width={40} height={40} /> */}
       <div className="flex flex-col space-y-4">
         {/* logo */}
-        <div onClick={() => router.push('/')} className="flex cursor-pointer flex-row items-center space-x-4 ">
+        <div
+          onClick={() => router.push("/")}
+          className="flex cursor-pointer flex-row items-center space-x-4 "
+        >
           <Image src="/logo.svg" alt="logo" width={50} height={40} />
         </div>
 
@@ -59,11 +70,7 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
           Icon={LogoutIcon}
           text="Logout"
           active={4 == active}
-          onClick={() => {
-            setActive(4);
-            setCookie("login", false);
-            router.push("/login");
-          }}
+          onClick={logOut}
         />
       </div>
     </div>

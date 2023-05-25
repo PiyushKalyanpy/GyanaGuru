@@ -1,0 +1,33 @@
+name: Deploy Preview
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Authenticate with Vercel
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel_token: ${{ secrets.VERCEL_TOKEN }}
+          vercel_project_id: ${{ secrets.VERCEL_PROJECT_ID }}
+      
+      - name: Build application
+        run: npm run build
+      
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel_token: ${{ secrets.VERCEL_TOKEN }}
+          vercel_project_id: ${{ secrets.VERCEL_PROJECT_ID }}
+          args: --prod
