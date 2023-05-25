@@ -79,6 +79,7 @@ const HeroSection = () => {
                 <span className="inline-flex bg-black "></span>
 
                 <h4 className="text-xl  font-archivo">Explore Courses</h4>
+                <span className="inline-flex bg-black "></span>
               </div>
             </div>
           </div>
