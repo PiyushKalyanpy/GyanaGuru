@@ -1,14 +1,20 @@
 import { ButtonWithImage } from "@/Components/components";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { setCookie, getCookie } from "cookies-next";
+import { LoginWithGooglePopUp, auth } from "@/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 import { DarkModeToggle } from "../Components/components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const router = useRouter();
+
+  // user object from useAuthState
+  const [user, _] = useAuthState(auth);
 
   const [Local, setUser] = useState({
     email: "",
@@ -42,6 +48,18 @@ const Login = () => {
   }
 
   const [showPassword, setShowPassword] = useState(false);
+
+  // watch the user object changes
+  useEffect(() => {
+    if (user) {
+      setCookie("login", true);
+      router.push("/dashboard");
+    }
+  }, [user]);
+
+  // login with google
+  const loginWithGoogle = () => LoginWithGooglePopUp();
+
   const showPasswordToggle = () => {
     setShowPassword(!showPassword);
   };
@@ -74,8 +92,7 @@ const Login = () => {
     });
   };
 
-  return (
-    <>
+  return (<>
       <div className="absolute right-14 top-5">
         <ToastContainer />
         <DarkModeToggle />
@@ -102,8 +119,29 @@ const Login = () => {
                 height={40}
                 className="hidden dark:block"
               />
-
               <h1 className="text-md font-semibold ">GyanaGuru</h1>
+            <h1 className="text-md font-semibold ">GyanaGuru</h1>
+          </div>
+
+          {/* login heading and text */}
+          <div className="flex w-full px-2 flex-col space-y-2">
+            <h3 className="text-3xl font-medium ">Login</h3>
+            <h4 className="flex">Welcome to the login page of Gyana Guru.</h4>
+          </div>
+
+          {/* login form */}
+          <div className="flex flex-col space-y-4 w-full mx-4 ">
+            <ButtonWithImage
+              buttonName="Login with Google"
+              icon="/images/google.svg"
+              onClick={loginWithGoogle}
+            />
+
+            {/* make or with divider */}
+            <div className="flex flex-row space-x-4 my-4 items-center">
+              <hr className="w-full border-neutral-600" />
+              <h4 className="font-medium text-zinc-500 dark:text-zinc-50">or</h4>
+              <hr className="w-full border-neutral-600" /> 
             </div>
 
             {/* login heading and text */}
@@ -220,6 +258,7 @@ const Login = () => {
         </div>
 
         {/* test data end */}
+      </div>
       </div>
     </>
   );
