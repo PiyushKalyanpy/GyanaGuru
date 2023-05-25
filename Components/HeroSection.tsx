@@ -47,7 +47,7 @@ const HeroSection = () => {
           <h1 className="text-black text-8xl w-fit font-archivo">
             Revolutionizing Education in India
           </h1>
-          <div className="pad flex flex-row items-start gap-4 mt-10">
+          <div className="flex flex-row items-start gap-4 mt-10 max-xl:flex-col ">
             <h2 className="text-2xl text-zinc-600 ">
               Personalized learning for
             </h2>
