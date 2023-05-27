@@ -70,7 +70,7 @@ export default function Home() {
 
         </div>
 
-        <div className="fixed z-40 w-full transition ">
+        <div className="fixed z-40 w-full transition-all ease-in-out duration-300">
           <LandingNav />
           {showNav && <MessageComponnent />}
         </div>
