@@ -24,19 +24,19 @@ export default function Home() {
   const router = useRouter();
   const [showNav, setShowNav] = useState(true);
 
-  useEffect(() => {
-    let prevScrollpos = window.pageYOffset;
+  // useEffect(() => {
+  //   let prevScrollpos = window.pageYOffset;
 
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      setShowNav(prevScrollpos > currentScrollPos);
-      prevScrollpos = currentScrollPos;
-    };
+  //   // const handleScroll = () => {
+  //   //   const currentScrollPos = window.pageYOffset;
+  //   //   setShowNav(prevScrollpos > currentScrollPos);
+  //   //   prevScrollpos = currentScrollPos;
+  //   // };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   useEffect(() => {
     setCookie("login", false);
