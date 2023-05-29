@@ -7,7 +7,7 @@ Please provide a brief description of the purpose and goals of this pull request
 - High-level overview of the changes introduced.
 - Step-by-step breakdown of the implementation, if applicable.
 
-## Checklist✅
+## Checklist ✅
 
 - [ ] Reviewed the code changes thoroughly.
 - [ ] Tested the changes locally and ensured they work as expected.
@@ -21,7 +21,7 @@ Please provide a brief description of the purpose and goals of this pull request
 
 Include relevant screenshots or GIFs demonstrating the changes, especially for UI-related updates.
 
-## Additional Notes📒
+## Additional Notes 📒
 
 Include any additional information or context that might be helpful for the reviewers.
 
