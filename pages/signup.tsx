@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import sendWelcomeMail from "../service/mail";
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
@@ -40,7 +41,7 @@ const SignUp = () => {
       });
   }
 
-  const success = ()=>{
+  const success = async ()=>{
     toast.success('Account Created', {
       position: "bottom-right",
       autoClose: 5000,
@@ -50,7 +51,8 @@ const SignUp = () => {
       draggable: true,
       progress: undefined,
       theme: "light",
-      });
+    });
+    await sendWelcomeMail(user.email);
   }
 
   return (
