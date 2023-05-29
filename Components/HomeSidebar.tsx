@@ -88,6 +88,7 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
           active={6 == active}
           onClick={() => {
             setActive(6);
+            logOut()
           }}
 
         />
