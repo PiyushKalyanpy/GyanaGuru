@@ -1,5 +1,7 @@
 ## Description 📝
 
+<!-- NOTE: Remove the one which doesn't apply to your PR. If your PR is fixing something then remove `/Closes` -->
+Fixes/Closes: <issue/link>
 Please provide a brief description of the purpose and goals of this pull request.
 
 ## Changes 💬
