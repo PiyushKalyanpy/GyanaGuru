@@ -16,24 +16,24 @@ diverse, inclusive, and healthy community.
 
 ### Acceptable Behaviour
 
-* Participate in an authentic and active way. In doing so, you contribute to the health and longevity of this community.
+* Participate authentically and actively. In doing so, you contribute to the health and longevity of this community.
 * Exercise consideration and respect in your speech and actions.
 * Attempt collaboration before conflict.
 * Refrain from demeaning, discriminatory, or harassing behavior and speech.
-* Be mindful of your surroundings and of your fellow participants. Alert community leaders if you notice a dangerous situation, someone * in distress, or violations of this Code of Conduct, even if they seem inconsequential.
-Remember that community event venues may be shared with members of the public; please be respectful to all patrons of these locations.
+* Be mindful of your surroundings and your fellow participants. Alert community leaders if you notice a dangerous situation, someone * in distress, or violations of this Code of Conduct, even if they seem inconsequential.
+Remember that community event venue may be shared with members of the public; please be respectful to all patrons of these locations.
 
 ### Unacceptable Behaviour
 
-* Violence, threats of violence or violent language directed against another person.
-* Sexist, racist, homophobic, transphobic, ableist or otherwise discriminatory jokes and language.
+* Violence, threats of violence, or violent language directed against another person.
+* Sexist, racist, homophobic, transphobic, ableist, or otherwise discriminatory jokes and language.
 * Posting or displaying sexually explicit or violent material.
 * Posting or threatening to post other people’s personally identifying information ("doxing").
 * Personal insults, particularly those related to gender, sexual orientation, race, religion, or disability.
 * Inappropriate photography or recording.
 * Inappropriate physical contact. You should have someone’s consent before touching them.
-* Unwelcome sexual attention. This includes, sexualized comments or jokes; inappropriate touching, groping, and unwelcomed sexual advances.
-* Deliberate intimidation, stalking or following (online or in person).
+* Unwelcome sexual attention. This includes sexualized comments or jokes; inappropriate touching, groping, and unwelcomed sexual advances.
+* Deliberate intimidation, stalking, or following (online or in person).
 * Advocating for, or encouraging, any of the above behavior.
 * Sustained disruption of community events, including talks and presentations.
 
@@ -51,13 +51,13 @@ decisions when appropriate.
 
 ## Scope
 
-This Code of Conduct applies within all community spaces, and also applies when
+This Code of Conduct applies within all community spaces and also applies when
 an individual is officially representing the community in public spaces.
 Examples of representing our community include using an official e-mail address,
 posting via an official social media account, or acting as an appointed
 representative at an online or offline event.
 
-## Enforcement
+## Reporting
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement at
@@ -88,7 +88,7 @@ of actions.
 
 **Consequence**: A warning with consequences for continued behavior. No
 interaction with the people involved, including unsolicited interaction with
-those enforcing the Code of Conduct, for a specified period of time. This
+those enforcing the Code of Conduct, for a specified period. This
 includes avoiding interactions in community spaces as well as external channels
 like social media. Violating these terms may lead to a temporary or
 permanent ban.
@@ -99,7 +99,7 @@ permanent ban.
 sustained inappropriate behavior.
 
 **Consequence**: A temporary ban from any sort of interaction or public
-communication with the community for a specified period of time. No public or
+communication with the community for a specified period. No public or
 private interaction with the people involved, including unsolicited interaction
 with those enforcing the Code of Conduct, is allowed during this period.
 Violating these terms may lead to a permanent ban.
@@ -119,7 +119,7 @@ This Code of Conduct is adapted from the [Contributor Covenant][homepage],
 version 2.0, available at
 https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
 
-A portion of text is derived from the [Citizen Code of Conduct](https://web.archive.org/web/20200330154000/http://citizencodeofconduct.org/)
+A portion of the text is derived from the [Citizen Code of Conduct](https://web.archive.org/web/20200330154000/http://citizencodeofconduct.org/)
 
 Community Impact Guidelines were inspired by [Mozilla's code of conduct
 enforcement ladder](https://github.com/mozilla/diversity).
