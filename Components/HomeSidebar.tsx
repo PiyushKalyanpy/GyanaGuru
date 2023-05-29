@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import { setCookie } from "cookies-next";
 import Image from "next/image";
 import LogoWithName from "./LogoWithName";
+import { LogoutFromGoogleAuth } from "@/firebase";
+
 const HomeSidebar = ({ pageNumber = 1 }: any) => {
   const router = useRouter();
   const [active, setActive] = useState(0);
@@ -10,6 +12,13 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
   useEffect(() => {
     setActive(pageNumber);
   }, [pageNumber]);
+
+  const logOut = () => {
+    LogoutFromGoogleAuth();
+    setActive(4);
+    setCookie("login", false);
+    router.push("/login");
+  };
 
   return (
     <div className="absolute top-0 flex  flex-col  p-4 justify-between w-[304px] h-screen left-[1px] bg-gradient-to-b from-[#e2e9f1] to-white">
@@ -19,9 +28,7 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
       {/* Center Part  */}
       <div className="flex flex-col items-start gap-[24px] p-0 w-[304px] h-[360px] top-[207px] left-[calc(50%-152px)] absolute">
         {/* logo */}
-        {/* <div onClick={() => router.push('/')} className="flex cursor-pointer flex-row items-center space-x-4">
-          <Image src="/logo.svg" alt="logo" width={50} height={40} />
-        </div> */}
+
 
         <SidebarItem
           icon="home"
@@ -81,8 +88,8 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
           active={6 == active}
           onClick={() => {
             setActive(6);
-            router.push("/settings");
           }}
+
         />
       </div>
         

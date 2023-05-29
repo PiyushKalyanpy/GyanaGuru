@@ -1,6 +1,8 @@
 import { ButtonWithImage } from "@/Components/components";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
@@ -14,6 +16,9 @@ const SignUp = () => {
     password: "",
     confirmPassword: "",
   });
+
+  const [showalert, setshowalert] = useState(true);
+
   const [showPassword, setShowPassword] = useState(false);
   const showPasswordToggle = () => {
     setShowPassword(!showPassword);
@@ -22,8 +27,35 @@ const SignUp = () => {
     router.push("/login");
   };
 
+  const warning=()=>{
+    toast.warn('Please Complete all fields', {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  }
+
+  const success = ()=>{
+    toast.success('Account Created', {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  }
+
   return (
     <div className="flex w-full h-screen bg-gray-200 ">
+      <ToastContainer/>
       <div className="flex flex-col w-10/12 md:w-8/12 lg:w-1/4 bg-white rounded-lg h-fit m-auto min-h-1/4 p-4 ">
         <div className="flex flex-col space-y-8 items-center ">
           {/* logo with title */}
@@ -99,9 +131,14 @@ const SignUp = () => {
 
             {/* login button */}
             <div className="flex flex-row space-x-4 py-4 transition hover:scale-[1.02]">
-              <button className="bg-black text-white rounded-lg p-2 w-full">
+              {
+                ((!user.email)||(!user.password)||(!user.confirmPassword))?(<button className="bg-black text-white rounded-lg p-2 w-full" onClick={()=>warning()}>
                 Sign Up
-              </button>
+              </button>):(<button className="bg-black text-white rounded-lg p-2 w-full" onClick={()=>success()}>
+                Sign Up
+              </button>)
+              }
+              
             </div>
 
             {/* Create Account */}
