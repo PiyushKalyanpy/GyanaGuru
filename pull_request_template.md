@@ -23,5 +23,6 @@ Include relevant screenshots or GIFs demonstrating the changes, especially for U
 
 ## Additional Notes 📒
 
-Include any additional information or context that might be helpful for the reviewers.
+Include any additional information or context that might be helpful for the reviewers. 
+***Also if you are fixing the already made PR and the reviewer demands some change in it then, in each PR you have to mention the issue you have fixed in it.***
 
