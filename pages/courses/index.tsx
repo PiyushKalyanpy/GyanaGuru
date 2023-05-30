@@ -42,36 +42,13 @@ const Courses = () => {
   }, []);
 
   return (
-    <div>
-      <div className="grid w-full h-screen grid-cols-12 overflow-hidden">
-        {/* sidebar div */}
-        <div className="flex items-center col-span-1 overflow-hidden bg-white ">
-          <HomeSidebar pageNumber={2} />
-        </div>
-        {/* main div */}
-        <div className="flex flex-col col-span-11 ">
-          {/* topbar here */}
-          <Topbar />
-
-          <Categories />
-          {/* div for Main content */}
-          <div className="flex w-full h-full overflow-y-scroll">
-            {/* main */}
-            <div className="flex flex-col w-3/4 h-screen p-4 pb-40 space-y-8 overflow-y-scroll bg-white">
-              {/* banner  */}
-              <Banner />
-
-              {/* <CourseCardList heading="Popular Courses" data={CourseData} /> */}
-              {/* <CourseCardList heading="Web Development" data={CourseData} /> */}
-              {/* <CourseCardList heading="Web Development" data={CourseData} /> */}
-            </div>
-            {/* right sidebar */}
-            <div className="flex w-1/4 p-4 rounded-3xl">
-              <div className="flex w-full p-4 bg-gray-50 rounded-3xl"></div>
-            </div>
-          </div>
-        </div>
+    <div className="grid w-screen h-screen grid-cols-12 overflow-hidden bg-white">
+      {/* sidebar div */}
+      <div className="col-span-2">
+        <HomeSidebar pageNumber={2} />
       </div>
+      {/* main div */}
+      Courses
     </div>
   );
 };

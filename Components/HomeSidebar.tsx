@@ -5,11 +5,12 @@ import Image from "next/image";
 import LogoWithName from "./LogoWithName";
 import { LogoutFromGoogleAuth } from "@/firebase";
 
-const HomeSidebar = ({ pageNumber = 1 }: any) => {
+const HomeSidebar = ({ pageNumber }: any) => {
   const router = useRouter();
   const [active, setActive] = useState(0);
 
   useEffect(() => {
+    if(pageNumber == 0) return;
     setActive(pageNumber);
   }, [pageNumber]);
 
@@ -21,7 +22,7 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
   };
 
   return (
-    <div className="flex flex-col justify-between h-full py-8 overflow-hidden border-2  bg-gradient-to-b from-slate-100 to-white">
+    <div className="flex flex-col justify-between h-full py-8 overflow-hidden  bg-gradient-to-b from-slate-100 to-white">
       <LogoWithName width={40} height={40} />
 
       {/* Menu icons  */}
@@ -56,7 +57,7 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
           active={3 == active}
           onClick={() => {
             setActive(3);
-            router.push("/users");
+            router.push("/profile");
           }}
         />
         <SidebarItem
@@ -110,13 +111,13 @@ const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
   return (
     <div
       className={`flex items-center flex-row px-8  gap-4 w-full h-10 cursor-pointer text-zinc-500 ${
-        active ? "border-r-4 border-blue-500" : ""
+        active ? "border-r-4 border-sky-600" : ""
       }`}
       onClick={onClick}
     >
       <span
         className={`material-icons-outlined stroke-2  ${
-          active ? "material-icons-round text-blue-500" : ""
+          active ? "material-icons-round text-sky-700" : ""
         }`}
       >
         <Icon />
