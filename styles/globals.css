@@ -26,11 +26,16 @@ p, a, li, span, input, textarea, button {
 
 .marquee span {
   display: inline-block;
-  animation: marquee 20s linear infinite;
+  animation: marquee 40s linear infinite;
   width: 100%;
   white-space: nowrap;
 }
 
+.marqueetop{
+  background-color: aliceblue;
+  border: 0.1rem solid black;
+  border-radius: 0.4rem;
+}
 .marquee:hover span {
   animation-play-state: paused;
 }

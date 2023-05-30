@@ -91,7 +91,7 @@ export default function Home() {
 }
 const MessageComponnent = () => {
   return (
-    <div className="left-0 z-40 w-full p-4 transition bg-gray-100 dark:bg-neutral-900/70 backdrop-blur-2xl">
+    <div className="marqueetop left-0 z-40 w-full p-4 transition bg-gray-100 dark:bg-neutral-900/70 backdrop-blur-2xl">
       <div className="overflow-hidden marquee">
         <span className="flex flex-row space-x-2 text-xl text-black font-archivo dark:text-zinc-100">
           <a
