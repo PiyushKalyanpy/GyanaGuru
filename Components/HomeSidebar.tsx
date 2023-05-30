@@ -21,14 +21,12 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
   };
 
   return (
-    <div className="absolute top-0 flex  flex-col  p-4 justify-between w-[304px] h-screen left-[1px] bg-gradient-to-b from-[#e2e9f1] to-white">
-      {/* Top Part  */}
+    <div className="flex flex-col justify-between h-full py-8 overflow-hidden border-2  bg-gradient-to-b from-slate-100 to-white">
       <LogoWithName width={40} height={40} />
 
-      {/* Center Part  */}
-      <div className="flex flex-col items-start gap-[24px] p-0 w-[304px] h-[360px] top-[207px] left-[calc(50%-152px)] absolute">
+      {/* Menu icons  */}
+      <div className="flex flex-col gap-4 ">
         {/* logo */}
-
 
         <SidebarItem
           icon="home"
@@ -88,19 +86,20 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
           active={6 == active}
           onClick={() => {
             setActive(6);
-            logOut()
+            logOut();
           }}
-
         />
       </div>
-        
-        {/* bottom part  */}
-      <div className="flex flex-col items-center gap-[24px] absolute h-[193px] w-[196px] left-[54px] top-[705px] mb-[34px] p-[24px] bg-[#E1F2FF] rounded-lg ">
-        <div className="font-inter text-base font-normal leading-tight tracking-normal text-center w-[148px] h-[78px] mb-3">
-        <span className="font-inter text-sm font-normal text-[#4486B8]">Upgrade to Pro and unlock exclusive features to enhance your learning experience today!</span>
+      {/* bottom part  */}
+      <div className="flex flex-col items-center w-3/4 p-4 mx-auto rounded-lg bg-sky-100 ">
+        <div className="flex mb-3 text-base font-normal leading-tight tracking-normal text-center font-inter">
+          <span className="text-sm font-normal font-inter text-sky-600">
+            Upgrade to Pro and unlock exclusive features to enhance your
+            learning experience today!
+          </span>
         </div>
-        <div className="bg-[#1F77BA] text-white rounded-md flex flex-row items-center justify-center p-[16px] gap-[10px] w-[95px] h-[43px]">
-        <button>Upgrade</button>
+        <div className="flex flex-row items-center justify-center p-2 text-white rounded-md bg-sky-700">
+          <button>Upgrade</button>
         </div>
       </div>
     </div>
@@ -110,26 +109,29 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
 const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
   return (
     <div
-      className={`flex items-center flex-row py-2 px-[39px] gap-4 w-[304px] h-10 cursor-pointer text-zinc-500 ${
+      className={`flex items-center flex-row px-8  gap-4 w-full h-10 cursor-pointer text-zinc-500 ${
         active ? "border-r-4 border-blue-500" : ""
       }`}
       onClick={onClick}
     >
       <span
         className={`material-icons-outlined stroke-2  ${
-          active ? "material-icons-round text-blue-500 font-[500]" : ""
+          active ? "material-icons-round text-blue-500" : ""
         }`}
       >
         <Icon />
       </span>
       {/* <h3 className={"font-medium ml-2 text-zinc-700"}>{text}</h3> */}
-      <h3 className={`font-medium ml-2 text-base ${
+      <h3
+        className={`font-medium ml-2 text-base ${
           active ? "text-black font-extrabold" : ""
-        }`}>{text}</h3>
+        }`}
+      >
+        {text}
+      </h3>
     </div>
   );
 };
-
 const DashboardIcon = () => {
   return (
     <svg
