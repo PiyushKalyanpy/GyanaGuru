@@ -3,18 +3,14 @@ import { RightSideBar } from "../Components/components";
 
 const Dashboard = () => {
   return (
-    <div className="grid grid-cols-12 w-full h-screen bg-white">
-      <div className="col-span-1">
+    <div className="grid w-screen h-screen grid-cols-12 overflow-hidden bg-white">
+      <div className="col-span-2">
         <HomeSidebar pageNumber={1} />
       </div>
-     
-      <div className="flex col-span-8 w-full h-full bg-gray-100 ">
-        {/* button to contribute to n
-        ew dashboard design */}
-        
+
+      <div className="flex h-full col-span-7 bg-slate-100 ">
         <button
-        
-        className="flex m-auto shadow-xl shadow-violet-200  text-white bg-violet-500  rounded-full p-4 hover:bg-violet-600"
+          className="flex p-4 m-auto text-white rounded-full shadow-xl shadow-violet-200 bg-violet-500 hover:bg-violet-600"
           onClick={() => {
             window.open(
               "https://github.com/PiyushKalyanpy/GyanaGuru/issues/48",
@@ -25,12 +21,11 @@ const Dashboard = () => {
           🤝 Contribute to new dashboard design
         </button>
       </div>
-       <div className="col-span-3">
+      <div className="col-span-3">
         <RightSideBar />
-       </div>
+      </div>
     </div>
   );
 };
 
 export default Dashboard;
-
