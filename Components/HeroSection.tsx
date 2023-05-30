@@ -50,27 +50,25 @@ const HeroSection = () => {
           <h1 className="text-black text-8xl w-fit font-archivo">
             Revolutionizing Education in India
           </h1>
-          <div className="flex flex-row items-start gap-4 mt-10">
-            <h2 className="text-2xl text-zinc-600 ">
+          <div className="flex flex-row items-start mt-10 space-x-9">
+              <h2 className="text-3xl text-zinc-600 ">
               Personalized learning for
             </h2>
-            <div className="flex flex-row items-center space-x-8">
-              <h2 className="font-medium text-black text-8xl font-archivo">
+            <div className="flex flex-row items-center space-x-6">
+              <h2 className=" font-medium text-black text-5xl font-archivo">
                 Free
               </h2>
               <Image
                 src="/images/arrow_big.svg"
                 alt="arrow"
-                width={80}
-                height={80}
+                width={60}
+                height={60}
               />
               <div
                 onClick={() => router.push("/courses")}
-                className="flex flex-row items-center gap-4 p-4 text-white bg-black border-2 border-black rounded-full h-fit cursor-pointer"
+                className="flex flex-row items-center p-3 border-2 border-black rounded-full cursor-pointer hover:bg-black hover:text-white transition ease-in-out duration-300 delay-75"
               >
-                <span className="inline-flex bg-black "></span>
-
-                <h4 className="text-xl  font-archivo">Explore Courses</h4>
+                <h4 className="font-semibold">Explore Courses</h4>
               </div>
             </div>
           </div>

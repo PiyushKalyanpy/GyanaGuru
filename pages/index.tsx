@@ -88,6 +88,7 @@ export default function Home() {
     </>
   );
 }
+
 const MessageComponnent = () => {
   return (
     <div className="left-0 z-40 w-full p-4 transition bg-gray-100 ">
