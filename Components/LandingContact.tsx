@@ -37,7 +37,7 @@ const LandingContact = () => {
                 required
               />
               <button
-                className="w-20% bg-champange h-12 mt-4 p-2 outline-none hover:outline-orange-200 transition text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50 hover:scale-[1.04]"
+                className="w-20% bg-champange h-12 mt-4 px-4 outline-none hover:outline-orange-200 transition text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50 hover:scale-[1.04]"
                 type="submit"
               >
                 Send Message
