@@ -40,19 +40,19 @@ const LandingFooter = () => {
         <div className="mb-24 mt-8">
            <div className="font-bold text-lg mb-3 text-black text-opacity-90 dark:text-zinc-50">Community</div>
            <ul>
-                <li className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
+                <li className="social github leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
                 <a href="https://github.com/PiyushKalyanpy/GyanaGuru" target="_blank" className={hoverEffect}><AiFillGithub className="mr-1" />Github</a>
                 </li>
-                <li className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
+                <li className="social twitter leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
                    <a href="https:twitter.com" className={hoverEffect}><AiFillTwitterCircle className="mr-1" />Twitter</a>
                 </li>
-                <li className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
+                <li className="social linkedin leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
                    <a href="https://www.linkedin.com/in/piyush-kalyan/" className={hoverEffect}><AiFillLinkedin className="mr-1" />Linkedin</a>
                 </li>
-                <li className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
+                <li className="social instagram leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
                    <a href="https:instagram.com" className={hoverEffect}><AiFillInstagram className="mr-1" />Instagram</a>
                 </li>
-                <li className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
+                <li className="social facebook leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
                    <a href="https:facebook.com" className={hoverEffect}><AiFillFacebook className="mr-1" />Facebook</a>
                 </li>
              </ul>
