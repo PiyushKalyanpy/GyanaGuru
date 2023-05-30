@@ -5,7 +5,7 @@ import { DarkModeToggle } from "../Components/components";
 const LandingNav = () => {
   const router = useRouter();
   const navLinkStyle =
-    "font-archivo relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:rounded-full after:duration-500 after:origin-center";
+    "font-archivo relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black dark:after:bg-white after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:rounded-full after:duration-500 after:origin-center";
   
     const handleGetStartedClick = () => {
     router.push("/login");
