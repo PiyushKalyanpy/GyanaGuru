@@ -4,17 +4,17 @@ import {AiFillGithub ,AiFillTwitterCircle ,AiFillLinkedin ,AiFillInstagram,AiFil
 
 const LandingFooter = () => {
     const hoverEffect = "flex items-center transition ease-out duration-200 hover:text-black";
-    
+
     const currentYear = new Date().getFullYear();
-    
+
     return (
 
  <footer className="bg-gray-100 dark:bg-zinc-700">
-     
+
 <div className="w-80vw mx-auto max-w-1200px">
 {/* <Image width={40} height={40} src="./logo.svg" alt="logo" /> */}
 <div className="flex justify-around flex-wrap">
-    
+
     <div className="mb-6 mt-8">
         <div className="font-bold text-lg mb-3 text-black text-opacity-90 dark:text-zinc-50">Quick Links</div>
         <ul className="list-none m-0 p-0">
@@ -25,7 +25,7 @@ const LandingFooter = () => {
                 <Link href="/courses" className={hoverEffect}>Courses</Link>
                 </li>
                 <li className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
-                <Link href="/OurServices" className={hoverEffect}>Our Services</Link>
+                <Link href="/OurServices.txs" className={hoverEffect}>Our Services</Link>
                 </li>
                 <li className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
                 <Link href="/" className={hoverEffect}>Benefits</Link>
@@ -36,7 +36,7 @@ const LandingFooter = () => {
                 </li>
         </ul>
         </div>
-        
+
         <div className="mb-24 mt-8">
            <div className="font-bold text-lg mb-3 text-black text-opacity-90 dark:text-zinc-50">Community</div>
            <ul>
@@ -57,7 +57,7 @@ const LandingFooter = () => {
                 </li>
              </ul>
         </div>
-        
+
         <div className="mb-24 mt-8">
            <div className="font-bold text-lg mb-3 text-black text-opacity-90 dark:text-zinc-50">Help</div>
            <ul>
@@ -83,7 +83,7 @@ const LandingFooter = () => {
         <p>© {currentYear} Gyana Guru. All rights reserved.</p>
         </div>
  </footer>
- 
+
     );
 }
 
