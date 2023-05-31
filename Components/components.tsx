@@ -17,6 +17,7 @@ import Topbar from "./CoursesComponents/Topbar";
 import Banner from "./CoursesComponents/Banner";
 import CourseCardList from "./CoursesComponents/CourseCardList";
 import CourseDetails from "./CourseDetails";
+import DarkModeToggle from "./DarkModeToggle";
 import RightSideBar from "./RightSideBar/RightSideBar";
 
 export {
@@ -40,4 +41,7 @@ export {
   HeroSection,
   LandingThreeSecond,
   RightSideBar,
+        DarkModeToggle,
+
 };
+

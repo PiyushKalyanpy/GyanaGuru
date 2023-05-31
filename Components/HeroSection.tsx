@@ -42,12 +42,12 @@ const HeroSection = () => {
 
   return (
     <div>
-      
-      <div className="flex flex-row items-center justify-center w-full h-screen p-12 px-20 pt-40 bg-white">
-      
+      <div className="flex flex-row items-center justify-center w-full h-screen p-12 px-20 pt-40 bg-white dark:bg-neutral-950">
 
+      
+      
         <div className="transition duration-500 ease-in-out transform -translate-x-full opacity-0">
-          <h1 className="text-black text-8xl w-fit font-archivo">
+          <h1 className="text-black text-8xl w-fit font-archivo dark:text-zinc-50">
             Revolutionizing Education in India
           </h1>
           <div className="flex flex-row items-start mt-10 space-x-9">

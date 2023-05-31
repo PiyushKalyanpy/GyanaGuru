@@ -1,0 +1,28 @@
+name: ✨ Feature Request
+description: Suggest a feature request
+title: '[Feat]: '
+labels: ['⭐ goal: addition']
+body:
+- type: textarea
+  id: what-feature
+  attributes:
+    label: What feature?
+    placeholder: Describe it in detail
+  validations:
+    required: true
+- type: textarea
+  id: screenshots
+  attributes:
+    label: Show us the magic with screenshots
+    placeholder: Attach screenshots to visualize your idea
+  validations:
+    required: false
+- type: checkboxes
+  id: terms
+  attributes:
+    label: Agreement to Code of Conduct
+    description: By submitting this request, you confirm your adherence to our Code of Conduct
+    options:
+    - label: I agree to follow this project's Code of Conduct
+      required: true
+

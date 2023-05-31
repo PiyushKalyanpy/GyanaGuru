@@ -2,23 +2,32 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { setCookie } from "cookies-next";
 import Image from "next/image";
+import LogoWithName from "./LogoWithName";
+import { LogoutFromGoogleAuth } from "@/firebase";
 
-const HomeSidebar = ({ pageNumber = 1 }: any) => {
+const HomeSidebar = ({ pageNumber }: any) => {
   const router = useRouter();
   const [active, setActive] = useState(0);
 
   useEffect(() => {
+    if(pageNumber == 0) return;
     setActive(pageNumber);
   }, [pageNumber]);
 
+  const logOut = () => {
+    LogoutFromGoogleAuth();
+    setActive(4);
+    setCookie("login", false);
+    router.push("/login");
+  };
+
   return (
-    <div className="fixed top-0 flex  flex-col  p-4 w-fit h-screen justify-between ">
-      {/* <LogoWithName width={40} height={40} /> */}
-      <div className="flex flex-col space-y-4">
+    <div className="flex flex-col justify-between h-full py-8 overflow-hidden  bg-gradient-to-b from-slate-100 to-white">
+      <LogoWithName width={40} height={40} />
+
+      {/* Menu icons  */}
+      <div className="flex flex-col gap-4 ">
         {/* logo */}
-        <div onClick={() => router.push('/')} className="flex cursor-pointer flex-row items-center space-x-4 ">
-          <Image src="/logo.svg" alt="logo" width={50} height={40} />
-        </div>
 
         <SidebarItem
           icon="home"
@@ -42,29 +51,57 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
         />
 
         <SidebarItem
-          icon="settings"
+          icon="users-people"
           Icon={SettingsIcon}
-          text="Settings"
+          text="Profile"
           active={3 == active}
           onClick={() => {
             setActive(3);
-            router.push("/settings");
+            router.push("/profile");
           }}
         />
-      </div>
-
-      <div className="flex flex-col space-y-4">
         <SidebarItem
-          icon="logout"
-          Icon={LogoutIcon}
-          text="Logout"
+          icon="settings"
+          Icon={SettingsIcon}
+          text="Settings"
           active={4 == active}
           onClick={() => {
             setActive(4);
-            setCookie("login", false);
-            router.push("/login");
+            router.push("/settings");
           }}
         />
+        <SidebarItem
+          icon="settings"
+          Icon={SettingsIcon}
+          text="Help and Support"
+          active={5 == active}
+          onClick={() => {
+            setActive(5);
+            router.push("/help");
+          }}
+        />
+        <SidebarItem
+          icon="settings"
+          Icon={LogoutIcon}
+          text="Logout"
+          active={6 == active}
+          onClick={() => {
+            setActive(6);
+            logOut();
+          }}
+        />
+      </div>
+      {/* bottom part  */}
+      <div className="flex flex-col items-center w-3/4 p-4 mx-auto rounded-lg bg-sky-100 ">
+        <div className="flex mb-3 text-base font-normal leading-tight tracking-normal text-center font-inter">
+          <span className="text-sm font-normal font-inter text-sky-600">
+            Upgrade to Pro and unlock exclusive features to enhance your
+            learning experience today!
+          </span>
+        </div>
+        <div className="flex flex-row items-center justify-center p-2 text-white rounded-md bg-sky-700">
+          <button>Upgrade</button>
+        </div>
       </div>
     </div>
   );
@@ -73,23 +110,29 @@ const HomeSidebar = ({ pageNumber = 1 }: any) => {
 const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
   return (
     <div
-      className={`flex w-fit items-center p-4 cursor-pointer text-zinc-500 ${
-        active ? "bg-black rounded-full " : ""
+      className={`flex items-center flex-row px-8  gap-4 w-full h-10 cursor-pointer text-zinc-500 ${
+        active ? "border-r-4 border-sky-600" : ""
       }`}
       onClick={onClick}
     >
       <span
         className={`material-icons-outlined stroke-2  ${
-          active ? "material-icons-round text-white" : ""
+          active ? "material-icons-round text-sky-700" : ""
         }`}
       >
         <Icon />
       </span>
-      {/* <h3 className="font-medium ml-2 text-zinc-700">{text}</h3> */}
+      {/* <h3 className={"font-medium ml-2 text-zinc-700"}>{text}</h3> */}
+      <h3
+        className={`font-medium ml-2 text-base ${
+          active ? "text-black font-extrabold" : ""
+        }`}
+      >
+        {text}
+      </h3>
     </div>
   );
 };
-
 const DashboardIcon = () => {
   return (
     <svg

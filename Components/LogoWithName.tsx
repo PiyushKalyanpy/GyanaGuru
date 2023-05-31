@@ -1,9 +1,9 @@
 import Image from "next/image";
-const LogoWithName = ({width, height} : any) => {
+const LogoWithName = ({ width, height }: any) => {
   return (
-    <div className="flex flex-row items-center">
+    <div className="flex  items-center   w-full h-fit  justify-center ">
       <Image src="./logo.svg" width={width} height={height} alt="logo" />
-      <h1 className="font-archivo font-semibold text-lg ">GyanaGuru</h1>
+      <h1 className="font-archivo font-semibold text-xl ">GyanaGuru</h1>
     </div>
   );
 };
