@@ -14,7 +14,6 @@
     "appwrite": "^10.2.0",
     "cookie-cutter": "^0.2.0",
     "cookies-next": "^2.1.1",
-    "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "firebase": "^9.19.1",
     "material-icons": "^1.13.3",
@@ -34,7 +33,9 @@
     "@types/node": "20.2.3",
     "@types/react": "18.2.6",
     "autoprefixer": "^10.4.14",
+    "eslint": "^8.41.0",
     "postcss": "^8.4.21",
+    "prettier": "^2.8.8",
     "tailwindcss": "^3.3.0",
     "typescript": "5.0.4"
   }
