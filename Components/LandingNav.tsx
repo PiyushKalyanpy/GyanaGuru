@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { DarkModeToggle } from "../Components/components";
 
-const LandingNav = ({ error404Check }: { error404Check: boolean }) => {
+const LandingNav = ({ pageNotFound }: { pageNotFound: boolean }) => {
   const router = useRouter();
   const navLinkStyle =
     "font-archivo relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:rounded-full after:duration-500 after:origin-center";
@@ -57,7 +57,7 @@ const LandingNav = ({ error404Check }: { error404Check: boolean }) => {
           <h1 className="text-lg font-semibold font-archivo ">GyanaGuru</h1>
         </div>
         {/* Nav Links */}
-        {error404Check && (
+        {!pageNotFound && (
           <div className="flex flex-row items-center gap-8">
             <Link className={navLinkStyle} href="#">
               Home
@@ -98,15 +98,15 @@ const LandingNav = ({ error404Check }: { error404Check: boolean }) => {
         {/* Get Started Button and Dark Mode Button*/}
         <div className="flex flex-row gap-4 items-center">
           <div
-            onClick={error404Check ? handleGetStartedClick : handleGoBack}
+            onClick={!pageNotFound ? handleGetStartedClick : handleGoBack}
             className="flex flex-row items-center gap-4 p-1 border-2 border-black rounded-full cursor-pointer dark:border-zinc-50"
           >
             <h4 className="ml-2 font-medium ">
-              {error404Check ? `Get Started` : `Go Back`}
+              {!pageNotFound ? `Get Started` : `Go Back`}
             </h4>
             <span
               className={`p-2 text-white bg-black dark:text-zinc-800 dark:bg-zinc-50 rounded-full material-icons ${
-                error404Check ? `` : `-rotate-90`
+                !pageNotFound ? `` : `-rotate-90`
               }`}
             >
               arrow_outward

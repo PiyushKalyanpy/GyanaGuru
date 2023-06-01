@@ -68,7 +68,7 @@ export default function Home() {
         </div>
 
         <div className="fixed z-40 w-full transition ">
-          <LandingNav error404Check={true} />
+          <LandingNav pageNotFound={false} />
           {showNav && <MessageComponnent />}
         </div>
         <HeroSection />

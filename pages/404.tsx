@@ -4,7 +4,7 @@ import { LandingNav, LandingFooter } from "@/Components/components";
 const NotFoundPage = () => {
   return (
     <>
-      <LandingNav error404Check={false} />
+      <LandingNav pageNotFound={true} />
       <div className="flex items-center justify-center h-[500px] flex-col m-8 text-2xl">
         <h1 className="font-archivo text-6xl m-4">404 - Page Not Found</h1>
         <p>Sorry, there is nothing to see here!</p>
