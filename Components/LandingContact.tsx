@@ -9,8 +9,8 @@ const LandingContact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm('service_rjqxpou', 'template_f8vouol', form.current, 'o2kgKJm8TdvQP4pBr')
+    emails      .sendForm('service_rjqxpou', 'template_f8vouol', form.current, 'o2kgKJm8TdvQP4pBr')
+       // serviceID, email templateID , Public key taken from emailjs account 
       .then(
         (result) => {
           console.log('Email sent successfully!', result.text);
