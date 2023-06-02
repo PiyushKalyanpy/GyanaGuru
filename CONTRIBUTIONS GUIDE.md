@@ -75,10 +75,7 @@ git push -u origin <your_branch_name>
 
 **14.** Click on `Create Pull Request`.
 
-
 **15** Congrats !! You made your PR with desired changes. Now once the PR is reviewed, your PR will be merged to the original code base for everyone to see and use.
-
-<br>
 
 ## Note
 
@@ -86,27 +83,19 @@ To run your forked project, you need to pass in your **firebase config** data in
 
 ![Screenshot from 2023-05-31 02-42-20](https://github.com/PiyushKalyanpy/GyanaGuru/assets/119070798/417dbf83-b823-4f01-bf1f-45eaa622f1e1)
 
-<br>
-
 Else it results in the following error:
 
 ![Screenshot from 2023-05-29 18-45-06](https://github.com/PiyushKalyanpy/GyanaGuru/assets/119070798/d94e0911-4844-4854-9170-1fa37856b595)
 
-<br>
-
 To fix this follow the below steps:
 
-<br>
-
 1. Head on to https://console.firebase.google.com/
-
 
 2. Sign in with your gmail account.
 
 3. Click on `create a project`.
 
 ![Screenshot from 2023-05-31 02-59-47](https://github.com/PiyushKalyanpy/GyanaGuru/assets/119070798/4873067a-91cd-4b2c-9759-4c0fb14cbec8)
-
 
 4. Give a name to your project and proceed.
 
@@ -129,7 +118,5 @@ npm run dev
 ```
 
 That's it, now you can run your forked project and embark on your development journey with GyanGuru 🥳
-
-
 
 Thank you so much for contributing. Hope to see you again soon........
