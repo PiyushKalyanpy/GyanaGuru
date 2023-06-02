@@ -1,20 +1,20 @@
 {
-	"printWidth": 80,
-	"tabWidth": 2,
-	"tabs": false,
-	"singleQuote": true,
-	"trailingComma": "es5",
-	"bracketSpacing": true,
-	"bracketSameLine": false,
-	"arrowParens": "avoid",
-	"semi": false,
-	"useTabs": false,
-	"quoteProps": "preserve",
-	"singleAttributePerLine": true,
-	"overrides": [
-		{
-			"files": "*.test.js",
-			"options": {}
-		}
-	]
+  "printWidth": 80,
+  "tabWidth": 2,
+  "tabs": false,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "arrowParens": "avoid",
+  "semi": false,
+  "useTabs": false,
+  "quoteProps": "preserve",
+  "singleAttributePerLine": true,
+  "overrides": [
+    {
+      "files": "*.test.js",
+      "options": {}
+    }
+  ]
 }
