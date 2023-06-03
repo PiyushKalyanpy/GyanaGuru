@@ -37,5 +37,10 @@
     "postcss": "^8.4.21",
     "tailwindcss": "^3.3.0",
     "typescript": "5.0.4"
-  }
+  },
+  "description": "<div id=\"top\"></div>",
+  "main": "next.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
