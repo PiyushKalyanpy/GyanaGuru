@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import SettingsBarItem from "./SettingsBarItem";
 import SettingsSearch from "./SettingsSearch";
-import { useState } from "react";
 
 const barItems = [
   {
