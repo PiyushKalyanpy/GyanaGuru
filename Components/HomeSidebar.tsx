@@ -67,7 +67,7 @@ const HomeSidebar = ({ pageNumber }: any) => {
           active={4 == active}
           onClick={() => {
             setActive(4);
-            router.push("/settings");
+            router.push("/settings/account");
           }}
         />
         <SidebarItem
