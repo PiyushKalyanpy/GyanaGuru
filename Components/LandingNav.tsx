@@ -36,10 +36,6 @@ const LandingNav = ({ pageNotFound }: { pageNotFound: boolean }) => {
     }
   };
 
-  const handleGoBack = () => {
-    router.back();
-  };
-
   return (
     <div className="sticky top-0 z-20 w-full border-b-2 border-white bg-white/30 backdrop-blur-md dark:bg-neutral-950/50 dark:border-zinc-700">
       <div className="flex flex-row items-center justify-between w-full px-20 py-4 ">
@@ -97,21 +93,19 @@ const LandingNav = ({ pageNotFound }: { pageNotFound: boolean }) => {
         )}
         {/* Get Started Button and Dark Mode Button*/}
         <div className="flex flex-row gap-4 items-center">
-          <div
-            onClick={!pageNotFound ? handleGetStartedClick : handleGoBack}
+          { !pageNotFound && <div
+            onClick={handleGetStartedClick}
             className="flex flex-row items-center gap-4 p-1 border-2 border-black rounded-full cursor-pointer dark:border-zinc-50"
           >
             <h4 className="ml-2 font-medium ">
-              {!pageNotFound ? `Get Started` : `Go Back`}
+              Get Started
             </h4>
             <span
-              className={`p-2 text-white bg-black dark:text-zinc-800 dark:bg-zinc-50 rounded-full material-icons ${
-                !pageNotFound ? `` : `-rotate-90`
-              }`}
+              className="p-2 text-white bg-black dark:text-zinc-800 dark:bg-zinc-50 rounded-full material-icons"
             >
               arrow_outward
             </span>
-          </div>
+          </div> }
           <div className="mt-1">
             <DarkModeToggle />
           </div>
