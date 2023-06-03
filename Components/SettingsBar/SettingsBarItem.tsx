@@ -7,7 +7,7 @@ const SettingsBarItem = ( { itemName, iconName, isActive, onClick } : { itemName
       onClick={onClick}
     >
       <span className="material-icons-outlined">{iconName}</span>
-      <div className="pl-2">{itemName}</div>
+      <p className="pl-2">{itemName}</p>
     </div>
   );
 }
