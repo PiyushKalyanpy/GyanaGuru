@@ -1,6 +1,6 @@
-import SettingsBarItem from "@/Components/SettingsBar/SettingsBarItem";
+import SettingsBarItem from "@/Components/SettingsBar/Item";
 import { HomeSidebar } from "@/Components/components";
-import SettingsBar from "@/Components/SettingsBar/SettingsBar";
+import SettingsBar from "@/Components/SettingsBar";
 
 
 const Notification = () => {
