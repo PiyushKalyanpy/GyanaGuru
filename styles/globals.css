@@ -55,23 +55,3 @@ p, a, li, span, input, textarea, button {
 iframe{
   background-color: #fff;
 }
-
-.social .mr-1 {
-  transition: all 0.3s ease;
-}
-
-.twitter:hover .mr-1 {
-  color: #1DA1F2;
-}
-
-.linkedin:hover .mr-1 {
-  color: #0072b1;
-}
-
-.instagram:hover .mr-1 {
-  color: #E1306C;
-}
-
-.facebook:hover .mr-1 {
-  color: #4267B2;
-}
