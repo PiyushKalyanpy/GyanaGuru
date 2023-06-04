@@ -2,6 +2,7 @@ import { ButtonWithImage } from "@/Components/components";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
+import sendWelcomeMail from "../service/mail";
 import "react-toastify/dist/ReactToastify.css";
 import {
   createUserWithEmailAndPassword,
@@ -40,7 +41,7 @@ const SignUp = () => {
       });
   }
 
-  const success = ()=>{
+  const success = async ()=>{
     toast.success('Account Created', {
       position: "bottom-right",
       autoClose: 5000,
@@ -51,6 +52,7 @@ const SignUp = () => {
       progress: undefined,
       theme: "light",
       });
+      await sendWelcomeMail(user.email);
   }
 
   return (
