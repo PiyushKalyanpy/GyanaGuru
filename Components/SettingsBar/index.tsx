@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import SettingsBarItem from "./SettingsBarItem";
-import SettingsSearch from "./SettingsSearch";
+import SettingsBarItem from "./Item";
+import SettingsSearch from "./Search";
 
 const barItems = [
   {
