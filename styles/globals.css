@@ -7,6 +7,7 @@
 
 *{
   font-family: "Archivo", sans-serif;
+  scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -44,8 +45,26 @@ p, a, li, span, input, textarea, button {
   }
 }
 
+body {
+  overflow-x: hidden;
+}
+
 ::-webkit-scrollbar {
-  display: none;
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #4b4b4b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #908f8f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c8c7c7;
+  border-radius: 8px;
 }
 
 .html5-video-player{
