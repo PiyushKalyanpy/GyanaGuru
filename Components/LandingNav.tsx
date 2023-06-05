@@ -16,10 +16,7 @@ const LandingNav = () => {
   };
   
   const handleCoursesClick = () => {
-    const courseSection = document.getElementById("courses");
-    if (courseSection) {
-      courseSection.scrollIntoView({ behavior: "smooth" });
-    }
+    router.push('/courses')
   };
 
   const handleOurServicesClick = () => {
@@ -54,7 +51,7 @@ const LandingNav = () => {
           <Link className={navLinkStyle} href="#">
             Home
           </Link>
-          <Link className={navLinkStyle} href="#" onClick={handleCoursesClick}>
+          <Link className={navLinkStyle} href='/courses' onClick={handleCoursesClick}>
             Courses
           </Link>
           <Link className={navLinkStyle} href="#ourservices" onClick={handleOurServicesClick}>
