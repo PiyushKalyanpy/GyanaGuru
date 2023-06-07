@@ -34,6 +34,6 @@ body:
   attributes:
     label: Agreement to Code of Conduct
     description: By submitting this report, you confirm your adherence to our Code of Conduct
-    options:
-    - label: Code of Conduct
-      required: true
+- [ ] Code of Conduct
+- [ ] I am GSSoC contributor
+- [ ] I want to work on this issue
