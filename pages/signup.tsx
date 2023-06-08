@@ -64,7 +64,7 @@ const SignUp = () => {
       <div className="flex flex-col w-10/12 md:w-8/12 lg:w-1/4 bg-white rounded-lg h-fit m-auto min-h-1/4 p-4 dark:bg-neutral-900">
         <div className="flex flex-col space-y-8 items-center ">
           {/* logo with title */}
-          <div className="flex flex-row items-center space-x-4 ">
+          <div className="flex cursor-pointer flex-row items-center space-x-4 " onClick={() => router.push("/")}>
           <Image src="/logo.svg" alt="logo" width={40} height={40} className="dark:hidden"/>
             <Image src="/logodark.svg" alt="dark mode logo" width={40} height={40} className="hidden dark:block"/>
             <h1 className="text-md font-semibold ">GyanaGuru</h1>
