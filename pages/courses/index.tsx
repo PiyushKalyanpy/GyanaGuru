@@ -5,7 +5,7 @@ import {
   CourseCardList,
 } from "../../Components/components";
 import CourseData from "../../data/course_list.json";
-import React, {  useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 const Courses = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -42,13 +42,15 @@ const Courses = () => {
   }, []);
 
   return (
-    <div className="grid w-screen h-screen grid-cols-12 overflow-hidden bg-white">
+    <div className="grid w-screen h-screen grid-cols-12 overflow-hidden">
       {/* sidebar div */}
       <div className="col-span-2">
         <HomeSidebar pageNumber={2} />
       </div>
-      {/* main div */}
-      Courses
+      {/* main content div */}
+      <div className="flex flex-col col-span-10 h-full gap-8 bg-zinc-100 p-6 ">
+      <Topbar/>
+      </div>
     </div>
   );
 };

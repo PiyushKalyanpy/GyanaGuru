@@ -43,13 +43,11 @@ const BarChart = ({
   data: { label: string; value: number }[];
   title: any;
 }) => {
-  
   const maxDataValue = Math.max(...data.map((item) => item.value));
   // array of values in decreasing order
   const sortedData = data.sort((a, b) => b.value - a.value);
-  // adding a empty value at last 
+  // adding a empty value at last
   sortedData.push({ label: "", value: 0 });
-  
 
   return (
     <div className="flex flex-col w-3/4 h-full gap-8 bg-white rounded-xl p-8 shadow-2xl shadow-zinc-200">
@@ -71,19 +69,18 @@ const BarChart = ({
       <div className="flex justify-between items-end w-full h-full p-4">
         {/* div showing the values in sidebar */}
         <div className="flex flex-col justify-center h-full">
-          {
-            sortedData.map((item) => (
-              <div
-                key={item.label}
-                className="flex justify-end flex-col h-full w-fit items-center gap-4"
-              >
-                <div className="w-fit">
-                  <p className="font-inter text-sm text-zinc-500 ">{item.value}</p>
-                </div>
+          {sortedData.map((item) => (
+            <div
+              key={item.label}
+              className="flex place-content-start	  flex-col h-full w-fit gap-4"
+            >
+              <div className="w-fit flex  ">
+                <p className="flex font-inter text-sm text-zinc-500 ">
+                  {item.value}
+                </p>
               </div>
-            ))
-          }
-
+            </div>
+          ))}
         </div>
 
         {data.map((item) => (
