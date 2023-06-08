@@ -21,11 +21,17 @@ export function AuthProvider({ children }) {
   const [error, setError] = useState("");
 
   function signup(email, password) {
-    return createUserWithEmailAndPassword(auth, email, password);
+    const result = createUserWithEmailAndPassword(auth, email, password);
+    result.then((userCredential) => {
+      const user = userCredential.user;
+      sendEmailVerification(user);
+    });
+    return result;
     
   }
 
   function login(email, password) {
+    console.log("login");
     return signInWithEmailAndPassword(auth, email, password);
   }
 

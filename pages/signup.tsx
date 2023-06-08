@@ -44,6 +44,18 @@ const SignUp = () => {
     });
   };
 
+  const error = ({message}:any) => {
+    toast.error(`${message}`, {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "light",
+    });
+  };
+
   const handleSignUp = () => {
     if (
       userData.email === "" ||
@@ -52,22 +64,17 @@ const SignUp = () => {
     ) {
       warning();
     } else if (userData.password !== userData.confirmPassword) {
-      toast.error("Passwords do not match", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: "light",
-      });
+      error({message:"Passwords do not match"});
     } else {
       signup(userData.email, userData.password).then(({ data }: any) => {
         console.log("aa",data);
+        success();
         router.push("/dashboard");
+      }).catch((err:any)=>{
+        console.log(err);
+        error({message:err.message});
       });
 
-      success();
     }
   };
 
@@ -159,7 +166,7 @@ const SignUp = () => {
             <div className="flex flex-col items-center mt-4 text-sm justify-between">
               <p className="w-fit text-slate-600">Already have an account</p>
               <p
-                onClick={() => router.push("/signin")}
+                onClick={() => router.push("/login")}
                 className="w-fit text-black hover:underline cursor-pointer"
               >
                 Sign In to you account

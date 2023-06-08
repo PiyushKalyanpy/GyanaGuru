@@ -5,6 +5,8 @@ import Image from "next/image";
 import { setCookie, getCookie } from "cookies-next";
 import { DarkModeToggle } from "../Components/components";
 import { AuthContext } from "@/context/AuthContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const router = useRouter();
@@ -16,8 +18,46 @@ const Login = () => {
     password: "",
   });
 
+
+
+  const error = () => {
+    toast.error("Login Failed", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
+  const success = () => {
+    toast.success("Account Created", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
   const handleLoginClick = () => {
-    login(userData.email, userData.password);
+    login(userData.email, userData.password)
+      .then(({ res }: any) => {
+        console.log(res);
+        console.log("sdfss")
+        
+      })
+      .catch(({ err }: any) => {
+        console.log(err);
+        console.log("sdf")
+        error();
+      });
   };
 
   useEffect(() => {
@@ -32,6 +72,8 @@ const Login = () => {
       <div className="absolute right-14 top-5">
         <DarkModeToggle />
       </div>
+      <ToastContainer />
+
       <div className="flex w-full h-screen bg-gray-200 dark:bg-neutral-950">
         <div className="flex flex-col w-10/12 md:w-8/12 lg:w-1/4 bg-white rounded-lg h-fit m-auto min-h-1/4 p-4 dark:bg-neutral-900 ">
           <div className="flex flex-col space-y-8 items-center ">
@@ -142,8 +184,6 @@ const Login = () => {
             </div>
           </div>
         </div>
-        
-
       </div>
     </>
   );
