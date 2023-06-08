@@ -7,6 +7,7 @@
 
 *{
   font-family: "Archivo", sans-serif;
+  scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -44,8 +45,54 @@ p, a, li, span, input, textarea, button {
   }
 }
 
+body {
+  overflow-x: hidden;
+}
+
+:root{
+  --scroll-thumb:#7c7c7c;
+  --scroll-thumb-hover:rgb(103, 101, 101);
+  --scroll-track:#bdbdbd;
+}
+
+[data-theme="dark"] {
+  --scroll-thumb:#908f8f;
+  --scroll-thumb-hover:#c8c7c7;
+  --scroll-track:#4b4b4b;
+}
+
 ::-webkit-scrollbar {
-  display: none;
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 25px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover);
+}
+
+html.dark ::-webkit-scrollbar {
+  width: 9px;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #4b4b4b;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #908f8f;
+  border-radius: 25px;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #c8c7c7;
 }
 
 .html5-video-player{

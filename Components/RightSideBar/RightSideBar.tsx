@@ -2,11 +2,19 @@ import React from "react";
 import Image from "next/image";
 import Calendar from "./Calendar";
 import Notes from "./Notes";
+import { getAuth } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 type Props = {};
 
 const RightSideBar = (props: Props) => {
-  const imageUrl = "https://avatars.githubusercontent.com/u/79275157?s=90&v=4";
+
+  // getting current user 
+  const auth = getAuth();
+  const [user] = useAuthState(auth);
+
+
+  const imageUrl = user&& user.photoURL || "https://avatars.githubusercontent.com/u/79275157?s=90&v=4";
   return (
     <div className="flex w-full top-0 flex-col h-screen p-4 bg-white ">
       <div className="w-full max-w-sm p-4 mb-12">
@@ -15,17 +23,16 @@ const RightSideBar = (props: Props) => {
             <Image src={imageUrl} alt="Profile Image" width={48} height={48} />
           </div>
           <div className="flex flex-col pl-4">
-            <h5 className="mb-1 text-xl font-medium text-gray-900 ">
-              User Name
-            </h5>
-            <span className="text-sm text-gray-500 ">Learner</span>
+            <h5 className="mb-1 text-xl font-medium text-zinc-900 ">
+            {user && user.displayName}            </h5>
+            <span className="text-sm text-zinc-500 ">Learner</span>
           </div>
         </div>
       </div>
       <Calendar />
       <div className="flex flex-row justify-between mb-4">
         <h1 className="font-bold">Notes</h1>
-        <button className="bg-[#F0F4F8] rounded-lg text-[#45B8EC] text-xs p-2 ">
+        <button className="bg-black text-white rounded-lg  text-xs p-2 ">
           Add Note
         </button>
       </div>

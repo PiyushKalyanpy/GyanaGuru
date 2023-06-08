@@ -3,14 +3,14 @@ import { useRouter } from "next/router";
 import { setCookie } from "cookies-next";
 import Image from "next/image";
 import LogoWithName from "./LogoWithName";
-import { LogoutFromGoogleAuth } from "@/firebase";
+import { LogoutFromGoogleAuth } from "@/database/firebase";
 
 const HomeSidebar = ({ pageNumber }: any) => {
   const router = useRouter();
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    if(pageNumber == 0) return;
+    if (pageNumber == 0) return;
     setActive(pageNumber);
   }, [pageNumber]);
 
@@ -22,11 +22,20 @@ const HomeSidebar = ({ pageNumber }: any) => {
   };
 
   return (
-    <div className="flex flex-col justify-between h-full py-8 overflow-hidden  bg-gradient-to-b from-slate-100 to-white">
-      <LogoWithName width={40} height={40} />
+    <div className="flex flex-col justify-between h-full py-8 overflow-hidden bg-white  ">
+      <div
+        onClick={() => router.push("/")}
+        className="flex justify-center cursor-pointer h-fit "
+      >
+        <div className="flex items-center gap-4 p-2 drop-shadow-2xl bg-white cursor-pointer rounded-xl h-fit">
+          
+        <Image src="./color_logo.svg" width={40} height={40} alt="logo" />
+        <h1 className="text-xl font-semibold font-archivo ">GyanaGuru</h1>
+        </div>
+      </div>
 
       {/* Menu icons  */}
-      <div className="flex flex-col gap-4 ">
+      <div className="flex flex-col gap-4 px-4">
         {/* logo */}
 
         <SidebarItem
@@ -52,7 +61,7 @@ const HomeSidebar = ({ pageNumber }: any) => {
 
         <SidebarItem
           icon="users-people"
-          Icon={SettingsIcon}
+          Icon={ProfileIcon}
           text="Profile"
           active={3 == active}
           onClick={() => {
@@ -72,7 +81,7 @@ const HomeSidebar = ({ pageNumber }: any) => {
         />
         <SidebarItem
           icon="settings"
-          Icon={SettingsIcon}
+          Icon={HelpSupportIcon}
           text="Help and Support"
           active={5 == active}
           onClick={() => {
@@ -92,14 +101,14 @@ const HomeSidebar = ({ pageNumber }: any) => {
         />
       </div>
       {/* bottom part  */}
-      <div className="flex flex-col items-center w-3/4 p-4 mx-auto rounded-lg bg-sky-100 ">
+      <div className="flex flex-col items-center w-3/4 p-4 mx-auto rounded-lg bg-zinc-50 ">
         <div className="flex mb-3 text-base font-normal leading-tight tracking-normal text-center font-inter">
-          <span className="text-sm font-normal font-inter text-sky-600">
+          <span className="text-sm font-normal font-inter text-zinc-600">
             Upgrade to Pro and unlock exclusive features to enhance your
             learning experience today!
           </span>
         </div>
-        <div className="flex flex-row items-center justify-center p-2 text-white rounded-md bg-sky-700">
+        <div className="flex flex-row items-center justify-center p-2 text-white rounded-md bg-zinc-900">
           <button>Upgrade</button>
         </div>
       </div>
@@ -110,22 +119,22 @@ const HomeSidebar = ({ pageNumber }: any) => {
 const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
   return (
     <div
-      className={`flex items-center flex-row px-8  gap-4 w-full h-10 cursor-pointer text-zinc-500 ${
-        active ? "border-r-4 border-sky-600" : ""
+      className={`flex items-center flex-row  pl-4 gap-4 w-full h-10 cursor-pointer    ${
+        active ? "" : ""
       }`}
       onClick={onClick}
     >
       <span
-        className={`material-icons-outlined stroke-2  ${
-          active ? "material-icons-round text-sky-700" : ""
+        className={`material-icons-outlined   ${
+          active ? "material-icons-round text-black  " : "text-zinc-500"
         }`}
       >
         <Icon />
       </span>
-      {/* <h3 className={"font-medium ml-2 text-zinc-700"}>{text}</h3> */}
+      {/* <h3 className={"font-medium ml-2 text-zinc-900"}>{text}</h3> */}
       <h3
-        className={`font-medium ml-2 text-base ${
-          active ? "text-black font-extrabold" : ""
+        className={` ml-2  font-inter ${
+          active ? "text-black font-semibold " : "text-zinc-600"
         }`}
       >
         {text}
@@ -151,7 +160,8 @@ const DashboardIcon = () => {
     </svg>
   );
 };
-const AnalyticsIcon = () => {
+
+const ProfileIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -164,7 +174,25 @@ const AnalyticsIcon = () => {
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"
+        d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+      />
+    </svg>
+  );
+};
+const HelpSupportIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="w-6 h-6"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"
       />
     </svg>
   );
