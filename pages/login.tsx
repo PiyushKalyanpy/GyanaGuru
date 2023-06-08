@@ -134,7 +134,7 @@ const Login = () => {
 
             {/* Create Account */}
             <div className="flex flex-col items-center mt-4 text-sm justify-between">
-              <p className="w-fit text-slate-600 dark:text-gray-100">Don&apos;t have an account</p>
+              <p className="w-fit text-slate-600 dark:text-gray-400">Don&apos;t have an account</p>
               <p
                 onClick={() => createAccount()}
                 className="w-fit text-black hover:underline cursor-pointer dark:text-gray-100"

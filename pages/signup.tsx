@@ -1,7 +1,8 @@
-import { ButtonWithImage } from "@/Components/components";
+import { ButtonWithImage, DarkModeToggle } from "@/Components/components";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
+import Image from "next/image";
 import "react-toastify/dist/ReactToastify.css";
 import {
   createUserWithEmailAndPassword,
@@ -54,16 +55,20 @@ const SignUp = () => {
   }
 
   return (
-    <div className="flex w-full h-screen bg-gray-200 ">
+    <>
+    <div className="absolute right-14 top-5">
+    <DarkModeToggle/>
+    </div>
+    <div className="flex w-full h-screen bg-gray-200 dark:bg-neutral-950">
       <ToastContainer/>
-      <div className="flex flex-col w-10/12 md:w-8/12 lg:w-1/4 bg-white rounded-lg h-fit m-auto min-h-1/4 p-4 ">
+      <div className="flex flex-col w-10/12 md:w-8/12 lg:w-1/4 bg-white rounded-lg h-fit m-auto min-h-1/4 p-4 dark:bg-neutral-900">
         <div className="flex flex-col space-y-8 items-center ">
           {/* logo with title */}
-          {/* <div className="flex flex-row items-center space-x-4 ">
-            <img src="/logo.svg" alt="logo" width={40} height={40} />
-
+          <div className="flex flex-row items-center space-x-4 ">
+          <Image src="/logo.svg" alt="logo" width={40} height={40} className="dark:hidden"/>
+            <Image src="/logodark.svg" alt="dark mode logo" width={40} height={40} className="hidden dark:block"/>
             <h1 className="text-md font-semibold ">GyanaGuru</h1>
-          </div> */}
+          </div>
 
           {/* login heading and text */}
           <div className="flex w-full px-2 flex-col mt-8 space-y-2 ">
@@ -81,7 +86,7 @@ const SignUp = () => {
             {/* make or with divider */}
             <div className="flex flex-row space-x-4 my-4 items-center">
               <hr className="w-full border-gray-300" />
-              <h4 className="font-medium text-zinc-500">or</h4>
+              <h4 className="font-medium text-zinc-500 dark:text-zinc-50">or</h4>
               <hr className="w-full border-gray-300" />
             </div>
 
@@ -132,9 +137,9 @@ const SignUp = () => {
             {/* login button */}
             <div className="flex flex-row space-x-4 py-4 transition hover:scale-[1.02]">
               {
-                ((!user.email)||(!user.password)||(!user.confirmPassword))?(<button className="bg-black text-white rounded-lg p-2 w-full" onClick={()=>warning()}>
+                ((!user.email)||(!user.password)||(!user.confirmPassword))?(<button className="w-full border focus:outline-none focus:border-2 focus:border-black  dark:bg-white dark:text-black  border-neutral-600 rounded-lg p-2 dark:placeholder:text-white bg-black text-white" onClick={()=>warning()}>
                 Sign Up
-              </button>):(<button className="bg-black text-white rounded-lg p-2 w-full" onClick={()=>success()}>
+              </button>):(<button className="w-full border focus:outline-none focus:border-2 focus:border-black  dark:bg-white dark:text-black  border-neutral-600 rounded-lg p-2 dark:placeholder:text-white bg-black text-white" onClick={()=>success()}>
                 Sign Up
               </button>)
               }
@@ -143,10 +148,10 @@ const SignUp = () => {
 
             {/* Create Account */}
             <div className="flex flex-col items-center mt-4 text-sm justify-between">
-              <p className="w-fit text-slate-600">Already have an account</p>
+              <p className="w-fit text-slate-600 dark:text-gray-400">Already have an account</p>
               <p
                 onClick={() => moveToSignIn()}
-                className="w-fit text-black hover:underline cursor-pointer"
+                className="w-fit text-black hover:underline cursor-pointer  dark:text-gray-100"
               >
                 Sign In to you account
               </p>
@@ -155,6 +160,7 @@ const SignUp = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
