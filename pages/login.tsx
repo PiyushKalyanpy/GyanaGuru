@@ -3,7 +3,7 @@ import {  useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { setCookie, getCookie } from "cookies-next";
-import { LoginWithGooglePopUp, auth } from "@/firebase";
+import { LoginWithGooglePopUp, auth } from "@/database/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 import { DarkModeToggle } from "../Components/components";
