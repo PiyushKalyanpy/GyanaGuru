@@ -7,7 +7,9 @@ const Settings = () => {
       <div className="col-span-2">
         <HomeSidebar pageNumber={4} />
       </div>
-      Settings
+      <div className="bg-zinc-100 col-span-10" >
+Settings
+</div>
     </div>
   );
 };

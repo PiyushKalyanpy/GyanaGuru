@@ -55,7 +55,7 @@ const HomeSidebar = ({ pageNumber }: any) => {
           active={2 == active}
           onClick={() => {
             setActive(2);
-            router.push("/courses");
+            router.push("/course");
           }}
         />
 
@@ -86,7 +86,7 @@ const HomeSidebar = ({ pageNumber }: any) => {
           active={5 == active}
           onClick={() => {
             setActive(5);
-            router.push("/help");
+            router.push("/help-and-support");
           }}
         />
         <SidebarItem

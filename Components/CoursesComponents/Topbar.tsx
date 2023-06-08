@@ -30,16 +30,11 @@ const Topbar = () => {
     };
   }, [searchQuery]);
 
-  useEffect(() => {
-    if (currentUser) {
-      console.log(currentUser.email);
-    }
-  }, [currentUser]);
 
   if (!currentUser) return <div>Loading...</div>;
 
   return (
-    <div className="flex w-full py-4 h-fit">
+    <div className="flex w-full p-4 h-fit">
       <div className="flex justify-between w-full">
         {/* Search bar  */}
         <SearchBar
@@ -50,7 +45,7 @@ const Topbar = () => {
         {/* Notificaton and profile  */}
         <div className="flex h-full gap-4 w-fit">
           <TopBarButtons iconAvailable={true} />
-          <TopBarButtons imageAvailable={true} imageUrl={currentUser && currentUser.photoURL} />
+          <TopBarButtons imageAvailable={true} imageUrl={currentUser ? currentUser.photoURL ? currentUser.photoURL : "https://images.unsplash.com/photo-1604076913837-52ab5629fba9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" :null } />
         </div>
       </div>
     </div>
