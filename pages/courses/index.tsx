@@ -5,7 +5,7 @@ import {
   CourseCardList,
 } from "../../Components/components";
 import CourseData from "../../data/course_list.json";
-import React, { useContext, useEffect, useRef } from "react";
+import React, {  useEffect, useRef } from "react";
 
 const Courses = () => {
   const containerRef = useRef<HTMLDivElement>(null);
