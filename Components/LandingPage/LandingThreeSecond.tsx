@@ -1,5 +1,5 @@
-import CourseData from "../data/course_categories.json";
-import ContributorsData from "../data/contributors.json";
+import CourseData from "../../data/course_categories.json";
+import ContributorsData from "../../data/contributors.json";
 import Image from "next/image";
 
 const LandingThreeSecond = () => {

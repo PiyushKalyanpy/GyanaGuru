@@ -1,5 +1,5 @@
 import { PageHeader, HeadingParagraph } from "@/Components/components";
-import AboutUsData from "../data/about_us.json";
+import AboutUsData from "../../data/about_us.json";
 import { useRouter } from "next/router";
 
 const AboutUs = () => {

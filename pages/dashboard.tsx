@@ -1,4 +1,4 @@
-import ContributionButton from "@/Components/ContributionButton";
+import ContributionButton from "@/Components/Utils/ContributionButton";
 import { HomeSidebar } from "../Components/components";
 import { RightSideBar } from "../Components/components";
 import NumberInfo from "@/Components/Dashboard/NumberInfo";

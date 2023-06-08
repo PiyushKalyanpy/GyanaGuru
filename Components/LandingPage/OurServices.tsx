@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CourseData from "../data/course_categories.json";
+import CourseData from "../../data/course_categories.json";
 import React, { useEffect } from "react";
 
 const OurServices = () => {

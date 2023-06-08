@@ -3,6 +3,7 @@ import { auth } from "../database/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendEmailVerification,
   signOut,
   signInWithPopup,
   GoogleAuthProvider,
@@ -20,15 +21,16 @@ export function AuthProvider({ children }) {
   const [error, setError] = useState("");
 
   function signup(email, password) {
-    return createUserWithEmailAndPassword(email, password);
+    return createUserWithEmailAndPassword(auth, email, password);
+    
   }
 
   function login(email, password) {
-    return signInWithEmailAndPassword(email, password);
+    return signInWithEmailAndPassword(auth, email, password);
   }
 
   function logout() {
-    return signOut();
+    return signOut(auth);
   }
 
   function loginWithGoogle() {
