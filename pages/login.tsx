@@ -116,11 +116,11 @@ const Login = () => {
 
               {/* make or with divider */}
               <div className="flex flex-row space-x-4 my-4 items-center">
-                <hr className="w-full border-neutral-600" />
+                <hr className="w-full border-neutral-300" />
                 <h4 className="font-medium text-zinc-500 dark:text-zinc-50">
                   or
                 </h4>
-                <hr className="w-full border-neutral-600" />
+                <hr className="w-full border-neutral-300" />
               </div>
 
               {/* login with email and password */}
@@ -132,7 +132,7 @@ const Login = () => {
                   onChange={(e) =>
                     setUserData({ ...userData, email: e.target.value })
                   }
-                  className="border border-neutral-600 rounded-lg p-2 focus:outline-none focus:border-2 focus:border-black dark:bg-neutral-900 dark:placeholder:text-zinc-50"
+                  className="border border-neutral-300 rounded-lg p-2 focus:outline-none focus:border-2 focus:border-black dark:bg-neutral-900 dark:placeholder:text-zinc-50"
                 />
                 <div className="flex w-full space-x-2">
                   <input
@@ -142,10 +142,10 @@ const Login = () => {
                     onChange={(e) =>
                       setUserData({ ...userData, password: e.target.value })
                     }
-                    className="w-full border focus:outline-none focus:border-2 focus:border-black  dark:bg-neutral-900  border-neutral-600 rounded-lg p-2 dark:placeholder:text-zinc-50"
+                    className="w-full border focus:outline-none focus:border-2 focus:border-black  dark:bg-neutral-900  border-neutral-300 rounded-lg p-2 dark:placeholder:text-zinc-50"
                   />
                   <div
-                    className="flex items-center text-zinc-500 border focus:outline-none focus:border-2 focus:border-black border-neutral-600 rounded-lg p-2  "
+                    className="flex items-center text-zinc-500 border focus:outline-none focus:border-2 focus:border-black border-neutral-300 rounded-lg p-2  "
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     <span className="material-icons-outlined dark:text-zinc-300 ">

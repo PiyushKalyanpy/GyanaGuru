@@ -98,7 +98,7 @@ const SignUp = () => {
 
             {/* make or with divider */}
             <div className="flex flex-row space-x-4 my-4 items-center">
-              <hr className="w-full border-gray-300" />
+              <hr className="w-full border-gray-200" />
               <h4 className="font-medium text-zinc-500">or</h4>
               <hr className="w-full border-gray-300" />
             </div>
@@ -124,7 +124,7 @@ const SignUp = () => {
                   onChange={(e) =>
                     setUserData({ ...userData, password: e.target.value })
                   }
-                  className="w-full border focus:outline-none focus:border-2 focus:border-black border-gray-300 rounded-lg p-2"
+                  className="w-full border focus:outline-none focus:border-2  border-gray-300 rounded-lg p-2"
                 />
               </div>
               {/* confirm password */}
