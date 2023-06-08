@@ -55,4 +55,6 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           issuesAssigned: |
-            Hey @{{ author }}, thank you for raising an issue. I have assigned the issue to you. You can now start working on it. If you encounter any problems, feel free to connect with us.
+            Hey @{{ author }}, thank you for raising this issue. 
+            I have assigned the issue to you.
+            You can now start working on it. If you encounter any problems, feel free to connect with us.
