@@ -30,7 +30,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           issuesClosed: |
-            Hey @{{ author }}, This issue is closed.
+            Hey @{{ author }}, this issue is closed.
 
       - name: Auto Comment on Pull Request Merged
         uses: wow-actions/auto-comment@v1
