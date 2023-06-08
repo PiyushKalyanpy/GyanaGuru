@@ -1,15 +1,16 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { Providers } from "@/GlobalRedux/provider";
 import "material-icons/iconfont/material-icons.css";
 import "material-symbols";
 import Script from "next/script";
 import { ThemeProvider } from "next-themes";
+import { AuthProvider } from "../context/AuthContext";
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class">
-      <Providers>
+    <AuthProvider>
+
+      <ThemeProvider attribute="class">
       <Script
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
@@ -23,8 +24,9 @@ function App({ Component, pageProps }: AppProps) {
         `}
       </Script>
         <Component {...pageProps} />
-      </Providers>
       </ThemeProvider>
+    </AuthProvider>
+    
   );
 }
 
