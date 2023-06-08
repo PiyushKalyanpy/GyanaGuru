@@ -21,7 +21,7 @@ jobs:
           issuesOpened: |
             Hey @{{ author }},
 
-            Thank you for raising an issue. We will investigate into the matter and get back to you as soon as possible.
+            Thank you for raising this issue. We will investigate into the matter and get back to you as soon as possible.
 
             Please make sure you have given us as much context as possible.
 
