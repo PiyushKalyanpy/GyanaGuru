@@ -37,7 +37,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           pullRequestMerged: |
-            Hey, @{{ author }} Thank you for the valuable contribution!
+            Hey @{{ author }}, thank you for your valuable contribution!
 
       - name: Auto Comment on Pull Request Opened
         uses: wow-actions/auto-comment@v1
