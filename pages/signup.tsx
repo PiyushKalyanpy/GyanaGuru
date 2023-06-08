@@ -2,13 +2,13 @@ import { ButtonWithImage } from "@/Components/components";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
-import sendWelcomeMail from "../service/mail";
 import "react-toastify/dist/ReactToastify.css";
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
+import { sendEmail } from "@/lib/api";
 
 const SignUp = () => {
   const router = useRouter();
@@ -52,7 +52,8 @@ const SignUp = () => {
       progress: undefined,
       theme: "light",
       });
-      await sendWelcomeMail(user.email);
+
+      await sendEmail(user.email)
   }
 
   return (
