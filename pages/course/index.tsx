@@ -6,7 +6,6 @@ import { useContext } from "react";
 
 const Course = () => {
   const { categories } = useContext(CourseContext);
-  console.log(categories, "sdf");
 
   return (
     <div className="grid grid-cols-12 w-full h-screen bg-white">

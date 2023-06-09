@@ -67,11 +67,9 @@ const SignUp = () => {
       error({message:"Passwords do not match"});
     } else {
       signup(userData.email, userData.password).then(({ data }: any) => {
-        console.log("aa",data);
         success();
         router.push("/dashboard");
       }).catch((err:any)=>{
-        console.log(err);
         error({message:err.message});
       });
 

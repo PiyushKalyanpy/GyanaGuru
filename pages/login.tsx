@@ -18,6 +18,12 @@ const Login = () => {
     password: "",
   });
 
+  useEffect(() => {
+    if (currentUser) {
+      setCookie("login", true);
+      router.push("/dashboard");
+    }
+  }, [currentUser]);
 
 
   const error = () => {
@@ -49,23 +55,15 @@ const Login = () => {
   const handleLoginClick = () => {
     login(userData.email, userData.password)
       .then(({ res }: any) => {
-        console.log(res);
-        console.log("sdfss")
-        
+        setCookie("login", true);
+        router.push("/dashboard");        
       })
       .catch(({ err }: any) => {
-        console.log(err);
-        console.log("sdf")
         error();
       });
   };
 
-  useEffect(() => {
-    if (currentUser) {
-      setCookie("login", true);
-      router.push("/dashboard");
-    }
-  }, [currentUser]);
+ 
 
   return (
     <>
