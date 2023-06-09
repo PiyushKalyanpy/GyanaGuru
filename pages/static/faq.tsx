@@ -1,7 +1,7 @@
 // components/FAQ.js
 
 import { useState } from "react";
-import { DarkModeToggle } from "../Components/components";
+import { DarkModeToggle } from "../../Components/components";
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);

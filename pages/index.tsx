@@ -34,9 +34,6 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    setCookie("login", false);
-  });
 
   const handleClick = () => {
     setShowNav(!showNav);
