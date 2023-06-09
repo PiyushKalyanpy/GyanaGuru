@@ -42,7 +42,6 @@ export function CourseProvider({ children }) {
         const coursesData = [];
         querySnapshot.forEach((doc) => {
           coursesData.push({ ...doc.data(), id: doc.id });
-          console.log(doc.data());
         });
         setCategories(coursesData);
       });

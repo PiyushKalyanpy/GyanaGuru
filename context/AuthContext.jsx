@@ -32,7 +32,6 @@ export function AuthProvider({ children }) {
   }
 
   function login(email, password) {
-    console.log("login");
     return signInWithEmailAndPassword(auth, email, password);
   }
 
