@@ -37,31 +37,19 @@ export function CourseProvider({ children }) {
   }
 
   const getCourses = () => {
-    // ---- this code listen to every changes in firebase
-    // onSnapshot(
-    //   collection(db, "courses"),
-    //   (querySnapshot) => {
-    //     console.log("Total de cursos: ", querySnapshot.size);
-    //     const coursesData = [];
-    //     querySnapshot.forEach((doc) => {
-    //       coursesData.push({ ...doc.data(), id: doc.id });
-    //       console.log(doc.data());
-    //     });
-    //     setCourses(coursesData);
-    //     console.log(coursesData);
-    //   }
-    // );
-
-    // ---- this code do not listen to every changes in firebase
-    getDocs(collection(db, "courses")).then((querySnapshot) => {
-      const coursesData = [];
-      querySnapshot.forEach((doc) => {
-        coursesData.push({ ...doc.data(), id: doc.id });
-        console.log(doc.data());
+    const unsubscribe = () =>
+      getDocs(collection(db, "courses")).then((querySnapshot) => {
+        const coursesData = [];
+        querySnapshot.forEach((doc) => {
+          coursesData.push({ ...doc.data(), id: doc.id });
+          console.log(doc.data());
+        });
+        setCategories(coursesData);
       });
-      setCategories(coursesData);
-      console.log(coursesData);
-    });
+    // if category is empty, get all courses
+    if (categories.length === 0) {
+      unsubscribe();
+    }
   };
 
   React.useEffect(() => {
