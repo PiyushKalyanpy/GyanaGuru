@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useState, useEffect, ChangeEvent } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { DarkModeToggle } from "../components";
 
 const Topbar = () => {
   const { currentUser } = useContext(AuthContext);
@@ -46,6 +47,7 @@ const Topbar = () => {
         <div className="flex h-full gap-4 w-fit">
           <TopBarButtons iconAvailable={true} />
           <TopBarButtons imageAvailable={true} imageUrl={currentUser ? currentUser.photoURL ? currentUser.photoURL : "https://images.unsplash.com/photo-1604076913837-52ab5629fba9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" :null } />
+          <DarkModeToggle/>
         </div>
       </div>
     </div>

@@ -13,5 +13,12 @@ module.exports = {
       "lh3.googleusercontent.com",
     ],
   },
-  
+  async rewrites() {
+    return [
+      {
+        source: "/about-us",
+        destination: "/static/about-us",
+      },
+    ];
+  },
 };
