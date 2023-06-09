@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { DarkModeToggle } from "../Components/components";
+import { DarkModeToggle } from "../components";
 
 const LandingNav = () => {
   const router = useRouter();
@@ -54,8 +54,8 @@ const LandingNav = () => {
           <Link className={navLinkStyle} href="#">
             Home
           </Link>
-          <Link className={navLinkStyle} href="#" onClick={handleCoursesClick}>
-            Courses
+          <Link className={navLinkStyle} href="about-us" onClick={handleCoursesClick}>
+            About Us
           </Link>
           <Link className={navLinkStyle} href="#ourservices" onClick={handleOurServicesClick}>
             Our Services

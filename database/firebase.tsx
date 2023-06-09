@@ -5,6 +5,9 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+
+
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -24,6 +27,7 @@ if (!getApps().length) {
 
 const provider = new GoogleAuthProvider();
 export const auth = getAuth(app);
+export const db = getFirestore(app);
 
 export const LoginWithGooglePopUp = async () => {
   try {

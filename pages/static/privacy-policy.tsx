@@ -1,20 +1,19 @@
 import { PageHeader, HeadingParagraph } from "@/Components/components";
-import DisclaimerData from "../data/disclaimer.json";
+import PrivacyPolicy from "../../data/privacy_policy.json";
 import { useRouter } from "next/router";
 
-
-const Disclaimer = () => {
-    const router = useRouter();
-    const onBackClick = () => {
-        router.back();
-    }
+const PrivacyPolcy = () => {
+  const router = useRouter();
+  const onBackClick = () => {
+    router.back();
+  };
 
   return (
     <div className="h-screen w-full">
-      <PageHeader headingText="Disclaimer" onClick={() => onBackClick()}/>
+      <PageHeader headingText="Privacy Policy" onClick={() => onBackClick()} />
       <HeadingParagraph />
       <div className="flex flex-col space-y-8 m-6">
-        {DisclaimerData.map((item: any, index: number) => {
+        {PrivacyPolicy.map((item: any, index: number) => {
           return <>{item && <HeadingParagraph key={index} data={item} />}</>;
         })}
       </div>
@@ -22,4 +21,4 @@ const Disclaimer = () => {
   );
 };
 
-export default Disclaimer;
+export default PrivacyPolcy;

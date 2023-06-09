@@ -73,7 +73,7 @@ const HeroSection = () => {
                 className="hidden dark:block"
               />
               <div
-                onClick={() => router.push("/courses")}
+                onClick={() => router.push("/course")}
                 className="flex flex-row items-center gap-4 p-4 text-white bg-black border-2 border-black rounded-full h-fit cursor-pointer dark:bg-zinc-50"
               >
                 <span className="inline-flex bg-black "></span>

@@ -5,6 +5,7 @@ import { useContext } from "react";
 export function middleware(request: NextRequest) {
 
   let isLoggedIn = request.cookies.get('login')?.value
+
  
 
   if (!isLoggedIn || isLoggedIn === 'false' || isLoggedIn === 'undefined' || isLoggedIn === 'null') {
@@ -16,5 +17,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/courses/:path*', '/dashboard/:path*', '/dashboard', '/login', '/profile/:path*', '/profile'],
+  matcher: ['/course/:path*', '/dashboard/:path*', '/dashboard', '/login', '/profile/:path*', '/profile'],
 }
