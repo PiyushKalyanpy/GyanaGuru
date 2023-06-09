@@ -12,7 +12,7 @@ const Notes = (props: Notes) => {
   return (
     <div>
       <div className="flex flex-col">
-        <div className="shadow w-full border-l-4 border-violet-300 p-2 mb-4">
+        <div className="shadow w-full border-l-4 border-zinc-300 p-2 mb-4">
           <div className="flex flex-col">
             <div className="flex flex-row justify-between mb-2">
               <h1 className="text-sm font-bold">{props.heading}</h1>
