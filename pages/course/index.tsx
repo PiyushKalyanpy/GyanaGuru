@@ -8,11 +8,11 @@ const Course = () => {
   const { categories } = useContext(CourseContext);
 
   return (
-    <div className="grid grid-cols-12 w-full h-screen bg-white">
+    <div className="grid grid-cols-12 w-full h-screen bg-zinc-100 dark:bg-zinc-900">
       <div className="col-span-2">
         <HomeSidebar pageNumber={2} />
       </div>
-      <div className="bg-zinc-100 col-span-10">
+      <div className=" col-span-10">
         <Topbar />
         {/* div with categories */}
         <div className="flex flex-row justify-between items-center p-4">

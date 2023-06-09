@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const CategoryCard = ({ imageUrl, title, id = 1 }: any) => {
   return (
-    <div className="flex flex-col space-y-4 items-center bg-white rounded-xl w-80  p-4 overflow-hidden">
+    <div className="flex flex-col space-y-4 items-center bg-white dark:bg-zinc-800 rounded-xl w-80  p-4 overflow-hidden">
       {/* <div className="relative  w-full items-center justify-between mb-4">
             <span className="absolute right-0 bg-gray-300 text-gray-700 px-2 py-1 text-xs rounded-full">{id}</span>
           </div> */}

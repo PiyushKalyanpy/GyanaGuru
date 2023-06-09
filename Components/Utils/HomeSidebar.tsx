@@ -22,7 +22,7 @@ const HomeSidebar = ({ pageNumber }: any) => {
   };
 
   return (
-    <div className="flex flex-col justify-between h-full py-8 overflow-hidden bg-white  ">
+    <div className="flex flex-col justify-between h-full py-8 overflow-hidden bg-white dark:bg-zinc-950 ">
       <div
         onClick={() => router.push("/")}
         className="flex justify-center cursor-pointer h-fit "
@@ -126,7 +126,7 @@ const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
     >
       <span
         className={`material-icons-outlined   ${
-          active ? "material-icons-round text-black  " : "text-zinc-500"
+          active ? "material-icons-round text-black dark:text-white " : "text-zinc-500 dark:text-zinc-300"
         }`}
       >
         <Icon />
@@ -134,7 +134,7 @@ const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
       {/* <h3 className={"font-medium ml-2 text-zinc-900"}>{text}</h3> */}
       <h3
         className={` ml-2  font-inter ${
-          active ? "text-black font-semibold " : "text-zinc-600"
+          active ? "text-black font-medium dark:text-white" : "text-zinc-600 dark:text-zinc-400"
         }`}
       >
         {text}
