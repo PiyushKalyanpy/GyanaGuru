@@ -1,19 +1,30 @@
-import {Sidebar } from "../../Components/Admin/allcomponents";
+import { Sidebar, AddCourse, UpdateCourse, StudentReport, ManageSite, DeleteCourse } from "../../Components/Admin/allcomponents";
+import { useState } from "react";
+
 
 const Admin = () => {
-    return (
-        <div className="grid grid-cols-12 w-screen h-screen bg-zinc-100">
-        {/* sidebar */}
-        <div className="col-span-2 shadow-2xl shadow-zinc-200">
-            <Sidebar />
-            </div>
-            {/* main content */}
-            <div className="col-span-10 ">
-                <div className="flex flex-col items-center justify-center w-full h-full">
-                    <h1 className="text-3xl font-bold text-zinc-900">Admin</h1>
-                    </div></div>
-        </div>
-    );
-}
+  const [active, setActive] = useState(1);
+
+  return (
+    <div className="grid grid-cols-12 w-screen h-screen bg-zinc-100">
+      {/* sidebar */}
+      <div className="col-span-2 shadow-2xl shadow-zinc-200">
+        <Sidebar pageNumber={1} active={active} setActive={setActive} />
+      </div>
+
+      {/* main content */}
+      <div className="col-span-8 ">
+        {(() => {
+          if(active == 1) return <AddCourse />
+            if(active == 2) return <UpdateCourse />
+            if(active == 3) return <DeleteCourse />
+            if(active == 4) return <StudentReport />
+            if(active == 5) return <ManageSite />
+            
+        })()}
+      </div>
+    </div>
+  );
+};
 
 export default Admin;
