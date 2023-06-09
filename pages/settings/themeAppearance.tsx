@@ -1,5 +1,5 @@
 import SettingsBarItem from "@/Components/SettingsBar/Item";
-import HomeSidebar from "@/Components/HomeSidebar";
+import HomeSidebar from "@/Components/Utils/HomeSidebar";
 import SettingsBar from "@/Components/SettingsBar";
 
 
