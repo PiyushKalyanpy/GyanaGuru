@@ -1,4 +1,4 @@
-import WhyChooseUsData from "../data/why_choose_us.json";
+import WhyChooseUsData from "../../data/why_choose_us.json";
 import Image from "next/image";
 
 const WhyChooseUs = () => {

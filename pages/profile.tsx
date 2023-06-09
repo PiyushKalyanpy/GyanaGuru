@@ -6,7 +6,10 @@ const Profile = () => {
       <div className="col-span-2">
         <HomeSidebar pageNumber={3} />
       </div>
+      <div className="bg-zinc-100 col-span-10" >
+
       User profile
+      </div>
     </div>
   );
 };

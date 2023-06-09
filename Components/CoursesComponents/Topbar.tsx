@@ -1,45 +1,51 @@
 import Image from "next/image";
-import {useState, useEffect, ChangeEvent} from "react"
+import { useState, useEffect, ChangeEvent } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const Topbar = () => {
+  const { currentUser } = useContext(AuthContext);
   const imageUrl = "https://avatars.githubusercontent.com/u/79275157?s=90&v=4";
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
-  }
+  };
 
   useEffect(() => {
     let debounceTimer: string | number | NodeJS.Timeout | undefined;
-  
+
     const handleSearch = () => {
       // Perform your fetch call here, for now just console logging for demonstration
       console.log("Fetching data for:", searchQuery);
     };
-  
+
     const debounceSearch = () => {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(handleSearch, 300);
     };
+    debounceSearch();
+    return () => {
+      clearTimeout(debounceTimer);
+    };
+  }, [searchQuery]);
 
-  debounceSearch();
 
-  return () => {
-    clearTimeout(debounceTimer);
-  };
-
-  }, [searchQuery])
+  if (!currentUser) return <div>Loading...</div>;
 
   return (
-    <div className="flex w-full py-4 h-fit">
+    <div className="flex w-full p-4 h-fit">
       <div className="flex justify-between w-full">
         {/* Search bar  */}
-        <SearchBar searchQuery={searchQuery} handleInputChange={handleInputChange} />
+        <SearchBar
+          searchQuery={searchQuery}
+          handleInputChange={handleInputChange}
+        />
 
         {/* Notificaton and profile  */}
         <div className="flex h-full gap-4 w-fit">
           <TopBarButtons iconAvailable={true} />
-          <TopBarButtons imageAvailable={true} imageUrl={imageUrl} />
+          <TopBarButtons imageAvailable={true} imageUrl={currentUser ? currentUser.photoURL ? currentUser.photoURL : "https://images.unsplash.com/photo-1604076913837-52ab5629fba9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" :null } />
         </div>
       </div>
     </div>
@@ -53,15 +59,15 @@ interface SearchBarProps {
 
 const SearchBar = ({ searchQuery, handleInputChange }: SearchBarProps) => {
   return (
-    <div className="flex flex-row items-center w-1/4 p-1 pl-4 pr-1 overflow-hidden bg-gray-100 rounded-2xl h-fit font-archivo">
+    <div className="flex flex-row items-center w-1/4 p-1 pl-4 pr-1 overflow-hidden bg-white rounded-2xl h-fit font-archivo">
       <input
         type="text"
         placeholder="Search for courses"
-        className="w-full p-2 text-xl bg-gray-100 border-0 outline-none font-archivo placeholder:font-archivo placeholder:font-light placeholder:text-zinc-400"
+        className="w-full p-2 text-xl bg-white border-0 outline-none font-archivo placeholder:font-archivo placeholder:font-light placeholder:text-zinc-400"
         value={searchQuery}
         onChange={handleInputChange}
       />
-      <span className="p-3 rounded-full cursor-pointer material-icons hover:bg-gray-200 active:bg-gray-300 ">
+      <span className="p-3 cursor-pointer rounded-xl material-icons hover:bg-gray-200 active:bg-gray-300 ">
         search
       </span>
     </div>
@@ -76,7 +82,7 @@ const TopBarButtons = ({
   onClick,
 }: any) => {
   return (
-    <div className="flex items-center p-1 transition border rounded-full h-fit hover:ring hover:ring-gray-200">
+    <div  className="flex items-center p-1 transition border rounded-full h-fit hover:ring hover:ring-gray-200">
       {iconAvailable ? (
         <div className="flex ">
           <NotificationIcon />
