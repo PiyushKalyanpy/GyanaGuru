@@ -34,7 +34,6 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   const handleClick = () => {
     setShowNav(!showNav);
   };
@@ -57,28 +56,31 @@ export default function Home() {
 
       {/* popup */}
       {showPopup && (
-        <div className=" fixed  flex z-50 w-full h-screen  bg-black/50 backdrop-blur-sm items-center ">
-          <div className="flex flex-col space-y-10 w-1/2 h-fit  bg-white rounded-3xl m-auto p-8 items-center">
-            <div className="flex flex-col space-y-5 items-center ">
-              <h1 className="font-bold text-5xl font-inter dark:text-black">
+        <div className="fixed z-50 flex items-center w-full h-screen  bg-black/50 backdrop-blur-sm">
+          <div className="flex flex-col items-center w-1/2 p-8 m-auto space-y-10 bg-white h-fit rounded-3xl">
+            <div className="flex flex-col items-center space-y-5 ">
+              <h1 className="text-5xl font-bold font-inter dark:text-black">
                 Hey Contributors{" "}
               </h1>
-              <h6 className=" text-3xl text-zinc-700">
+              <h6 className="text-3xl  text-zinc-700">
                 Your contribution matters!
               </h6>
             </div>
-            <span className=" text-xl text-zinc-600 text-center mx-10">
-            No more contributions on the home page. Please visit the
-              dashboard for further contributions.
+            <span className="mx-10 text-xl text-center  text-zinc-600">
+              No more contributions on the home page. Please visit the dashboard
+              for further contributions.
             </span>
             <div className="flex flex-row space-x-6">
               <button
                 onClick={() => setShowPopup(false)}
-                className="flex rounded-full px-4 py-2 border text-zinc-600 text-xl"
+                className="flex px-4 py-2 text-xl border rounded-full text-zinc-600"
               >
                 Ok 👍
               </button>
-              <button onClick={() => router.push('/dashboard')} className="flex rounded-full px-4 py-2 bg-black text-white text-xl">
+              <button
+                onClick={() => router.push("/dashboard")}
+                className="flex px-4 py-2 text-xl text-white bg-black rounded-full"
+              >
                 Go to dashboard
               </button>
             </div>
@@ -86,8 +88,8 @@ export default function Home() {
         </div>
       )}
 
-      <main className="hidden lg:block h-fit w-screen overflow-hidden gap-y-10 dark:bg-neutral-950">
-        <div className="fixed right-0 top-40 z-10">
+      <main className="hidden w-screen overflow-hidden lg:block h-fit gap-y-10 dark:bg-neutral-950">
+        <div className="fixed right-0 z-10 top-40">
           <ConnectWithMe />
         </div>
         <div className="fixed z-40 w-full transition ">
@@ -132,9 +134,9 @@ const MessageComponnent = () => {
 
 const ConnectWithMe = () => {
   return (
-    <div className="flex items-center h-fit bg-gray-200/40 backdrop-blur-sm border-2 border-zinc-100 w-fit  px-2 py-2  rounded-tl-full rounded-bl-full pr-10 translate-x-40 hover:translate-x-6  transition">
+    <div className="flex items-center px-2 py-2 pr-10 transition translate-x-40 border-2 rounded-tl-full rounded-bl-full h-fit bg-gray-200/40 backdrop-blur-sm border-zinc-100 w-fit hover:translate-x-6">
       {/* linkedin connect button with icon  */}
-      <div className="flex flex-row m-auto items-center space-x-4">
+      <div className="flex flex-row items-center m-auto space-x-4">
         <Image
           className="rounded-full"
           alt="LinkedIn"

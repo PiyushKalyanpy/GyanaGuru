@@ -25,7 +25,11 @@ export function CourseProvider({ children }) {
   const routerQuery = router.query;
 
   function addCourse(course) {
-    db.collection("courses").add(course);
+    addDoc(collection(db, "courses"), course);
+  }
+
+  function addCategory(category) {
+    addDoc(collection(db, "courses"), category);
   }
 
   function deleteCourse(id) {
@@ -59,6 +63,7 @@ export function CourseProvider({ children }) {
     courses,
     addCourse,
     categories,
+    addCategory,
     deleteCourse,
     updateCourse,
     getCourses,

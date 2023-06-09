@@ -44,7 +44,7 @@ const SignUp = () => {
     });
   };
 
-  const error = ({message}:any) => {
+  const error = ({ message }: any) => {
     toast.error(`${message}`, {
       position: "bottom-right",
       autoClose: 5000,
@@ -64,38 +64,39 @@ const SignUp = () => {
     ) {
       warning();
     } else if (userData.password !== userData.confirmPassword) {
-      error({message:"Passwords do not match"});
+      error({ message: "Passwords do not match" });
     } else {
-      signup(userData.email, userData.password).then(({ data }: any) => {
-        success();
-        router.push("/dashboard");
-      }).catch((err:any)=>{
-        error({message:err.message});
-      });
-
+      signup(userData.email, userData.password)
+        .then(({ data }: any) => {
+          success();
+          router.push("/dashboard");
+        })
+        .catch((err: any) => {
+          error({ message: err.message });
+        });
     }
   };
 
   return (
     <div className="flex w-full h-screen bg-gray-200 ">
       <ToastContainer />
-      <div className="flex flex-col w-10/12 md:w-8/12 lg:w-1/4 bg-white rounded-lg h-fit m-auto min-h-1/4 p-4 ">
-        <div className="flex flex-col space-y-8 items-center ">
+      <div className="flex flex-col w-10/12 p-4 m-auto bg-white rounded-lg md:w-8/12 lg:w-1/4 h-fit min-h-1/4 ">
+        <div className="flex flex-col items-center space-y-8 ">
           {/* login heading and text */}
-          <div className="flex w-full px-2 flex-col mt-8 space-y-2 ">
+          <div className="flex flex-col w-full px-2 mt-8 space-y-2 ">
             <h3 className="text-3xl font-semibold ">Sign Up</h3>
             <h4 className="flex">Welcome to Gyana Guru. </h4>
           </div>
 
           {/* login form */}
-          <div className="flex flex-col space-y-4 w-full mx-4 ">
+          <div className="flex flex-col w-full mx-4 space-y-4 ">
             <ButtonWithImage
               buttonName="Continue with Google"
               icon="/images/google.svg"
             />
 
             {/* make or with divider */}
-            <div className="flex flex-row space-x-4 my-4 items-center">
+            <div className="flex flex-row items-center my-4 space-x-4">
               <hr className="w-full border-gray-200" />
               <h4 className="font-medium text-zinc-500">or</h4>
               <hr className="w-full border-gray-300" />
@@ -111,7 +112,7 @@ const SignUp = () => {
                 onChange={(e) =>
                   setUserData({ ...userData, email: e.target.value })
                 }
-                className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:border-2 focus:border-black"
+                className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-2 focus:border-black"
               />
               {/* password */}
               <div className="flex w-full space-x-2">
@@ -122,7 +123,7 @@ const SignUp = () => {
                   onChange={(e) =>
                     setUserData({ ...userData, password: e.target.value })
                   }
-                  className="w-full border focus:outline-none focus:border-2  border-gray-300 rounded-lg p-2"
+                  className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-2"
                 />
               </div>
               {/* confirm password */}
@@ -137,10 +138,10 @@ const SignUp = () => {
                       confirmPassword: e.target.value,
                     })
                   }
-                  className="w-full border focus:outline-none focus:border-2 focus:border-black border-gray-300 rounded-lg p-2"
+                  className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-2 focus:border-black"
                 />
                 <div
-                  className="flex items-center text-zinc-500 border focus:outline-none focus:border-2 focus:border-black border-gray-300 rounded-lg p-2  "
+                  className="flex items-center p-2 border border-gray-300 rounded-lg text-zinc-500 focus:outline-none focus:border-2 focus:border-black "
                   onClick={() => showPasswordToggle()}
                 >
                   <span className="material-icons-outlined ">
@@ -153,7 +154,7 @@ const SignUp = () => {
             {/* login button */}
             <div className="flex flex-row space-x-4 py-4 transition hover:scale-[1.02]">
               <button
-                className="bg-black text-white rounded-lg p-2 w-full"
+                className="w-full p-2 text-white bg-black rounded-lg"
                 onClick={handleSignUp}
               >
                 Sign Up
@@ -161,11 +162,11 @@ const SignUp = () => {
             </div>
 
             {/* Create Account */}
-            <div className="flex flex-col items-center mt-4 text-sm justify-between">
+            <div className="flex flex-col items-center justify-between mt-4 text-sm">
               <p className="w-fit text-slate-600">Already have an account</p>
               <p
                 onClick={() => router.push("/login")}
-                className="w-fit text-black hover:underline cursor-pointer"
+                className="text-black cursor-pointer w-fit hover:underline"
               >
                 Sign In to you account
               </p>
