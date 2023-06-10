@@ -32,6 +32,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@heroicons/react": "^2.0.18",
     "@types/node": "20.2.3",
     "@types/react": "18.2.6",
     "autoprefixer": "^10.4.14",

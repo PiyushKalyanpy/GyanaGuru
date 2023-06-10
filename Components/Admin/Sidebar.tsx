@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { setCookie } from "cookies-next";
 import Image from "next/image";
 import { LogoutFromGoogleAuth } from "@/database/firebase";
+import { DarkModeToggle } from "../components";
 
 const Sidebar = ({ pageNumber, active, setActive }: any) => {
   const router = useRouter();
@@ -14,11 +15,10 @@ const Sidebar = ({ pageNumber, active, setActive }: any) => {
 
 
   return (
-    <div className="flex flex-col justify-between h-full py-8 overflow-hidden bg-white ">
+    <div className="flex flex-col justify-between h-full py-8 overflow-hidden bg-white dark:bg-zinc-950">
       {/* Menu icons  */}
       <div className="flex flex-col gap-4 px-4">
-        {/* logo */}
-
+        <DarkModeToggle/>
         <SidebarItem
           Icon={AddIcon}
           text="Add Course"
@@ -77,7 +77,7 @@ const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
     >
       <span
         className={`material-icons-outlined   ${
-          active ? "material-icons-round text-black  " : "text-zinc-500"
+          active ? "material-icons-round dark:text-white text-black " : "text-zinc-500"
         }`}
       >
         <Icon />
@@ -85,7 +85,7 @@ const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
       {/* <h3 className={"font-medium ml-2 text-zinc-900"}>{text}</h3> */}
       <h3
         className={` ml-2  font-inter ${
-          active ? "text-black font-semibold " : "text-zinc-600"
+          active ? "dark:text-white text-black font-semibold " : "text-zinc-600"
         }`}
       >
         {text}

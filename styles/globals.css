@@ -95,10 +95,3 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   background: #c8c7c7;
 }
 
-.html5-video-player{
-  background-color: #fff;
-}
-
-iframe{
-  background-color: #fff;
-}

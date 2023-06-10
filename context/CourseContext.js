@@ -7,6 +7,8 @@ import {
   deleteDoc,
   doc,
   onSnapshot,
+  limit,
+  where, 
   query,
   updateDoc,
 } from "firebase/firestore";
@@ -19,35 +21,32 @@ export function useCourse() {
 }
 
 export function CourseProvider({ children }) {
-  const [courses, setCourses] = useState([]);
   const [categories, setCategories] = useState([]);
-  const router = useRouter();
-  const routerQuery = router.query;
+  const [playlist, setPlaylist] = useState([]);
+  const [videos, setVideos] = useState([]);
 
-  function addCourse(course) {
-    addDoc(collection(db, "courses"), course);
-  }
+  // Category CRUD ----------------------------------------------
 
   function addCategory(category) {
-    addDoc(collection(db, "courses"), category);
+    addDoc(collection(db, "categories"), category);
   }
 
-  function deleteCourse(id) {
-    db.collection("courses").doc(id).delete();
+  function deleteCategory(id) {
+    deleteDoc(doc(db, "categories", id));
+  }
+  
+  function updateCategory(id, course) {
+    updateDoc(doc(db, "categories", id), course);
   }
 
-  function updateCourse(id, course) {
-    db.collection("courses").doc(id).update(course);
-  }
-
-  const getCourses = () => {
+  const getCategory = () => {
     const unsubscribe = () =>
-      getDocs(collection(db, "courses")).then((querySnapshot) => {
-        const coursesData = [];
+      getDocs(collection(db, "categories")).then((querySnapshot) => {
+        const categoryData = [];
         querySnapshot.forEach((doc) => {
-          coursesData.push({ ...doc.data(), id: doc.id });
+          categoryData.push({ ...doc.data(), id: doc.id });
         });
-        setCategories(coursesData);
+        setCategories(categoryData);
       });
     // if category is empty, get all courses
     if (categories.length === 0) {
@@ -55,18 +54,85 @@ export function CourseProvider({ children }) {
     }
   };
 
+  // Playlist CRUD ----------------------------------------------
+
+  function addPlaylist(playlist) {
+    addDoc(collection(db, "playlists"), playlist);
+  }
+
+  function deletePlaylist(id) {
+    deleteDoc(doc(db, "playlists", id));
+  }
+
+  function updatePlaylist(id, playlist) {
+    updateDoc(doc(db, "playlists", id), playlist);
+  }
+
+  const getPlaylist = () => {
+    const unsubscribe = () =>
+      getDocs(query(collection(db, "playlists"), limit(10))).then(
+        (querySnapshot) => {
+          const playlistData = [];
+          querySnapshot.forEach((doc) => {
+            playlistData.push({ ...doc.data(), id: doc.id });
+          });
+          setPlaylist(playlistData);
+        }
+      );
+    // if playlist is empty, get all playlists
+    if (playlist.length === 0) {
+      unsubscribe();
+    }
+  };
+
+
+  // Video CRUD ----------------------------------------------
+
+  function addVideo(video) {
+    addDoc(collection(db, "videos"), video);
+  }
+
+  function deleteVideo(id) {
+    deleteDoc(doc(db, "videos", id));
+  }
+
+  const getVideos = (id) => {
+    const unsubscribe = () =>
+
+      getDocs(collection(db, "videos"), where("playlistId"==id)  ).then((querySnapshot) => {
+        const videoData = [];
+        querySnapshot.forEach((doc) => {
+          videoData.push({ ...doc.data(), id: doc.id });
+        });
+        setVideos(videoData);
+      });
+    // if video is empty, get all videos
+    if (videos.length === 0) {
+      unsubscribe();
+    }
+  };
+
+
   React.useEffect(() => {
-    getCourses();
+    getCategory();
+    getPlaylist();
   }, []);
 
   const value = {
-    courses,
-    addCourse,
     categories,
     addCategory,
-    deleteCourse,
-    updateCourse,
-    getCourses,
+    addPlaylist,
+    deleteCategory, 
+    updateCategory,
+    playlist,
+    updatePlaylist,
+    videos,
+    getPlaylist,
+    deletePlaylist,
+    addVideo,
+    deleteVideo,
+    getVideos,
+    getCategory,
   };
 
   return (
