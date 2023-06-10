@@ -9,20 +9,26 @@ import { useState } from "react";
 const Course = () => {
   const { categories, playlist } = useContext(CourseContext);
   const [selectedPlaylist, setSelectedPlaylist] = useState(true); // true for popular and false for latest
+  // filter popular playlist with top 4 highest rating
+  const popularPlaylist = playlist
+    .sort((a: any, b: any) => {
+      return b.rating - a.rating;
+    })
+    .slice(0, 4);
 
   return (
-    <div className="grid grid-cols-12 w-full h-screen bg-zinc-100 dark:bg-zinc-900">
-      <div className="col-span-2">
+    <div className="grid w-full h-screen grid-cols-12 bg-zinc-100 dark:bg-zinc-900">
+      <div className="col-span-2 ">
         <HomeSidebar pageNumber={2} />
       </div>
-      <div className=" col-span-10 space-y-10">
+      <div className="h-full col-span-10 space-y-10 overflow-y-scroll ">
         <Topbar />
         {/* div with categories */}
         <div className="flex flex-col justify-start">
-          <h1 className=" font-inter font-medium text-zinc-500 pl-4">
+          <h1 className="pl-4 font-medium  font-inter text-zinc-500">
             Categories
           </h1>
-          <div className="flex flex-row  p-4 gap-6">
+          <div className="flex flex-row gap-6 p-4">
             {categories &&
               categories.map((category: any) => (
                 <CategoryCard
@@ -36,12 +42,12 @@ const Course = () => {
         </div>
         {/* diffent playlist section  */}
         <div className="flex flex-col justify-start">
-          <h1 className=" font-inter font-medium text-zinc-500 pl-4">
+          <h1 className="pl-4 font-medium  font-inter text-zinc-500">
             Playlists
           </h1>
-          <div className="flex flex-row  p-4 gap-6 h-fit ">
+          <div className="flex flex-row gap-6 p-4 lg:grid lg:grid-cols-4 h-fit ">
             {/* div for popular and latest */}
-            {/* <div className="flex flex-col space-y-4  justify-around">
+            {/* <div className="flex flex-col justify-around space-y-4">
               <button
                 onClick={() => setSelectedPlaylist(true)}
                 className={`p-4 px-10 w-full  rounded-2xl ${
@@ -60,8 +66,8 @@ const Course = () => {
               </button>
             </div> */}
             {/* playlist cards */}
-            {playlist &&
-              playlist.map((playlist: any) => (
+            {popularPlaylist &&
+              popularPlaylist.map((playlist: any) => (
                 <PlaylistCard key={playlist.id} playlist={playlist} />
               ))}
           </div>

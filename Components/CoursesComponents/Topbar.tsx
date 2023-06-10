@@ -69,7 +69,7 @@ const SearchBar = ({ searchQuery, handleInputChange }: SearchBarProps) => {
         value={searchQuery}
         onChange={handleInputChange}
       />
-      <span className="p-3 cursor-pointer rounded-xl material-icons hover:bg-gray-200 active:bg-gray-300 ">
+      <span className="p-3 cursor-pointer rounded-xl material-icons dark:hover:bg-zinc-900 hover:bg-gray-200 active:bg-gray-300 ">
         search
       </span>
     </div>

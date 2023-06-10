@@ -19,10 +19,10 @@ const PlaylistCard = ({ playlist }: any) => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/course/${id}`);
+    router.push(`/course/playlist/${id}`);
   }
   return (
-    <div onClick={handleClick} className="flex cursor-pointer  flex-col hover:scale-[1.05] transition space-y-4  bg-white dark:bg-zinc-800 rounded-xl w-80  p-4 overflow-hidden">
+    <div onClick={handleClick} className="flex cursor-pointer  flex-col hover:scale-[1.05] transition space-y-4  bg-white dark:bg-zinc-800 rounded-xl w-full  p-4 overflow-hidden">
       <div className="w-full space-y-2">
         <div className="relative w-full h-24 overflow-hidden aspect-w-3 aspect-h-2">
           <Image
