@@ -268,17 +268,11 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
     imageUrl: "",
     categoryId: "",
     viewCount: 0,
-    dateCreated: new Date(),
+    createdAt: new Date(),
     rating: 0,
     url: "",
     playlistId: "",
-    comments: [
-      {
-        id: 0,
-        userId: "",
-        commentId: "",
-      },
-    ],
+    comments: [],
     restriction: 1,
     createdBy: currentUser && currentUser.uid,
     likes: 0,
@@ -298,9 +292,20 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
     addVideo(video);
   };
 
-  const handleAddLink = () => {
-    
-  }
+  const handleAddLink = async (e: any) => {
+    e.preventDefault();
+    const videoId = video.url.split("=")[1];
+    const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    const videoData = data.items[0].snippet;
+    setVideo({
+      ...video,
+      name: videoData.title,
+      description: videoData.description,
+      imageUrl: videoData.thumbnails.default.url,
+    });
+  };
 
   return (
     <div className="w-full m-5 ">
@@ -343,8 +348,8 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
             <div className="flex w-full space-x-4">
               <input
                 type="text"
-                value={video.name}
-                onChange={(e) => setVideo({ ...video, name: e.target.value })}
+                value={video.url}
+                onChange={(e) => setVideo({ ...video, url: e.target.value })}
                 className="flex w-full p-2 border-2 rounded-lg border-zinc-100"
               />
 

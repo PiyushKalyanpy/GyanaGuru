@@ -2,7 +2,7 @@ import { CourseContext } from "@/context/CourseContext";
 import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-const PlayVideo = () => {
+const VideosPage = () => {
   const router = useRouter();
   const { playlistId } = router.query;
   const { playlist, getVideos, videos } = useContext(CourseContext);
@@ -15,4 +15,4 @@ const PlayVideo = () => {
   return <div>{playlistId}sdf</div>;
 };
 
-export default PlayVideo;
+export default VideosPage;
