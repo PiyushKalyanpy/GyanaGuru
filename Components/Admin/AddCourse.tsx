@@ -135,7 +135,6 @@ const AddCategory = ({ addCategory }: any) => {
 // form for adding new playlist
 const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
   const userId = currentUser && currentUser.uid;
-  console.log(userId);
   const [playlist, setPlaylist] = useState<Playlist>({
     id: 0,
     name: "",
@@ -152,7 +151,6 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
     createdBy: currentUser && currentUser.uid,
   });
   React.useEffect(() => {
-    console.log(playlist);
   }, [playlist]);
 
   const handleSubmit = (e: any) => {
@@ -283,8 +281,6 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
   );
 
   React.useEffect(() => {
-    console.log(video);
-    console.log(playlistBelongsCategory);
   }, [video]);
 
   const handleSubmit = (e: any) => {

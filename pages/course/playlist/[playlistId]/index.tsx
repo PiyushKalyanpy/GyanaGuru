@@ -43,12 +43,10 @@ const VideosPage = () => {
     },
   };
   useEffect(() => {
-    console.log(currentTime);
     const ytPlayerHeader = document.querySelector(
       ".ytp-chrome-top.ytp-show-cards-title"
     );
     ytPlayerHeader?.remove();
-    console.log(ytPlayerHeader);
     ytPlayerHeader?.remove();
   }, [currentTime]);
 
@@ -133,7 +131,6 @@ const VideoPlayer = ({ videoId }: any) => {
     }
 
     const onPlayerStateChange = (event: any) => {
-      console.log("player state: " + player.getPlayerState());
     };
 
     const stopVideo = () => {

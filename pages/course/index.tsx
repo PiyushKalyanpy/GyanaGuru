@@ -6,29 +6,29 @@ import { CourseContext } from "@/context/CourseContext";
 import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { collection, query, where, getDocs, addDoc, doc, setDoc, limit } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  addDoc,
+  doc,
+  setDoc,
+  limit,
+} from "firebase/firestore";
 import { db } from "@/database/firebase";
 
-
 const Course = () => {
-  const { categories, playlist } =
-    useContext(CourseContext);
-
-
-
-
-  console.log(categories);
-  console.log(playlist);
+  const { categories, playlist } = useContext(CourseContext);
 
   const [selectedPlaylist, setSelectedPlaylist] = useState(true); // true for popular and false for latest
-  const popularPlaylist = playlist 
-  // && playlist?.sort((a: any, b: any) => {
-  //     return b.rating - a.rating;
-  //   })
-  //   .slice(0, 4);
-
-
-  
+  const popularPlaylist =
+    playlist &&
+    playlist
+      ?.sort((a: any, b: any) => {
+        return b.rating - a.rating;
+      })
+      .slice(0, 4);
 
   return (
     <div className="grid w-full h-screen grid-cols-12 bg-zinc-100 dark:bg-zinc-900">
