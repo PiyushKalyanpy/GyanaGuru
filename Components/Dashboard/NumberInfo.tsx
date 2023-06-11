@@ -1,8 +1,8 @@
 const NumberInfo = ({ title, number, icon }: any) => {
   return (
-    <div className="flex flex-col space-y-6 bg-white p-4 w-full h-fit rounded-xl hover:scale-[1.05] transition">
+    <div className="flex flex-col space-y-6 bg-white dark:bg-zinc-800 p-4 w-full h-fit rounded-xl hover:scale-[1.05] transition">
       {/* icon */}
-      <div className="flex p-2 bg-zinc-100 w-fit h-fit rounded-xl">
+      <div className="flex p-2 bg-zinc-100 dark:bg-zinc-900 w-fit h-fit rounded-xl">
         <span className="material-icons-outlined ">{icon}</span>
       </div>
       <div className="flex flex-col space-y-2">
@@ -13,7 +13,7 @@ const NumberInfo = ({ title, number, icon }: any) => {
 
         {/* title */}
         <div>
-          <p className="font-inter text-zinc-500 ">{title}</p>
+          <p className="font-inter text-zinc-500 dark:text-zinc-300 ">{title}</p>
         </div>
       </div>
     </div>

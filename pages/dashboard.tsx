@@ -14,18 +14,18 @@ const Dashboard = () => {
     { label: "Hindi", value: 300 },
   ];
   return (
-    <div className="grid w-screen h-screen grid-cols-12 overflow-hidden bg-white">
-      <div className="col-span-2 shadow-2xl bg-white">
+    <div className="grid w-screen h-screen grid-cols-12 overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+      <div className="col-span-2 bg-white shadow-2xl">
         <HomeSidebar pageNumber={1} />
       </div>
 
-      <div className="flex flex-col h-full gap-8 col-span-7 bg-zinc-100 p-6 ">
-        <div className="grid grid-cols-3 gap-6 w-full h-1/4">
+      <div className="flex flex-col h-full col-span-7 gap-8 p-6 ">
+        <div className="grid w-full grid-cols-3 gap-6 h-1/4">
           <NumberInfo title="Total courses enrolled" number={7} icon="school" />
           <NumberInfo title="Total time spent" number={42} icon="access_time" />
           <NumberInfo title="Performance in %" number={94} icon="trending_up" />
         </div>
-        <div className=" flex  space-x-8 w-full h-3/4">
+        <div className="flex w-full space-x-8  h-3/4">
           <BarChart data={data} title="Time spent " />
         </div>
       </div>
@@ -50,32 +50,38 @@ const BarChart = ({
   sortedData.push({ label: "", value: 0 });
 
   return (
-    <div className="flex flex-col w-3/4 h-full gap-8 bg-white rounded-xl p-8 shadow-2xl shadow-zinc-200">
-      <div className="flex  justify-between w-full h-fit items-center">
-        <p className="font-inter text-xl text-black ">{title}</p>
-        <button className="flex  space-x-4 items-center border-2 rounded-xl border-black p-2  ">
-          <p className="font-inter text-md text-black ">Full stats</p>
+    <div className="flex flex-col w-3/4 h-full gap-8 p-8 bg-white rounded-xl dark:bg-zinc-800">
+      <div className="flex items-center justify-between w-full h-fit">
+        <p className="text-xl text-black font-inter dark:text-white ">
+          {title}
+        </p>
+        <button className="flex items-center p-2 space-x-4 border-2 border-white rounded-xl ">
+          <p className="text-black font-inter text-md dark:text-white ">
+            Full stats
+          </p>
           {/* icon */}
           <span className="material-icons-outlined ">arrow_forward</span>
         </button>
       </div>
       <div>
-        <div className="flex flex-row  items-end space-x-3">
-          <h4 className="font-bold text-6xl ">122</h4>
-          <h6 className="font-semibold text-2xl text-gray-400 ">mins</h6>
+        <div className="flex flex-row items-end space-x-3">
+          <h4 className="text-6xl font-bold ">122</h4>
+          <h6 className="text-2xl font-semibold text-gray-400 dark:text-gray-300">
+            mins
+          </h6>
         </div>
-        <p className="text-lg text-gray-600">Avg. per day</p>
+        <p className="text-lg text-gray-600 dark:text-gray-300">Avg. per day</p>
       </div>
-      <div className="flex justify-between items-end w-full h-full p-4">
+      <div className="flex items-end justify-between w-full h-full p-4">
         {/* div showing the values in sidebar */}
         <div className="flex flex-col justify-center h-full">
           {sortedData.map((item) => (
             <div
               key={item.label}
-              className="flex place-content-start	  flex-col h-full w-fit gap-4"
+              className="flex flex-col h-full gap-4 place-content-start w-fit"
             >
-              <div className="w-fit flex  ">
-                <p className="flex font-inter text-sm text-zinc-500 ">
+              <div className="flex w-fit ">
+                <p className="flex text-sm font-inter text-zinc-500 ">
                   {item.value}
                 </p>
               </div>
@@ -86,14 +92,14 @@ const BarChart = ({
         {data.map((item) => (
           <div
             key={item.label}
-            className="flex justify-end flex-col h-full w-fit items-center gap-4"
+            className="flex flex-col items-center justify-end h-full gap-4 w-fit"
           >
             <div
-              className="flex  bg-gradient-to-bl from-teal-500 to-cyan-600 w-4 rounded-xl "
+              className="flex w-4 bg-gradient-to-bl from-teal-500 to-cyan-600 rounded-xl "
               style={{ height: `${(item.value / maxDataValue) * 100}%` }}
             />
             <div className="w-fit">
-              <p className="font-inter text-sm text-zinc-500 ">{item.label}</p>
+              <p className="text-sm font-inter text-zinc-500 ">{item.label}</p>
             </div>
           </div>
         ))}

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useState, useEffect, ChangeEvent } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { DarkModeToggle } from "../components";
 
 const Topbar = () => {
   const { currentUser } = useContext(AuthContext);
@@ -45,7 +46,8 @@ const Topbar = () => {
         {/* Notificaton and profile  */}
         <div className="flex h-full gap-4 w-fit">
           <TopBarButtons iconAvailable={true} />
-          <TopBarButtons imageAvailable={true} imageUrl={currentUser ? currentUser.photoURL ? currentUser.photoURL : "https://images.unsplash.com/photo-1604076913837-52ab5629fba9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" :null } />
+          <TopBarButtons imageAvailable={true} imageUrl={currentUser ? currentUser.photoURL ? currentUser.photoURL : "/images/empty_profile.png" :null } />
+          <DarkModeToggle/>
         </div>
       </div>
     </div>
@@ -57,13 +59,13 @@ interface SearchBarProps {
   handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const SearchBar = ({ searchQuery, handleInputChange }: SearchBarProps) => {
+const SearchBar = ({ searchQuery, handleInputChange }: SearchBarProps) => {  
   return (
-    <div className="flex flex-row items-center w-1/4 p-1 pl-4 pr-1 overflow-hidden bg-white rounded-2xl h-fit font-archivo">
+    <div className="flex flex-row items-center w-1/4 p-1 pl-4 pr-1 overflow-hidden dark:bg-zinc-800 bg-white rounded-2xl h-fit font-archivo">
       <input
         type="text"
         placeholder="Search for courses"
-        className="w-full p-2 text-xl bg-white border-0 outline-none font-archivo placeholder:font-archivo placeholder:font-light placeholder:text-zinc-400"
+        className="w-full p-2 text-xl bg-white dark:bg-zinc-800 border-0 outline-none font-archivo placeholder:font-archivo placeholder:font-light placeholder:text-zinc-400"
         value={searchQuery}
         onChange={handleInputChange}
       />
@@ -82,7 +84,7 @@ const TopBarButtons = ({
   onClick,
 }: any) => {
   return (
-    <div  className="flex items-center p-1 transition border rounded-full h-fit hover:ring hover:ring-gray-200">
+    <div  className="flex items-center p-1 transition border dark:border-0 dark:bg-zinc-800 rounded-full h-fit hover:ring hover:ring-gray-200">
       {iconAvailable ? (
         <div className="flex ">
           <NotificationIcon />

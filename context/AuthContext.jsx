@@ -8,6 +8,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
+import { setCookie } from "cookies-next";
 
 export const AuthContext = React.createContext();
 
@@ -31,7 +32,6 @@ export function AuthProvider({ children }) {
   }
 
   function login(email, password) {
-    console.log("login");
     return signInWithEmailAndPassword(auth, email, password);
   }
 
@@ -47,6 +47,7 @@ export function AuthProvider({ children }) {
   React.useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+      if(user) {setCookie("loggedIn", true);}
       setLoading(false);
     });
     return unsubscribe;

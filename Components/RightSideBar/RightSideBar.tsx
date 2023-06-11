@@ -14,7 +14,7 @@ const RightSideBar = (props: Props) => {
   const [user] = useAuthState(auth);
 
 
-  const imageUrl = user&& user.photoURL || "https://avatars.githubusercontent.com/u/79275157?s=90&v=4";
+  const imageUrl = user&& user.photoURL || "/images/empty_profile.png";
   return (
     <div className="flex w-full top-0 flex-col h-screen p-4 bg-white ">
       <div className="w-full max-w-sm p-4 mb-12">

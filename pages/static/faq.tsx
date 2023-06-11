@@ -33,7 +33,7 @@ const FAQ = () => {
         <div className="absolute right-20">
           <DarkModeToggle />
         </div>
-        <div className=" my-10 rounded-full shadow-xl shadow-red-100 flex items-center justify-center w-full h-12 bg-red-100 border border-red-500">
+        <div className="flex items-center justify-center w-full h-12 my-10 bg-red-100 border border-red-500 rounded-full shadow-xl  shadow-red-100">
           <div className="flex items-center justify-center w-4 h-4 bg-red-500 rounded-full"></div>
           <div className="ml-2 text-xs font-semibold text-red-500 uppercase">
             Attention needed
@@ -41,13 +41,15 @@ const FAQ = () => {
         </div>
         {/* message for contributors  */}
         <div className="my-10 text-center">
-            <h1 className="text-3xl font-semibold">
-                Message For Contributors
-            </h1>
-            <p className="mt-2 text-gray-600 dark:text-zinc-200">
-                You can contribute to the FAQ section by adding questions and answers to the faq.json file and by designing the FAQ page which will take inputs for questions and answers from the faq.json file. ( when you make new FAQ design pls make a right sidebar  that will show the current information written below )
-            </p>
-            </div>
+          <h1 className="text-3xl font-semibold">Message For Contributors</h1>
+          <p className="mt-2 text-gray-600 dark:text-zinc-200">
+            You can contribute to the FAQ section by adding questions and
+            answers to the faq.json file and by designing the FAQ page which
+            will take inputs for questions and answers from the faq.json file. (
+            when you make new FAQ design pls make a right sidebar that will show
+            the current information written below )
+          </p>
+        </div>
       </div>
 
       {/* faq message  */}
@@ -59,7 +61,7 @@ const FAQ = () => {
 
         {/* points lsit */}
         <div className="mt-4">
-          <ul className="list-disc list-inside space-y-6">
+          <ul className="space-y-6 list-disc list-inside">
             <li>
               Create the faq.json file: Inside the data directory, create a new
               file called faq.json and add the questions and answers (for new
