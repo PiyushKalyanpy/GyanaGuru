@@ -1,81 +1,67 @@
-import React, { useState, useRef } from 'react';
-import YouTube from 'react-youtube';
+import { useEffect } from 'react';
 
-const CustomVideoPlayer = ({ videoUrl }:any) => {
-  const [isPlaying, setPlaying] = useState(false);
-  const [isMuted, setMuted] = useState(false);
-  const playerRef = useRef(null);
+declare global {
+  interface Window {
+    onYouTubeIframeAPIReady: () => void;
+    YT: any;
+  }
+}
 
-  const handlePlayPause = () => {
-    setPlaying(!isPlaying);
-  };
+export const VideoPlayer = () => {
+  useEffect(() => {
+    // This code loads the IFrame Player API code asynchronously.
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag && firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
 
-  const handleMuteUnmute = () => {
-    setMuted(!isMuted);
-  };
+    // This function creates an <iframe> (and YouTube player) after the API code downloads.
+    let player :any;
 
-  const handleReady = (event:any) => {
-    playerRef.current = event.target;
-  };
+    if(typeof window !== 'undefined') {
+      window.onYouTubeIframeAPIReady = () => {
+        player = new window.YT.Player('player', {
+          host: 'https://www.youtube.com',
+          videoId: 'dlFA0Zq1k2A',
+          playerVars: {
+            enablejsapi: 1,
+            playsinline: 1,
+            start: 0,
+            disablekb: 0
+          },
+          events: {
+            onStateChange: onPlayerStateChange
+          }
+        });
+      };
+    }
+
+    const onPlayerStateChange = (event:any) => {
+      console.log('player state: ' + player.getPlayerState());
+    };
+
+  
+
+    const stopVideo = () => {
+      player.stopVideo();
+    };
+
+    return () => {
+      // Clean up event listeners or other resources if needed
+    };
+  }, []);
 
   return (
-    <div className="relative">
-      <div className="aspect-w-16 aspect-h-9">
-        <YouTube
-          videoId="https://youtu.be/9VNI3s7rUoQ?list=RDAVM4J0qvdKw&t=156"
-          className="absolute top-0 left-0 w-full h-full"
-          onReady={handleReady}
-          onStateChange={(event) => setPlaying(event.data === 1)}
-        />
+    <div>
+      <div id="player-size">
+      <div id="cropping-div">
+        <div id="div-to-crop">
+          <div id="player-wrapper">
+            <div id="player"></div>
+          </div>
+        </div>
       </div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        {isPlaying ? (
-          <span
-            className="material-icons text-white opacity-60 hover:opacity-100 cursor-pointer"
-            onClick={handlePlayPause}
-          >
-            pause
-          </span>
-        ) : (
-          <span
-            className="material-icons text-white opacity-60 hover:opacity-100 cursor-pointer"
-            onClick={handlePlayPause}
-          >
-            play_arrow
-          </span>
-        )}
-      </div>
-      <div className="absolute bottom-4 left-4 flex items-center">
-        {isMuted ? (
-          <span
-            className="material-icons text-white opacity-60 hover:opacity-100 cursor-pointer"
-            onClick={handleMuteUnmute}
-          >
-            volume_off
-          </span>
-        ) : (
-          <span
-            className="material-icons text-white opacity-60 hover:opacity-100 cursor-pointer"
-            onClick={handleMuteUnmute}
-          >
-            volume_up
-          </span>
-        )}
-        <div className="ml-2 text-white opacity-80">Video Title</div>
-      </div>
+    </div>
     </div>
   );
 };
-
-// Usage example
-const App = () => {
-  const VIDEO_URL = 'youtu.be/9VNI3s7rUoQ?list=RDAVM4J0qvdKw';
-
-  return (
-    <div className="w-screen h-screen flex items-center justify-center bg-gray-900">
-      <CustomVideoPlayer videoUrl={VIDEO_URL} />
-    </div>
-  );
-};
-
-export default App;

@@ -11,8 +11,7 @@ const PlaylistPages = () => {
   const curretPlaylist = playlist.filter(
     (item: any) => item.categoryId === courseId
   );
-  console.log(curretPlaylist);
-  console.log(playlist);
+
   return (
     <div className="flex flex-col bg-zinc-200 dark:bg-zinc-900 h-screen ">
       <Topbar />

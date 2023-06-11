@@ -8,11 +8,12 @@ import {
   doc,
   onSnapshot,
   limit,
-  where, 
+  where,
   query,
   updateDoc,
 } from "firebase/firestore";
 import { useRouter } from "next/router";
+import useSWR from "swr";
 
 export const CourseContext = React.createContext();
 
@@ -24,6 +25,7 @@ export function CourseProvider({ children }) {
   const [categories, setCategories] = useState([]);
   const [playlist, setPlaylist] = useState([]);
   const [videos, setVideos] = useState([]);
+  const router = useRouter();
 
   // Category CRUD ----------------------------------------------
 
@@ -34,25 +36,25 @@ export function CourseProvider({ children }) {
   function deleteCategory(id) {
     deleteDoc(doc(db, "categories", id));
   }
-  
+
   function updateCategory(id, course) {
     updateDoc(doc(db, "categories", id), course);
   }
 
-  const getCategory = () => {
-    const unsubscribe = () =>
-      getDocs(collection(db, "categories")).then((querySnapshot) => {
-        const categoryData = [];
-        querySnapshot.forEach((doc) => {
-          categoryData.push({ ...doc.data(), id: doc.id });
-        });
-        setCategories(categoryData);
-      });
-    // if category is empty, get all courses
+  const { data: category, error: categoryError } = useSWR("categories", () => {
     if (categories.length === 0) {
-      unsubscribe();
+      getDocs(collection(db, "categories")).then((querySnapshot) => {
+        const data = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setCategories(data);
+        console.log("🧑 Category data downloaded");
+        return data;
+      }),
+        null;
     }
-  };
+  });
 
   // Playlist CRUD ----------------------------------------------
 
@@ -68,23 +70,22 @@ export function CourseProvider({ children }) {
     updateDoc(doc(db, "playlists", id), playlist);
   }
 
-  const getPlaylist = () => {
-    const unsubscribe = () =>
-      getDocs(query(collection(db, "playlists"), limit(10))).then(
-        (querySnapshot) => {
-          const playlistData = [];
-          querySnapshot.forEach((doc) => {
-            playlistData.push({ ...doc.data(), id: doc.id });
-          });
-          setPlaylist(playlistData);
-        }
-      );
-    // if playlist is empty, get all playlists
+  const { data: playlists, error: playlistError } = useSWR("playlists", () => {
     if (playlist.length === 0) {
-      unsubscribe();
+      getDocs(query(collection(db, "playlists"), limit(4))).then(
+        (querySnapshot) => {
+          const data = querySnapshot.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+          }));
+          setPlaylist(data);
+          console.log("🧑 Playlist data downloaded");
+          return data;
+        }
+      ),
+        null;
     }
-  };
-
+  });
 
   // Video CRUD ----------------------------------------------
 
@@ -97,42 +98,34 @@ export function CourseProvider({ children }) {
   }
 
   const getVideos = (id) => {
-    const unsubscribe = () =>
-
-      getDocs(collection(db, "videos"), where("playlistId"==id)  ).then((querySnapshot) => {
-        const videoData = [];
-        querySnapshot.forEach((doc) => {
-          videoData.push({ ...doc.data(), id: doc.id });
-        });
-        setVideos(videoData);
-      });
-    // if video is empty, get all videos
-    if (videos.length === 0) {
-      unsubscribe();
-    }
+    onSnapshot(
+      query(collection(db, "videos"), where("playlistId", "==", id)),
+      (querySnapshot) => {
+        const data = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setVideos(data);
+        console.log("🧑 Video data downloaded");
+        return data;
+      }
+    );
   };
-
-
-  React.useEffect(() => {
-    getCategory();
-    getPlaylist();
-  }, []);
+  
 
   const value = {
     categories,
     addCategory,
     addPlaylist,
-    deleteCategory, 
+    deleteCategory,
     updateCategory,
     playlist,
     updatePlaylist,
     videos,
-    getPlaylist,
     deletePlaylist,
     addVideo,
     deleteVideo,
     getVideos,
-    getCategory,
   };
 
   return (

@@ -95,3 +95,34 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   background: #c8c7c7;
 }
 
+
+#player-size {
+  width: 720px;
+}
+
+/* #cropping-div {
+  overflow: hidden;
+} */
+
+#div-to-crop {
+  /* overflow: hidden; */
+  margin-top: -51%;
+  margin-bottom: -20%;
+}
+
+
+
+#player-wrapper {
+  position: relative;
+  /* overflow: hidden; */
+  padding-top: 128.25%;
+}
+
+#player {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 124%;
+  
+}
+

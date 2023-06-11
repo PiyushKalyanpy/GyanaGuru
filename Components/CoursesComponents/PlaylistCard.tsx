@@ -15,11 +15,10 @@ const PlaylistCard = ({ playlist }: any) => {
 
     
   } = playlist;
-  console.log(playlist);
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/course/playlist/${id}`);
+    // router.push(`/course/playlist/${id}`);
   }
   return (
     <div onClick={handleClick} className="flex cursor-pointer  flex-col hover:scale-[1.05] transition space-y-4  bg-white dark:bg-zinc-800 rounded-xl w-full  p-4 overflow-hidden">

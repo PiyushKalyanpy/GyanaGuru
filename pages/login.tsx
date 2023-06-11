@@ -52,7 +52,6 @@ const Login = () => {
   };
 
   const handleLoginClick = () => {
-    console.log("sample");
     login(userData.email, userData.password)
       .then(({ res }: any) => {
         setCookie("login", true);

@@ -17,8 +17,6 @@ const Topbar = () => {
     let debounceTimer: string | number | NodeJS.Timeout | undefined;
 
     const handleSearch = () => {
-      // Perform your fetch call here, for now just console logging for demonstration
-      console.log("Fetching data for:", searchQuery);
     };
 
     const debounceSearch = () => {
