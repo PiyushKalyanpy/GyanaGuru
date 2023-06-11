@@ -1,7 +1,14 @@
+import React,{useEffect} from 'react';
 import WhyChooseUsData from "../../data/why_choose_us.json";
 import Image from "next/image";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'
 const WhyChooseUs = () => {
+  useEffect(()=>{
+    AOS.init(
+      
+    );
+  },[])
   return (
     <div id="whychooseus" className="px-20 mt-40 dark:bg-neutral-950">
       <h1 className="text-4xl text-center font-semibold font-archivo text-slate-900 dark:text-zinc-50 p-4 mb-10">{`Why Choose Us`}</h1>
@@ -17,7 +24,7 @@ const WhyChooseUs = () => {
             );
           })}
         </div>
-        <div className="col-span-2 flex justify-self-end">
+        <div data-aos="fade-left" data-aos-offset="300"  className="col-span-2 flex justify-self-end ">
           <Image
             className=" "
             src="/images/whychooseus.png"
@@ -33,7 +40,7 @@ const WhyChooseUs = () => {
 
 const InfoCard = ({ title, description }: any) => {
   return (
-    <div className=" p-4 hover:bg-seafoam transition-colors font-archivo rounded-3xl ">
+    <div data-aos="fade-down " data-aos-duration='1000' dta-aos-delay="1000" className=" p-4 hover:bg-seafoam transition-colors font-archivo rounded-3xl ">
       {/* <span className=" absolute inline-flex -z-10 mt-2 h-4 w-20 rounded-full bg-seafoam opacity-75"></span> */}
       <div className="space-y-4 ">
         <h3 className="text-2xl font-semibold font-archivo">{title}</h3>

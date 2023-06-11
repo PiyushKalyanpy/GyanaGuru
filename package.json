@@ -11,6 +11,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@types/react-dom": "18.0.11",
+    "aos": "^2.3.4",
     "appwrite": "^10.2.0",
     "cookie-cutter": "^0.2.0",
     "cookies-next": "^2.1.1",
@@ -34,6 +35,7 @@
   },
   "devDependencies": {
     "@heroicons/react": "^2.0.18",
+    "@types/aos": "^3.0.4",
     "@types/node": "20.2.3",
     "@types/react": "18.2.6",
     "autoprefixer": "^10.4.14",
