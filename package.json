@@ -11,6 +11,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@types/react-dom": "18.0.11",
+    "aos": "^3.0.0-beta.6",
     "appwrite": "^10.2.0",
     "cookie-cutter": "^0.2.0",
     "cookies-next": "^2.1.1",
@@ -32,6 +33,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.4",
     "@types/node": "20.2.3",
     "@types/react": "18.2.6",
     "autoprefixer": "^10.4.14",

@@ -11,6 +11,8 @@ module.exports = {
   ],
   theme: {
     extend: {
+      
+     
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         space_mono: ["Space Mono", "monospace"],
