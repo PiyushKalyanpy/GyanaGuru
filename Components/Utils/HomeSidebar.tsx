@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { setCookie } from "cookies-next";
 import Image from "next/image";
-import LogoWithName from "./LogoWithName";
 import { LogoutFromGoogleAuth } from "@/database/firebase";
 
 const HomeSidebar = ({ pageNumber }: any) => {
@@ -28,7 +27,7 @@ const HomeSidebar = ({ pageNumber }: any) => {
         className="flex justify-center cursor-pointer h-fit "
       >
         <div className="flex items-center gap-4 p-2 bg-white cursor-pointer drop-shadow-2xl dark:bg-zinc-900 rounded-xl h-fit">
-          <Image src="./color_logo.svg" width={40} height={40} alt="logo" />
+          <Image src="../color_logo.svg" width={40} height={40} alt="logo" />
           <h1 className="text-xl font-semibold font-archivo ">GyanaGuru</h1>
         </div>
       </div>
@@ -75,7 +74,7 @@ const HomeSidebar = ({ pageNumber }: any) => {
           active={4 == active}
           onClick={() => {
             setActive(4);
-            router.push("/settings");
+            router.push("/settings/account");
           }}
         />
         <SidebarItem
