@@ -3,7 +3,7 @@ import Link from "next/link";
 import {AiFillGithub ,AiFillTwitterCircle ,AiFillLinkedin ,AiFillInstagram,AiFillFacebook} from "react-icons/ai"
 
 const LandingFooter = () => {
-    const hoverEffect = "flex items-center transition ease-out duration-200 hover:text-black";
+    const hoverEffect = "group flex items-center transition ease-out duration-200 hover:text-black";
     
     const currentYear = new Date().getFullYear();
     
@@ -44,16 +44,16 @@ const LandingFooter = () => {
                 <a href="https://github.com/PiyushKalyanpy/GyanaGuru" aria-label="Follow me on Github" target="_blank" className={hoverEffect}><AiFillGithub className="mr-1" />Github</a>
                 </li>
                 <li className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
-                   <a href="#" aria-label="Follow me on Twitter"  className={hoverEffect}><AiFillTwitterCircle className="mr-1" />Twitter</a>
+                   <a href="#" aria-label="Follow me on Twitter"  className={hoverEffect}><AiFillTwitterCircle className="mr-1 transition ease duration-200 group-hover:text-sky-500" />Twitter</a>
                 </li>
                 <li className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
-                   <a href="https://www.linkedin.com/in/piyush-kalyan/" aria-label="Follow me on Linkedin" className={hoverEffect}><AiFillLinkedin className="mr-1" />Linkedin</a>
+                   <a href="https://www.linkedin.com/in/piyush-kalyan/" aria-label="Follow me on Linkedin" className={hoverEffect}><AiFillLinkedin className="mr-1 transition ease duration-200 group-hover:text-sky-600" />Linkedin</a>
                 </li>
                 <li className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
-                   <a href="#" aria-label="Follow me on Instagram" className={hoverEffect}><AiFillInstagram className="mr-1" />Instagram</a>
+                   <a href="#" aria-label="Follow me on Instagram" className={hoverEffect}><AiFillInstagram className="mr-1 transition ease duration-200 group-hover:text-rose-500" />Instagram</a>
                 </li>
                 <li className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
-                   <a href="#" aria-label="Follow me on Facebook" className={hoverEffect}><AiFillFacebook className="mr-1" />Facebook</a>
+                   <a href="#" aria-label="Follow me on Facebook" className={hoverEffect}><AiFillFacebook className="mr-1 transition ease duration-200 group-hover:text-blue-700" />Facebook</a>
                 </li>
              </ul>
         </div>
