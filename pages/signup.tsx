@@ -57,7 +57,7 @@ const SignUp = () => {
     });
   };
 
-  const handleSignUp = () => {
+   const handleSignUp = () => {
     if (
       userData.email === "" ||
       userData.password === "" ||
@@ -65,17 +65,16 @@ const SignUp = () => {
     ) {
       warning();
     } else if (userData.password !== userData.confirmPassword) {
-      error({message:"Passwords do not match"});
+      error({ message: "Passwords do not match" });
     } else {
-      signup(userData.email, userData.password).then(({ data }: any) => {
-        console.log("aa",data);
-        success();
-        router.push("/dashboard");
-      }).catch((err:any)=>{
-        console.log(err);
-        error({message:err.message});
-      });
-
+      signup(userData.email, userData.password)
+        .then(({ data }: any) => {
+          success();
+          router.push("/dashboard");
+        })
+        .catch((err: any) => {
+          error({ message: err.message });
+        });
     }
   };
 
