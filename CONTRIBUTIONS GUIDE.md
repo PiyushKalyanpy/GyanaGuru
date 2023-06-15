@@ -67,45 +67,55 @@ To create a pull request:
 - Add an appropriate title and description to your pull request, explaining your changes with suitable explanations and screenshots 📝🖼️
 - Click on "Create Pull Request" to submit your contribution for review ✅
 
-We appreciate your understanding and cooperation in following our guidelines. Thank you for your contribution! 🙌
+
+
+
+## Note
+
+To run your forked project, you need to pass in your **firebase config** data in `firebase.tsx` file under the firebse folder.
+
+![Screenshot from 2023-05-31 02-42-20](https://github.com/PiyushKalyanpy/GyanaGuru/assets/119070798/417dbf83-b823-4f01-bf1f-45eaa622f1e1)
+
+Else it results in the following error:
+
+![Screenshot from 2023-05-29 18-45-06](https://github.com/PiyushKalyanpy/GyanaGuru/assets/119070798/d94e0911-4844-4854-9170-1fa37856b595)
+
+To fix this follow the below steps:
+
+1. Head on to https://console.firebase.google.com/
+
+2. Sign in with your gmail account.
+
+3. Click on `create a project`.
+
+![Screenshot from 2023-05-31 02-59-47](https://github.com/PiyushKalyanpy/GyanaGuru/assets/119070798/4873067a-91cd-4b2c-9759-4c0fb14cbec8)
+
+4. Give a name to your project and proceed.
+
+5. After your project is set up, click on the web button on your dashboard(third one).
+
+![Screenshot from 2023-05-31 03-03-44](https://github.com/PiyushKalyanpy/GyanaGuru/assets/119070798/44439867-cc60-40d7-874d-835dc80f973f)
+
+6. It prompts you to register your app, do so and proceed forward.
+
+> **Note:** Don't check in for the  firebse hosting checkbox!.
+
+7. Copy the code under the firebase config object and paste that in the firebase file in your forked project.
+
+![IMG_20230531_031134](https://github.com/PiyushKalyanpy/GyanaGuru/assets/119070798/c0190b10-8f46-4326-bdc9-4846e050be08)
+
+8. Run the development server.
+
+```
+npm run dev
+```
+
 Congratulations! You've made your PR with the desired changes. Once the PR is reviewed, it will be merged into the original codebase for everyone to see and use.
 
-### Firebase (auth api key error) - Solution 
-To resolve the Firebase error "Invalid API Key Auth", you have to create your own Firebase environment endpoints.
-
-Please follow these steps:
-
-### 1. Set Up Firebase Environment
-- Create a Firebase project on the Firebase console (https://console.firebase.google.com/).
-- Set up the necessary Firebase services (e.g., Firebase Authentication, Firebase Firestore, etc.) for your project.
-
-### 2. Retrieve Firebase Configuration
-- In the Firebase console, navigate to your project settings.
-- Go to the "General" tab, and scroll down to the "Your apps" section.
-- Select the appropriate web app and click on the "Config" button to view the Firebase configuration object.
-- Copy the api keys and paste into the project.
-- Update the values in the configuration file with your own Firebase project's configuration information retrieved in the previous step.
-
-```javascript
-// firebase-config.js
-
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  databaseURL: "YOUR_DATABASE_URL",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-};
-
-export default firebaseConfig;
-```
-⚠️ Please do not push your api keys and firebase files in pull request, and if the pull request does not adhere to our contribution guidelines, it may be closed or discarded.
-If you find any problem after that regarding firebase please ask in discord channel or in [discussion tab](https://github.com/PiyushKalyanpy/GyanaGuru/discussions/54)
-
-Congratulations! You have successfully connected your own Firebase environment endpoints to the project. Your changes will be reviewed, and once approved, they will be merged into the original codebase.
+ ⚠️ **_Please do not push your api keys and firebase files in pull request, and if the pull request does not adhere to our contribution guidelines, it may be closed or discarded.
+If you find any problem after that regarding firebase please ask in discord channel or in [discussion tab](https://github.com/PiyushKalyanpy/GyanaGuru/discussions/54)_**
 
 
-## Thank You!
-Thank you so much for contributing. We appreciate your valuable input, and we hope to see you again soon. 😊
+Thank you so much for contributing. Hope to see you again soon........
+
+We appreciate your understanding and cooperation in following our guidelines. Thank you for your contribution! 🙌
