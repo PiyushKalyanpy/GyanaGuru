@@ -14,6 +14,8 @@ import {
 } from "firebase/firestore";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import { getCookie } from "cookies-next";
+
 
 export const CourseContext = React.createContext();
 
@@ -42,7 +44,7 @@ export function CourseProvider({ children }) {
   }
 
   const { data: category, error: categoryError } = useSWR("categories", () => {
-    if (categories.length === 0) {
+    if (categories.length === 0 ) {
       getDocs(collection(db, "categories")).then((querySnapshot) => {
         const data = querySnapshot.docs.map((doc) => ({
           ...doc.data(),

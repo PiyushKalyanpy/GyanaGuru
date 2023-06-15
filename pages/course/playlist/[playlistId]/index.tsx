@@ -2,6 +2,8 @@ import { CourseContext } from "@/context/CourseContext";
 import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import YouTube, { YouTubeProps } from "react-youtube";
+import Commets from "@/Components/VideoPlayer/Commets";
+import CourseContent from "@/Components/CoursesComponents/CourseContent";
 // import { VideoPlayer } from "@/components/Utils/VideoPlayer";
 
 const VideosPage = () => {
@@ -51,7 +53,8 @@ const VideosPage = () => {
   }, [currentTime]);
 
   return (
-    <div className="w-screen h-screen p-4 overflow-y-scroll bg-zinc-200 ">
+    <div className="w-screen h-screen p-4 bg-zinc-200 overflow-y-scroll">
+      {/* top bar with title and buttons */}
       <div className="flex">
         <div className="flex items-center px-4 pt-4 space-x-4 bg-zinc-100 w-fit rounded-t-4xl">
           <span
@@ -60,32 +63,47 @@ const VideosPage = () => {
           >
             arrow_back_ios_new
           </span>
-          <h1 className="px-4 text-xl font-semibold">
+          <h1 className="px-4 pr-8 text-xl font-archivo">
             {/* {curretPlaylist && curretPlaylist[0].name} */}
+            How to get Placement in 4 months - Apni Kaksha
           </h1>
         </div>
         <div className="w-20 bg-zinc-100">
           <div className="w-full h-full bg-zinc-200 rounded-bl-4xl"></div>
         </div>
       </div>
-      <div className="flex w-full h-full bg-zinc-100 rounded-bl-2xl rounded-r-3xl">
+      {/* video content with comment + notes */}
+      <div className="flex w-full bg-zinc-100  rounded-bl-2xl rounded-r-3xl">
         {/* video section */}
-        <div className="flex flex-col w-3/4 p-4  ">
+        <div className="flex flex-col w-3/4 p-4 h-full overflow-scroll ">
           {/* videoplayer  */}
-          <div className="relative h-3/4 rounded-xl  bg-zinc-200">
-            <div className="flex w-full h-full ">
-              <p className="flex m-auto text-3xl text-zinc-600">Vdieo Player</p>
-              </div> 
-            {/* <VideoPlayer videoId="doSFDItcQrk" /> */}
-            {/* <VideoPlayer videoId="doSFDItcQrk" /> */}
+          <div className="relative h-3/4  overflow-hidden rounded-xl bg-zinc-200">
+            <YouTube
+              videoId="ESnrn1kAD4E"
+              opts={opts}
+              className="absolute top-0 left-0 w-full h-full "
+              onReady={onPlayerReady}
+            />
+          </div>
+          {/* comment section */}
+          <div className="flex w-full rounded-xl h-1/2 ">
+            <div className="flex w-full overflow-y-scroll ">
+              <Commets />
+            </div>
           </div>
           {/* next videos  */}
           <div className="flex w-full border h-1/4"></div>
         </div>
-        {/* sidebar with comment and notes section  */}
-        <div className="flex w-1/4 border">
-          {/* notes section */}
-          {/* comment section */}
+        <div className="grid w-1/4 h-full p-4 grid-row-2 space-y-10 ">
+          {/* course content */}
+          <div className="flex flex-col space-y-2">
+            <h3 className="text-md font-inter text-zinc-500">Course Content</h3>
+            <div className="flex w-full h-1/2 ">
+              <div className="flex w-full h-full ">
+                <CourseContent />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -130,8 +148,7 @@ const VideoPlayer = ({ videoId }: any) => {
       };
     }
 
-    const onPlayerStateChange = (event: any) => {
-    };
+    const onPlayerStateChange = (event: any) => {};
 
     const stopVideo = () => {
       player.stopVideo();
@@ -146,9 +163,9 @@ const VideoPlayer = ({ videoId }: any) => {
     <div className="w-full h-full" id="player-size">
       <div id="cropping-div">
         {/* <div id="div-to-crop"> */}
-          <div id="player-wrapper">
-            <div id="player"></div>
-          </div>
+        <div id="player-wrapper">
+          <div id="player"></div>
+        </div>
         {/* </div> */}
       </div>
     </div>
