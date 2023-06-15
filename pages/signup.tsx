@@ -1,34 +1,38 @@
 import { ButtonWithImage } from "@/Components/components";
-import { useState } from "react";
-import { useRouter } from "next/router";
+import { useContext, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {
-  createUserWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-} from "firebase/auth";
+import { AuthContext } from "@/context/AuthContext";
+import { useRouter } from "next/router";
 
 const SignUp = () => {
   const router = useRouter();
-  const [user, setUser] = useState({
+  const [userData, setUserData] = useState({
     email: "",
     password: "",
     confirmPassword: "",
   });
-
-  const [showalert, setshowalert] = useState(true);
-
   const [showPassword, setShowPassword] = useState(false);
   const showPasswordToggle = () => {
     setShowPassword(!showPassword);
   };
-  const moveToSignIn = () => {
-    router.push("/login");
+  const { currentUser, signup } = useContext(AuthContext);
+
+  const warning = () => {
+    toast.warn("Please Complete all fields", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
-  const warning=()=>{
-    toast.warn('Please Complete all fields', {
+  const success = () => {
+    toast.success("Account Created", {
       position: "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -37,50 +41,63 @@ const SignUp = () => {
       draggable: true,
       progress: undefined,
       theme: "light",
-      });
-  }
+    });
+  };
 
-  const success = ()=>{
-    toast.success('Account Created', {
+  const error = ({ message }: any) => {
+    toast.error(`${message}`, {
       position: "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
       theme: "light",
-      });
-  }
+    });
+  };
+
+  const handleSignUp = () => {
+    if (
+      userData.email === "" ||
+      userData.password === "" ||
+      userData.confirmPassword === ""
+    ) {
+      warning();
+    } else if (userData.password !== userData.confirmPassword) {
+      error({ message: "Passwords do not match" });
+    } else {
+      signup(userData.email, userData.password)
+        .then(({ data }: any) => {
+          success();
+          router.push("/dashboard");
+        })
+        .catch((err: any) => {
+          error({ message: err.message });
+        });
+    }
+  };
 
   return (
     <div className="flex w-full h-screen bg-gray-200 ">
-      <ToastContainer/>
-      <div className="flex flex-col w-10/12 md:w-8/12 lg:w-1/4 bg-white rounded-lg h-fit m-auto min-h-1/4 p-4 ">
-        <div className="flex flex-col space-y-8 items-center ">
-          {/* logo with title */}
-          {/* <div className="flex flex-row items-center space-x-4 ">
-            <img src="/logo.svg" alt="logo" width={40} height={40} />
-
-            <h1 className="text-md font-semibold ">GyanaGuru</h1>
-          </div> */}
-
+      <ToastContainer />
+      <div className="flex flex-col w-10/12 p-4 m-auto bg-white rounded-lg md:w-8/12 lg:w-1/4 h-fit min-h-1/4 ">
+        <div className="flex flex-col items-center space-y-8 ">
           {/* login heading and text */}
-          <div className="flex w-full px-2 flex-col mt-8 space-y-2 ">
+          <div className="flex flex-col w-full px-2 mt-8 space-y-2 ">
             <h3 className="text-3xl font-semibold ">Sign Up</h3>
             <h4 className="flex">Welcome to Gyana Guru. </h4>
           </div>
 
           {/* login form */}
-          <div className="flex flex-col space-y-4 w-full mx-4 ">
+          <div className="flex flex-col w-full mx-4 space-y-4 ">
             <ButtonWithImage
               buttonName="Continue with Google"
               icon="/images/google.svg"
             />
 
             {/* make or with divider */}
-            <div className="flex flex-row space-x-4 my-4 items-center">
-              <hr className="w-full border-gray-300" />
+            <div className="flex flex-row items-center my-4 space-x-4">
+              <hr className="w-full border-gray-200" />
               <h4 className="font-medium text-zinc-500">or</h4>
               <hr className="w-full border-gray-300" />
             </div>
@@ -91,20 +108,22 @@ const SignUp = () => {
               <input
                 type="email"
                 placeholder="Email"
-                value={user.email}
-                onChange={(e) => setUser({ ...user, email: e.target.value })}
-                className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:border-2 focus:border-black"
+                value={userData.email}
+                onChange={(e) =>
+                  setUserData({ ...userData, email: e.target.value })
+                }
+                className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-2 focus:border-black"
               />
               {/* password */}
               <div className="flex w-full space-x-2">
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
-                  value={user.password}
+                  value={userData.password}
                   onChange={(e) =>
-                    setUser({ ...user, password: e.target.value })
+                    setUserData({ ...userData, password: e.target.value })
                   }
-                  className="w-full border focus:outline-none focus:border-2 focus:border-black border-gray-300 rounded-lg p-2"
+                  className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-2"
                 />
               </div>
               {/* confirm password */}
@@ -112,14 +131,17 @@ const SignUp = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Confirm password"
-                  value={user.confirmPassword}
+                  value={userData.confirmPassword}
                   onChange={(e) =>
-                    setUser({ ...user, confirmPassword: e.target.value })
+                    setUserData({
+                      ...userData,
+                      confirmPassword: e.target.value,
+                    })
                   }
-                  className="w-full border focus:outline-none focus:border-2 focus:border-black border-gray-300 rounded-lg p-2"
+                  className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-2 focus:border-black"
                 />
                 <div
-                  className="flex items-center text-zinc-500 border focus:outline-none focus:border-2 focus:border-black border-gray-300 rounded-lg p-2  "
+                  className="flex items-center p-2 border border-gray-300 rounded-lg text-zinc-500 focus:outline-none focus:border-2 focus:border-black "
                   onClick={() => showPasswordToggle()}
                 >
                   <span className="material-icons-outlined ">
@@ -131,22 +153,20 @@ const SignUp = () => {
 
             {/* login button */}
             <div className="flex flex-row space-x-4 py-4 transition hover:scale-[1.02]">
-              {
-                ((!user.email)||(!user.password)||(!user.confirmPassword))?(<button className="bg-black text-white rounded-lg p-2 w-full" onClick={()=>warning()}>
+              <button
+                className="w-full p-2 text-white bg-black rounded-lg"
+                onClick={handleSignUp}
+              >
                 Sign Up
-              </button>):(<button className="bg-black text-white rounded-lg p-2 w-full" onClick={()=>success()}>
-                Sign Up
-              </button>)
-              }
-              
+              </button>
             </div>
 
             {/* Create Account */}
-            <div className="flex flex-col items-center mt-4 text-sm justify-between">
+            <div className="flex flex-col items-center justify-between mt-4 text-sm">
               <p className="w-fit text-slate-600">Already have an account</p>
               <p
-                onClick={() => moveToSignIn()}
-                className="w-fit text-black hover:underline cursor-pointer"
+                onClick={() => router.push("/login")}
+                className="text-black cursor-pointer w-fit hover:underline"
               >
                 Sign In to you account
               </p>
