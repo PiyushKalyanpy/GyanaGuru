@@ -22,7 +22,7 @@ const CourseContent = () => {
     },
   ];
 
-  const doneStatus = {
+  const doneStatus: any = {
     0: 1,
     1: 1,
     2: 0,
@@ -30,7 +30,7 @@ const CourseContent = () => {
   };
 
   return (
-    <div className="flex h-full w-full">
+    <div className="flex w-full h-full">
       <div className="flex flex-col w-full space-y-4 ">
         {sampleChapters.map((chapter) => {
           return (
@@ -58,7 +58,7 @@ const ChapterComponent = ({ chapterData, doneStatus }: any) => {
           : "bg-white")
       }
     >
-      <div className="flex flex-row items-center space-x-4  ">
+      <div className="flex flex-row items-center space-x-4 ">
         <div className="flex items-center">
           {doneStatus === 1 ? (
             <CheckCircleIcon />
@@ -105,7 +105,7 @@ const CheckCircleIcon = () => {
           color: "#0BB312",
           fontSize: "40px",
         }}
-        className="material-icons text-green-600 "
+        className="text-green-600 material-icons "
       >
         check_circle
       </span>
@@ -121,7 +121,7 @@ const CurrentPlayingIcon = () => {
           color: "white",
           fontSize: "40px",
         }}
-        className="material-icons-outlined text-green-600 "
+        className="text-green-600 material-icons-outlined "
       >
         pause_circle
       </span>
@@ -137,7 +137,7 @@ const PlayIcon = () => {
           color: "black",
           fontSize: "40px",
         }}
-        className="material-icons-outlined text-green-600 "
+        className="text-green-600 material-icons-outlined "
       >
         play_circle
       </span>

@@ -119,16 +119,15 @@ const Commets = () => {
     setCommentLength(commentText.length);
   }, [commentText]);
 
-  console.log(commentLength);
 
   return (
-    <div className="relative w-full h-full  space-y-4 ">
+    <div className="relative w-full h-full space-y-4 ">
       {/* comment input  */}
-      <div className="sticky top-0 pt-4 pb-4 bg-zinc-100 ">
-        <div className="flex px-2 py-2 bg-white rounded-xl">
+      <div className="sticky top-0 pt-4 pb-4 bg-zinc-100 dark:bg-zinc-800">
+        <div className="flex px-2 py-2 bg-white dark:bg-zinc-900 rounded-xl">
           <div className="flex flex-row items-center justify-between w-full ">
             {/* user profile image  */}
-            <div className="flex space-x-4">
+            <div className="flex w-full space-x-4 ">
               <div className="w-8 h-8">
                 <Image
                   src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
@@ -140,7 +139,7 @@ const Commets = () => {
                 />
               </div>
               <input
-                className="outline-none "
+                className="w-full outline-none dark:bg-zinc-900"
                 type="text"
                 value={commentText}
                 onChange={(e) => setCommentText(e.target.value)}

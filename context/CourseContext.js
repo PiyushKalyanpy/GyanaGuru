@@ -28,6 +28,7 @@ export function CourseProvider({ children }) {
   const [playlist, setPlaylist] = useState([]);
   const [videos, setVideos] = useState([]);
   const router = useRouter();
+  const getData = true;
 
   // Category CRUD ----------------------------------------------
 
@@ -44,7 +45,7 @@ export function CourseProvider({ children }) {
   }
 
   const { data: category, error: categoryError } = useSWR("categories", () => {
-    if (categories.length === 0 ) {
+    if (categories.length === 0 && getData) {
       getDocs(collection(db, "categories")).then((querySnapshot) => {
         const data = querySnapshot.docs.map((doc) => ({
           ...doc.data(),
@@ -73,7 +74,7 @@ export function CourseProvider({ children }) {
   }
 
   const { data: playlists, error: playlistError } = useSWR("playlists", () => {
-    if (playlist.length === 0) {
+    if (playlist.length === 0 && getData) {
       getDocs(query(collection(db, "playlists"), limit(4))).then(
         (querySnapshot) => {
           const data = querySnapshot.docs.map((doc) => ({

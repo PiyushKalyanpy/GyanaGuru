@@ -5,15 +5,6 @@ import { useContext } from "react";
 
 export function middleware(request: NextRequest) {
 
-  console.log(request.cookies.get("reachedDashboard")?.value, " <- cookie ")
-
-
-
-  // log all cookies
-  console.log(request.cookies)
-  // print a specific cookie
-
-
   let isLoggedIn = request.cookies.get('login')?.value
   if (isLoggedIn === 'true') {
     isLoggedIn = 'true'
