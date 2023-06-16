@@ -1,5 +1,5 @@
 import { ButtonWithImage } from "@/Components/components";
-import {  useEffect, useState } from "react";
+import {  useEffect, useState, useContext} from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { setCookie, getCookie } from "cookies-next";
