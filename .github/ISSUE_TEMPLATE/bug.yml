@@ -30,14 +30,14 @@ body:
     - Brave
     - Other
     
-- type: checkboxes
-    id: terms
-    attributes:
-      label: 'Record'
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
+  - type: checkboxes
+  id: terms
+  attributes:
+    label: 'Record'
+    options:
+      - label: I agree to follow this project's Code of Conduct
+        required: true
 
-        - label: I'm a GSSoC'23 contributor
+      - label: I'm a GSSoC'23 contributor
 
-        - label: I want to work on this issue
+      - label: I want to work on this issue
