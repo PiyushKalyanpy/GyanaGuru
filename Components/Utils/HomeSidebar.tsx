@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { setCookie } from "cookies-next";
 import Image from "next/image";
-import LogoWithName from "./LogoWithName";
 import { LogoutFromGoogleAuth } from "@/database/firebase";
 
 const HomeSidebar = ({ pageNumber }: any) => {
@@ -27,10 +26,9 @@ const HomeSidebar = ({ pageNumber }: any) => {
         onClick={() => router.push("/")}
         className="flex justify-center cursor-pointer h-fit "
       >
-        <div className="flex items-center gap-4 p-2 drop-shadow-2xl bg-white cursor-pointer rounded-xl h-fit">
-          
-        <Image src="./color_logo.svg" width={40} height={40} alt="logo" />
-        <h1 className="text-xl font-semibold font-archivo ">GyanaGuru</h1>
+        <div className="flex items-center gap-4 p-2 bg-white cursor-pointer drop-shadow-2xl dark:bg-zinc-900 rounded-xl h-fit">
+          <Image src="../color_logo.svg" width={40} height={40} alt="logo" />
+          <h1 className="text-xl font-semibold font-archivo ">GyanaGuru</h1>
         </div>
       </div>
 
@@ -76,7 +74,7 @@ const HomeSidebar = ({ pageNumber }: any) => {
           active={4 == active}
           onClick={() => {
             setActive(4);
-            router.push("/settings");
+            router.push("/settings/account");
           }}
         />
         <SidebarItem
@@ -101,14 +99,14 @@ const HomeSidebar = ({ pageNumber }: any) => {
         />
       </div>
       {/* bottom part  */}
-      <div className="flex flex-col items-center w-3/4 p-4 mx-auto rounded-lg bg-zinc-50 ">
+      <div className="flex flex-col items-center w-3/4 p-4 mx-auto rounded-lg bg-zinc-50 dark:bg-zinc-900 ">
         <div className="flex mb-3 text-base font-normal leading-tight tracking-normal text-center font-inter">
-          <span className="text-sm font-normal font-inter text-zinc-600">
+          <span className="text-sm font-inter text-zinc-600 dark:text-zinc-400 ">
             Upgrade to Pro and unlock exclusive features to enhance your
             learning experience today!
           </span>
         </div>
-        <div className="flex flex-row items-center justify-center p-2 text-white rounded-md bg-zinc-900">
+        <div className="flex flex-row items-center justify-center p-2 px-4 text-white rounded-md dark:bg-zinc-950 bg-zinc-900">
           <button>Upgrade</button>
         </div>
       </div>
@@ -126,7 +124,9 @@ const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
     >
       <span
         className={`material-icons-outlined   ${
-          active ? "material-icons-round text-black dark:text-white " : "text-zinc-500 dark:text-zinc-300"
+          active
+            ? "material-icons-round text-black dark:text-white "
+            : "text-zinc-500 dark:text-zinc-300"
         }`}
       >
         <Icon />
@@ -134,7 +134,9 @@ const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
       {/* <h3 className={"font-medium ml-2 text-zinc-900"}>{text}</h3> */}
       <h3
         className={` ml-2  font-inter ${
-          active ? "text-black font-medium dark:text-white" : "text-zinc-600 dark:text-zinc-400"
+          active
+            ? "text-black font-medium dark:text-white"
+            : "text-zinc-600 dark:text-zinc-400"
         }`}
       >
         {text}

@@ -17,8 +17,6 @@ const Topbar = () => {
     let debounceTimer: string | number | NodeJS.Timeout | undefined;
 
     const handleSearch = () => {
-      // Perform your fetch call here, for now just console logging for demonstration
-      console.log("Fetching data for:", searchQuery);
     };
 
     const debounceSearch = () => {
@@ -59,17 +57,17 @@ interface SearchBarProps {
   handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const SearchBar = ({ searchQuery, handleInputChange }: SearchBarProps) => {
+const SearchBar = ({ searchQuery, handleInputChange }: SearchBarProps) => {  
   return (
-    <div className="flex flex-row items-center w-1/4 p-1 pl-4 pr-1 overflow-hidden bg-white rounded-2xl h-fit font-archivo">
+    <div className="flex flex-row items-center w-1/4 p-1 pl-4 pr-1 overflow-hidden dark:bg-zinc-800 bg-white rounded-2xl h-fit font-archivo">
       <input
         type="text"
         placeholder="Search for courses"
-        className="w-full p-2 text-xl bg-white border-0 outline-none font-archivo placeholder:font-archivo placeholder:font-light placeholder:text-zinc-400"
+        className="w-full p-2 text-xl bg-white dark:bg-zinc-800 border-0 outline-none font-archivo placeholder:font-archivo placeholder:font-light placeholder:text-zinc-400"
         value={searchQuery}
         onChange={handleInputChange}
       />
-      <span className="p-3 cursor-pointer rounded-xl material-icons hover:bg-gray-200 active:bg-gray-300 ">
+      <span className="p-3 cursor-pointer rounded-xl material-icons dark:hover:bg-zinc-900 hover:bg-gray-200 active:bg-gray-300 ">
         search
       </span>
     </div>
@@ -84,7 +82,7 @@ const TopBarButtons = ({
   onClick,
 }: any) => {
   return (
-    <div  className="flex items-center p-1 transition border rounded-full h-fit hover:ring hover:ring-gray-200">
+    <div  className="flex items-center p-1 transition border dark:border-0 dark:bg-zinc-800 rounded-full h-fit hover:ring hover:ring-gray-200">
       {iconAvailable ? (
         <div className="flex ">
           <NotificationIcon />

@@ -21,6 +21,9 @@ module.exports = {
       colors:{
         "seafoam" : "#C9EEBE",
         "champange" : "#F7EDE3"
+      },
+      borderRadius: {
+        "4xl": "2.5rem",
       }
     },
     plugins: [],
