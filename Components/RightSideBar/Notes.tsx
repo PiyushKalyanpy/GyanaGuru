@@ -11,7 +11,7 @@ type Notes = {
 const Notes = (props: Notes) => {
   return (
     <div>
-      <div className="flex flex-col">
+      <div className="flex flex-col dark:bg-zinc-800">
         <div className="shadow w-full border-l-4 border-zinc-300 p-2 mb-4">
           <div className="flex flex-col">
             <div className="flex flex-row justify-between mb-2">
@@ -19,7 +19,7 @@ const Notes = (props: Notes) => {
               <input type="checkbox" className="rounded-full" />
             </div>
             <div className="border-b-[1px] border-zinc-300 p-2 mb-2">
-              <div className="bg-[#F2F2F2] rounded-md flex gap-2">
+              <div className="dark:bg-zinc-800 bg-[#F2F2F2] rounded-md flex gap-2">
                 <Image src="./logo.svg" alt="logo" width={15} height={15} />
                 <h4 className="text-sm underline cursor-pointer">
                   {props.courseLink}
