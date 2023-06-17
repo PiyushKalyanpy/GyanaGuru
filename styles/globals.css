@@ -97,24 +97,24 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 
 
 #player-size {
-  width: 720px;
+  width: 640px;
+  /* width: 100%; */
+ 
 }
 
-/* #cropping-div {
+#cropping-div {
   overflow: hidden;
-} */
+}
 
 #div-to-crop {
-  /* overflow: hidden; */
+  overflow: hidden;
   margin-top: -51%;
   margin-bottom: -20%;
 }
 
-
-
 #player-wrapper {
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
   padding-top: 128.25%;
 }
 
@@ -125,4 +125,14 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   height: 124%;
   
 }
+
+table {
+    border: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: 14px/20px Noto Sans Bengali,sans-serif;
+    margin: 16px 0 15px;
+    width: 100%;
+}
+
 
