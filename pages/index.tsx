@@ -19,8 +19,8 @@ export default function Home() {
   const [showNav, setShowNav] = useState(true);
   const [showPopup, setShowPopup] = useState(true);
   const router = useRouter();
-
   useEffect(() => {
+    setCookie("reachedDashboard", false);
     let prevScrollpos = window.pageYOffset;
 
     const handleScroll = () => {
