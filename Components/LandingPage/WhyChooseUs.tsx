@@ -1,5 +1,7 @@
 import WhyChooseUsData from "../../data/why_choose_us.json";
 import Image from "next/image";
+import VanillaTilt from 'vanilla-tilt';
+import { useEffect, useRef } from 'react';
 
 const WhyChooseUs = () => {
   return (
@@ -7,15 +9,44 @@ const WhyChooseUs = () => {
       <h1 className="text-4xl text-center font-semibold font-archivo text-slate-900 dark:text-zinc-50 p-4 mb-10">{`Why Choose Us`}</h1>
       <div className="grid grid-cols-6  gap-8 w-full items-center">
         <div className="col-span-4 grid grid-cols-3 gap-8 ">
-          {WhyChooseUsData.whyChooseUs.map((item, index) => {
-            return (
-              <InfoCard
-                key={index}
-                title={item.title}
-                description={item.description}
-              />
-            );
-          })}
+        {WhyChooseUsData.whyChooseUs.map((item, index) => {
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    if (cardRef.current) {
+      VanillaTilt.init(cardRef.current, {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.5,
+      });
+    }
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      style={{
+        display: 'inline-block',
+        width: '100%',
+        // Add additional styling for the InfoCard
+        borderRadius: '4px', // Set border radius for rounded corners
+        border: '1px solid #ccc', // Add a border
+        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Add a box shadow
+        padding: '16px', // Add padding to create some space around the content
+        margin: '8px', // Add margin for spacing between cards
+        backgroundColor: '#0A0A0A', // Set background color
+      }}
+    >
+      <InfoCard
+        key={index}
+        title={item.title}
+        description={item.description}
+      />
+    </div>
+  );
+})}
+
         </div>
         <div className="col-span-2 flex justify-self-end">
           <Image
