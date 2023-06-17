@@ -1,30 +1,30 @@
 // components/FAQ.js
 
-import { useState } from "react";
-import { DarkModeToggle } from "../../Components/components";
+import { useState } from 'react'
+import { DarkModeToggle } from '../../Components/components'
 
 const FAQ = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null)
 
   const toggleAccordion = (index: any) => {
     if (activeIndex === index) {
-      setActiveIndex(null);
+      setActiveIndex(null)
     } else {
-      setActiveIndex(index);
+      setActiveIndex(index)
     }
-  };
+  }
 
   const faqData = [
     {
-      question: "Question 1",
-      answer: "Answer 1",
+      question: 'Question 1',
+      answer: 'Answer 1',
     },
     {
-      question: "Question 2",
-      answer: "Answer 2",
+      question: 'Question 2',
+      answer: 'Answer 2',
     },
     // Add more questions and answers as needed
-  ];
+  ]
 
   return (
     <div className="w-1/2 mx-auto">
@@ -74,7 +74,7 @@ const FAQ = () => {
             </li>
             <li>
               Please ensure that your questions and answers are concise, clear,
-              and easy to understand for both experienced and new contributors.{" "}
+              and easy to understand for both experienced and new contributors.{' '}
             </li>
             <li className="mt-10 text-gray-400 dark:text-zinc-200">
               Thank you for your cooperation in making our FAQ section
@@ -86,7 +86,7 @@ const FAQ = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FAQ;
+export default FAQ

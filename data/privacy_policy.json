@@ -1,22 +1,22 @@
 [
-    {
-        "heading": "Privacy Policy",
-        "paragraph": "We take the privacy of our users seriously and are committed to protecting their personal information. This privacy policy outlines how we collect, use, and protect the personal information that we collect from users.",
-        "showHeading": false
-    },
-    {
-        "heading": "Information We Collect",
-        "paragraph": "We may collect personal information from users when they register on our website, subscribe to our newsletter, fill out a form, or interact with our website in other ways. This information may include name, email address, and other contact information.",
-        "showHeading": true
-    },
-    {
-        "heading": "Use of Information",
-        "paragraph": "We use the information we collect from users to personalize their experience on our website, improve our website and customer service, and to send periodic emails about our products and services.",
-        "showHeading": true
-    },
-    {
-        "heading": "Cookies",
-        "paragraph": "We may use cookies to personalize the experience of our users and to improve our website. Users may choose to disable cookies in their web browser settings.",
-        "showHeading": true
-    }
+  {
+    "heading": "Privacy Policy",
+    "paragraph": "We take the privacy of our users seriously and are committed to protecting their personal information. This privacy policy outlines how we collect, use, and protect the personal information that we collect from users.",
+    "showHeading": false
+  },
+  {
+    "heading": "Information We Collect",
+    "paragraph": "We may collect personal information from users when they register on our website, subscribe to our newsletter, fill out a form, or interact with our website in other ways. This information may include name, email address, and other contact information.",
+    "showHeading": true
+  },
+  {
+    "heading": "Use of Information",
+    "paragraph": "We use the information we collect from users to personalize their experience on our website, improve our website and customer service, and to send periodic emails about our products and services.",
+    "showHeading": true
+  },
+  {
+    "heading": "Cookies",
+    "paragraph": "We may use cookies to personalize the experience of our users and to improve our website. Users may choose to disable cookies in their web browser settings.",
+    "showHeading": true
+  }
 ]

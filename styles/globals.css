@@ -5,23 +5,34 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-  font-family: "Archivo", sans-serif;
+* {
+  font-family: 'Archivo', sans-serif;
   scroll-behavior: smooth;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Urbanist', sans-serif;
 }
 
-p, a, li, span, input, textarea, button {
+p,
+a,
+li,
+span,
+input,
+textarea,
+button {
   font-family: 'Inter', sans-serif;
 }
 
 .ytp-pause-overlay-container {
   display: none !important;
 }
-.ytp-pause-overlay{
+.ytp-pause-overlay {
   display: none !important;
 }
 
@@ -49,16 +60,16 @@ body {
   overflow-x: hidden;
 }
 
-:root{
-  --scroll-thumb:#7c7c7c;
-  --scroll-thumb-hover:rgb(103, 101, 101);
-  --scroll-track:#bdbdbd;
+:root {
+  --scroll-thumb: #7c7c7c;
+  --scroll-thumb-hover: rgb(103, 101, 101);
+  --scroll-track: #bdbdbd;
 }
 
-[data-theme="dark"] {
-  --scroll-thumb:#908f8f;
-  --scroll-thumb-hover:#c8c7c7;
-  --scroll-track:#4b4b4b;
+[data-theme='dark'] {
+  --scroll-thumb: #908f8f;
+  --scroll-thumb-hover: #c8c7c7;
+  --scroll-track: #4b4b4b;
 }
 
 ::-webkit-scrollbar {
@@ -95,7 +106,6 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   background: #c8c7c7;
 }
 
-
 #player-size {
   width: 720px;
 }
@@ -110,8 +120,6 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   margin-bottom: -20%;
 }
 
-
-
 #player-wrapper {
   position: relative;
   /* overflow: hidden; */
@@ -123,6 +131,4 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   top: 0;
   width: 100%;
   height: 124%;
-  
 }
-

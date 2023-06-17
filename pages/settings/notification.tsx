@@ -1,7 +1,6 @@
-import SettingsBarItem from "@/Components/SettingsBar/Item";
-import HomeSidebar from "@/Components/Utils/HomeSidebar";
-import SettingsBar from "@/Components/SettingsBar";
-
+import SettingsBarItem from '@/Components/SettingsBar/Item'
+import HomeSidebar from '@/Components/Utils/HomeSidebar'
+import SettingsBar from '@/Components/SettingsBar'
 
 const Notification = () => {
   return (
@@ -10,12 +9,10 @@ const Notification = () => {
         <HomeSidebar pageNumber={4} />
       </div>
       <div className="col-span-3 p-2">
-        <SettingsBar
-          activeItem={1}
-        />
+        <SettingsBar activeItem={1} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Notification;
+export default Notification

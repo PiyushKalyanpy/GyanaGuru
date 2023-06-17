@@ -1,7 +1,6 @@
-import SettingsBarItem from "@/Components/SettingsBar/Item";
-import HomeSidebar from "@/Components/Utils/HomeSidebar";
-import SettingsBar from "@/Components/SettingsBar";
-
+import SettingsBarItem from '@/Components/SettingsBar/Item'
+import HomeSidebar from '@/Components/Utils/HomeSidebar'
+import SettingsBar from '@/Components/SettingsBar'
 
 const Account = () => {
   return (
@@ -10,12 +9,10 @@ const Account = () => {
         <HomeSidebar pageNumber={4} />
       </div>
       <div className="col-span-3 p-2">
-        <SettingsBar
-          activeItem={0}
-        />
+        <SettingsBar activeItem={0} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Account;
+export default Account

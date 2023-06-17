@@ -1,7 +1,6 @@
-import SettingsBarItem from "@/Components/SettingsBar/Item";
-import HomeSidebar from "@/Components/Utils/HomeSidebar";
-import SettingsBar from "@/Components/SettingsBar";
-
+import SettingsBarItem from '@/Components/SettingsBar/Item'
+import HomeSidebar from '@/Components/Utils/HomeSidebar'
+import SettingsBar from '@/Components/SettingsBar'
 
 const AccessibilityOptions = () => {
   return (
@@ -10,12 +9,10 @@ const AccessibilityOptions = () => {
         <HomeSidebar pageNumber={4} />
       </div>
       <div className="col-span-3 p-2">
-        <SettingsBar
-          activeItem={5}
-        />
+        <SettingsBar activeItem={5} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AccessibilityOptions;
+export default AccessibilityOptions

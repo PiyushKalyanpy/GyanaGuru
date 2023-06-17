@@ -1,4 +1,4 @@
-import { HomeSidebar } from "../Components/components";
+import { HomeSidebar } from '../Components/components'
 
 const Help = () => {
   return (
@@ -8,7 +8,7 @@ const Help = () => {
       </div>
       Help and support
     </div>
-  );
-};
+  )
+}
 
-export default Help;
+export default Help

@@ -13,11 +13,13 @@ const NumberInfo = ({ title, number, icon }: any) => {
 
         {/* title */}
         <div>
-          <p className="font-inter text-zinc-500 dark:text-zinc-300 ">{title}</p>
+          <p className="font-inter text-zinc-500 dark:text-zinc-300 ">
+            {title}
+          </p>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default NumberInfo;
+export default NumberInfo

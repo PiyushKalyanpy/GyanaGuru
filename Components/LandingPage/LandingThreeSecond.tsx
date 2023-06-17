@@ -1,6 +1,6 @@
-import CourseData from "../../data/course_categories.json";
-import ContributorsData from "../../data/contributors.json";
-import Image from "next/image";
+import CourseData from '../../data/course_categories.json'
+import ContributorsData from '../../data/contributors.json'
+import Image from 'next/image'
 
 const LandingThreeSecond = () => {
   return (
@@ -13,7 +13,12 @@ const LandingThreeSecond = () => {
       <div className="flex items-end col-span-3 bg-cover bg-[url('/images/landing0202.png')]">
         <div className="flex w-full flex-col space-y-4 p-4 backdrop-blur-md bg-pink-500/10 ">
           {CourseData.slice(0, 4).map((item, index) => {
-            return <Link key={index} title={item.categoryName} />;
+            return (
+              <Link
+                key={index}
+                title={item.categoryName}
+              />
+            )
           })}
         </div>
       </div>
@@ -24,15 +29,15 @@ const LandingThreeSecond = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const Card01 = () => {
   return (
     <div className="flex top-0 bg-pink-900/30 w-full h-fit items-center backdrop-blur-sm">
       <p className="m-auto text-white gap-4  ">
         <span className="felx font-archivo text-3xl text-white/80">
-          Empowering{" "}
+          Empowering{' '}
         </span>
         <span className="felx font-archivo text-6xl font-bold ">India </span>
         <br />
@@ -45,19 +50,24 @@ const Card01 = () => {
         </span>
       </p>
     </div>
-  );
-};
+  )
+}
 
 const Link = ({ title }: any) => {
   return (
     <div className="w-full border-b p-4 hover:bg-white/20 border-white">
-      <a href="#" target="_blank" rel="noopener" className="flex justify-between">
+      <a
+        href="#"
+        target="_blank"
+        rel="noopener"
+        className="flex justify-between"
+      >
         <p className="text-white text-2xl font-archivo">{title}</p>
         <span className="material-icons text-white ">arrow_outward</span>
       </a>
     </div>
-  );
-};
+  )
+}
 
 const Contributors = () => {
   return (
@@ -77,13 +87,20 @@ const Contributors = () => {
             )
           })}
         </div> */}
-        <a href="https://github.com/PiyushKalyanpy/GyanaGuru/graphs/contributors" target="_blank" rel="noopener">
-          <img alt="Profile pictures of the contributers" src="https://contrib.rocks/image?repo=PiyushKalyanpy/GyanaGuru" />
+        <a
+          href="https://github.com/PiyushKalyanpy/GyanaGuru/graphs/contributors"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            alt="Profile pictures of the contributers"
+            src="https://contrib.rocks/image?repo=PiyushKalyanpy/GyanaGuru"
+          />
         </a>
       </div>
       <Link title="Our Contributors" />
     </div>
   )
-};
+}
 
-export default LandingThreeSecond;
+export default LandingThreeSecond

@@ -1,24 +1,27 @@
-import React, { useState } from "react";
-import { CourseContext } from "@/context/CourseContext";
-import { useContext } from "react";
-import { Category, Playlist, Video, Comment } from "../../types";
-import { AuthContext } from "@/context/AuthContext";
+import React, { useState } from 'react'
+import { CourseContext } from '@/context/CourseContext'
+import { useContext } from 'react'
+import { Category, Playlist, Video, Comment } from '../../types'
+import { AuthContext } from '@/context/AuthContext'
 
 const AddCourseItems = () => {
-  const [addingOption, setAddingOption] = useState(1);
+  const [addingOption, setAddingOption] = useState(1)
   const { addPlaylist, addCategory, categories, addVideo, playlist } =
-    useContext(CourseContext);
-  const { currentUser } = useContext(AuthContext);
+    useContext(CourseContext)
+  const { currentUser } = useContext(AuthContext)
 
   return (
     <div className="flex flex-col w-full h-full gap-4 p-4 dark:bg-zinc-900">
       <div className="">
-        <AdditionOptions active={addingOption} setActive={setAddingOption} />
+        <AdditionOptions
+          active={addingOption}
+          setActive={setAddingOption}
+        />
       </div>
       <div className="w-full h-full bg-white dark:bg-zinc-800 rounded-xl ">
         {(() => {
           if (addingOption == 1)
-            return <AddCategory addCategory={addCategory} />;
+            return <AddCategory addCategory={addCategory} />
           if (addingOption == 2)
             return (
               <AddPlaylist
@@ -26,7 +29,7 @@ const AddCourseItems = () => {
                 currentUser={currentUser}
                 addPlaylist={addPlaylist}
               />
-            );
+            )
           if (addingOption == 3)
             return (
               <AddVideo
@@ -35,12 +38,12 @@ const AddCourseItems = () => {
                 playlists={playlist}
                 currentUser={currentUser}
               />
-            );
+            )
         })()}
       </div>
     </div>
-  );
-};
+  )
+}
 
 const AdditionOptions = ({ active, setActive }: any) => {
   return (
@@ -48,7 +51,7 @@ const AdditionOptions = ({ active, setActive }: any) => {
       <button
         onClick={() => setActive(1)}
         className={`flex rounded-xl p-2 justify-center transition hover:bg-zinc-100 dark:hover:bg-zinc-900 w-full ${
-          active == 1 ? "bg-black text-white hover:bg-zinc-800" : ""
+          active == 1 ? 'bg-black text-white hover:bg-zinc-800' : ''
         } `}
       >
         Add a new Category
@@ -56,7 +59,7 @@ const AdditionOptions = ({ active, setActive }: any) => {
       <button
         onClick={() => setActive(2)}
         className={`flex rounded-xl dark:hover:bg-zinc-900 p-2 justify-center transition hover:bg-zinc-100 w-full ${
-          active == 2 ? "bg-black text-white hover:bg-zinc-800" : ""
+          active == 2 ? 'bg-black text-white hover:bg-zinc-800' : ''
         } `}
       >
         Add a new Playlist
@@ -64,27 +67,27 @@ const AdditionOptions = ({ active, setActive }: any) => {
       <button
         onClick={() => setActive(3)}
         className={`flex rounded-xl p-2 dark:hover:bg-zinc-900 justify-center transition hover:bg-zinc-100 w-full ${
-          active == 3 ? "bg-black text-white hover:bg-zinc-800" : ""
+          active == 3 ? 'bg-black text-white hover:bg-zinc-800' : ''
         } `}
       >
         Add a new Video
       </button>
     </div>
-  );
-};
+  )
+}
 
 //  form for adding new category
 const AddCategory = ({ addCategory }: any) => {
   const [category, setCategory] = useState({
-    name: "",
-    description: "",
-    imageUrl: "",
-  });
+    name: '',
+    description: '',
+    imageUrl: '',
+  })
 
   const handleSubmit = (e: any) => {
-    e.preventDefault();
-    addCategory(category);
-  };
+    e.preventDefault()
+    addCategory(category)
+  }
   return (
     <div className="w-full m-5 ">
       <div className="flex justify-center">
@@ -94,9 +97,7 @@ const AddCategory = ({ addCategory }: any) => {
             <input
               type="text"
               value={category.name}
-              onChange={(e) =>
-                setCategory({ ...category, name: e.target.value })
-              }
+              onChange={e => setCategory({ ...category, name: e.target.value })}
               className="p-2 border-2 rounded-lg border-zinc-100"
             />
 
@@ -104,7 +105,7 @@ const AddCategory = ({ addCategory }: any) => {
             <input
               type="text"
               value={category.imageUrl}
-              onChange={(e) =>
+              onChange={e =>
                 setCategory({ ...category, imageUrl: e.target.value })
               }
               className="p-2 border-2 rounded-lg border-zinc-100"
@@ -114,7 +115,7 @@ const AddCategory = ({ addCategory }: any) => {
               className="p-2 border-2 rounded-lg border-zinc-100"
               rows={4}
               value={category.description}
-              onChange={(e) =>
+              onChange={e =>
                 setCategory({ ...category, description: e.target.value })
               }
             ></textarea>
@@ -129,18 +130,18 @@ const AddCategory = ({ addCategory }: any) => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
 // form for adding new playlist
 const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
-  const userId = currentUser && currentUser.uid;
+  const userId = currentUser && currentUser.uid
   const [playlist, setPlaylist] = useState<Playlist>({
     id: 0,
-    name: "",
-    description: "",
-    imageUrl: "",
-    categoryId: "",
+    name: '',
+    description: '',
+    imageUrl: '',
+    categoryId: '',
     numberOfVideos: 0,
     viewCount: 0,
     noOfVotes: 0,
@@ -149,14 +150,13 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
     videos: [],
     restriction: 1, // -1 for restricted, 0 for private, 1 for public
     createdBy: currentUser && currentUser.uid,
-  });
-  React.useEffect(() => {
-  }, [playlist]);
+  })
+  React.useEffect(() => {}, [playlist])
 
   const handleSubmit = (e: any) => {
-    e.preventDefault();
-    addPlaylist(playlist);
-  };
+    e.preventDefault()
+    addPlaylist(playlist)
+  }
   return (
     <div className="w-full m-5 ">
       <div className="flex justify-center">
@@ -167,12 +167,15 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
             <select
               className="p-2 border-2 rounded-lg border-zinc-100"
               value={playlist.categoryId}
-              onChange={(e) =>
+              onChange={e =>
                 setPlaylist({ ...playlist, categoryId: e.target.value })
               }
             >
               {categories.map((category: Category) => (
-                <option key={category.id} value={category.id}>
+                <option
+                  key={category.id}
+                  value={category.id}
+                >
                   {category.name}
                 </option>
               ))}
@@ -182,9 +185,7 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
             <input
               type="text"
               value={playlist.name}
-              onChange={(e) =>
-                setPlaylist({ ...playlist, name: e.target.value })
-              }
+              onChange={e => setPlaylist({ ...playlist, name: e.target.value })}
               className="p-2 border-2 rounded-lg border-zinc-100"
             />
 
@@ -192,7 +193,7 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
             <input
               type="text"
               value={playlist.imageUrl}
-              onChange={(e) =>
+              onChange={e =>
                 setPlaylist({ ...playlist, imageUrl: e.target.value })
               }
               className="p-2 border-2 rounded-lg border-zinc-100"
@@ -202,7 +203,7 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
               className="p-2 border-2 rounded-lg border-zinc-100"
               rows={4}
               value={playlist.description}
-              onChange={(e) =>
+              onChange={e =>
                 setPlaylist({ ...playlist, description: e.target.value })
               }
             ></textarea>
@@ -214,7 +215,7 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
                   type="radio"
                   value="public"
                   checked={playlist.restriction === 1}
-                  onChange={(e) => setPlaylist({ ...playlist, restriction: 1 })}
+                  onChange={e => setPlaylist({ ...playlist, restriction: 1 })}
                 />
                 Public
               </label>
@@ -225,7 +226,7 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
                   type="radio"
                   value="private"
                   checked={playlist.restriction === 0}
-                  onChange={(e) => setPlaylist({ ...playlist, restriction: 0 })}
+                  onChange={e => setPlaylist({ ...playlist, restriction: 0 })}
                 />
                 Private
               </label>
@@ -235,9 +236,7 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
                   type="radio"
                   value="restricted"
                   checked={playlist.restriction === -1}
-                  onChange={(e) =>
-                    setPlaylist({ ...playlist, restriction: -1 })
-                  }
+                  onChange={e => setPlaylist({ ...playlist, restriction: -1 })}
                 />
                 Restricted
               </label>
@@ -253,55 +252,54 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
 // form for adding new video
 const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
-  const userId = currentUser && currentUser.uid;
+  const userId = currentUser && currentUser.uid
   const [video, setVideo] = useState({
     id: 0,
-    name: "",
-    description: "",
-    imageUrl: "",
-    categoryId: "",
+    name: '',
+    description: '',
+    imageUrl: '',
+    categoryId: '',
     viewCount: 0,
     createdAt: new Date(),
     rating: 0,
-    url: "",
-    playlistId: "",
+    url: '',
+    playlistId: '',
     comments: [],
     restriction: 1,
     createdBy: currentUser && currentUser.uid,
     likes: 0,
     duration: 0, // in seconds
-  });
+  })
   const playlistBelongsCategory = playlists.filter(
     (playlist: Playlist) => playlist.categoryId === video.categoryId
-  );
+  )
 
-  React.useEffect(() => {
-  }, [video]);
+  React.useEffect(() => {}, [video])
 
   const handleSubmit = (e: any) => {
-    e.preventDefault();
-    addVideo(video);
-  };
+    e.preventDefault()
+    addVideo(video)
+  }
 
   const handleAddLink = async (e: any) => {
-    e.preventDefault();
-    const videoId = video.url.split("=")[1];
-    const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    const videoData = data.items[0].snippet;
+    e.preventDefault()
+    const videoId = video.url.split('=')[1]
+    const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`
+    const response = await fetch(url)
+    const data = await response.json()
+    const videoData = data.items[0].snippet
     setVideo({
       ...video,
       name: videoData.title,
       description: videoData.description,
       imageUrl: videoData.thumbnails.default.url,
-    });
-  };
+    })
+  }
 
   return (
     <div className="w-full m-5 ">
@@ -313,12 +311,13 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
             <select
               className="p-2 border-2 rounded-lg border-zinc-100"
               value={video.categoryId}
-              onChange={(e) =>
-                setVideo({ ...video, categoryId: e.target.value })
-              }
+              onChange={e => setVideo({ ...video, categoryId: e.target.value })}
             >
               {categories.map((category: Category) => (
-                <option key={category.id} value={category.id}>
+                <option
+                  key={category.id}
+                  value={category.id}
+                >
                   {category.name}
                 </option>
               ))}
@@ -329,12 +328,13 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
             <select
               className="p-2 border-2 rounded-lg border-zinc-100"
               value={video.playlistId}
-              onChange={(e) =>
-                setVideo({ ...video, playlistId: e.target.value })
-              }
+              onChange={e => setVideo({ ...video, playlistId: e.target.value })}
             >
               {playlistBelongsCategory.map((playlist: Playlist) => (
-                <option key={playlist.id} value={playlist.id}>
+                <option
+                  key={playlist.id}
+                  value={playlist.id}
+                >
                   {playlist.name}
                 </option>
               ))}
@@ -345,7 +345,7 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
               <input
                 type="text"
                 value={video.url}
-                onChange={(e) => setVideo({ ...video, url: e.target.value })}
+                onChange={e => setVideo({ ...video, url: e.target.value })}
                 className="flex w-full p-2 border-2 rounded-lg border-zinc-100"
               />
 
@@ -361,7 +361,7 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AddCourseItems;
+export default AddCourseItems

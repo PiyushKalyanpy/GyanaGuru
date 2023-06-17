@@ -1,66 +1,66 @@
-import { ButtonWithImage } from "@/Components/components";
-import { useContext, useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import Image from "next/image";
-import { setCookie, getCookie } from "cookies-next";
-import { DarkModeToggle } from "../Components/components";
-import { AuthContext } from "@/context/AuthContext";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ButtonWithImage } from '@/Components/components'
+import { useContext, useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import Image from 'next/image'
+import { setCookie, getCookie } from 'cookies-next'
+import { DarkModeToggle } from '../Components/components'
+import { AuthContext } from '@/context/AuthContext'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Login = () => {
-  const router = useRouter();
+  const router = useRouter()
 
-  const { currentUser, loginWithGoogle, login } = useContext(AuthContext);
-  const [showPassword, setShowPassword] = useState(false);
+  const { currentUser, loginWithGoogle, login } = useContext(AuthContext)
+  const [showPassword, setShowPassword] = useState(false)
   const [userData, setUserData] = useState({
-    email: "",
-    password: "",
-  });
+    email: '',
+    password: '',
+  })
 
   useEffect(() => {
     if (currentUser) {
-      setCookie("login", true);
-      router.push("/dashboard");
+      setCookie('login', true)
+      router.push('/dashboard')
     }
-  }, [currentUser]);
+  }, [currentUser])
 
   const error = () => {
-    toast.error("Login Failed", {
-      position: "bottom-right",
+    toast.error('Login Failed', {
+      position: 'bottom-right',
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "light",
-    });
-  };
+      theme: 'light',
+    })
+  }
 
   const success = () => {
-    toast.success("Account Created", {
-      position: "bottom-right",
+    toast.success('Account Created', {
+      position: 'bottom-right',
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "light",
-    });
-  };
+      theme: 'light',
+    })
+  }
 
   const handleLoginClick = () => {
     login(userData.email, userData.password)
       .then(({ res }: any) => {
-        setCookie("login", true);
-        router.push("/dashboard");
+        setCookie('login', true)
+        router.push('/dashboard')
       })
       .catch(({ err }: any) => {
-        error();
-      });
-  };
+        error()
+      })
+  }
 
   return (
     <>
@@ -74,7 +74,7 @@ const Login = () => {
           <div className="flex flex-col items-center space-y-8 ">
             {/* logo with title */}
             <div
-              onClick={() => router.push("/")}
+              onClick={() => router.push('/')}
               className="flex flex-row items-center space-x-1 cursor-pointer "
             >
               <Image
@@ -124,17 +124,17 @@ const Login = () => {
                   type="email"
                   placeholder="Email"
                   value={userData.email}
-                  onChange={(e) =>
+                  onChange={e =>
                     setUserData({ ...userData, email: e.target.value })
                   }
                   className="p-2 border rounded-lg border-neutral-300 focus:outline-none focus:border-2 focus:border-black dark:bg-neutral-900 dark:placeholder:text-zinc-50"
                 />
                 <div className="flex w-full space-x-2">
                   <input
-                    type={showPassword ? "text" : "password"}
+                    type={showPassword ? 'text' : 'password'}
                     placeholder="Password"
                     value={userData.password}
-                    onChange={(e) =>
+                    onChange={e =>
                       setUserData({ ...userData, password: e.target.value })
                     }
                     className="w-full p-2 border rounded-lg focus:outline-none focus:border-2 focus:border-black dark:bg-neutral-900 border-neutral-300 dark:placeholder:text-zinc-50"
@@ -144,7 +144,7 @@ const Login = () => {
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     <span className="material-icons-outlined dark:text-zinc-300 ">
-                      {showPassword ? "visibility" : "visibility_off"}
+                      {showPassword ? 'visibility' : 'visibility_off'}
                     </span>
                   </div>
                 </div>
@@ -170,7 +170,7 @@ const Login = () => {
                   Don&apos;t have an account
                 </p>
                 <p
-                  onClick={() => router.push("/signup")}
+                  onClick={() => router.push('/signup')}
                   className="text-black cursor-pointer w-fit hover:underline dark:text-gray-100"
                 >
                   Create an account
@@ -181,6 +181,6 @@ const Login = () => {
         </div>
       </div>
     </>
-  );
-};
-export default Login;
+  )
+}
+export default Login

@@ -4,4 +4,11 @@
     "plugin:prettier/recommended",
     "next/core-web-vitals"
   ]
+  // "rules": {
+  //   "no-console": "warn",
+  //   "no-unused-vars": "error",
+  //   "semi": ["error", "always"],
+  //   "indent": ["error", 2],
+  //   "quotes": ["error", "single"]
+  // }
 }

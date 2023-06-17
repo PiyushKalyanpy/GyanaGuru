@@ -1,11 +1,11 @@
-import CategoryCard from "@/Components/CoursesComponents/CategoryCard";
-import PlaylistCard from "@/Components/CoursesComponents/PlaylistCard";
-import Topbar from "@/Components/CoursesComponents/Topbar";
-import { HomeSidebar } from "@/Components/components";
-import { CourseContext } from "@/context/CourseContext";
-import { useContext, useEffect } from "react";
-import { useState } from "react";
-import { useCollection } from "react-firebase-hooks/firestore";
+import CategoryCard from '@/Components/CoursesComponents/CategoryCard'
+import PlaylistCard from '@/Components/CoursesComponents/PlaylistCard'
+import Topbar from '@/Components/CoursesComponents/Topbar'
+import { HomeSidebar } from '@/Components/components'
+import { CourseContext } from '@/context/CourseContext'
+import { useContext, useEffect } from 'react'
+import { useState } from 'react'
+import { useCollection } from 'react-firebase-hooks/firestore'
 import {
   collection,
   query,
@@ -15,20 +15,20 @@ import {
   doc,
   setDoc,
   limit,
-} from "firebase/firestore";
-import { db } from "@/database/firebase";
+} from 'firebase/firestore'
+import { db } from '@/database/firebase'
 
 const Course = () => {
-  const { categories, playlist } = useContext(CourseContext);
+  const { categories, playlist } = useContext(CourseContext)
 
-  const [selectedPlaylist, setSelectedPlaylist] = useState(true); // true for popular and false for latest
+  const [selectedPlaylist, setSelectedPlaylist] = useState(true) // true for popular and false for latest
   const popularPlaylist =
     playlist &&
     playlist
       ?.sort((a: any, b: any) => {
-        return b.rating - a.rating;
+        return b.rating - a.rating
       })
-      .slice(0, 4);
+      .slice(0, 4)
 
   return (
     <div className="grid w-full h-screen grid-cols-12 bg-zinc-100 dark:bg-zinc-900">
@@ -82,13 +82,16 @@ const Course = () => {
             {/* playlist cards */}
             {popularPlaylist &&
               popularPlaylist.map((playlist: any) => (
-                <PlaylistCard key={playlist.id} playlist={playlist} />
+                <PlaylistCard
+                  key={playlist.id}
+                  playlist={playlist}
+                />
               ))}
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Course;
+export default Course

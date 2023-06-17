@@ -1,4 +1,4 @@
-import { HomeSidebar } from "../Components/components";
+import { HomeSidebar } from '../Components/components'
 
 const Settings = () => {
   return (
@@ -8,7 +8,7 @@ const Settings = () => {
       </div>
       <div className="col-span-10 bg-zinc-100">Settings</div>
     </div>
-  );
-};
+  )
+}
 
-export default Settings;
+export default Settings

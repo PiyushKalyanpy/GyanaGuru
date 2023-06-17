@@ -1,7 +1,6 @@
-import SettingsBarItem from "@/Components/SettingsBar/Item";
-import HomeSidebar from "@/Components/Utils/HomeSidebar";
-import SettingsBar from "@/Components/SettingsBar";
-
+import SettingsBarItem from '@/Components/SettingsBar/Item'
+import HomeSidebar from '@/Components/Utils/HomeSidebar'
+import SettingsBar from '@/Components/SettingsBar'
 
 const LanguageLocalization = () => {
   return (
@@ -10,12 +9,10 @@ const LanguageLocalization = () => {
         <HomeSidebar pageNumber={4} />
       </div>
       <div className="col-span-3 p-2">
-        <SettingsBar
-          activeItem={3}
-        />
+        <SettingsBar activeItem={3} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LanguageLocalization;
+export default LanguageLocalization

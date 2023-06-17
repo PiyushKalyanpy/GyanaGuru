@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { auth } from "../database/firebase";
+import React, { useState, useContext } from 'react'
+import { auth } from '../database/firebase'
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -7,51 +7,52 @@ import {
   signOut,
   signInWithPopup,
   GoogleAuthProvider,
-} from "firebase/auth";
-import { setCookie } from "cookies-next";
+} from 'firebase/auth'
+import { setCookie } from 'cookies-next'
 
-export const AuthContext = React.createContext();
+export const AuthContext = React.createContext()
 
 export function useAuth() {
-  return useContext(AuthContext);
+  return useContext(AuthContext)
 }
 
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [currentUser, setCurrentUser] = useState()
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
 
   function signup(email, password) {
-    const result = createUserWithEmailAndPassword(auth, email, password);
-    result.then((userCredential) => {
-      const user = userCredential.user;
-      sendEmailVerification(user);
-    });
-    return result;
-    
+    const result = createUserWithEmailAndPassword(auth, email, password)
+    result.then(userCredential => {
+      const user = userCredential.user
+      sendEmailVerification(user)
+    })
+    return result
   }
 
   function login(email, password) {
-    return signInWithEmailAndPassword(auth, email, password);
+    return signInWithEmailAndPassword(auth, email, password)
   }
 
   function logout() {
-    return signOut(auth);
+    return signOut(auth)
   }
 
   function loginWithGoogle() {
-    const provider = new GoogleAuthProvider();
-    return signInWithPopup(auth, provider);
+    const provider = new GoogleAuthProvider()
+    return signInWithPopup(auth, provider)
   }
 
   React.useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setCurrentUser(user);
-      if(user) {setCookie("loggedIn", true);}
-      setLoading(false);
-    });
-    return unsubscribe;
-  }, []);
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      setCurrentUser(user)
+      if (user) {
+        setCookie('loggedIn', true)
+      }
+      setLoading(false)
+    })
+    return unsubscribe
+  }, [])
 
   const value = {
     currentUser,
@@ -59,11 +60,11 @@ export function AuthProvider({ children }) {
     login,
     logout,
     loginWithGoogle,
-  };
+  }
 
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}
     </AuthContext.Provider>
-  );
+  )
 }

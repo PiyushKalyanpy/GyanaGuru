@@ -1,4 +1,4 @@
-import { HomeSidebar } from "../Components/components";
+import { HomeSidebar } from '../Components/components'
 
 const Profile = () => {
   return (
@@ -8,7 +8,7 @@ const Profile = () => {
       </div>
       <div className="col-span-10 bg-zinc-100">User profile</div>
     </div>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

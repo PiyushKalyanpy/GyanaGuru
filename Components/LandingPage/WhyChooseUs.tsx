@@ -1,9 +1,12 @@
-import WhyChooseUsData from "../../data/why_choose_us.json";
-import Image from "next/image";
+import WhyChooseUsData from '../../data/why_choose_us.json'
+import Image from 'next/image'
 
 const WhyChooseUs = () => {
   return (
-    <div id="whychooseus" className="px-20 mt-40 dark:bg-neutral-950">
+    <div
+      id="whychooseus"
+      className="px-20 mt-40 dark:bg-neutral-950"
+    >
       <h1 className="text-4xl text-center font-semibold font-archivo text-slate-900 dark:text-zinc-50 p-4 mb-10">{`Why Choose Us`}</h1>
       <div className="grid grid-cols-6  gap-8 w-full items-center">
         <div className="col-span-4 grid grid-cols-3 gap-8 ">
@@ -14,7 +17,7 @@ const WhyChooseUs = () => {
                 title={item.title}
                 description={item.description}
               />
-            );
+            )
           })}
         </div>
         <div className="col-span-2 flex justify-self-end">
@@ -28,8 +31,8 @@ const WhyChooseUs = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const InfoCard = ({ title, description }: any) => {
   return (
@@ -41,7 +44,7 @@ const InfoCard = ({ title, description }: any) => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default WhyChooseUs;
+export default WhyChooseUs

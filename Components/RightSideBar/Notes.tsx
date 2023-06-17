@@ -1,12 +1,12 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react'
+import Image from 'next/image'
 type Notes = {
-  heading: any;
-  courseLink: any;
-  day: any;
-  time: any;
-  date: any;
-};
+  heading: any
+  courseLink: any
+  day: any
+  time: any
+  date: any
+}
 
 const Notes = (props: Notes) => {
   return (
@@ -16,11 +16,19 @@ const Notes = (props: Notes) => {
           <div className="flex flex-col">
             <div className="flex flex-row justify-between mb-2">
               <h1 className="text-sm font-bold">{props.heading}</h1>
-              <input type="checkbox" className="rounded-full" />
+              <input
+                type="checkbox"
+                className="rounded-full"
+              />
             </div>
             <div className="border-b-[1px] border-zinc-300 p-2 mb-2">
               <div className="bg-[#F2F2F2] rounded-md flex gap-2">
-                <Image src="./logo.svg" alt="logo" width={15} height={15} />
+                <Image
+                  src="./logo.svg"
+                  alt="logo"
+                  width={15}
+                  height={15}
+                />
                 <h4 className="text-sm underline cursor-pointer">
                   {props.courseLink}
                 </h4>
@@ -38,7 +46,7 @@ const Notes = (props: Notes) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Notes;
+export default Notes

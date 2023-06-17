@@ -1,18 +1,18 @@
-import ContributionButton from "@/Components/Utils/ContributionButton";
-import { HomeSidebar } from "../Components/components";
-import { RightSideBar } from "../Components/components";
-import NumberInfo from "@/Components/Dashboard/NumberInfo";
+import ContributionButton from '@/Components/Utils/ContributionButton'
+import { HomeSidebar } from '../Components/components'
+import { RightSideBar } from '../Components/components'
+import NumberInfo from '@/Components/Dashboard/NumberInfo'
 
 const Dashboard = () => {
   const data = [
     // label as subject name and value as time spent in minutes
-    { label: "Computer", value: 360 },
-    { label: "Maths", value: 120 },
-    { label: "Social", value: 240 },
-    { label: "English", value: 180 },
-    { label: "Science", value: 60 },
-    { label: "Hindi", value: 300 },
-  ];
+    { label: 'Computer', value: 360 },
+    { label: 'Maths', value: 120 },
+    { label: 'Social', value: 240 },
+    { label: 'English', value: 180 },
+    { label: 'Science', value: 60 },
+    { label: 'Hindi', value: 300 },
+  ]
   return (
     <div className="grid w-screen h-screen grid-cols-12 overflow-hidden bg-zinc-100 dark:bg-zinc-900">
       <div className="col-span-2 bg-white shadow-2xl">
@@ -21,33 +21,48 @@ const Dashboard = () => {
 
       <div className="flex flex-col h-full col-span-7 gap-8 p-6 ">
         <div className="grid w-full grid-cols-3 gap-6 h-1/4">
-          <NumberInfo title="Total courses enrolled" number={7} icon="school" />
-          <NumberInfo title="Total time spent" number={42} icon="access_time" />
-          <NumberInfo title="Performance in %" number={94} icon="trending_up" />
+          <NumberInfo
+            title="Total courses enrolled"
+            number={7}
+            icon="school"
+          />
+          <NumberInfo
+            title="Total time spent"
+            number={42}
+            icon="access_time"
+          />
+          <NumberInfo
+            title="Performance in %"
+            number={94}
+            icon="trending_up"
+          />
         </div>
         <div className="flex w-full space-x-8  h-3/4">
-          <BarChart data={data} title="Time spent " />
+          <BarChart
+            data={data}
+            title="Time spent "
+          />
         </div>
       </div>
       <div className="col-span-3 ">
         <RightSideBar />
       </div>
     </div>
-  );
-};
+  )
+}
 
 const BarChart = ({
   data,
   title,
 }: {
-  data: { label: string; value: number }[];
-  title: any;
+  data: { label: string; value: number }[]
+  title: any
 }) => {
-  const maxDataValue = Math.max(...data.map((item) => item.value));
+  const maxDataValue = Math.max(...data.map(item => item.value))
   // array of values in decreasing order
-  const sortedData = data.sort((a, b) => b.value - a.value);
+  const sortedData = data.sort((a, b) => b.value - a.value)
   // adding a empty value at last
-  sortedData.push({ label: "", value: 0 });
+  sortedData.push({ label: '', value: 0 })
 
   return (
     <div className="flex flex-col w-3/4 h-full gap-8 p-8 bg-white rounded-xl dark:bg-zinc-800">
@@ -75,7 +90,7 @@ const BarChart = ({
       <div className="flex items-end justify-between w-full h-full p-4">
         {/* div showing the values in sidebar */}
         <div className="flex flex-col justify-center h-full">
-          {sortedData.map((item) => (
+          {sortedData.map(item => (
             <div
               key={item.label}
               className="flex flex-col h-full gap-4 place-content-start w-fit"
@@ -89,7 +104,7 @@ const BarChart = ({
           ))}
         </div>
 
-        {data.map((item) => (
+        {data.map(item => (
           <div
             key={item.label}
             className="flex flex-col items-center justify-end h-full gap-4 w-fit"
@@ -105,7 +120,7 @@ const BarChart = ({
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard
