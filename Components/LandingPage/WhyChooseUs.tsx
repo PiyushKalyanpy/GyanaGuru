@@ -70,6 +70,7 @@ const InfoCard = ({ title, description }: any) => {
   const { resolvedTheme } = useTheme();
   const isDarkMode = resolvedTheme === 'dark';
   return (
+
     <div className="  p-4  hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors font-archivo rounded-3xl ">
       <div className="space-y-4  ">
         <h3 className="text-2xl font-semibold font-archivo ">{title}</h3>
@@ -78,6 +79,7 @@ const InfoCard = ({ title, description }: any) => {
         </p>
       </div>
     </div>
+
 
   );
 };
