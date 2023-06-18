@@ -18,8 +18,7 @@ const LandingContact = () => {
       message: message
     })
     .then(() => {
-      // Clear the form fields after successful submission
-      setName('');
+       setName('');
       setEmail('');
       setMessage('');
     })
