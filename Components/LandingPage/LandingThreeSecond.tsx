@@ -1,6 +1,8 @@
 import CourseData from "../../data/course_categories.json";
 import ContributorsData from "../../data/contributors.json";
 import Image from "next/image";
+// import Router from "next/router";
+import Link from "next/link";
 
 const LandingThreeSecond = () => {
   return (
@@ -13,7 +15,7 @@ const LandingThreeSecond = () => {
       <div className="flex items-end col-span-3 bg-cover bg-[url('/images/landing0202.png')]">
         <div className="flex w-full flex-col space-y-4 p-4 backdrop-blur-md bg-pink-500/10 ">
           {CourseData.slice(0, 4).map((item, index) => {
-            return <Link key={index} title={item.categoryName} />;
+            return <LinkItem key={index} title={item.categoryName} />;
           })}
         </div>
       </div>
@@ -48,14 +50,20 @@ const Card01 = () => {
   );
 };
 
-const Link = ({ title }: any) => {
+const LinkItem = ({ title }: any) => {
+  const handleClick = () => {
+
+  };
+
   return (
-    <div className="w-full border-b p-4 hover:bg-white/20 border-white">
+    <Link href={`course/${title.toLowerCase()}`}>
+      <div onClick={handleClick} className="w-full border-b p-4 hover:bg-white/20 border-white">
       <a href="#" target="_blank" rel="noopener" className="flex justify-between">
         <p className="text-white text-2xl font-archivo">{title}</p>
         <span className="material-icons text-white ">arrow_outward</span>
       </a>
     </div>
+    </Link>
   );
 };
 
@@ -81,7 +89,7 @@ const Contributors = () => {
           <img alt="Profile pictures of the contributers" src="https://contrib.rocks/image?repo=PiyushKalyanpy/GyanaGuru" />
         </a>
       </div>
-      <Link title="Our Contributors" />
+      <LinkItem title="Our Contributors" />
     </div>
   )
 };

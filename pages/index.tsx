@@ -17,7 +17,7 @@ import Image from "next/image";
 
 export default function Home() {
   const [showNav, setShowNav] = useState(true);
-  const [showPopup, setShowPopup] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
   useEffect(() => {
     setCookie("reachedDashboard", false);
