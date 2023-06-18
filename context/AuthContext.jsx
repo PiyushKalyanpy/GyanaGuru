@@ -44,15 +44,6 @@ export function AuthProvider({ children }) {
     return signInWithPopup(auth, provider);
   }
 
-  function writeUserData(userId, name, email, message ) {
-    const db = getDatabase();
-    set(ref(db, 'users/' + userId), {
-      username: name,
-      email: email,
-      message : message 
-    });
-  }
-
   React.useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
@@ -68,7 +59,6 @@ export function AuthProvider({ children }) {
     login,
     logout,
     loginWithGoogle,
-    writeUserData,
   };
 
   return (
