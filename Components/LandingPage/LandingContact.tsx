@@ -9,7 +9,7 @@ const LandingContact = () => {
 
   function writeUserData(name: any, email: any, message: any) {
     const db = getDatabase();
-    const usersRef = ref(db, 'users');
+    const usersRef = ref(db, 'contact');
     const newUserRef = push(usersRef);
 
     set(newUserRef, {
