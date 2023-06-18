@@ -65,6 +65,7 @@ const WhyChooseUs = () => {
   );
 };
 
+
 const InfoCard = ({ title, description }: any) => {
   const { resolvedTheme } = useTheme();
   const isDarkMode = resolvedTheme === 'dark';
@@ -77,6 +78,7 @@ const InfoCard = ({ title, description }: any) => {
         </p>
       </div>
     </div>
+
   );
 };
 
