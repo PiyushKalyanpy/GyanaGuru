@@ -44,11 +44,7 @@ export function AuthProvider({ children }) {
     return signInWithPopup(auth, provider);
   }
 
-<<<<<<< HEAD
-=======
-  
 
->>>>>>> 3ff92d2189b201c33e8148c7753ceb230dec926d
   React.useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
