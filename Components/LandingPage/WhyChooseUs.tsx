@@ -10,7 +10,7 @@ const WhyChooseUs = () => {
     <div id="whychooseus" className="px-20 mt-40 dark:bg-neutral-950">
       <h1 className="text-4xl text-center font-semibold font-archivo text-slate-900 text-black dark:text-zinc-50 p-4 mb-10">{`Why Choose Us`}</h1>
       <div className="grid grid-cols-6  gap-8 w-full items-center">
-        <div className="col-span-4 grid grid-cols-3 gap-8 backgroundColor: seafoam dark : backgroundColor: champagne  ">
+        <div className="col-span-4 grid grid-cols-3 gap-8 backgroundColor:grey dark : backgroundColor: #F7EDE3  ">
         {WhyChooseUsData.whyChooseUs.map((item, index) => {
   const cardRef = useRef(null);
 
@@ -71,7 +71,7 @@ const InfoCard = ({ title, description }: any) => {
   const isDarkMode = resolvedTheme === 'dark';
   return (
 
-    <div className="  p-4  hover:bg-seafoam dark:hover:bg-champagne transition-colors font-archivo rounded-3xl ">
+    <div className="  p-4  hover:bg-grey dark:hover:bg-champagne transition-colors font-archivo rounded-3xl ">
       <div className="space-y-4  ">
         <h3 className="text-2xl font-semibold font-archivo ">{title}</h3>
         <p className={`font-inter ${isDarkMode ? 'text-white' : 'text-black'}`}>
