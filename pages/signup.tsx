@@ -77,9 +77,6 @@ const SignUp = () => {
   };
 
   return (
-   
-  
-    
     <div className="flex w-full h-screen bg-gray-200 ">
       <ToastContainer />
       <div className="flex flex-col w-10/12 p-4 m-auto bg-white rounded-lg md:w-8/12 lg:w-1/4 h-fit min-h-1/4 ">
@@ -165,11 +162,11 @@ const SignUp = () => {
 
             {/* Create Account */}
             <div className="flex flex-col items-center justify-between mt-4 text-sm">
-              <p className="w-fit text-blue-600">Already have an account</p>
+              <p className="w-fit text-slate-600">Already have an account</p>
               <p
                 onClick={() => router.push("/login")}
                 className="text-black cursor-pointer w-fit 
-              hover:dark:text-green-500 hover:underline"
+              hover:underline"
               >
                 Sign In to you account
               </p>
