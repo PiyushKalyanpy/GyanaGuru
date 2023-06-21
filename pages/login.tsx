@@ -7,6 +7,7 @@ import { DarkModeToggle } from "../Components/components";
 import { AuthContext } from "@/context/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./signup";
 
 const Login = () => {
   const router = useRouter();
@@ -89,23 +90,23 @@ const Login = () => {
                 alt="dark mode logo"
                 width={40}
                 height={40}
-                className="hidden dark:block"
+                className="hidden dark:block hover:animate-ping"
               />
 
-              <h1 className="font-semibold text-md ">GyanaGuru</h1>
+              <h1 className="font-semibold text-md animate-pulse ">GyanaGuru</h1>
             </div>
 
             {/* login heading and text */}
             <div className="flex flex-col w-full px-2 space-y-2">
-              <h3 className="text-3xl font-medium ">Login</h3>
-              <h4 className="flex">Welcome to the login page of Gyana Guru.</h4>
+              <h3 className="text-3xl font-medium text-center ">Login</h3>
+              <h4 className="flex justify-center">Welcome to the login page of Gyana Guru.</h4>
             </div>
 
             {/* login form */}
-            <div className="flex flex-col w-full mx-4 space-y-4 ">
+            <div className="flex flex-col w-full mx-4 space-y-4  ">
               <ButtonWithImage
                 buttonName="Login with Google"
-                icon="/images/google.svg"
+                icon="/images/google.svg "
                 onClick={loginWithGoogle}
               />
 
@@ -122,7 +123,7 @@ const Login = () => {
               <div className="flex flex-col space-y-4">
                 <input
                   type="email"
-                  placeholder="Email"
+                  placeholder="email@example.com"
                   value={userData.email}
                   onChange={(e) =>
                     setUserData({ ...userData, email: e.target.value })
@@ -143,13 +144,13 @@ const Login = () => {
                     className="flex items-center p-2 border rounded-lg text-zinc-500 focus:outline-none focus:border-2 focus:border-black border-neutral-300 "
                     onClick={() => setShowPassword(!showPassword)}
                   >
-                    <span className="material-icons-outlined dark:text-zinc-300 ">
+                    <span className="material-icons-outlined dark:text-zinc-300 cursor-pointer ">
                       {showPassword ? "visibility" : "visibility_off"}
                     </span>
                   </div>
                 </div>
 
-                <p className="text-sm text-right text-black cursor-pointer w-fit start-left hover:underline dark:text-zinc-50">
+                <p className="text-sm text-right text-black cursor-pointer w-fit start-left hover:underline dark:text-sky-500">
                   Forgot Password?
                 </p>
               </div>
@@ -166,12 +167,13 @@ const Login = () => {
 
               {/* Create Account */}
               <div className="flex flex-col items-center justify-between mt-4 text-sm">
-                <p className="w-fit text-slate-600 dark:text-gray-100">
+                <p className="w-fit text-slate-900 dark:text-sky-600">
                   Don&apos;t have an account
                 </p>
                 <p
                   onClick={() => router.push("/signup")}
-                  className="text-black cursor-pointer w-fit hover:underline dark:text-gray-100"
+                  className="text-black cursor-pointer w-fit hover:underline dark:text-green-500
+                  animate-pulse"
                 >
                   Create an account
                 </p>

@@ -4,7 +4,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/router";
-
 const SignUp = () => {
   const router = useRouter();
   const [userData, setUserData] = useState({
@@ -78,14 +77,17 @@ const SignUp = () => {
   };
 
   return (
+   
+  
+    
     <div className="flex w-full h-screen bg-gray-200 ">
       <ToastContainer />
       <div className="flex flex-col w-10/12 p-4 m-auto bg-white rounded-lg md:w-8/12 lg:w-1/4 h-fit min-h-1/4 ">
         <div className="flex flex-col items-center space-y-8 ">
           {/* login heading and text */}
           <div className="flex flex-col w-full px-2 mt-8 space-y-2 ">
-            <h3 className="text-3xl font-semibold ">Sign Up</h3>
-            <h4 className="flex">Welcome to Gyana Guru. </h4>
+            <h3 className="text-3xl font-semibold text-center">Sign Up</h3>
+            <h4 className="flex justify-center">Welcome to Gyana Guru. </h4>
           </div>
 
           {/* login form */}
@@ -107,7 +109,7 @@ const SignUp = () => {
               {/* email */}
               <input
                 type="email"
-                placeholder="Email"
+                placeholder="email@example.com"
                 value={userData.email}
                 onChange={(e) =>
                   setUserData({ ...userData, email: e.target.value })
@@ -144,7 +146,7 @@ const SignUp = () => {
                   className="flex items-center p-2 border border-gray-300 rounded-lg text-zinc-500 focus:outline-none focus:border-2 focus:border-black "
                   onClick={() => showPasswordToggle()}
                 >
-                  <span className="material-icons-outlined ">
+                  <span className="material-icons-outlined cursor-pointer">
                     {showPassword ? "visibility" : "visibility_off"}
                   </span>
                 </div>
@@ -163,10 +165,11 @@ const SignUp = () => {
 
             {/* Create Account */}
             <div className="flex flex-col items-center justify-between mt-4 text-sm">
-              <p className="w-fit text-slate-600">Already have an account</p>
+              <p className="w-fit text-blue-600">Already have an account</p>
               <p
                 onClick={() => router.push("/login")}
-                className="text-black cursor-pointer w-fit hover:underline"
+                className="text-black cursor-pointer w-fit 
+              hover:dark:text-green-500 hover:underline"
               >
                 Sign In to you account
               </p>
@@ -175,6 +178,7 @@ const SignUp = () => {
         </div>
       </div>
     </div>
+
   );
 };
 
