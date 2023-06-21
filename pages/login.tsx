@@ -7,7 +7,7 @@ import { DarkModeToggle } from "../Components/components";
 import { AuthContext } from "@/context/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./signup";
+
 
 const Login = () => {
   const router = useRouter();
@@ -150,7 +150,7 @@ const Login = () => {
                   </div>
                 </div>
 
-                <p className="text-sm text-right text-black cursor-pointer w-fit start-left hover:underline dark:text-sky-500">
+                <p className="text-sm text-right text-black cursor-pointer w-fit start-left hover:underline dark:text-zinc-50">
                   Forgot Password?
                 </p>
               </div>
@@ -167,12 +167,12 @@ const Login = () => {
 
               {/* Create Account */}
               <div className="flex flex-col items-center justify-between mt-4 text-sm">
-                <p className="w-fit text-slate-900 dark:text-sky-600">
+                <p className="w-fit text-slate-600 dark:text-gray-100">
                   Don&apos;t have an account
                 </p>
                 <p
                   onClick={() => router.push("/signup")}
-                  className="text-black cursor-pointer w-fit hover:underline dark:text-green-500
+                  className="text-black cursor-pointer w-fit hover:underline dark:text-gray-100
                   animate-pulse"
                 >
                   Create an account
