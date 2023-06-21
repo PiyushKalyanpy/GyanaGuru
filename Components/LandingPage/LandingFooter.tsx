@@ -31,9 +31,6 @@ const LandingFooter = () => {
                 <Link href="/" className={hoverEffect}>Benefits</Link>
                 </li>
                 <li className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
-                <Link href="/" className={hoverEffect}>Contact Us</Link>
-                </li>
-                <li className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
                 <Link href="/faq" className={hoverEffect}>FAQ</Link>
 
                 </li>

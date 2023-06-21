@@ -35,7 +35,8 @@ const LandingNav = () => {
       benefitsSection.scrollIntoView({ behavior: "smooth" });
     }
   };
-  const handlecontactusclick = () => {
+  
+  const handleContactusclick = () => {
     const contactsection = document.getElementById("contactUs");
     if (contactsection) {
       contactsection.scrollIntoView({ behavior: "smooth" });
@@ -87,7 +88,7 @@ const LandingNav = () => {
           <Link
             className={navLinkStyle}
             href="#contactUs"
-            onClick={handlecontactusclick}
+            onClick={handleContactusclick}
           >
             Contact Us
           </Link>
