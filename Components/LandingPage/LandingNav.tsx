@@ -35,6 +35,12 @@ const LandingNav = () => {
       benefitsSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+  const handlecontactusclick = () => {
+    const contactsection = document.getElementById("contactUs");
+    if (contactsection) {
+      contactsection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="sticky top-0 z-20 w-full border-b-2 border-white bg-white/30 backdrop-blur-md dark:bg-neutral-950/50 dark:border-zinc-700">
@@ -77,6 +83,13 @@ const LandingNav = () => {
             onClick={handleBenefitsClick}
           >
             Benefits
+          </Link>
+          <Link
+            className={navLinkStyle}
+            href="#contactUs"
+            onClick={handlecontactusclick}
+          >
+            Contact Us
           </Link>
           <Link className={navLinkStyle} href="/static/faq">
             {/* adding badge on div for new */}

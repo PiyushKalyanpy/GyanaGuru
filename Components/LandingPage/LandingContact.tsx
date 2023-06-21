@@ -27,7 +27,7 @@ const LandingContact = () => {
     });
   }
   return (
-    <div className="w-full h-fit p-20 dark:bg-neutral-950">
+    <div className="w-full h-fit p-20 dark:bg-neutral-950" id="contactUs">
       <div className="grid grid-cols-6  gap-8 w-full items-center">
         <div className="col-span-2 flex items-center">
           <Image
