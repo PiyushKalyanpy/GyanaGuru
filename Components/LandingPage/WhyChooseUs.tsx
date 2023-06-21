@@ -1,37 +1,18 @@
-import WhyChooseUsData from "../../data/why_choose_us.json";
-import Image from "next/image";
+import { ReactNode, useRef, useEffect } from 'react';
+import { useTheme } from 'next-themes';
 import VanillaTilt from 'vanilla-tilt';
-import { useEffect, useRef } from 'react';
-import { useTheme } from "next-themes";
+import Image from 'next/image';
+import WhyChooseUsData from '../../data/why_choose_us.json';
 
-const WhyChooseUs = () => {
-  return (
-    <div id="whychooseus" className="px-20 mt-40 dark:bg-neutral-950">
-      <h1 className="text-4xl text-center font-semibold font-archivo text-slate-900 text-black dark:text-zinc-50 p-4 mb-10">{`Why Choose Us`}</h1>
-      <div className="grid grid-cols-6  gap-8 w-full items-center">
-        <div className="col-span-4 grid grid-cols-3 gap-8 backgroundColor:grey dark:backgroundColor: #F7EDE3">
-          {WhyChooseUsData.whyChooseUs.map((item, index) => (
-            <InfoCard key={index} title={item.title} description={item.description} />
-          ))}
-        </div>
-        <div className="col-span-2 flex justify-self-end">
-          <Image
-            className=""
-            src="/images/whychooseus.png"
-            alt="Picture of the author"
-            width={300}
-            height={300}
-          />
-        </div>
-      </div>
-    </div>
-  );
+type InfoCardProps = {
+  title: string;
+  description: string;
 };
 
-const InfoCard = ({ title, description }: any) => {
+const InfoCard = ({ title, description }: InfoCardProps) => {
   const { resolvedTheme } = useTheme();
   const isDarkMode = resolvedTheme === 'dark';
-  const cardRef = useRef(null);
+  const cardRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (cardRef.current) {
@@ -39,7 +20,7 @@ const InfoCard = ({ title, description }: any) => {
         max: 15,
         speed: 400,
         glare: true,
-        "max-glare": 0.5,
+        'max-glare': 0.5,
       });
     }
   }, []);
@@ -68,5 +49,3 @@ const InfoCard = ({ title, description }: any) => {
     </div>
   );
 };
-
-export default WhyChooseUs;
