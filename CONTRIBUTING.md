@@ -5,47 +5,37 @@
 We appreciate your interest in improving this project! If you have something better to offer, we invite you to contribute and make it even better.
 
 ## Getting Started
-
 To start contributing, follow the guidelines given below:
 
 ### 1. Fork the Repository
-
 ![image](https://github.com/PiyushKalyanpy/GyanaGuru/assets/79275157/fc349786-a757-43ea-8c04-00b1e4af5f1a)
 
 ### 2. Clone the forked Repository
-
 ```
 git clone https://github.com/<your_user_name>/GyanaGuru.git
 ```
 
 ### 3. Set Up Remotes
-
 - Add a reference (remote) to the original repository:
-
 ```
 git remote add upstream https://github.com/PiyushKalyanpy/GyanaGuru.git
 ```
-
 - Add a reference (remote) to your forked repository:
-
 ```
 git remote add origin https://github.com/<your_user_name>/GyanaGuru.git
 ```
 
 ### 4. Check Remotes
-
 ```
 git remote -v
 ```
 
 ### 5. Keep Your Local Copy Updated
-
 ```
 git pull upstream main
 ```
 
 ### 6. Create a New Branch
-
 ```
 git checkout -b <your_branch_name>
 ```
@@ -55,34 +45,30 @@ git checkout -b <your_branch_name>
 Perform your desired changes to the code base.
 
 ### 7. Track Changes
-
 ```
 git add .
 ```
 
 ### 8. Commit Changes
-
 ```
 git commit -m "Suitable message"
 ```
 
 ### 9. Push Changes
-
 ```
 git push -u origin <your_branch_name>
 ```
 
 ## Creating a Pull Request
-
 To create a pull request:
 
 ### 10. Compare and Create
-
 - Click on "Compare And Pull Requests" 🔄
 - Make sure your pull request adheres to our contribution guidelines. Pull requests that do not meet the guidelines may be closed or discarded ❌
 - Avoid including unnecessary files like `package.json` or `package.lock.json` to maintain a focused and relevant pull request 📦
 - Add an appropriate title and description to your pull request, explaining your changes with suitable explanations and screenshots 📝🖼️
 - Click on "Create Pull Request" to submit your contribution for review ✅
+
 
 ## Note
 
@@ -112,7 +98,7 @@ To fix this follow the below steps:
 
 6. It prompts you to register your app, do so and proceed forward.
 
-> **Note:** Don't check in for the firebse hosting checkbox!.
+> **Note:** Don't check in for the  firebse hosting checkbox!.
 
 7. Copy the code under the firebase config object and paste that in the firebase file in your forked project.
 
@@ -126,8 +112,9 @@ npm run dev
 
 Congratulations! You've made your PR with the desired changes. Once the PR is reviewed, it will be merged into the original codebase for everyone to see and use.
 
-⚠️ **_Please do not push your api keys and firebase files in pull request, and if the pull request does not adhere to our contribution guidelines, it may be closed or discarded.
+ ⚠️ **_Please do not push your api keys and firebase files in pull request, and if the pull request does not adhere to our contribution guidelines, it may be closed or discarded.
 If you find any problem after that regarding firebase please ask in discord channel or in [discussion tab](https://github.com/PiyushKalyanpy/GyanaGuru/discussions/54)_**
+
 
 Thank you so much for contributing. Hope to see you again soon........
 
