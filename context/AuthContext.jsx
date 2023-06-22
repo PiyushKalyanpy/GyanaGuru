@@ -53,7 +53,7 @@ export function AuthProvider({ children }) {
           setCookie(null, "user", JSON.stringify(docSnap.data()), {
             path: "/",
           });
-          router.push("/v2/dashboard");
+          router.push("/dashboard");
         } else {
           showToast("User not found, please Sign Up", "error");
           setCookie(null, "user", JSON.stringify(result.user), { path: "/" });
@@ -71,7 +71,7 @@ export function AuthProvider({ children }) {
         } else {
           result.user && setCurrentUser(result.user);
           setCookie(null, "user", JSON.stringify(result.user), { path: "/" });
-          router.push("/v2/profile");
+          router.push("/profile");
         }
       });
     });
@@ -86,14 +86,16 @@ export function AuthProvider({ children }) {
         if (docSnap.exists()) {
           showToast("User already exists, please Login", "error");
         } else {
-          setDoc(userRef, user).then(() => {
-            showToast("User added successfully", "success");
-          }).catch((error) => {
-            showToast(error.message, "error");
-          });
+          setDoc(userRef, user)
+            .then(() => {
+              showToast("User added successfully", "success");
+              router.push("/dashboard");
+            })
+            .catch((error) => {
+              showToast(error.message, "error");
+            });
 
           setCookie(null, "user", JSON.stringify(user), { path: "/" });
-          router.push("/v2/dashboard");
         }
       });
     }

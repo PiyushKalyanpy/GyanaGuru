@@ -100,7 +100,6 @@ export default function Home() {
         <LandingThreeGrid />
         <OurServices />
         <WhyChooseUs />
-        <div></div>
         <LandingThreeSecond />
         <LandingContact />
         <LandingFooter />
