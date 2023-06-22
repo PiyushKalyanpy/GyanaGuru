@@ -51,19 +51,20 @@ const Card01 = () => {
 };
 
 const LinkItem = ({ title }: any) => {
-  const handleClick = () => {
-
-  };
+  const handleClick = () => {};
 
   return (
-    <Link href={`course/${title.toLowerCase()}`}>
-      <div onClick={handleClick} className="w-full border-b p-4 hover:bg-white/20 border-white">
-      <a href="#" target="_blank" rel="noopener" className="flex justify-between">
+    <div className="w-full border-b p-4 hover:bg-white/20 border-white">
+      <a
+        href="#"
+        target="_blank"
+        rel="noopener"
+        className="flex justify-between"
+      >
         <p className="text-white text-2xl font-archivo">{title}</p>
         <span className="material-icons text-white ">arrow_outward</span>
       </a>
     </div>
-    </Link>
   );
 };
 
@@ -85,13 +86,20 @@ const Contributors = () => {
             )
           })}
         </div> */}
-        <a href="https://github.com/PiyushKalyanpy/GyanaGuru/graphs/contributors" target="_blank" rel="noopener">
-          <img alt="Profile pictures of the contributers" src="https://contrib.rocks/image?repo=PiyushKalyanpy/GyanaGuru" />
+        <a
+          href="https://github.com/PiyushKalyanpy/GyanaGuru/graphs/contributors"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            alt="Profile pictures of the contributers"
+            src="https://contrib.rocks/image?repo=PiyushKalyanpy/GyanaGuru"
+          />
         </a>
       </div>
       <LinkItem title="Our Contributors" />
     </div>
-  )
+  );
 };
 
 export default LandingThreeSecond;
