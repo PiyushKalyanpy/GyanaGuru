@@ -13,7 +13,7 @@ const SettingsSearch = () => {
             placeholder="Search"
             required 
             // A11Y
-            role="textbox"
+            role="searchbox"
             contentEditable="true"
             aria-label="Search the Settings Page"
             aria-placeholder="Search"
