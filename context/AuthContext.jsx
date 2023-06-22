@@ -9,7 +9,7 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import { setCookie } from "cookies-next";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { showToast } from "@/Components/util/Toast";
@@ -53,7 +53,7 @@ export function AuthProvider({ children }) {
           setCookie(null, "user", JSON.stringify(docSnap.data()), {
             path: "/",
           });
-          router.push("/v2/dashbaord");
+          router.push("/v2/dashboard");
         } else {
           showToast("User not found, please Sign Up", "error");
           setCookie(null, "user", JSON.stringify(result.user), { path: "/" });
@@ -79,6 +79,26 @@ export function AuthProvider({ children }) {
 
   // database functions for user
 
+  function addUserToDatabase(user) {
+    if (user) {
+      const userRef = doc(db, "users", user.uid);
+      getDoc(userRef).then((docSnap) => {
+        if (docSnap.exists()) {
+          showToast("User already exists, please Login", "error");
+        } else {
+          setDoc(userRef, user).then(() => {
+            showToast("User added successfully", "success");
+          }).catch((error) => {
+            showToast(error.message, "error");
+          });
+
+          setCookie(null, "user", JSON.stringify(user), { path: "/" });
+          router.push("/v2/dashboard");
+        }
+      });
+    }
+  }
+
   const value = {
     currentUser,
     signup,
@@ -87,6 +107,7 @@ export function AuthProvider({ children }) {
     logout,
     loginWithGoogle,
     signUpWithGoogle,
+    addUserToDatabase,
   };
 
   return (

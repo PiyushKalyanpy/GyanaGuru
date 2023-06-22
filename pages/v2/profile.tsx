@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { useContext, useState } from "react";
 import { AuthContext } from "@/context/AuthContext";
-import { ImageError } from "next/dist/server/image-optimizer";
+import { showToast } from "@/Components/util/Toast";
+import { ToastContainer } from "react-toastify";
 
 const Profile = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, addUserToDatabase } = useContext(AuthContext);
 
   const [userDetails, setUserDetails] = useState({
     name: currentUser?.displayName,
@@ -19,19 +20,41 @@ const Profile = () => {
   console.log(userDetails);
   const inputStyles = "border border-gray-300 p-2 mb-2 w-full rounded-xl";
 
+  const checkIfDetailsFilled = () => {
+    if (
+      userDetails.name &&
+      userDetails.email &&
+      userDetails.username &&
+      userDetails.dob
+    ) {
+      return true;
+    }
+    return false;
+  };
+
+  const handleSave = (e: any) => {
+    e.preventDefault();
+    if (!checkIfDetailsFilled()) {
+      showToast("Please fill all the details", "error");
+      return;
+    }
+    addUserToDatabase(userDetails);
+  };
+
   return (
     <div className="flex bg-zinc-100 w-screen h-screen p-4">
+      <ToastContainer/>
       <div className="flex flex-col space-y-2 md:w-1/2 lg:w-1/4 bg-white m-auto p-4 rounded-xl">
         <h1
           className="
-          text-2xl
-          font-bold
+          text-xl
+          
           text-center
           mb-4
           text-zinc-900          
          "
         >
-          Profile
+          Edit Profile
         </h1>
         <div>
           <form className="flex flex-col space-y-4">
@@ -108,6 +131,7 @@ const Profile = () => {
             />
             <input
               type="submit"
+              onClick={handleSave}
               value="Update"
               className="bg-black text-white p-2 rounded-xl w-full cursor-pointer hover:bg-zinc-900"
             />
