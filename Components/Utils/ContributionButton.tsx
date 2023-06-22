@@ -9,6 +9,9 @@ const ContributionButton = ({title, src, blank} : any) => {
               `${blank ? "_blank" : "_self"}`
             );
           }}
+          // A11Y
+          role="button"
+          aria-label="Button to Contribute to this Page"
         >
           {title}
         </button>

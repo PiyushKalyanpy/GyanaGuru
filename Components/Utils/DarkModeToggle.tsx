@@ -7,20 +7,30 @@ function DarkModeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")} 
+      // A11Y
+      role="button"
+      tabIndex={0}
+      aria-label="Toggle Dark Mode"
     >
       <Image
-      width={36}
-      height={40}
-      src="/darksun.svg"
-      alt="dark mode"
-      className="hidden dark:block  hover:scale-110 duration-300"
+        width={36}
+        height={40}
+        src="/darksun.svg"
+        alt="dark mode"
+        className="hidden dark:block  hover:scale-110 duration-300"
+        // A11Y
+        role='img'
+        aria-label="Dark Mode Active"
       />
       <Image
-      width={36}
-      height={40}
-      src="/darkmoon.svg"
-      alt="light mode"
-      className="dark:hidden hover:scale-110 duration-300"
+        width={36}
+        height={40}
+        src="/darkmoon.svg"
+        alt="light mode"
+        className="dark:hidden hover:scale-110 duration-300"
+        // A11Y
+        role='img'
+        aria-label="Light Mode Active"
       />
     </button>
   );

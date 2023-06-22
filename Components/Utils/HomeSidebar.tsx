@@ -21,14 +21,40 @@ const HomeSidebar = ({ pageNumber }: any) => {
   };
 
   return (
-    <div className="flex flex-col justify-between h-full py-8 overflow-hidden bg-white dark:bg-zinc-950 ">
+    <div 
+      className="flex flex-col justify-between h-full py-8 overflow-hidden bg-white dark:bg-zinc-950 "
+      // A11Y
+      role="navigation"
+      tabIndex={0}
+      aria-label="Home Page Sidebar"
+    >
       <div
         onClick={() => router.push("/")}
         className="flex justify-center cursor-pointer h-fit "
+        // A11Y
+        role="button"
+        aria-label="Button to go to Home page"
       >
-        <div className="flex items-center gap-4 p-2 bg-white cursor-pointer drop-shadow-2xl dark:bg-zinc-900 rounded-xl h-fit">
-          <Image src="../color_logo.svg" width={40} height={40} alt="logo" />
-          <h1 className="text-xl font-semibold font-archivo ">GyanaGuru</h1>
+        <div 
+          className="flex items-center gap-4 p-2 bg-white cursor-pointer drop-shadow-2xl dark:bg-zinc-900 rounded-xl h-fit"
+          role="group"
+        >
+          <Image 
+            src="../color_logo.svg" 
+            width={40} 
+            height={40} 
+            alt="logo"
+            // A11Y
+            role="img"
+            aria-label="Logo Image"
+          />
+          <h1 
+            className="text-xl font-semibold font-archivo "
+            role="presentation"
+            aria-label="GyanaGuru"
+          >
+            GyanaGuru
+          </h1>
         </div>
       </div>
 
@@ -107,7 +133,12 @@ const HomeSidebar = ({ pageNumber }: any) => {
           </span>
         </div>
         <div className="flex flex-row items-center justify-center p-2 px-4 text-white rounded-md dark:bg-zinc-950 bg-zinc-900">
-          <button>Upgrade</button>
+          <button
+            role='button'
+            aria-label="Upgrade to Pro"
+          >
+            Upgrade
+          </button>
         </div>
       </div>
     </div>
@@ -121,8 +152,13 @@ const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
         active ? "" : ""
       }`}
       onClick={onClick}
+      // A11Y
+      role="button"
+      aria-label={`Go to ${text}`}
+      aria-pressed={active}
     >
       <span
+        role="presentation"
         className={`material-icons-outlined   ${
           active
             ? "material-icons-round text-black dark:text-white "
@@ -133,6 +169,7 @@ const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
       </span>
       {/* <h3 className={"font-medium ml-2 text-zinc-900"}>{text}</h3> */}
       <h3
+        role="presentation"
         className={` ml-2  font-inter ${
           active
             ? "text-black font-medium dark:text-white"
