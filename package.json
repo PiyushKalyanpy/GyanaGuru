@@ -14,7 +14,7 @@
     "@types/react-dom": "18.0.11",
     "appwrite": "^10.2.0",
     "cookie-cutter": "^0.2.0",
-    "cookies-next": "^2.1.1",
+    "cookies-next": "^2.1.2",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "firebase": "^9.22.2",
