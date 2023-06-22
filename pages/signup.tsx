@@ -24,7 +24,7 @@ const SignUp = () => {
             />
           </div>
           <div className="flex flex-col items-center space-y-2">
-            <h2 className="text-2xl font-bold font-archivo ">
+            <h2 className="text-2xl font-bold font-archivo text-black ">
               Create Account{" "}
             </h2>
             <p className="text-center text-zinc-500">
@@ -41,10 +41,10 @@ const SignUp = () => {
               width={24}
               height={24}
             />
-            <span>Sign Up with Google</span>
+            <span className="text-black">Sign Up with Google</span>
           </button>
         </div>
-        <div className="flex place-content-center w-full">
+        <div className="flex place-content-center w-full text-zinc-500">
           <p className="text-sm text-center">
             Already have an account? &nbsp;
             <Link href="/login">

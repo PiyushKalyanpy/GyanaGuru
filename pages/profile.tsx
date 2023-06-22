@@ -17,7 +17,7 @@ const Profile = () => {
     uid: currentUser?.uid,
     createdAt: currentUser?.metadata.creationTime,
   });
-  const inputStyles = "border-b-2 border-gray-300 py-2 pr-2 outline-none focus:border-green-600 mb-2 w-full text-black font-medium font-archivo ";
+  const inputStyles = "border-b-2 border-gray-300 py-2 pr-2 dark:bg-white outline-none focus:border-green-600 mb-2 w-full text-black  font-archivo ";
 
   const checkIfDetailsFilled = () => {
     if (

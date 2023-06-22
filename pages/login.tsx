@@ -24,7 +24,7 @@ const Login = () => {
             />
           </div>
           <div className="flex flex-col items-center space-y-2">
-            <h2 className="text-2xl font-bold font-archivo ">Welcome back </h2>
+            <h2 className="text-2xl font-bold font-archivo text-black ">Welcome back </h2>
             <p className="text-center text-zinc-500">
               Discover the magic of Gyanaguru with just one click!
             </p>
@@ -39,11 +39,11 @@ const Login = () => {
               width={24}
               height={24}
             />
-            <span>Login with Google</span>
+            <span className="dark:text-black">Login with Google</span>
           </button>
         </div>
         <div className="flex place-content-center w-full">
-          <p className="text-sm text-center">
+          <p className="text-sm text-center text-zinc-600">
             Don{`'`}t have an account? &nbsp;
             <Link href="/signup">
               <span className="text-blue-500  underline text-medium ">
