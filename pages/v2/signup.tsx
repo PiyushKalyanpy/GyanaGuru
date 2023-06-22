@@ -6,9 +6,11 @@ import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import { showToast } from "@/Components/util/Toast";
 
-const Login = () => {
+const SignUp = () => {
   const router = useRouter();
-  const { loginWithGoogle, currentUser } = useContext(AuthContext);
+  const { signUpWithGoogle, currentUser } = useContext(AuthContext);
+
+
 
   return (
     <div className="flex w-screen h-screen bg-zinc-100 p-8">
@@ -24,13 +26,13 @@ const Login = () => {
             />
           </div>
           <div className="flex flex-col items-center space-y-2">
-            <h2 className="text-2xl font-bold font-archivo ">Welcome back </h2>
+            <h2 className="text-2xl font-bold font-archivo ">Create Account  </h2>
             <p className="text-center text-zinc-500">
               Discover the magic of Gyanaguru with just one click!
             </p>
           </div>
           <button
-            onClick={loginWithGoogle}
+            onClick={signUpWithGoogle}
             className="flex p-4 transition bg-zinc-100 rounded-xl space-x-2 font-inter hover:bg-zinc-200"
           >
             <Image
@@ -39,15 +41,15 @@ const Login = () => {
               width={24}
               height={24}
             />
-            <span>Login with Google</span>
+            <span>Sign Up with Google</span>
           </button>
         </div>
         <div className="flex place-content-center w-full">
           <p className="text-sm text-center">
-            Don{`'`}t have an account? &nbsp;
-            <Link href="/v2/signup">
+            Already have an account? &nbsp;
+            <Link href="/v2/login">
               <span className="text-blue-500  underline text-medium ">
-                Sign up
+                Log in
               </span>
             </Link>
           </p>
@@ -57,4 +59,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
