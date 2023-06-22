@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/router";
+import Captcha from "@/Components/Utils/Captcha";
 
 const SignUp = () => {
   const router = useRouter();
@@ -17,6 +18,7 @@ const SignUp = () => {
     setShowPassword(!showPassword);
   };
   const { currentUser, signup } = useContext(AuthContext);
+  const [trackState, setTrackState] = useState(false)
 
   const warning = () => {
     toast.warn("Please Complete all fields", {
@@ -149,13 +151,15 @@ const SignUp = () => {
                   </span>
                 </div>
               </div>
+              <Captcha message={setTrackState} trackState={trackState}/>
             </div>
 
             {/* login button */}
             <div className="flex flex-row space-x-4 py-4 transition hover:scale-[1.02]">
               <button
                 className="w-full p-2 text-white bg-black rounded-lg"
-                onClick={handleSignUp}
+                onClick={handleSignUp} disabled={!trackState}
+                style={{cursor:`${trackState ? "pointer": "not-allowed"}`}}
               >
                 Sign Up
               </button>
@@ -179,3 +183,4 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
