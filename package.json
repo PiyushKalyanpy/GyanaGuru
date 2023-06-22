@@ -32,7 +32,8 @@
     "react-youtube": "^10.1.0",
     "redux-toolkit": "^1.1.2",
     "swr": "^2.1.5",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "vanilla-tilt": "^1.8.0"
   },
   "devDependencies": {
     "@heroicons/react": "^2.0.18",
