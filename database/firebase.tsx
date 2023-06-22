@@ -10,13 +10,13 @@ import { getFirestore } from "firebase/firestore";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCkIfjYrwevcT4MRJ6U7u5jWyMM65bemS0",
-  authDomain: "gyaanguru-bhavya.firebaseapp.com",
-  projectId: "gyaanguru-bhavya",
-  storageBucket: "gyaanguru-bhavya.appspot.com",
-  messagingSenderId: "545555843403",
-  appId: "1:545555843403:web:47f4bfba68158edd88c0ce",
-  measurementId: "G-K67FR3FTG8"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  
 };
 let app;
 if (!getApps().length) {
