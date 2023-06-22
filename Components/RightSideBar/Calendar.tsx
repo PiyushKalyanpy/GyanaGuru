@@ -6,9 +6,12 @@ type Props = {};
 const Calendar = (props: Props) => {
   return (
     <div className="mb-6">
-      <h1 className="font-bold mb-2">Calendar</h1>
+      <h1 
+        className="font-bold mb-2"
+        role="heading"
+      >Calendar</h1>
       <div className="dark:bg-zinc-800 w-full bg-[#F0F4F8] rounded-lg px-4 py-2">
-        <div className="flex flex-row justify-around gap-2">
+        <div className="flex flex-row justify-around gap-2" aria-label="Calendar">
           <IndividualDate date={12} day="M" isTodayDate={false} />
           <IndividualDate date={13} day="T" isTodayDate={false} />
           <IndividualDate date={14} day="W" isTodayDate={false} />

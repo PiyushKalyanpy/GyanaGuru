@@ -20,19 +20,38 @@ const RightSideBar = (props: Props) => {
       <div className="w-full max-w-sm p-4 mb-12">
         <div className="flex flex-row items-center">
           <div className="relative w-12 h-12 overflow-hidden rounded-full">
-            <Image src={imageUrl} alt="Profile Image" width={48} height={48} />
+            <Image 
+              src={imageUrl} 
+              alt="Profile Image" 
+              width={48} 
+              height={48} 
+              // A11Y
+              role="img"
+              aria-label="Profile Image"
+            />
           </div>
-          <div className="flex flex-col pl-4">
+          <div className="flex flex-col pl-4" aria-label="User name">
             <h5 className="mb-1 text-xl font-medium light:text-zinc-900 ">
             {user && user.displayName}            </h5>
-            <span className="text-sm light:text-zinc-500 ">Learner</span>
+            <span role="presentation" className="text-sm light:text-zinc-500 ">Learner</span>
           </div>
         </div>
       </div>
       <Calendar />
       <div className="flex flex-row justify-between mb-4">
-        <h1 className="font-bold">Notes</h1>
-        <button className="dark:bg-white dark:text-black bg-black text-white rounded-lg  text-xs p-2 ">
+        <h1 
+          className="font-bold"
+          // A11Y
+          role="heading"
+        >
+          Notes
+        </h1>
+        <button 
+          className="dark:bg-white dark:text-black bg-black text-white rounded-lg  text-xs p-2 "
+          // A11Y
+          role="button"
+          aria-label="Button to Add note"
+        >
           Add Note
         </button>
       </div>
