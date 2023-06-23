@@ -1,5 +1,7 @@
 <div id="top"></div>
 
+![Screenshot (313)](https://github.com/PiyushKalyanpy/GyanaGuru/assets/121575277/d72bca3e-f23e-4c4f-9cda-8b1204daeb4a)
+
 
 # GyanaGuru
 
