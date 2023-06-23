@@ -71,6 +71,8 @@ export function AuthProvider({ children }) {
         } else {
           result.user && setCurrentUser(result.user);
           setCookie(null, "user", JSON.stringify(result.user), { path: "/" });
+          // set login cookie
+          setCookie("login", true);
           router.push("/profile");
         }
       });
