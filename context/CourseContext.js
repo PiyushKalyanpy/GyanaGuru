@@ -28,7 +28,7 @@ export function CourseProvider({ children }) {
   const [playlist, setPlaylist] = useState([]);
   const [videos, setVideos] = useState([]);
   const router = useRouter();
-  const getData = true;
+  const getData = false;
 
   // Category CRUD ----------------------------------------------
 
