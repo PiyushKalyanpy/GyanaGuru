@@ -67,7 +67,7 @@ We greatly appreciate any work contributed, no matter how big or small it is!
 When you are ready to start work on an issue:
 - Let us know by leaving a comment on the issue (or you can also raise a new issue if you want to work on something completely new in the project)
 - Once you are assigned the issue (or once you have claimed the issue) only then proceed to make the Pull Request. This will help avoid multiple PRs pertaining to the same issue.
-- Please check out the [contribution guide](CONTRIBUTIONS%20GUIDE.md)
+- Please check out the [contribution guide](CONTRIBUTING.md)
 
 # [Code of Conduct](CODE%20OF%20CONDUCT.md)
 # License
