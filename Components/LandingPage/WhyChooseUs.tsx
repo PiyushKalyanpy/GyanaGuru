@@ -24,6 +24,8 @@ const WhyChooseUs = () => {
             alt="Picture of the author"
             width={300}
             height={300}
+            role="img"
+            aria-label="Picture of the author"
           />
         </div>
       </div>
@@ -35,7 +37,7 @@ const InfoCard = ({ title, description}: any) => {
   return (
      <div className=" p-4 cursor-default hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors font-archivo rounded-3xl ">
       <div className="space-y-4">
-        <h3 className="text-2xl font-semibold font-archivo">{title}</h3>
+        <h3 role="heading" className="text-2xl font-semibold font-archivo">{title}</h3>
         <p className={`font-inter text-black dark:text-white `}>{description}</p>      
         </div>
    </div>

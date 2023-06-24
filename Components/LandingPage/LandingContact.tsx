@@ -36,16 +36,24 @@ const LandingContact = () => {
             alt="Picture of the author"
             width={400}
             height={400}
+            // A11Y
+            role="img"
+            aria-label="Picture of the author"
           />
         </div>
         <div className="col-span-4 flex flex-col p-10 space-y-8 mx-auto z-10">
           <div className="w-3/4">
             <h2 className="text-3xl  font-archivo text-slate-900 dark:text-zinc-100">{`Contact Us`}</h2>
             <h2 className=" font-archivo text-zinc-700 dark:text-zinc-100">{`Have questions or feedback? We'd love to hear from you. Please fill out the form below and we'll get back to you as soon as possible.`}</h2>
-            <form onSubmit={(e) =>{
-              e.preventDefault();
-              writeUserData(name, email, message);
-            }}>
+            <form 
+              onSubmit={(e) =>{
+                e.preventDefault();
+                writeUserData(name, email, message);
+              }}
+              // A11Y
+              role="form"
+              aria-label="Form for Contact"
+            >
 
               <input
                 className="w-full bg-champange h-12 mt-4 p-4 outline-none focus:outline-orange-200 text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50 "
@@ -54,6 +62,11 @@ const LandingContact = () => {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                // A11Y
+                role="textbox"
+                aria-label="Enter your name"
+                aria-required="true"
+                aria-placeholder="Name"
               />
               <input
                 className="w-full bg-champange h-12 mt-4 p-4 outline-none focus:outline-orange-200 text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50 "
@@ -62,6 +75,11 @@ const LandingContact = () => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                // A11Y
+                role="textbox"
+                aria-label="Enter your email"
+                aria-required="true"
+                aria-placeholder="E-mail"
               />
               <textarea
                 className="w-full bg-champange h-40 mt-4 p-4 outline-none focus:outline-orange-200 text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50 resize-none"
@@ -69,10 +87,19 @@ const LandingContact = () => {
                 required
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
+                // A11Y
+                role="textbox"
+                aria-label="Enter your Message"
+                aria-required="true"
+                aria-placeholder="Message"
               />
               <button
                 className="w-20% bg-champange h-12 mt-4 p-2 outline-none hover:outline-orange-200 transition text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50 hover:scale-[1.04]"
                 type="submit"
+                // A11Y
+                role="button"
+                aria-label="Send Message"
+                aria-roledescription="Sends the Form Info. (Message) for you"
               >
                 Send Message
               </button>

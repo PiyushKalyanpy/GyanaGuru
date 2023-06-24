@@ -37,30 +37,48 @@ const LandingNav = () => {
   };
 
   return (
-    <div className="sticky top-0 z-20 w-full border-b-2 border-white bg-white/30 backdrop-blur-md dark:bg-neutral-950/50 dark:border-zinc-700">
+    <div role="navigation" className="sticky top-0 z-20 w-full border-b-2 border-white bg-white/30 backdrop-blur-md dark:bg-neutral-950/50 dark:border-zinc-700">
       <div className="flex flex-row items-center justify-between w-full px-20 py-4 ">
         {/* Logo with Title */}
         <div
           className="flex flex-row items-center cursor-pointer"
           onClick={handleClick}
+          // A11Y
+          role="button"
+          aria-label="Navigate to Home Page"
         >
-          <img src="./logo.svg" alt="logo" className="dark:hidden" />
+          <img 
+            src="./logo.svg" 
+            alt="logo" 
+            className="dark:hidden" 
+            role="img"
+            aria-label="Light Mode Logo"
+          />
           <img
             src="./logodark.svg"
             alt="dark mode logo"
             className="hidden dark:block"
+            role="img"
+            aria-label="Dark Mode Logo"
           />
-          <h1 className="text-lg font-semibold font-archivo ">GyanaGuru</h1>
+          <h1 role="presentation" className="text-lg font-semibold font-archivo ">GyanaGuru</h1>
         </div>
         {/* Nav Links */}
         <div className="flex flex-row items-center gap-8">
-          <Link className={navLinkStyle} href="#">
+          <Link 
+            className={navLinkStyle} 
+            href="#"
+            role="link"
+            aria-label="Go to Home Page"
+          >
             Home
           </Link>
           <Link
             className={navLinkStyle}
             href="about-us"
             onClick={handleCoursesClick}
+            role="link"
+            aria-label="Go to Courses Page"
           >
             About Us
           </Link>
@@ -68,6 +86,8 @@ const LandingNav = () => {
             className={navLinkStyle}
             href="#ourservices"
             onClick={handleOurServicesClick}
+            role="link"
+            aria-label="Go to Services Page"
           >
             Our Services
           </Link>
@@ -75,10 +95,17 @@ const LandingNav = () => {
             className={navLinkStyle}
             href="#benefits"
             onClick={handleBenefitsClick}
+            role="link"
+            aria-label="Go to Benefits Page"
           >
             Benefits
           </Link>
-          <Link className={navLinkStyle} href="/static/faq">
+          <Link 
+            className={navLinkStyle} 
+            href="/static/faq"
+            role="link"
+            aria-label="Go to FAQ"
+          >
             {/* adding badge on div for new */}
             <div>FAQ</div>
           </Link>
@@ -88,6 +115,9 @@ const LandingNav = () => {
           <div
             onClick={handleGetStartedClick}
             className="flex flex-row items-center gap-4 p-1 border-2 border-black rounded-full cursor-pointer dark:border-zinc-50"
+            // A11Y
+            role="button"
+            aria-label="Get Started Button"
           >
             <h4 className="ml-2 font-medium ">Get Started</h4>
             <span className="p-2 text-white bg-black dark:text-zinc-800 dark:bg-zinc-50  rounded-full material-icons">

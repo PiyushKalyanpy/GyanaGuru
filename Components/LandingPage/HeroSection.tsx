@@ -64,6 +64,9 @@ const HeroSection = () => {
                 width={80}
                 height={80}
                 className="dark:hidden"
+                // A11Y
+                role="img"
+                aria-label="Arrow Image"
               />
               <Image
                 src="/images/dark_arrow_big.svg"
@@ -71,25 +74,33 @@ const HeroSection = () => {
                 width={80}
                 height={80}
                 className="hidden dark:block"
+                // A11Y
+                role="img"
+                aria-label="Dark Arrow Image"
               />
               <div
                 onClick={() => router.push("/course")}
                 className="flex flex-row items-center gap-4 p-4 text-white bg-black border-2 border-black rounded-full h-fit cursor-pointer dark:bg-zinc-50 ease-out hover:scale-110 duration-700"
+                // A11Y
+                role="button"
+                aria-label="Navigate to Course Page"
               >
-                <span className="inline-flex bg-black "></span>
-
-                <h4 className="text-xl  font-archivo dark:text-zinc-800 ">Explore Courses</h4>
+                <span role="presentation" className="inline-flex bg-black "></span>
+                <h4  role="heading" className="text-xl  font-archivo dark:text-zinc-800 ">Explore Courses</h4>
               </div>
             </div>
           </div>
         </div>
 
-        <img
+        <Image
           className="transition duration-500 ease-in-out transform translate-x-full opacity-0"
           src="/images/herosection.png"
           alt="hero"
           width={400}
           height={400}
+          // A11Y
+          role="img"
+          aria-label="Herosection Illustration (Image)"
         />
       </div>
     </div>
