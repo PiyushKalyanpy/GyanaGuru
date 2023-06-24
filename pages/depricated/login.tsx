@@ -1,9 +1,9 @@
-import { ButtonWithImage } from "@/Components/components";
+import { ButtonWithImage } from "@/components/components";
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { setCookie, getCookie } from "cookies-next";
-import { DarkModeToggle } from "../../Components/components";
+import { DarkModeToggle } from "../../components/components";
 import { AuthContext } from "@/context/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

@@ -4,7 +4,7 @@ import { useEffect, useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
-import { showToast } from "@/Components/util/Toast";
+import { showToast } from "@/components/util/Toast";
 
 const Login = () => {
   const router = useRouter();

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useContext, useState } from "react";
 import { AuthContext } from "@/context/AuthContext";
-import { showToast } from "@/Components/util/Toast";
+import { showToast } from "@/components/util/Toast";
 import { ToastContainer } from "react-toastify";
 
 const Profile = () => {

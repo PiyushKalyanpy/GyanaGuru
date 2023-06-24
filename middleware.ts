@@ -6,16 +6,16 @@ import { useContext } from "react";
 export function middleware(request: NextRequest) {
 
   let isLoggedIn = request.cookies.get('login')?.value
-  if (isLoggedIn === 'true') {
-    isLoggedIn = 'true'
-    return NextResponse.next()
+  console.log(isLoggedIn, "middleware")
+
+  // if login page then check if user is logged in or not and redirect accordingly
+  if (request.nextUrl.pathname === '/login') {
+    if (isLoggedIn) {
+      return NextResponse.redirect('/dashboard')
+    }
   }
-  if (!isLoggedIn || isLoggedIn === 'false' || isLoggedIn === 'undefined' || isLoggedIn === 'null') {
-    const url = request.nextUrl.clone()
-    url.pathname = '/login'
-    return NextResponse.rewrite(url)
-  }
-  return NextResponse.next();
+  
+  
 }
 
 export const config = {

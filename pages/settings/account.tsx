@@ -1,6 +1,6 @@
-import SettingsBarItem from "@/Components/SettingsBar/Item";
-import HomeSidebar from "@/Components/Utils/HomeSidebar";
-import SettingsBar from "@/Components/SettingsBar";
+import SettingsBarItem from "@/components/SettingsBar/Item";
+import HomeSidebar from "@/components/Utils/HomeSidebar";
+import SettingsBar from "@/components/SettingsBar";
 
 
 const Account = () => {

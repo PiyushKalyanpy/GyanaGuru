@@ -1,4 +1,4 @@
-import { HomeSidebar } from "../Components/components";
+import { HomeSidebar } from "../components/components";
 
 const Help = () => {
   return (

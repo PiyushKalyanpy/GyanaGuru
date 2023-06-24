@@ -12,7 +12,7 @@ import { setCookie } from "cookies-next";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
-import { showToast } from "@/Components/util/Toast";
+import { showToast } from "@/components/util/Toast";
 
 export const AuthContext = React.createContext();
 
@@ -50,9 +50,7 @@ export function AuthProvider({ children }) {
     signInWithPopup(auth, provider).then((result) => {
       getDoc(doc(db, "users", result.user.uid)).then((docSnap) => {
         if (docSnap.exists()) {
-          setCookie(null, "user", JSON.stringify(docSnap.data()), {
-            path: "/",
-          });
+          setCookie("login", true);
           router.push("/dashboard");
         } else {
           showToast("User not found, please Sign Up", "error");

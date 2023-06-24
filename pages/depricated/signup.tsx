@@ -1,4 +1,4 @@
-import { ButtonWithImage } from "@/Components/components";
+import { ButtonWithImage } from "@/components/components";
 import { useContext, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
