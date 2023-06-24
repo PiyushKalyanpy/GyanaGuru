@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { auth, db } from "../database/firebase";
 import {
   createUserWithEmailAndPassword,
@@ -21,9 +21,8 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   function signup(email, password) {
@@ -43,74 +42,85 @@ export function AuthProvider({ children }) {
     return signOut(auth);
   }
 
-  // new functions for google login and signup
-
-  function loginWithGoogle() {
+  const loginWithGoogle = () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider).then((result) => {
-      getDoc(doc(db, "users", result.user.uid)).then((docSnap) => {
-        if (docSnap.exists()) {
-          setCookie("login", true);
-          router.push("/dashboard");
-        } else {
-          showToast("User not found, please Sign Up", "error");
-          setCookie(null, "user", JSON.stringify(result.user), { path: "/" });
-        }
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const userRef = doc(db, "users", result.user.uid);
+        getDoc(userRef)
+          .then((docSnap) => {
+            if (docSnap.exists()) {
+              setCurrentUser(docSnap.data());
+              setCookie(null, "user", JSON.stringify(result.user), {
+                path: "/",
+              });
+              setCookie("login", true);
+              router.push("/profile");
+            } else {
+              showToast("User not found, please enter details", "info");
+              setCookie(null, "user", JSON.stringify(result.user), {
+                path: "/",
+              });
+              router.push("/profile");
+            }
+          })
+          .catch((error) => {
+            showToast(error.message, "error");
+          });
+      })
+      .catch((error) => {
+        showToast(error.message, "error");
       });
-    });
-  }
-
-  function signUpWithGoogle() {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider).then((result) => {
-      getDoc(doc(db, "users", result.user.uid)).then((docSnap) => {
-        if (docSnap.exists()) {
-          showToast("User already exists, please Login", "error");
-        } else {
-          result.user && setCurrentUser(result.user);
-          setCookie(null, "user", JSON.stringify(result.user), { path: "/" });
-          // set login cookie
-          setCookie("login", true);
-          router.push("/profile");
-        }
-      });
-    });
-  }
-
-  // database functions for user
+  };
 
   function addUserToDatabase(user) {
     if (user) {
       const userRef = doc(db, "users", user.uid);
-      getDoc(userRef).then((docSnap) => {
-        if (docSnap.exists()) {
-          showToast("User already exists, please Login", "error");
-        } else {
-          setDoc(userRef, user)
-            .then(() => {
-              showToast("User added successfully", "success");
-              router.push("/dashboard");
-            })
-            .catch((error) => {
-              showToast(error.message, "error");
-            });
+      setDoc(userRef, user)
+        .then(() => {
+          showToast("User added successfully", "success");
+          router.push("/dashboard");
+        })
+        .catch((error) => {
+          showToast(error.message, "error");
+        });
 
-          setCookie(null, "user", JSON.stringify(user), { path: "/" });
-        }
-      });
+      setCookie(null, "user", JSON.stringify(user), { path: "/" });
     }
   }
+
+  useEffect(() => {
+    const fetchCurrentUser = async () => {
+      const user = currentUser || auth.currentUser;
+      if (user) {
+        const userRef = doc(db, "users", user.uid);
+        try {
+          console.log("📞 Call...");
+          const docSnap = await getDoc(userRef);
+          if (docSnap.exists()) {
+            setCurrentUser(docSnap.data());
+          } else {
+            showToast("User not found, please Sign Up", "error");
+            setCurrentUser(null);
+          }
+        } catch (error) {
+          showToast(error.message, "error");
+        }
+      }
+      setLoading(false);
+    };
+
+    fetchCurrentUser();
+  }, []);
 
   const value = {
     currentUser,
     signup,
     login,
-    error,
     logout,
     loginWithGoogle,
-    signUpWithGoogle,
     addUserToDatabase,
-  };
+    };
 
   return (
     <AuthContext.Provider value={value}>

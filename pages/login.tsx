@@ -31,7 +31,7 @@ const Login = () => {
           </div>
           <button
             onClick={loginWithGoogle}
-            className="flex p-4 transition bg-zinc-100 rounded-xl space-x-2 font-inter hover:bg-zinc-200"
+            className="flex p-4 transition bg-black rounded-xl space-x-2 font-inter hover:bg-zinc-800"
           >
             <Image
               src="/icons/google.svg"
@@ -39,7 +39,7 @@ const Login = () => {
               width={24}
               height={24}
             />
-            <span className="dark:text-black">Login with Google</span>
+            <span className="dark:text-white text-white">Continue with Google</span>
           </button>
         </div>
         <div className="flex place-content-center w-full">

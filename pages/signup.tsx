@@ -8,7 +8,7 @@ import { showToast } from "@/components/util/Toast";
 
 const SignUp = () => {
   const router = useRouter();
-  const { signUpWithGoogle, currentUser } = useContext(AuthContext);
+  const { loginWithGoogle, currentUser } = useContext(AuthContext);
 
   return (
     <div className="flex w-screen h-screen bg-zinc-100 p-8">
@@ -32,7 +32,7 @@ const SignUp = () => {
             </p>
           </div>
           <button
-            onClick={signUpWithGoogle}
+            onClick={loginWithGoogle}
             className="flex p-4 transition bg-zinc-100 rounded-xl space-x-2 font-inter hover:bg-zinc-200"
           >
             <Image
