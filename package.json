@@ -45,7 +45,8 @@
     "typescript": "5.0.4"
   },
   "engines": {
-    "node": ">=18.2.6",
-    "npm": "please-use-npm"
+    "node": "18.15.0",
+    "npm": "9.5.0"
+  }  
   }
 }
