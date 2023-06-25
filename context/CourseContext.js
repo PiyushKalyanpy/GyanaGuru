@@ -16,7 +16,6 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import { getCookie } from "cookies-next";
 
-
 export const CourseContext = React.createContext();
 
 export function useCourse() {
@@ -114,7 +113,6 @@ export function CourseProvider({ children }) {
       }
     );
   };
-  
 
   const value = {
     categories,
