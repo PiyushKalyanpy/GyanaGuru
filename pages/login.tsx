@@ -32,6 +32,9 @@ const Login = () => {
           <button
             onClick={loginWithGoogle}
             className="flex p-4 transition bg-black rounded-xl space-x-2 font-inter hover:bg-zinc-800"
+            // a11y
+            role="button"
+            aria-label="Log in with Google"
           >
             <Image
               src="/icons/google.svg"
@@ -43,7 +46,7 @@ const Login = () => {
           </button>
         </div>
         <div className="flex place-content-center w-full">
-          <p className="text-sm text-center text-zinc-600">
+          <p className="text-sm text-center text-zinc-600" role="link" aria-label="Link to Sign up">
             Don{`'`}t have an account? &nbsp;
             <Link href="/signup">
               <span className="text-blue-500  underline text-medium ">

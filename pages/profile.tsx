@@ -60,6 +60,9 @@ const ProfileForm = ({ userDetails, setUserDetails, handleSave }: any) => {
             setUserDetails({ ...userDetails, name: e.target.value })
           }
           className={`${inputStyles}`}
+          // a11y
+          role="textbox"
+          aria-label="Input for Name"
         />
       </div>
       <div className="flex flex-col space-y-1 text-zinc-500">
@@ -74,6 +77,9 @@ const ProfileForm = ({ userDetails, setUserDetails, handleSave }: any) => {
           }
           className={`text-zinc-500 ${inputStyles}`}
           disabled
+          //  a11y
+          role="textbox"
+          aria-label="Input for Email"
         />
       </div>
       <div className="flex flex-col space-y-1 text-zinc-500">
@@ -87,6 +93,9 @@ const ProfileForm = ({ userDetails, setUserDetails, handleSave }: any) => {
             setUserDetails({ ...userDetails, username: e.target.value })
           }
           className={inputStyles}
+          //  a11y
+          role="textbox"
+          aria-label="Input for Username"
         />
       </div>
       <div className="flex flex-col space-y-1 text-zinc-500">
@@ -100,6 +109,9 @@ const ProfileForm = ({ userDetails, setUserDetails, handleSave }: any) => {
             setUserDetails({ ...userDetails, dob: e.target.value })
           }
           className={inputStyles}
+          //  a11y
+          role="textbox"
+          aria-label="Input for Date of Birth"
         />
       </div>
       <input
@@ -107,6 +119,9 @@ const ProfileForm = ({ userDetails, setUserDetails, handleSave }: any) => {
         onClick={handleSave}
         value=" Let's go! 🚀"
         className="w-full p-2 text-white bg-black cursor-pointer rounded-xl hover:bg-zinc-900"
+        //  a11y
+        role="button"
+        aria-label="Button for Submitting Changes to Profile"
       />
     </form>
   );
