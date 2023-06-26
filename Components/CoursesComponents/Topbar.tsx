@@ -66,6 +66,8 @@ const SearchBar = ({ searchQuery, handleInputChange }: SearchBarProps) => {
         className="w-full p-2 text-xl bg-white dark:bg-zinc-800 border-0 outline-none font-archivo placeholder:font-archivo placeholder:font-light placeholder:text-zinc-400"
         value={searchQuery}
         onChange={handleInputChange}
+        role="searchbox"
+        aria-label="Search for Courses"
       />
       <span className="p-3 cursor-pointer rounded-xl material-icons dark:hover:bg-zinc-900 hover:bg-gray-200 active:bg-gray-300 ">
         search
