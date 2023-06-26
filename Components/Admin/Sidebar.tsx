@@ -74,6 +74,9 @@ const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
         active ? "" : ""
       }`}
       onClick={onClick}
+      // a11y 
+      role="button"
+      aria-label={`Sidebar link for ${text}`}
     >
       <span
         className={`material-icons-outlined   ${
@@ -93,6 +96,7 @@ const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
     </div>
   );
 };
+
 const AddIcon = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
