@@ -7,9 +7,16 @@ import { ThemeProvider } from "next-themes";
 import { AuthProvider } from "../context/AuthContext";
 import { CourseProvider } from "@/context/CourseContext";
 import { CookiesProvider } from "react-cookie";
+import { NextPageWithLayout } from "./page";
 
-function App({ Component, pageProps }: AppProps) {
-  return (
+interface AppPropsWithLayout extends AppProps {
+  Component: NextPageWithLayout;
+}
+
+function App({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout || ((page) => page);
+
+  return getLayout(
     <CookiesProvider>
       <AuthProvider>
         <CourseProvider>

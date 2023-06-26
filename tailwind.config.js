@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode:'class',
+  darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
-    "./Components/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
 
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -17,17 +17,14 @@ module.exports = {
         urbanist: ["Urbanist", "sans-serif"],
         archivo: ["Archivo", "sans-serif"],
       },
-      colors:{
-        "seafoam" : "#C9EEBE",
-        "champange" : "#F7EDE3"
+      colors: {
+        seafoam: "#C9EEBE",
+        champange: "#F7EDE3",
       },
       borderRadius: {
         "4xl": "2.5rem",
-      }
+      },
     },
-    plugins: [
-      require('@tailwindcss/line-clamp'),
-
-    ],
+    plugins: [require("@tailwindcss/line-clamp")],
   },
 };

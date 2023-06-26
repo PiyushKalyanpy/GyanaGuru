@@ -1,7 +1,7 @@
-import ContributionButton from "@/Components/Utils/ContributionButton";
-import { HomeSidebar } from "../Components/components";
-import { RightSideBar } from "../Components/components";
-import NumberInfo from "@/Components/Dashboard/NumberInfo";
+import ContributionButton from "@/components/Utils/ContributionButton";
+import { HomeSidebar } from "../components/components";
+import { RightSideBar } from "../components/components";
+import NumberInfo from "@/components/Dashboard/NumberInfo";
 import { setCookie } from "cookies-next";
 import { useEffect } from "react";
 

@@ -1,7 +1,7 @@
-import CategoryCard from "@/Components/CoursesComponents/CategoryCard";
-import PlaylistCard from "@/Components/CoursesComponents/PlaylistCard";
-import Topbar from "@/Components/CoursesComponents/Topbar";
-import { HomeSidebar } from "@/Components/components";
+import CategoryCard from "@/components/CoursesComponents/CategoryCard";
+import PlaylistCard from "@/components/CoursesComponents/PlaylistCard";
+import Topbar from "@/components/CoursesComponents/Topbar";
+import { HomeSidebar } from "@/components/components";
 import { CourseContext } from "@/context/CourseContext";
 import { useContext, useEffect } from "react";
 import { useState } from "react";

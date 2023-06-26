@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { auth } from "../database/firebase";
+import React, { useState, useContext, useEffect } from "react";
+import { auth, db } from "../database/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -9,6 +9,10 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import { setCookie } from "cookies-next";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
+import { showToast } from "@/components/util/Toast";
 
 export const AuthContext = React.createContext();
 
@@ -17,9 +21,9 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const router = useRouter();
 
   function signup(email, password) {
     const result = createUserWithEmailAndPassword(auth, email, password);
@@ -28,7 +32,6 @@ export function AuthProvider({ children }) {
       sendEmailVerification(user);
     });
     return result;
-    
   }
 
   function login(email, password) {
@@ -39,18 +42,75 @@ export function AuthProvider({ children }) {
     return signOut(auth);
   }
 
-  function loginWithGoogle() {
+  const loginWithGoogle = () => {
     const provider = new GoogleAuthProvider();
-    return signInWithPopup(auth, provider);
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const userRef = doc(db, "users", result.user.uid);
+        getDoc(userRef)
+          .then((docSnap) => {
+            if (docSnap.exists()) {
+              setCurrentUser(docSnap.data());
+              setCookie(null, "user", JSON.stringify(result.user), {
+                path: "/",
+              });
+              setCookie("login", true);
+              router.push("/profile");
+            } else {
+              showToast("User not found, please enter details", "info");
+              setCookie(null, "user", JSON.stringify(result.user), {
+                path: "/",
+              });
+              router.push("/profile");
+            }
+          })
+          .catch((error) => {
+            showToast(error.message, "error");
+          });
+      })
+      .catch((error) => {
+        showToast(error.message, "error");
+      });
+  };
+
+  function addUserToDatabase(user) {
+    if (user) {
+      const userRef = doc(db, "users", user.uid);
+      setDoc(userRef, user)
+        .then(() => {
+          showToast("User added successfully", "success");
+          router.push("/dashboard");
+        })
+        .catch((error) => {
+          showToast(error.message, "error");
+        });
+
+      setCookie(null, "user", JSON.stringify(user), { path: "/" });
+    }
   }
 
-  React.useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setCurrentUser(user);
-      if(user) {setCookie("loggedIn", true);}
+  useEffect(() => {
+    const fetchCurrentUser = async () => {
+      const user = currentUser || auth.currentUser;
+      if (user) {
+        const userRef = doc(db, "users", user.uid);
+        try {
+          console.log("📞 Call...");
+          const docSnap = await getDoc(userRef);
+          if (docSnap.exists()) {
+            setCurrentUser(docSnap.data());
+          } else {
+            showToast("User not found, please Sign Up", "error");
+            setCurrentUser(null);
+          }
+        } catch (error) {
+          showToast(error.message, "error");
+        }
+      }
       setLoading(false);
-    });
-    return unsubscribe;
+    };
+
+    fetchCurrentUser();
   }, []);
 
   const value = {
@@ -59,7 +119,8 @@ export function AuthProvider({ children }) {
     login,
     logout,
     loginWithGoogle,
-  };
+    addUserToDatabase,
+    };
 
   return (
     <AuthContext.Provider value={value}>

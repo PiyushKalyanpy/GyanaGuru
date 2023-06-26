@@ -1,4 +1,4 @@
-import { PageHeader, HeadingParagraph } from "@/Components/components";
+import { PageHeader, HeadingParagraph } from "@/components/components";
 import AboutUsData from "../../data/about_us.json";
 import { useRouter } from "next/router";
 

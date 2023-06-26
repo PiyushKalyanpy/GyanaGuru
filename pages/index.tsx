@@ -9,7 +9,7 @@ import {
   LandingThreeSecond,
   LandingContact,
   LandingFooter,
-} from "../Components/components";
+} from "../components/components";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { setCookie } from "cookies-next";
@@ -106,7 +106,6 @@ export default function Home() {
         <LandingThreeGrid />
         <OurServices />
         <WhyChooseUs />
-        <div></div>
         <LandingThreeSecond />
         <LandingContact />
         <LandingFooter />
