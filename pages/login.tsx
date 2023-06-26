@@ -128,6 +128,9 @@ const Login = () => {
                     setUserData({ ...userData, email: e.target.value })
                   }
                   className="p-2 border rounded-lg border-neutral-300 focus:outline-none focus:border-2 focus:border-black dark:bg-neutral-900 dark:placeholder:text-zinc-50"
+                  // a11y 
+                  role="textbox"
+                  aria-label="Input for Email"
                 />
                 <div className="flex w-full space-x-2">
                   <input
@@ -138,10 +141,16 @@ const Login = () => {
                       setUserData({ ...userData, password: e.target.value })
                     }
                     className="w-full p-2 border rounded-lg focus:outline-none focus:border-2 focus:border-black dark:bg-neutral-900 border-neutral-300 dark:placeholder:text-zinc-50"
+                    // a11y 
+                    role="textbox"
+                    aria-label="input for Password"
                   />
                   <div
                     className="flex items-center p-2 border rounded-lg text-zinc-500 focus:outline-none focus:border-2 focus:border-black border-neutral-300 "
                     onClick={() => setShowPassword(!showPassword)}
+                    // a11y 
+                    role="button"
+                    aria-label="Show Password button"
                   >
                     <span className="material-icons-outlined dark:text-zinc-300 ">
                       {showPassword ? "visibility" : "visibility_off"}
@@ -158,6 +167,8 @@ const Login = () => {
               <div
                 onClick={handleLoginClick}
                 className="flex flex-row space-x-4 py-4 transition hover:scale-[1.02]"
+                role="button"
+                aria-label="button for Logging In"
               >
                 <button className="w-full p-2 text-white bg-black border rounded-lg focus:outline-none focus:border-2 focus:border-black dark:bg-white dark:text-black border-neutral-600 dark:placeholder:text-white">
                   Login
@@ -172,6 +183,9 @@ const Login = () => {
                 <p
                   onClick={() => router.push("/signup")}
                   className="text-black cursor-pointer w-fit hover:underline dark:text-gray-100"
+                  // a11y 
+                  role="button"
+                  aria-label="Button for Creating an Account"
                 >
                   Create an account
                 </p>

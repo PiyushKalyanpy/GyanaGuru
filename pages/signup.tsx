@@ -124,6 +124,9 @@ const SignUp = () => {
                     setUserData({ ...userData, password: e.target.value })
                   }
                   className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-2"
+                  // a11y
+                  role="textbox"
+                  aria-label="Input for Password"
                 />
               </div>
               {/* confirm password */}
@@ -139,6 +142,9 @@ const SignUp = () => {
                     })
                   }
                   className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-2 focus:border-black"
+                  // a11y 
+                  role="textbox"
+                  aria-label="input to Confirm password"
                 />
                 <div
                   className="flex items-center p-2 border border-gray-300 rounded-lg text-zinc-500 focus:outline-none focus:border-2 focus:border-black "
@@ -156,17 +162,24 @@ const SignUp = () => {
               <button
                 className="w-full p-2 text-white bg-black rounded-lg"
                 onClick={handleSignUp}
+                role="button"
+                aria-label="button for Signing up"
               >
                 Sign Up
               </button>
             </div>
 
             {/* Create Account */}
-            <div className="flex flex-col items-center justify-between mt-4 text-sm">
+            <div 
+              className="flex flex-col items-center justify-between mt-4 text-sm"
+            >
               <p className="w-fit text-slate-600">Already have an account</p>
               <p
                 onClick={() => router.push("/login")}
                 className="text-black cursor-pointer w-fit hover:underline"
+                // a11y 
+                role="button"
+                aria-label="Button for Signing In"
               >
                 Sign In to you account
               </p>

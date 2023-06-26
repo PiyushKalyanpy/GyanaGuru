@@ -64,7 +64,12 @@ const BarChart = ({
         <p className="text-xl text-black font-inter dark:text-white ">
           {title}
         </p>
-        <button className="flex items-center p-2 space-x-4 border-2 border-white rounded-xl ">
+        <button 
+          className="flex items-center p-2 space-x-4 border-2 border-white rounded-xl "
+          // a11y 
+          role="button"
+          aria-label="Button for displaying full statistics"
+        >
           <p className="text-black font-inter text-md dark:text-white ">
             Full stats
           </p>

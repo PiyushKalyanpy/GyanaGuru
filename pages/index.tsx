@@ -74,12 +74,18 @@ export default function Home() {
               <button
                 onClick={() => setShowPopup(false)}
                 className="flex px-4 py-2 text-xl border rounded-full text-zinc-600"
+                // a11y 
+                role="button"
+                aria-label="Navigate to Contributors Page"
               >
                 Ok 👍
               </button>
               <button
                 onClick={() => router.push("/dashboard")}
                 className="flex px-4 py-2 text-xl text-white bg-black rounded-full"
+                // a11y 
+                role="button"
+                aria-label="Navigate to Dashboard Page"
               >
                 Go to dashboard
               </button>
@@ -120,6 +126,9 @@ const MessageComponnent = () => {
             className="text-blue-600 dark:text-blue-400 "
             href="https://github.com/PiyushKalyanpy/GyanaGuru"
             target="_blank"
+            // a11y 
+            role="link"
+            aria-label="Link to go to Website Github Repository"
           >
             Join us &nbsp;
           </a>
@@ -151,6 +160,9 @@ const ConnectWithMe = () => {
               "https://www.linkedin.com/in/piyush-kalyan/")
           }
           className="cursor-pointer"
+          // a11y 
+          role="button"
+          aria-label="Button to go to Linkedin page"
         >
           <span className="flex flex-row w-fit gap-2 bg-[#2885e0] p-2 text-white font-medium rounded-full">
             <div>
