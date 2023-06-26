@@ -1,5 +1,5 @@
-import DashboardSidebar from "../sidebar/DashboardSidebar";
-import Head from "next/head";
+import DashboardSidebar from '../sidebar/DashboardSidebar';
+import Head from 'next/head';
 
 export interface IPrimaryLayout {}
 
@@ -9,7 +9,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }: any) => {
       <Head>
         <title>Dashboard</title>
       </Head>
-      
+
       <main>{children}</main>
     </>
   );

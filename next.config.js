@@ -7,17 +7,17 @@ module.exports = {
   nextConfig,
   images: {
     domains: [
-      "images.unsplash.com",
-      "avatars.githubusercontent.com",
-      "i.ytimg.com",
-      "lh3.googleusercontent.com",
+      'images.unsplash.com',
+      'avatars.githubusercontent.com',
+      'i.ytimg.com',
+      'lh3.googleusercontent.com',
     ],
   },
   async rewrites() {
     return [
       {
-        source: "/about-us",
-        destination: "/static/about-us",
+        source: '/about-us',
+        destination: '/static/about-us',
       },
     ];
   },

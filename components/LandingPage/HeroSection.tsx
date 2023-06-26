@@ -1,35 +1,35 @@
-import Image from "next/image";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import Image from 'next/image';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const HeroSection = () => {
   const router = useRouter();
   useEffect(() => {
-    const elements = document.querySelectorAll(".transform");
+    const elements = document.querySelectorAll('.transform');
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
-            "translate-y-0",
-            "opacity-100",
-            "translate-x-0"
+            'translate-y-0',
+            'opacity-100',
+            'translate-x-0'
           );
           entry.target.classList.remove(
-            "translate-x-full",
-            "opacity-0",
-            "-translate-x-full"
+            'translate-x-full',
+            'opacity-0',
+            '-translate-x-full'
           );
         } else {
           entry.target.classList.remove(
-            "translate-y-0",
-            "opacity-100",
-            "translate-x-0"
+            'translate-y-0',
+            'opacity-100',
+            'translate-x-0'
           );
           entry.target.classList.add(
-            "translate-x-full",
-            "opacity-0",
-            "-translate-x-full"
+            'translate-x-full',
+            'opacity-0',
+            '-translate-x-full'
           );
         }
       });
@@ -43,9 +43,6 @@ const HeroSection = () => {
   return (
     <div>
       <div className="flex flex-row items-center justify-center w-full h-screen p-12 px-20 pt-40 bg-white dark:bg-neutral-950">
-
-      
-      
         <div className="transition duration-500 ease-in-out transform -translate-x-full opacity-0">
           <h1 className="text-black text-8xl w-fit font-archivo dark:text-zinc-50">
             Revolutionizing Education in India
@@ -73,12 +70,14 @@ const HeroSection = () => {
                 className="hidden dark:block"
               />
               <div
-                onClick={() => router.push("/course")}
+                onClick={() => router.push('/course')}
                 className="flex flex-row items-center gap-4 p-4 text-white bg-black border-2 border-black rounded-full h-fit cursor-pointer dark:bg-zinc-50 ease-out hover:scale-110 duration-700"
               >
                 <span className="inline-flex bg-black "></span>
 
-                <h4 className="text-xl  font-archivo dark:text-zinc-800 ">Explore Courses</h4>
+                <h4 className="text-xl  font-archivo dark:text-zinc-800 ">
+                  Explore Courses
+                </h4>
               </div>
             </div>
           </div>

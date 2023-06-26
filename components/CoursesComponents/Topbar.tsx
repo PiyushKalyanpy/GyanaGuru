@@ -1,14 +1,13 @@
-
-import Image from "next/image";
-import { useState, useEffect, ChangeEvent } from "react";
-import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
-import { DarkModeToggle } from "../components";
+import Image from 'next/image';
+import { useState, useEffect, ChangeEvent } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
+import { DarkModeToggle } from '../components';
 
 const Topbar = () => {
   const { currentUser } = useContext(AuthContext);
-  const imageUrl = "https://avatars.githubusercontent.com/u/79275157?s=90&v=4";
-  const [searchQuery, setSearchQuery] = useState("");
+  const imageUrl = 'https://avatars.githubusercontent.com/u/79275157?s=90&v=4';
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -17,8 +16,7 @@ const Topbar = () => {
   useEffect(() => {
     let debounceTimer: string | number | NodeJS.Timeout | undefined;
 
-    const handleSearch = () => {
-    };
+    const handleSearch = () => {};
 
     const debounceSearch = () => {
       clearTimeout(debounceTimer);
@@ -29,7 +27,6 @@ const Topbar = () => {
       clearTimeout(debounceTimer);
     };
   }, [searchQuery]);
-
 
   if (!currentUser) return <div>Loading...</div>;
 
@@ -45,8 +42,17 @@ const Topbar = () => {
         {/* Notificaton and profile  */}
         <div className="flex h-full gap-4 w-fit">
           <TopBarButtons iconAvailable={true} />
-          <TopBarButtons imageAvailable={true} imageUrl={currentUser ? currentUser.photoURL ? currentUser.photoURL : "/images/empty_profile.png" :null } />
-          <DarkModeToggle/>
+          <TopBarButtons
+            imageAvailable={true}
+            imageUrl={
+              currentUser
+                ? currentUser.photoURL
+                  ? currentUser.photoURL
+                  : '/images/empty_profile.png'
+                : null
+            }
+          />
+          <DarkModeToggle />
         </div>
       </div>
     </div>
@@ -58,7 +64,7 @@ interface SearchBarProps {
   handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const SearchBar = ({ searchQuery, handleInputChange }: SearchBarProps) => {  
+const SearchBar = ({ searchQuery, handleInputChange }: SearchBarProps) => {
   return (
     <div className="flex flex-row items-center w-1/4 p-1 pl-4 pr-1 overflow-hidden dark:bg-zinc-800 bg-white rounded-2xl h-fit font-archivo">
       <input
@@ -83,7 +89,7 @@ const TopBarButtons = ({
   onClick,
 }: any) => {
   return (
-    <div  className="flex items-center p-1 transition border dark:border-0 dark:bg-zinc-800 rounded-full h-fit hover:ring hover:ring-gray-200">
+    <div className="flex items-center p-1 transition border dark:border-0 dark:bg-zinc-800 rounded-full h-fit hover:ring hover:ring-gray-200">
       {iconAvailable ? (
         <div className="flex ">
           <NotificationIcon />

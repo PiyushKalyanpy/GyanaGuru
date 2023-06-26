@@ -1,6 +1,6 @@
-import { PageHeader, HeadingParagraph } from "@/components/components";
-import PrivacyPolicy from "../../data/privacy_policy.json";
-import { useRouter } from "next/router";
+import { PageHeader, HeadingParagraph } from '@/components/components';
+import PrivacyPolicy from '../../data/privacy_policy.json';
+import { useRouter } from 'next/router';
 
 const PrivacyPolcy = () => {
   const router = useRouter();

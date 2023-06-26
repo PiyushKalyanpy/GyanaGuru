@@ -5,8 +5,8 @@ import {
   StudentReport,
   ManageSite,
   DeleteCourse,
-} from "../../components/Admin/allcomponents";
-import { useState } from "react";
+} from '../../components/Admin/allcomponents';
+import { useState } from 'react';
 
 const Admin = () => {
   const [active, setActive] = useState(1);

@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { DarkModeToggle } from "../components";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { DarkModeToggle } from '../components';
 
 const LandingNav = () => {
   const router = useRouter();
@@ -8,31 +8,31 @@ const LandingNav = () => {
     "font-archivo relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black dark:after:bg-white after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:rounded-full after:duration-500 after:origin-center";
 
   const handleGetStartedClick = () => {
-    router.push("/login");
+    router.push('/login');
   };
 
   const handleClick = () => {
-    router.push("/");
+    router.push('/');
   };
 
   const handleCoursesClick = () => {
-    const courseSection = document.getElementById("courses");
+    const courseSection = document.getElementById('courses');
     if (courseSection) {
-      courseSection.scrollIntoView({ behavior: "smooth" });
+      courseSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const handleOurServicesClick = () => {
-    const ourservicesSection = document.getElementById("ourservices");
+    const ourservicesSection = document.getElementById('ourservices');
     if (ourservicesSection) {
-      ourservicesSection.scrollIntoView({ behavior: "smooth" });
+      ourservicesSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const handleBenefitsClick = () => {
-    const benefitsSection = document.getElementById("whychooseus");
+    const benefitsSection = document.getElementById('whychooseus');
     if (benefitsSection) {
-      benefitsSection.scrollIntoView({ behavior: "smooth" });
+      benefitsSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -102,7 +102,5 @@ const LandingNav = () => {
     </div>
   );
 };
-
-
 
 export default LandingNav;

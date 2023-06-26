@@ -1,9 +1,5 @@
 const DeleteCourse = () => {
-    return (
-        <div>
-            Delete
-        </div>
-    );
-}
+  return <div>Delete</div>;
+};
 
 export default DeleteCourse;

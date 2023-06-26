@@ -1,5 +1,5 @@
-import React from "react";
-import IndividualDate from "./IndividualDate";
+import React from 'react';
+import IndividualDate from './IndividualDate';
 
 type Props = {};
 // hover:ring-1 hover:ring-blue-500 hover:bg-white cursor-pointer

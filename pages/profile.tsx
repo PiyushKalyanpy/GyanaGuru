@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
-import Image from "next/image";
-import { AuthContext } from "@/context/AuthContext";
-import { showToast } from "@/components/util/Toast";
-import { ToastContainer } from "react-toastify";
-import { PrimaryLayoutWithSidebar } from "@/components/layouts/exporter";
+import React, { useContext, useState } from 'react';
+import Image from 'next/image';
+import { AuthContext } from '@/context/AuthContext';
+import { showToast } from '@/components/util/Toast';
+import { ToastContainer } from 'react-toastify';
+import { PrimaryLayoutWithSidebar } from '@/components/layouts/exporter';
 
 const ProfileHeader = ({ userDetails }: any) => {
   console.log(userDetails.photoURL);
@@ -11,11 +11,13 @@ const ProfileHeader = ({ userDetails }: any) => {
     <div className="flex items-center space-x-10">
       <div className="relative">
         <div className="relative w-24 h-24 overflow-hidden rounded-full">
-          <Image src="https://images.unsplash.com/photo-1636622433525-127afdf3662d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80" alt="Profile Image"
-          width={500}
-          height={500}
-          className="w-full h-full object-cover"
-           />
+          <Image
+            src="https://images.unsplash.com/photo-1636622433525-127afdf3662d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80"
+            alt="Profile Image"
+            width={500}
+            height={500}
+            className="w-full h-full object-cover"
+          />
         </div>
 
         <div className="absolute right-2 bottom-1">
@@ -45,7 +47,7 @@ const ProfileHeader = ({ userDetails }: any) => {
 
 const ProfileForm = ({ userDetails, setUserDetails, handleSave }: any) => {
   const inputStyles =
-    "border-b-2 border-gray-300 py-2 pr-2 dark:bg-white outline-none focus:border-green-600 mb-2 w-full text-black font-archivo ";
+    'border-b-2 border-gray-300 py-2 pr-2 dark:bg-white outline-none focus:border-green-600 mb-2 w-full text-black font-archivo ';
 
   return (
     <form className="flex flex-col space-y-4">
@@ -141,7 +143,7 @@ const Profile = () => {
   const handleSave = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!checkIfDetailsFilled()) {
-      showToast("Please fill all the details", "error");
+      showToast('Please fill all the details', 'error');
       return;
     }
     addUserToDatabase(userDetails);

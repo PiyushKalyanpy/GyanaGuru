@@ -1,5 +1,5 @@
-import WhyChooseUsData from "../../data/why_choose_us.json";
-import Image from "next/image";
+import WhyChooseUsData from '../../data/why_choose_us.json';
+import Image from 'next/image';
 
 const WhyChooseUs = () => {
   return (
@@ -31,14 +31,16 @@ const WhyChooseUs = () => {
   );
 };
 
-const InfoCard = ({ title, description}: any) => {
+const InfoCard = ({ title, description }: any) => {
   return (
-     <div className=" p-4 cursor-default hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors font-archivo rounded-3xl ">
+    <div className=" p-4 cursor-default hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors font-archivo rounded-3xl ">
       <div className="space-y-4">
         <h3 className="text-2xl font-semibold font-archivo">{title}</h3>
-        <p className={`font-inter text-black dark:text-white `}>{description}</p>      
-        </div>
-   </div>
+        <p className={`font-inter text-black dark:text-white `}>
+          {description}
+        </p>
+      </div>
+    </div>
   );
 };
 

@@ -1,12 +1,12 @@
-import { ButtonWithImage } from "@/components/components";
-import { useContext, useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import Image from "next/image";
-import { setCookie, getCookie } from "cookies-next";
-import { DarkModeToggle } from "../../components/components";
-import { AuthContext } from "@/context/AuthContext";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ButtonWithImage } from '@/components/components';
+import { useContext, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
+import { setCookie, getCookie } from 'cookies-next';
+import { DarkModeToggle } from '../../components/components';
+import { AuthContext } from '@/context/AuthContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const router = useRouter();
@@ -14,48 +14,48 @@ const Login = () => {
   const { currentUser, loginWithGoogle, login } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [userData, setUserData] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   useEffect(() => {
     if (currentUser) {
-      setCookie("login", true);
-      router.push("/dashboard");
+      setCookie('login', true);
+      router.push('/dashboard');
     }
   }, [currentUser]);
 
   const error = () => {
-    toast.error("Login Failed", {
-      position: "bottom-right",
+    toast.error('Login Failed', {
+      position: 'bottom-right',
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "light",
+      theme: 'light',
     });
   };
 
   const success = () => {
-    toast.success("Account Created", {
-      position: "bottom-right",
+    toast.success('Account Created', {
+      position: 'bottom-right',
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "light",
+      theme: 'light',
     });
   };
 
   const handleLoginClick = () => {
     login(userData.email, userData.password)
       .then(({ res }: any) => {
-        setCookie("login", true);
-        router.push("/dashboard");
+        setCookie('login', true);
+        router.push('/dashboard');
       })
       .catch(({ err }: any) => {
         error();
@@ -74,7 +74,7 @@ const Login = () => {
           <div className="flex flex-col items-center space-y-8 ">
             {/* logo with title */}
             <div
-              onClick={() => router.push("/")}
+              onClick={() => router.push('/')}
               className="flex flex-row items-center space-x-1 cursor-pointer "
             >
               <Image
@@ -131,7 +131,7 @@ const Login = () => {
                 />
                 <div className="flex w-full space-x-2">
                   <input
-                    type={showPassword ? "text" : "password"}
+                    type={showPassword ? 'text' : 'password'}
                     placeholder="Password"
                     value={userData.password}
                     onChange={(e) =>
@@ -144,7 +144,7 @@ const Login = () => {
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     <span className="material-icons-outlined dark:text-zinc-300 ">
-                      {showPassword ? "visibility" : "visibility_off"}
+                      {showPassword ? 'visibility' : 'visibility_off'}
                     </span>
                   </div>
                 </div>
@@ -170,7 +170,7 @@ const Login = () => {
                   Don&apos;t have an account
                 </p>
                 <p
-                  onClick={() => router.push("/signup")}
+                  onClick={() => router.push('/signup')}
                   className="text-black cursor-pointer w-fit hover:underline dark:text-gray-100"
                 >
                   Create an account

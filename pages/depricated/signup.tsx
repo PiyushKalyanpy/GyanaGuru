@@ -1,16 +1,16 @@
-import { ButtonWithImage } from "@/components/components";
-import { useContext, useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { AuthContext } from "@/context/AuthContext";
-import { useRouter } from "next/router";
+import { ButtonWithImage } from '@/components/components';
+import { useContext, useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from '@/context/AuthContext';
+import { useRouter } from 'next/router';
 
 const SignUp = () => {
   const router = useRouter();
   const [userData, setUserData] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
+    email: '',
+    password: '',
+    confirmPassword: '',
   });
   const [showPassword, setShowPassword] = useState(false);
   const showPasswordToggle = () => {
@@ -19,57 +19,57 @@ const SignUp = () => {
   const { currentUser, signup } = useContext(AuthContext);
 
   const warning = () => {
-    toast.warn("Please Complete all fields", {
-      position: "bottom-right",
+    toast.warn('Please Complete all fields', {
+      position: 'bottom-right',
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "light",
+      theme: 'light',
     });
   };
 
   const success = () => {
-    toast.success("Account Created", {
-      position: "bottom-right",
+    toast.success('Account Created', {
+      position: 'bottom-right',
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "light",
+      theme: 'light',
     });
   };
 
   const error = ({ message }: any) => {
     toast.error(`${message}`, {
-      position: "bottom-right",
+      position: 'bottom-right',
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      theme: "light",
+      theme: 'light',
     });
   };
 
   const handleSignUp = () => {
     if (
-      userData.email === "" ||
-      userData.password === "" ||
-      userData.confirmPassword === ""
+      userData.email === '' ||
+      userData.password === '' ||
+      userData.confirmPassword === ''
     ) {
       warning();
     } else if (userData.password !== userData.confirmPassword) {
-      error({ message: "Passwords do not match" });
+      error({ message: 'Passwords do not match' });
     } else {
       signup(userData.email, userData.password)
         .then(({ data }: any) => {
           success();
-          router.push("/dashboard");
+          router.push('/dashboard');
         })
         .catch((err: any) => {
           error({ message: err.message });
@@ -117,7 +117,7 @@ const SignUp = () => {
               {/* password */}
               <div className="flex w-full space-x-2">
                 <input
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="Password"
                   value={userData.password}
                   onChange={(e) =>
@@ -129,7 +129,7 @@ const SignUp = () => {
               {/* confirm password */}
               <div className="flex w-full space-x-2">
                 <input
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="Confirm password"
                   value={userData.confirmPassword}
                   onChange={(e) =>
@@ -145,7 +145,7 @@ const SignUp = () => {
                   onClick={() => showPasswordToggle()}
                 >
                   <span className="material-icons-outlined ">
-                    {showPassword ? "visibility" : "visibility_off"}
+                    {showPassword ? 'visibility' : 'visibility_off'}
                   </span>
                 </div>
               </div>
@@ -165,7 +165,7 @@ const SignUp = () => {
             <div className="flex flex-col items-center justify-between mt-4 text-sm">
               <p className="w-fit text-slate-600">Already have an account</p>
               <p
-                onClick={() => router.push("/login")}
+                onClick={() => router.push('/login')}
                 className="text-black cursor-pointer w-fit hover:underline"
               >
                 Sign In to you account

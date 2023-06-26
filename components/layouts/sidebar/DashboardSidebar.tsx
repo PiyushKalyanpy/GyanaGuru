@@ -1,16 +1,16 @@
-import Link from "next/link";
-import DashboardSidebarItem from "./DashboardSidebarItem";
-import React, { useState } from "react";
-import { DarkModeToggle } from "@/components/components";
-import { motion, AnimatePresence } from "framer-motion";
+import Link from 'next/link';
+import DashboardSidebarItem from './DashboardSidebarItem';
+import React, { useState } from 'react';
+import { DarkModeToggle } from '@/components/components';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export interface IDashboardSidebar {}
 
 enum SidebarItem {
-  Dashboard = "dashboard",
-  Settings = "settings",
-  Courses = "courses",
-  Profile = "profile",
+  Dashboard = 'dashboard',
+  Settings = 'settings',
+  Courses = 'courses',
+  Profile = 'profile',
 }
 
 const DashboardSidebar: React.FC<IDashboardSidebar> = () => {
@@ -38,7 +38,7 @@ const DashboardSidebar: React.FC<IDashboardSidebar> = () => {
         <div className="">
           <button onClick={() => setSidebarExpanded(!sidebarExpanded)}>
             <span className="material-icons-outlined">
-              {sidebarExpanded ? "close" : "menu"}
+              {sidebarExpanded ? 'close' : 'menu'}
             </span>
           </button>
         </div>
@@ -59,41 +59,40 @@ const DashboardSidebar: React.FC<IDashboardSidebar> = () => {
 const Navbar = ({ selectedItem, handleClick }: any) => {
   const sidebarItems = [
     {
-      href: "/v2/dashboard",
-      icon: "dashboard",
-      label: "Dashboard",
+      href: '/v2/dashboard',
+      icon: 'dashboard',
+      label: 'Dashboard',
       selected: selectedItem === SidebarItem.Dashboard,
       onItemClick: () => handleClick(SidebarItem.Dashboard),
     },
     {
-      href: "/v2/settings",
-      icon: "settings",
-      badge: "2",
-      label: "Settings",
+      href: '/v2/settings',
+      icon: 'settings',
+      badge: '2',
+      label: 'Settings',
       selected: selectedItem === SidebarItem.Settings,
       onItemClick: () => handleClick(SidebarItem.Settings),
     },
     {
-      href: "/v2/courses",
-      icon: "book",
-      badge: "2",
-      label: "Courses",
+      href: '/v2/courses',
+      icon: 'book',
+      badge: '2',
+      label: 'Courses',
       selected: selectedItem === SidebarItem.Courses,
       onItemClick: () => handleClick(SidebarItem.Courses),
     },
     {
-      href: "/profile",
-      icon: "person",
-      label: "Profile",
+      href: '/profile',
+      icon: 'person',
+      label: 'Profile',
       selected: selectedItem === SidebarItem.Profile,
       onItemClick: () => handleClick(SidebarItem.Profile),
-    }, 
+    },
     {
-      href : "/login",
-      icon : "logout", 
-      label : "Logout", 
-    
-    }
+      href: '/login',
+      icon: 'logout',
+      label: 'Logout',
+    },
   ];
 
   return (

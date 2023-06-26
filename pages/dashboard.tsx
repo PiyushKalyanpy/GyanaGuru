@@ -1,26 +1,25 @@
-import ContributionButton from "@/components/Utils/ContributionButton";
-import { HomeSidebar } from "../components/components";
-import { RightSideBar } from "../components/components";
-import NumberInfo from "@/components/Dashboard/NumberInfo";
-import { setCookie } from "cookies-next";
-import { useEffect } from "react";
+import ContributionButton from '@/components/Utils/ContributionButton';
+import { HomeSidebar } from '../components/components';
+import { RightSideBar } from '../components/components';
+import NumberInfo from '@/components/Dashboard/NumberInfo';
+import { setCookie } from 'cookies-next';
+import { useEffect } from 'react';
 
 const Dashboard = () => {
   const data = [
     // label as subject name and value as time spent in minutes
-    { label: "Computer", value: 360 },
-    { label: "Maths", value: 120 },
-    { label: "Social", value: 240 },
-    { label: "English", value: 180 },
-    { label: "Science", value: 60 },
-    { label: "Hindi", value: 300 },
+    { label: 'Computer', value: 360 },
+    { label: 'Maths', value: 120 },
+    { label: 'Social', value: 240 },
+    { label: 'English', value: 180 },
+    { label: 'Science', value: 60 },
+    { label: 'Hindi', value: 300 },
   ];
-  
+
   useEffect(() => {
-    setCookie("reachedDashboard", true);
-    console.log("reached dashboard");
-  }
-  , []);
+    setCookie('reachedDashboard', true);
+    console.log('reached dashboard');
+  }, []);
 
   return (
     <div className="grid w-screen h-screen grid-cols-12 overflow-hidden bg-zinc-100 dark:bg-zinc-900">
@@ -56,7 +55,7 @@ const BarChart = ({
   // array of values in decreasing order
   const sortedData = data.sort((a, b) => b.value - a.value);
   // adding a empty value at last
-  sortedData.push({ label: "", value: 0 });
+  sortedData.push({ label: '', value: 0 });
 
   return (
     <div className="flex flex-col w-3/4 h-full gap-8 p-8 bg-white rounded-xl dark:bg-zinc-800">

@@ -1,7 +1,7 @@
-import React from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { motion } from "framer-motion";
+import React from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 export interface IDashboardSidebarItem {
   href: string;
@@ -27,11 +27,11 @@ const DashboardSidebarItem: React.FC<IDashboardSidebarItem> = ({
       <div
         onClick={onItemClick}
         className={`flex items-center gap-4 py-2 px-4 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 ${
-          selected ? "bg-zinc-100 dark:bg-zinc-800" : ""
+          selected ? 'bg-zinc-100 dark:bg-zinc-800' : ''
         }`}
       >
         <span className="material-icons-outlined">{icon}</span>
-        <span className={`${sidebarExpanded ? "hidden" : "block"}`}>
+        <span className={`${sidebarExpanded ? 'hidden' : 'block'}`}>
           {label}
         </span>
         {badge && (

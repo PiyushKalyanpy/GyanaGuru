@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import { setCookie } from "cookies-next";
-import Image from "next/image";
-import { LogoutFromGoogleAuth } from "@/database/firebase";
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { setCookie } from 'cookies-next';
+import Image from 'next/image';
+import { LogoutFromGoogleAuth } from '@/database/firebase';
 
 const HomeSidebar = ({ pageNumber }: any) => {
   const router = useRouter();
@@ -16,14 +16,14 @@ const HomeSidebar = ({ pageNumber }: any) => {
   const logOut = () => {
     LogoutFromGoogleAuth();
     setActive(4);
-    setCookie("login", false);
-    router.push("/login");
+    setCookie('login', false);
+    router.push('/login');
   };
 
   return (
     <div className="flex flex-col justify-between h-full py-8 overflow-hidden bg-white dark:bg-zinc-950 ">
       <div
-        onClick={() => router.push("/")}
+        onClick={() => router.push('/')}
         className="flex justify-center cursor-pointer h-fit "
       >
         <div className="flex items-center gap-4 p-2 bg-white cursor-pointer drop-shadow-2xl dark:bg-zinc-900 rounded-xl h-fit">
@@ -43,7 +43,7 @@ const HomeSidebar = ({ pageNumber }: any) => {
           active={1 == active}
           onClick={() => {
             setActive(1);
-            router.push("/dashboard");
+            router.push('/dashboard');
           }}
         />
         <SidebarItem
@@ -53,7 +53,7 @@ const HomeSidebar = ({ pageNumber }: any) => {
           active={2 == active}
           onClick={() => {
             setActive(2);
-            router.push("/course");
+            router.push('/course');
           }}
         />
 
@@ -64,7 +64,7 @@ const HomeSidebar = ({ pageNumber }: any) => {
           active={3 == active}
           onClick={() => {
             setActive(3);
-            router.push("/profile");
+            router.push('/profile');
           }}
         />
         <SidebarItem
@@ -74,7 +74,7 @@ const HomeSidebar = ({ pageNumber }: any) => {
           active={4 == active}
           onClick={() => {
             setActive(4);
-            router.push("/settings/account");
+            router.push('/settings/account');
           }}
         />
         <SidebarItem
@@ -84,7 +84,7 @@ const HomeSidebar = ({ pageNumber }: any) => {
           active={5 == active}
           onClick={() => {
             setActive(5);
-            router.push("/help-and-support");
+            router.push('/help-and-support');
           }}
         />
         <SidebarItem
@@ -118,15 +118,15 @@ const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
   return (
     <div
       className={`flex items-center flex-row  pl-4 gap-4 w-full h-10 cursor-pointer    ${
-        active ? "" : ""
+        active ? '' : ''
       }`}
       onClick={onClick}
     >
       <span
         className={`material-icons-outlined   ${
           active
-            ? "material-icons-round text-black dark:text-white "
-            : "text-zinc-500 dark:text-zinc-300"
+            ? 'material-icons-round text-black dark:text-white '
+            : 'text-zinc-500 dark:text-zinc-300'
         }`}
       >
         <Icon />
@@ -135,8 +135,8 @@ const SidebarItem = ({ text, Icon, active, onClick, className }: any) => {
       <h3
         className={` ml-2  font-inter ${
           active
-            ? "text-black font-medium dark:text-white"
-            : "text-zinc-600 dark:text-zinc-400"
+            ? 'text-black font-medium dark:text-white'
+            : 'text-zinc-600 dark:text-zinc-400'
         }`}
       >
         {text}

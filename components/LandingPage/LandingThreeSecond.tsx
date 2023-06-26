@@ -1,8 +1,8 @@
-import CourseData from "../../data/course_categories.json";
-import ContributorsData from "../../data/contributors.json";
-import Image from "next/image";
+import CourseData from '../../data/course_categories.json';
+import ContributorsData from '../../data/contributors.json';
+import Image from 'next/image';
 // import Router from "next/router";
-import Link from "next/link";
+import Link from 'next/link';
 
 const LandingThreeSecond = () => {
   return (
@@ -34,7 +34,7 @@ const Card01 = () => {
     <div className="flex top-0 bg-pink-900/30 w-full h-fit items-center backdrop-blur-sm">
       <p className="m-auto text-white gap-4  ">
         <span className="felx font-archivo text-3xl text-white/80">
-          Empowering{" "}
+          Empowering{' '}
         </span>
         <span className="felx font-archivo text-6xl font-bold ">India </span>
         <br />

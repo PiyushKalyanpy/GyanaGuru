@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { CourseContext } from "@/context/CourseContext";
-import { useContext } from "react";
-import { Category, Playlist, Video, Comment } from "../../types";
-import { AuthContext } from "@/context/AuthContext";
+import React, { useState } from 'react';
+import { CourseContext } from '@/context/CourseContext';
+import { useContext } from 'react';
+import { Category, Playlist, Video, Comment } from '../../types';
+import { AuthContext } from '@/context/AuthContext';
 
 const AddCourseItems = () => {
   const [addingOption, setAddingOption] = useState(1);
@@ -48,7 +48,7 @@ const AdditionOptions = ({ active, setActive }: any) => {
       <button
         onClick={() => setActive(1)}
         className={`flex rounded-xl p-2 justify-center transition hover:bg-zinc-100 dark:hover:bg-zinc-900 w-full ${
-          active == 1 ? "bg-black text-white hover:bg-zinc-800" : ""
+          active == 1 ? 'bg-black text-white hover:bg-zinc-800' : ''
         } `}
       >
         Add a new Category
@@ -56,7 +56,7 @@ const AdditionOptions = ({ active, setActive }: any) => {
       <button
         onClick={() => setActive(2)}
         className={`flex rounded-xl dark:hover:bg-zinc-900 p-2 justify-center transition hover:bg-zinc-100 w-full ${
-          active == 2 ? "bg-black text-white hover:bg-zinc-800" : ""
+          active == 2 ? 'bg-black text-white hover:bg-zinc-800' : ''
         } `}
       >
         Add a new Playlist
@@ -64,7 +64,7 @@ const AdditionOptions = ({ active, setActive }: any) => {
       <button
         onClick={() => setActive(3)}
         className={`flex rounded-xl p-2 dark:hover:bg-zinc-900 justify-center transition hover:bg-zinc-100 w-full ${
-          active == 3 ? "bg-black text-white hover:bg-zinc-800" : ""
+          active == 3 ? 'bg-black text-white hover:bg-zinc-800' : ''
         } `}
       >
         Add a new Video
@@ -76,9 +76,9 @@ const AdditionOptions = ({ active, setActive }: any) => {
 //  form for adding new category
 const AddCategory = ({ addCategory }: any) => {
   const [category, setCategory] = useState({
-    name: "",
-    description: "",
-    imageUrl: "",
+    name: '',
+    description: '',
+    imageUrl: '',
   });
 
   const handleSubmit = (e: any) => {
@@ -137,10 +137,10 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
   const userId = currentUser && currentUser.uid;
   const [playlist, setPlaylist] = useState<Playlist>({
     id: 0,
-    name: "",
-    description: "",
-    imageUrl: "",
-    categoryId: "",
+    name: '',
+    description: '',
+    imageUrl: '',
+    categoryId: '',
     numberOfVideos: 0,
     viewCount: 0,
     noOfVotes: 0,
@@ -150,8 +150,7 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
     restriction: 1, // -1 for restricted, 0 for private, 1 for public
     createdBy: currentUser && currentUser.uid,
   });
-  React.useEffect(() => {
-  }, [playlist]);
+  React.useEffect(() => {}, [playlist]);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -261,15 +260,15 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
   const userId = currentUser && currentUser.uid;
   const [video, setVideo] = useState({
     id: 0,
-    name: "",
-    description: "",
-    imageUrl: "",
-    categoryId: "",
+    name: '',
+    description: '',
+    imageUrl: '',
+    categoryId: '',
     viewCount: 0,
     createdAt: new Date(),
     rating: 0,
-    url: "",
-    playlistId: "",
+    url: '',
+    playlistId: '',
     comments: [],
     restriction: 1,
     createdBy: currentUser && currentUser.uid,
@@ -280,8 +279,7 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
     (playlist: Playlist) => playlist.categoryId === video.categoryId
   );
 
-  React.useEffect(() => {
-  }, [video]);
+  React.useEffect(() => {}, [video]);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -290,7 +288,7 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
 
   const handleAddLink = async (e: any) => {
     e.preventDefault();
-    const videoId = video.url.split("=")[1];
+    const videoId = video.url.split('=')[1];
     const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`;
     const response = await fetch(url);
     const data = await response.json();

@@ -1,10 +1,10 @@
-import Image from "next/image";
-import { useRouter } from "next/router";
-import { useEffect, useContext, useState } from "react";
-import { AuthContext } from "../context/AuthContext";
-import Link from "next/link";
-import { ToastContainer, toast } from "react-toastify";
-import { showToast } from "@/components/util/Toast";
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useEffect, useContext, useState } from 'react';
+import { AuthContext } from '../context/AuthContext';
+import Link from 'next/link';
+import { ToastContainer, toast } from 'react-toastify';
+import { showToast } from '@/components/util/Toast';
 
 const Login = () => {
   const router = useRouter();
@@ -24,7 +24,9 @@ const Login = () => {
             />
           </div>
           <div className="flex flex-col items-center space-y-2">
-            <h2 className="text-2xl font-bold font-archivo text-black ">Welcome back </h2>
+            <h2 className="text-2xl font-bold font-archivo text-black ">
+              Welcome back{' '}
+            </h2>
             <p className="text-center text-zinc-500">
               Discover the magic of Gyanaguru with just one click!
             </p>
@@ -39,7 +41,9 @@ const Login = () => {
               width={24}
               height={24}
             />
-            <span className="dark:text-white text-white">Continue with Google</span>
+            <span className="dark:text-white text-white">
+              Continue with Google
+            </span>
           </button>
         </div>
         <div className="flex place-content-center w-full">

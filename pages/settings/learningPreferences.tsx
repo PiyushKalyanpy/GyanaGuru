@@ -1,7 +1,6 @@
-import SettingsBarItem from "@/components/SettingsBar/Item";
-import HomeSidebar from "@/components/Utils/HomeSidebar";
-import SettingsBar from "@/components/SettingsBar";
-
+import SettingsBarItem from '@/components/SettingsBar/Item';
+import HomeSidebar from '@/components/Utils/HomeSidebar';
+import SettingsBar from '@/components/SettingsBar';
 
 const LearningPreferences = () => {
   return (
@@ -10,9 +9,7 @@ const LearningPreferences = () => {
         <HomeSidebar pageNumber={4} />
       </div>
       <div className="col-span-3 p-2">
-        <SettingsBar
-          activeItem={6}
-        />
+        <SettingsBar activeItem={6} />
       </div>
     </div>
   );

@@ -13,12 +13,13 @@ export const VideoPlayer = () => {
     const tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
     const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag && firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+    firstScriptTag &&
+      firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
 
     // This function creates an <iframe> (and YouTube player) after the API code downloads.
-    let player :any;
+    let player: any;
 
-    if(typeof window !== 'undefined') {
+    if (typeof window !== 'undefined') {
       window.onYouTubeIframeAPIReady = () => {
         player = new window.YT.Player('player', {
           host: 'https://www.youtube.com',
@@ -27,20 +28,18 @@ export const VideoPlayer = () => {
             enablejsapi: 1,
             playsinline: 1,
             start: 0,
-            disablekb: 0
+            disablekb: 0,
           },
           events: {
-            onStateChange: onPlayerStateChange
-          }
+            onStateChange: onPlayerStateChange,
+          },
         });
       };
     }
 
-    const onPlayerStateChange = (event:any) => {
+    const onPlayerStateChange = (event: any) => {
       console.log('player state: ' + player.getPlayerState());
     };
-
-  
 
     const stopVideo = () => {
       player.stopVideo();
@@ -54,14 +53,14 @@ export const VideoPlayer = () => {
   return (
     <div>
       <div id="player-size">
-      <div id="cropping-div">
-        <div id="div-to-crop">
-          <div id="player-wrapper">
-            <div id="player"></div>
+        <div id="cropping-div">
+          <div id="div-to-crop">
+            <div id="player-wrapper">
+              <div id="player"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

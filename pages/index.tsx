@@ -1,5 +1,5 @@
-"use client";
-import { useRouter } from "next/router";
+'use client';
+import { useRouter } from 'next/router';
 import {
   LandingNav,
   HeroSection,
@@ -9,18 +9,18 @@ import {
   LandingThreeSecond,
   LandingContact,
   LandingFooter,
-} from "../components/components";
-import { useEffect, useState } from "react";
-import Head from "next/head";
-import { setCookie } from "cookies-next";
-import Image from "next/image";
+} from '../components/components';
+import { useEffect, useState } from 'react';
+import Head from 'next/head';
+import { setCookie } from 'cookies-next';
+import Image from 'next/image';
 
 export default function Home() {
   const [showNav, setShowNav] = useState(true);
   const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
   useEffect(() => {
-    setCookie("reachedDashboard", false);
+    setCookie('reachedDashboard', false);
     let prevScrollpos = window.pageYOffset;
 
     const handleScroll = () => {
@@ -29,9 +29,9 @@ export default function Home() {
       prevScrollpos = currentScrollPos;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleClick = () => {
@@ -60,7 +60,7 @@ export default function Home() {
           <div className="flex flex-col items-center w-1/2 p-8 m-auto space-y-10 bg-white h-fit rounded-3xl">
             <div className="flex flex-col items-center space-y-5 ">
               <h1 className="text-5xl font-bold font-inter dark:text-black">
-                Hey Contributors{" "}
+                Hey Contributors{' '}
               </h1>
               <h6 className="text-3xl  text-zinc-700">
                 Your contribution matters!
@@ -78,7 +78,7 @@ export default function Home() {
                 Ok 👍
               </button>
               <button
-                onClick={() => router.push("/dashboard")}
+                onClick={() => router.push('/dashboard')}
                 className="flex px-4 py-2 text-xl text-white bg-black rounded-full"
               >
                 Go to dashboard
@@ -147,7 +147,7 @@ const ConnectWithMe = () => {
           onClick={() =>
             // go to linked in page
             (window.location.href =
-              "https://www.linkedin.com/in/piyush-kalyan/")
+              'https://www.linkedin.com/in/piyush-kalyan/')
           }
           className="cursor-pointer"
         >
