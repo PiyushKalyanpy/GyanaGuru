@@ -1,19 +1,19 @@
-import React from "react";
+import React from 'react';
 
-interface IndividualDate {
+interface IndividualDateCard {
   date: number;
   day: string;
   isTodayDate: boolean;
 }
 
-const IndividualDate = (props: IndividualDate) => {
+const IndividualDate = (props: IndividualDateCard) => {
   return (
     <div>
       <div
         className={`flex flex-col rounded-sm p-2 cursor-pointer ${
           props.isTodayDate
-            ? "hover:ring-1 hover:ring-blue-500 hover:bg-white dark:hover:bg-black"
-            : ""
+            ? 'hover:ring-1 hover:ring-blue-500 hover:bg-white dark:hover:bg-black'
+            : ''
         }`}
       >
         <h1 className="font-bold mb-4">{props.date}</h1>
