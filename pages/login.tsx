@@ -1,16 +1,23 @@
 import Image from "next/image";
+import Image from "next/image";
 import { useRouter } from "next/router";
+import { useEffect, useContext, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
+import Link from "next/link";
 import { useEffect, useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import { showToast } from "@/components/util/Toast";
+import { showToast } from "@/components/util/Toast";
 
 const Login = () => {
   const router = useRouter();
   const { loginWithGoogle, currentUser } = useContext(AuthContext);
+  const { loginWithGoogle, currentUser } = useContext(AuthContext);
 
   return (
+    <div className="flex w-screen h-screen bg-zinc-100 p-8">
     <div className="flex w-screen h-screen bg-zinc-100 p-8">
       <ToastContainer />
       <div className="flex flex-col items-center m-auto  bg-white rounded-2xl p-4 space-y-6">
@@ -59,5 +66,6 @@ const Login = () => {
     </div>
   );
 };
+
 
 export default Login;
