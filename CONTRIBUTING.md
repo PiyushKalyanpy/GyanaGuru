@@ -83,6 +83,7 @@ To create a pull request:
 - Avoid including unnecessary files like `package.json` or `package.lock.json` to maintain a focused and relevant pull request 📦
 - Add an appropriate title and description to your pull request, explaining your changes with suitable explanations and screenshots 📝🖼️
 - Click on "Create Pull Request" to submit your contribution for review ✅
+- ##### ⚠️ Please ensure that you create a pull request (PR) once you have been approved by us in commets section of issue page. In the case of frontend design-related matters, it is necessary to present screenshots for review and obtain approval from us. It is important to note that any PR created without prior approval on the issue page may be discarded.
 
 ## Note
 
