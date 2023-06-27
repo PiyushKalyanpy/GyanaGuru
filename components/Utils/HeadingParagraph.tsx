@@ -1,23 +1,23 @@
 const HeadingParagraph = ({ data }: any) => {
-const {heading, paragraph, showHeading} = data || {};
+  const { heading, paragraph, showHeading } = data || {};
   return (
-    <div 
+    <div
       className="space-y-4"
       // A11Y
       role="article"
       aria-label={`Paragraph on ${heading}`}
     >
       {showHeading ? (
-        <h2 
+        <h2
           className="text-xl font-semibold"
           // A11Y
           role="heading"
           aria-label="Paragraph Heading"
         >
-            {heading}
+          {heading}
         </h2>
       ) : null}
-      <p 
+      <p
         className="text-md"
         // A11Y
         role="definition"

@@ -1,12 +1,12 @@
-import {useTheme} from "next-themes";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 
 function DarkModeToggle() {
-  const {theme, setTheme} = useTheme() 
+  const { theme, setTheme } = useTheme();
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")} 
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       // A11Y
       role="button"
       tabIndex={0}
@@ -19,7 +19,7 @@ function DarkModeToggle() {
         alt="dark mode"
         className="hidden dark:block  hover:scale-110 duration-300"
         // A11Y
-        role='img'
+        role="img"
         aria-label="Dark Mode Active"
       />
       <Image
@@ -29,7 +29,7 @@ function DarkModeToggle() {
         alt="light mode"
         className="dark:hidden hover:scale-110 duration-300"
         // A11Y
-        role='img'
+        role="img"
         aria-label="Light Mode Active"
       />
     </button>

@@ -20,31 +20,50 @@ const LandingFooter = () => {
         {/* <Image width={40} height={40} src="./logo.svg" alt="logo" /> */}
         <div role="navigation" className="flex justify-around flex-wrap">
           <div className="mb-6 mt-8">
-            <div role="heading" aria-level={1} className="font-bold text-lg mb-3 text-black text-opacity-90 dark:text-zinc-50">
+            <div
+              role="heading"
+              aria-level={1}
+              className="font-bold text-lg mb-3 text-black text-opacity-90 dark:text-zinc-50"
+            >
               Quick Links
             </div>
             <ul role="list" className="list-none m-0 p-0">
-              <li role="listitem" className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
+              <li
+                role="listitem"
+                className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50"
+              >
                 <Link href="/" className={hoverEffect}>
                   Home
                 </Link>
               </li>
-              <li role="listitem" className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
+              <li
+                role="listitem"
+                className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50"
+              >
                 <Link href="/static/about-us" className={hoverEffect}>
                   About Us
                 </Link>
               </li>
-              <li role="listitem" className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
+              <li
+                role="listitem"
+                className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50"
+              >
                 <Link href="/OurServices" className={hoverEffect}>
                   Our Services
                 </Link>
               </li>
-              <li role="listitem" className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
+              <li
+                role="listitem"
+                className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50"
+              >
                 <Link href="/" className={hoverEffect}>
                   Benefits
                 </Link>
               </li>
-              <li role="listitem" className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
+              <li
+                role="listitem"
+                className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50"
+              >
                 <Link href="/faq" className={hoverEffect}>
                   FAQ
                 </Link>
@@ -56,7 +75,10 @@ const LandingFooter = () => {
               Community
             </div>
             <ul role="list" aria-label="List of Social Links">
-              <li role="listitem" className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
+              <li
+                role="listitem"
+                className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50"
+              >
                 <a
                   href="https://github.com/PiyushKalyanpy/GyanaGuru"
                   aria-label="Follow me on Github"
@@ -68,7 +90,10 @@ const LandingFooter = () => {
                   Github
                 </a>
               </li>
-              <li role="listitem" className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
+              <li
+                role="listitem"
+                className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50"
+              >
                 <a
                   href="#"
                   aria-label="Follow me on Twitter"
@@ -79,7 +104,10 @@ const LandingFooter = () => {
                   Twitter
                 </a>
               </li>
-              <li role="listitem" className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
+              <li
+                role="listitem"
+                className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50"
+              >
                 <a
                   href="https://www.linkedin.com/in/piyush-kalyan/"
                   aria-label="Follow me on Linkedin"
@@ -90,7 +118,10 @@ const LandingFooter = () => {
                   Linkedin
                 </a>
               </li>
-              <li role="listitem" className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
+              <li
+                role="listitem"
+                className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50"
+              >
                 <a
                   href="#"
                   aria-label="Follow me on Instagram"
@@ -101,7 +132,10 @@ const LandingFooter = () => {
                   Instagram
                 </a>
               </li>
-              <li role="listitem" className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50">
+              <li
+                role="listitem"
+                className="leading-8 text-base text-black text-opacity-80 dark:text-zinc-50"
+              >
                 <a
                   href="#"
                   aria-label="Follow me on Facebook"
@@ -115,7 +149,11 @@ const LandingFooter = () => {
             </ul>
           </div>
           <div className="mb-24 mt-8">
-            <div role="heading" aria-level={1} className="font-bold text-lg mb-3 text-black text-opacity-90 dark:text-zinc-50">
+            <div
+              role="heading"
+              aria-level={1}
+              className="font-bold text-lg mb-3 text-black text-opacity-90 dark:text-zinc-50"
+            >
               Help
             </div>
             <ul>
@@ -156,7 +194,10 @@ const LandingFooter = () => {
           </div>
         </div>
       </div>
-      <div role="article" className="flex flex-row justify-center w-full border-y-2 items-center gap-8 border-black  ">
+      <div
+        role="article"
+        className="flex flex-row justify-center w-full border-y-2 items-center gap-8 border-black  "
+      >
         <div className="flex flex-row items-center">
           <Image
             width={40}
@@ -177,7 +218,9 @@ const LandingFooter = () => {
             aria-label="Dark Logo"
           />
           <h1 className="font-archivo font-semibold text-lg ">
-            <a role="link" href="#">GyanaGuru</a>
+            <a role="link" href="#">
+              GyanaGuru
+            </a>
           </h1>
         </div>
         <p>© {currentYear} Gyana Guru. All rights reserved.</p>

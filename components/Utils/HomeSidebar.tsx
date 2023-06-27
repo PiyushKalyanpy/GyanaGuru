@@ -21,7 +21,7 @@ const HomeSidebar = ({ pageNumber }: any) => {
   };
 
   return (
-    <div 
+    <div
       className="flex flex-col justify-between h-full py-8 overflow-hidden bg-white dark:bg-zinc-950 "
       // A11Y
       role="navigation"
@@ -35,20 +35,20 @@ const HomeSidebar = ({ pageNumber }: any) => {
         role="button"
         aria-label="Button to go to Home page"
       >
-        <div 
+        <div
           className="flex items-center gap-4 p-2 bg-white cursor-pointer drop-shadow-2xl dark:bg-zinc-900 rounded-xl h-fit"
           role="group"
         >
-          <Image 
-            src="../color_logo.svg" 
-            width={40} 
-            height={40} 
+          <Image
+            src="../color_logo.svg"
+            width={40}
+            height={40}
             alt="logo"
             // A11Y
             role="img"
             aria-label="Logo Image"
           />
-          <h1 
+          <h1
             className="text-xl font-semibold font-archivo "
             role="presentation"
             aria-label="GyanaGuru"
@@ -133,10 +133,7 @@ const HomeSidebar = ({ pageNumber }: any) => {
           </span>
         </div>
         <div className="flex flex-row items-center justify-center p-2 px-4 text-white rounded-md dark:bg-zinc-950 bg-zinc-900">
-          <button
-            role='button'
-            aria-label="Upgrade to Pro"
-          >
+          <button role="button" aria-label="Upgrade to Pro">
             Upgrade
           </button>
         </div>

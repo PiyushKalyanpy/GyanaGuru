@@ -11,11 +11,13 @@ const ProfileHeader = ({ userDetails }: any) => {
     <div className="flex items-center space-x-10">
       <div className="relative">
         <div className="relative w-24 h-24 overflow-hidden rounded-full">
-          <Image src="https://images.unsplash.com/photo-1636622433525-127afdf3662d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80" alt="Profile Image"
-          width={500}
-          height={500}
-          className="w-full h-full object-cover"
-           />
+          <Image
+            src="https://images.unsplash.com/photo-1636622433525-127afdf3662d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80"
+            alt="Profile Image"
+            width={500}
+            height={500}
+            className="w-full h-full object-cover"
+          />
         </div>
 
         <div className="absolute right-2 bottom-1">

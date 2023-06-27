@@ -120,7 +120,7 @@ export function AuthProvider({ children }) {
     logout,
     loginWithGoogle,
     addUserToDatabase,
-    };
+  };
 
   return (
     <AuthContext.Provider value={value}>

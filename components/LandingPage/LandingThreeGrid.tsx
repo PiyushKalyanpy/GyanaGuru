@@ -19,9 +19,7 @@ const LandingThreeGrid = () => {
             "opacity-100",
             "translate-x-0"
           );
-          entry.target.classList.add(
-            "translate-x-full", "opacity-0"
-          );
+          entry.target.classList.add("translate-x-full", "opacity-0");
         }
       });
     });
@@ -34,8 +32,7 @@ const LandingThreeGrid = () => {
     <div className="grid grid-cols-11 h-96 px-20  gap-4 mb-20 dark:bg-neutral-950">
       {/* Showcase 1 */}
       <div className="transform translate-x-full opacity-0 transition duration-500 ease-in-out flex  col-span-4 bg-[url('/images/landing0101.jpg')] bg-orange-50 rounded-3xl ">
-        <div className="flex flex-col justify-end items-end">
-        </div>
+        <div className="flex flex-col justify-end items-end"></div>
       </div>
       {/* Showcase 4 */}
       <div className="transform translate-x-full opacity-0 transition duration-500 ease-in-out  flex col-span-4 bg-[url('/images/landing0102.jpg')] object-cover overflow-hidden bg-orange-100 rounded-3xl">
@@ -50,7 +47,6 @@ const LandingThreeGrid = () => {
         </div>
       </div>
     </div>
-    
   );
 };
 

@@ -37,7 +37,10 @@ const LandingNav = () => {
   };
 
   return (
-    <div role="navigation" className="sticky top-0 z-20 w-full border-b-2 border-white bg-white/30 backdrop-blur-md dark:bg-neutral-950/50 dark:border-zinc-700">
+    <div
+      role="navigation"
+      className="sticky top-0 z-20 w-full border-b-2 border-white bg-white/30 backdrop-blur-md dark:bg-neutral-950/50 dark:border-zinc-700"
+    >
       <div className="flex flex-row items-center justify-between w-full px-20 py-4 ">
         {/* Logo with Title */}
         <div
@@ -47,10 +50,10 @@ const LandingNav = () => {
           role="button"
           aria-label="Navigate to Home Page"
         >
-          <img 
-            src="./logo.svg" 
-            alt="logo" 
-            className="dark:hidden" 
+          <img
+            src="./logo.svg"
+            alt="logo"
+            className="dark:hidden"
             role="img"
             aria-label="Light Mode Logo"
           />
@@ -61,12 +64,17 @@ const LandingNav = () => {
             role="img"
             aria-label="Dark Mode Logo"
           />
-          <h1 role="presentation" className="text-lg font-semibold font-archivo ">GyanaGuru</h1>
+          <h1
+            role="presentation"
+            className="text-lg font-semibold font-archivo "
+          >
+            GyanaGuru
+          </h1>
         </div>
         {/* Nav Links */}
         <div className="flex flex-row items-center gap-8">
-          <Link 
-            className={navLinkStyle} 
+          <Link
+            className={navLinkStyle}
             href="#"
             role="link"
             aria-label="Go to Home Page"
@@ -100,8 +108,8 @@ const LandingNav = () => {
           >
             Benefits
           </Link>
-          <Link 
-            className={navLinkStyle} 
+          <Link
+            className={navLinkStyle}
             href="/static/faq"
             role="link"
             aria-label="Go to FAQ"
@@ -132,7 +140,5 @@ const LandingNav = () => {
     </div>
   );
 };
-
-
 
 export default LandingNav;

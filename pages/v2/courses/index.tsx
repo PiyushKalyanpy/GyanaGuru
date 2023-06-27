@@ -4,9 +4,7 @@ import { SidebarItem } from "../../../util/types";
 
 const Courses: NextPageWithLayout = () => {
   return (
-    <section className="w-full h-screen bg-white">
-      Welcome to courses
-    </section>
+    <section className="w-full h-screen bg-white">Welcome to courses</section>
   );
 };
 

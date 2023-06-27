@@ -18,6 +18,15 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/courses/[courseId]", "context/CoursesContext.js", "context/UserContext.js", "context/AuthContext.jsx", "context/CourseContext.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/courses/[courseId]",
+    "context/CoursesContext.js",
+    "context/UserContext.js",
+    "context/AuthContext.jsx",
+    "context/CourseContext.js"
+  ],
   "exclude": ["node_modules"]
 }

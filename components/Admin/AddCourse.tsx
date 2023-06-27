@@ -98,7 +98,7 @@ const AddCategory = ({ addCategory }: any) => {
                 setCategory({ ...category, name: e.target.value })
               }
               className="p-2 border-2 rounded-lg border-zinc-100"
-              // a11y 
+              // a11y
               role="textbox"
               aria-label="Category Name"
             />
@@ -111,7 +111,7 @@ const AddCategory = ({ addCategory }: any) => {
                 setCategory({ ...category, imageUrl: e.target.value })
               }
               className="p-2 border-2 rounded-lg border-zinc-100"
-              // a11y 
+              // a11y
               role="textbox"
               aria-label="Input for Thumbnail Image URL"
             />
@@ -123,7 +123,7 @@ const AddCategory = ({ addCategory }: any) => {
               onChange={(e) =>
                 setCategory({ ...category, description: e.target.value })
               }
-              // a11y 
+              // a11y
               role="textbox"
               aria-label="Input for Category Description"
             ></textarea>
@@ -131,7 +131,7 @@ const AddCategory = ({ addCategory }: any) => {
               type="submit"
               onClick={handleSubmit}
               className="p-2 text-white bg-black rounded-lg"
-              // a11y 
+              // a11y
               role="button"
               aria-label="Submit"
             >
@@ -162,8 +162,7 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
     restriction: 1, // -1 for restricted, 0 for private, 1 for public
     createdBy: currentUser && currentUser.uid,
   });
-  React.useEffect(() => {
-  }, [playlist]);
+  React.useEffect(() => {}, [playlist]);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -200,7 +199,7 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
                 setPlaylist({ ...playlist, name: e.target.value })
               }
               className="p-2 border-2 rounded-lg border-zinc-100"
-              // a11y 
+              // a11y
               role="textbox"
               aria-label="Input for Playlist Name"
             />
@@ -213,7 +212,7 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
                 setPlaylist({ ...playlist, imageUrl: e.target.value })
               }
               className="p-2 border-2 rounded-lg border-zinc-100"
-              // a11y 
+              // a11y
               role="textbox"
               aria-label="Input for thumbnail Image URL"
             />
@@ -225,20 +224,24 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
               onChange={(e) =>
                 setPlaylist({ ...playlist, description: e.target.value })
               }
-              // a11y 
+              // a11y
               role="textbox"
               aria-label="Input for Category Description"
             ></textarea>
 
             {/* three radio buttons to select public private and restricted  */}
-            <div className="flex w-full gap-4" role="radiogroup" aria-label="Radio Group for choosing Public, Private, Restricted">
+            <div
+              className="flex w-full gap-4"
+              role="radiogroup"
+              aria-label="Radio Group for choosing Public, Private, Restricted"
+            >
               <label className="flex justify-center w-full p-2 border-2 rounded-lg border-zinc-100">
                 <input
                   type="radio"
                   value="public"
                   checked={playlist.restriction === 1}
                   onChange={(e) => setPlaylist({ ...playlist, restriction: 1 })}
-                  // a11y 
+                  // a11y
                   role="radio"
                   aria-label="radio button for public"
                 />
@@ -252,7 +255,7 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
                   value="private"
                   checked={playlist.restriction === 0}
                   onChange={(e) => setPlaylist({ ...playlist, restriction: 0 })}
-                  // a11y 
+                  // a11y
                   role="radio"
                   aria-label="radio button for Private"
                 />
@@ -267,7 +270,7 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
                   onChange={(e) =>
                     setPlaylist({ ...playlist, restriction: -1 })
                   }
-                  // a11y 
+                  // a11y
                   role="radio"
                   aria-label="Category Name"
                 />
@@ -278,7 +281,7 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
               type="submit"
               onClick={handleSubmit}
               className="p-2 text-white bg-black rounded-lg active:bg-gray-700"
-              // a11y 
+              // a11y
               role="button"
               aria-label="Button for adding playlist"
             >
@@ -315,8 +318,7 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
     (playlist: Playlist) => playlist.categoryId === video.categoryId
   );
 
-  React.useEffect(() => {
-  }, [video]);
+  React.useEffect(() => {}, [video]);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -351,7 +353,7 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
               onChange={(e) =>
                 setVideo({ ...video, categoryId: e.target.value })
               }
-              // a11y 
+              // a11y
               role="combobox"
               aria-label="Dropdown for selecting Category"
             >
@@ -370,7 +372,7 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
               onChange={(e) =>
                 setVideo({ ...video, playlistId: e.target.value })
               }
-              // a11y 
+              // a11y
               role="combobox"
               aria-label="Dropdown for selecting playlist"
             >
@@ -396,9 +398,9 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
               <button
                 onClick={handleAddLink}
                 className="flex p-3 space-x-4 text-white bg-black rounded-lg w-fit active:bg-gray-700"
-                // a11y 
-              role="button"
-              aria-label="Button for adding link"
+                // a11y
+                role="button"
+                aria-label="Button for adding link"
               >
                 <span className="text-white material-icons"> add_link</span>
                 {/* <p>Fetch Video</p> */}

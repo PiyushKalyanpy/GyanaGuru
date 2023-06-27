@@ -43,9 +43,6 @@ const HeroSection = () => {
   return (
     <div>
       <div className="flex flex-row items-center justify-center w-full h-screen p-12 px-20 pt-40 bg-white dark:bg-neutral-950">
-
-      
-      
         <div className="transition duration-500 ease-in-out transform -translate-x-full opacity-0">
           <h1 className="text-black text-8xl w-fit font-archivo dark:text-zinc-50">
             Revolutionizing Education in India
@@ -85,8 +82,16 @@ const HeroSection = () => {
                 role="button"
                 aria-label="Navigate to Course Page"
               >
-                <span role="presentation" className="inline-flex bg-black "></span>
-                <h4  role="heading" className="text-xl  font-archivo dark:text-zinc-800 ">Explore Courses</h4>
+                <span
+                  role="presentation"
+                  className="inline-flex bg-black "
+                ></span>
+                <h4
+                  role="heading"
+                  className="text-xl  font-archivo dark:text-zinc-800 "
+                >
+                  Explore Courses
+                </h4>
               </div>
             </div>
           </div>

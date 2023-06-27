@@ -119,7 +119,6 @@ const Commets = () => {
     setCommentLength(commentText.length);
   }, [commentText]);
 
-
   return (
     <div className="relative w-full h-full space-y-4 ">
       {/* comment input  */}

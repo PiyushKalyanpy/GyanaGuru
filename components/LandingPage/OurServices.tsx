@@ -3,10 +3,9 @@ import CourseData from "../../data/course_categories.json";
 import React, { useEffect } from "react";
 
 const OurServices = () => {
-
-  const [showallcourses, setCoursesToShow] = React.useState(false)
-  const courselimit = showallcourses ? CourseData.length : 6
-  const coursestoshow = CourseData.slice(0, courselimit)
+  const [showallcourses, setCoursesToShow] = React.useState(false);
+  const courselimit = showallcourses ? CourseData.length : 6;
+  const coursestoshow = CourseData.slice(0, courselimit);
 
   useEffect(() => {
     const elements = document.querySelectorAll(".transform");
@@ -58,15 +57,16 @@ const OurServices = () => {
             </div>
             <h2 className="text-xl font-archivo text-zinc-700 dark:text-zinc-100">{`Get all types of courses`}</h2>
             <div className="flex flex-wrap w-full gap-4 ">
-
               {coursestoshow.map((course, index) => {
                 return (
                   <CourseCard key={index} courseName={course.categoryName} />
                 );
               })}
-              <Show 
-                onclick={() => {setCoursesToShow(!showallcourses)}} 
-                courseName={showallcourses? "Show less <" : "Show more >"} 
+              <Show
+                onclick={() => {
+                  setCoursesToShow(!showallcourses);
+                }}
+                courseName={showallcourses ? "Show less <" : "Show more >"}
               />
             </div>
           </div>
@@ -78,7 +78,7 @@ const OurServices = () => {
 
 const CourseCard = ({ courseName }: any) => {
   return (
-    <button 
+    <button
       className="flex border-2 hover:border-black hover:scale-[1.04] transition border-zinc-200 rounded-full px-4 py-2"
       role="button"
       aria-label={`${courseName} Course Card`}
@@ -90,8 +90,8 @@ const CourseCard = ({ courseName }: any) => {
 
 const Show = ({ courseName, onclick }: any) => {
   return (
-    <div 
-      onClick={onclick} 
+    <div
+      onClick={onclick}
       className="font-medium bg-blue-200 border-zinc-200 rounded-full cursor-pointer px-4 py-2 dark:bg-blue-600"
       role="button"
       aria-label={`${courseName} Course Title `}
@@ -100,6 +100,5 @@ const Show = ({ courseName, onclick }: any) => {
     </div>
   );
 };
-
 
 export default OurServices;

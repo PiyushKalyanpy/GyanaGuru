@@ -8,16 +8,16 @@ const ButtonWithImage = ({ buttonName, onClick, icon }: any) => {
       // A11Y
       role="button"
     >
-      <Image 
-        src="google.svg" 
-        alt="icon" 
-        width={20} 
-        height={20} 
+      <Image
+        src="google.svg"
+        alt="icon"
+        width={20}
+        height={20}
         // A11Y
         role="img"
         aria-label="Google Icon"
       />
-      <h3 
+      <h3
         className=" font-medium"
         // A11Y
         role="presentation"

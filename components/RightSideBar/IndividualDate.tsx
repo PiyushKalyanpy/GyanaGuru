@@ -6,7 +6,15 @@ import React from "react";
 //   isTodayDate: boolean;
 // }
 
-const IndividualDate = ( { date, day, isTodayDate } : { date: number, day: string, isTodayDate: boolean }) => {
+const IndividualDate = ({
+  date,
+  day,
+  isTodayDate,
+}: {
+  date: number;
+  day: string;
+  isTodayDate: boolean;
+}) => {
   return (
     <div>
       <div
@@ -16,10 +24,18 @@ const IndividualDate = ( { date, day, isTodayDate } : { date: number, day: strin
             : ""
         }`}
         role="contentinfo"
-        aria-label={isTodayDate ? `Select today's date ${date} and ${day}` : `Select ${date} and ${day}`}
+        aria-label={
+          isTodayDate
+            ? `Select today's date ${date} and ${day}`
+            : `Select ${date} and ${day}`
+        }
       >
-        <h1 role="presentation" className="font-bold mb-4">{date}</h1>
-        <p role="presentation" className="text-gray-500 text-xs">{day}</p>
+        <h1 role="presentation" className="font-bold mb-4">
+          {date}
+        </h1>
+        <p role="presentation" className="text-gray-500 text-xs">
+          {day}
+        </p>
       </div>
     </div>
   );

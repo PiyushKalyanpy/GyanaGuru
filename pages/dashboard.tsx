@@ -15,12 +15,11 @@ const Dashboard = () => {
     { label: "Science", value: 60 },
     { label: "Hindi", value: 300 },
   ];
-  
+
   useEffect(() => {
     setCookie("reachedDashboard", true);
     console.log("reached dashboard");
-  }
-  , []);
+  }, []);
 
   return (
     <div className="grid w-screen h-screen grid-cols-12 overflow-hidden bg-zinc-100 dark:bg-zinc-900">
@@ -64,9 +63,9 @@ const BarChart = ({
         <p className="text-xl text-black font-inter dark:text-white ">
           {title}
         </p>
-        <button 
+        <button
           className="flex items-center p-2 space-x-4 border-2 border-white rounded-xl "
-          // a11y 
+          // a11y
           role="button"
           aria-label="Button for displaying full statistics"
         >

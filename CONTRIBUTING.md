@@ -85,7 +85,6 @@ To create a pull request:
 - Click on "Create Pull Request" to submit your contribution for review ✅
 - ##### ⚠️ Please ensure that you create a pull request (PR) once you have been approved by us in commets section of issue page. In the case of frontend design-related matters, it is necessary to present screenshots for review and obtain approval from us. It is important to note that any PR created without prior approval on the issue page may be discarded.
 
-
 ## Note
 
 To run your forked project, you need to pass in your **firebase config** data in `firebase.tsx` file under the firebse folder.

@@ -5,4 +5,11 @@ import DeleteCourse from "./DeleteCourse";
 import StudentReport from "./StudentReport";
 import ManageSite from "./ManageSite";
 
-export { Sidebar, AddCourse, UpdateCourse, DeleteCourse, StudentReport, ManageSite };
+export {
+  Sidebar,
+  AddCourse,
+  UpdateCourse,
+  DeleteCourse,
+  StudentReport,
+  ManageSite,
+};
