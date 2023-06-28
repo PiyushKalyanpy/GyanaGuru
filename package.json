@@ -11,7 +11,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@tailwindcss/line-clamp": "^0.4.4",
-    "@types/react-dom": "18.0.11",
+    "@types/react-dom": "18.2.6",
     "appwrite": "^10.2.0",
     "cookie-cutter": "^0.2.0",
     "cookies-next": "^2.1.2",
