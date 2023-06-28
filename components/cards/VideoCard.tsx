@@ -1,28 +1,54 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
+import Rating from '../../components/util/Rating'
 
-const VideoCard = ({ imageUrl, title, id }: any) => {
+const VideoCard = ({ video }: any) => {
   const router = useRouter()
+  const {
+    id,
+    name,
+    description,
+    imageUrl,
+    categoryId,
+    viewCount,
+    likes,
+    duration,
+    rating
+  } = video
+
   const handleClick = () => {
-    router.push(`/course/${id}`)
+    router.push(`/courses/${id}`)
   }
+
   return (
     <div
       onClick={handleClick}
-      className='flex  cursor-pointer flex-col hover:scale-[1.05] transition space-y-4 items-center bg-white dark:bg-zinc-800 rounded-xl w-80  p-4 overflow-hidden'
+      className='w-full overflow-hidden bg-white cursor-pointer select-none  dark:bg-zinc-900 rounded-xl'
     >
-      <div className='relative w-full h-20 aspect-w-3 aspect-h-2 '>
+      <div className='relative h-48'>
         <Image
           src={imageUrl}
-          alt={title}
+          alt='Thumbnail'
           layout='fill'
-          quality={100}
           objectFit='cover'
-          className='rounded-xl'
+          className='object-cover w-full'
         />
+        <div className='absolute px-2 py-1 text-xs text-white rounded bottom-2 right-2 bg-gray-900/50 backdrop-blur-sm'>
+          {duration}
+        </div>
       </div>
-      <h3 className='items-center text-lg font-medium font-inter'>{title}</h3>
+      <div className='p-4 '>
+        <h3 className='mb-2 font-medium  line-clamp-2'>{name}</h3>
+        {/* <div className='flex items-center mb-2 text-gray-500'>
+          <span className='mr-1'>{'\u2022'}</span>
+          <Rating value={rating} noOfVotes={likes} />
+        </div>
+        {/* <p className='text-sm text-gray-600'>{description}</p> */}
+        <div className='flex items-center mt-2 text-gray-500'>
+          <span className='mr-2'>{viewCount} views</span>
+        </div>
+      </div>
     </div>
   )
 }

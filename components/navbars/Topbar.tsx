@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { useState, useEffect, ChangeEvent } from "react";
 import { useContext } from "react";
-import { AuthContext } from "../../../context/authContext";
-import { DarkModeToggle } from "../../components";
+import { AuthContext } from "../../context/authContext";
+import { DarkModeToggle } from "../components";
 
 const Topbar = () => {
   const { currentUser } = useContext(AuthContext);
@@ -59,7 +59,7 @@ interface SearchBarProps {
 
 const SearchBar = ({ searchQuery, handleInputChange }: SearchBarProps) => {  
   return (
-    <div className="flex flex-row items-center w-1/4 p-1 pl-4 pr-1 overflow-hidden dark:bg-zinc-800 bg-white rounded-2xl h-fit font-archivo">
+    <div className="flex flex-row items-center w-1/4 p-1 pl-4 pr-1 overflow-hidden dark:bg-zinc-800 bg-white border rounded-2xl h-fit font-archivo">
       <input
         type="text"
         placeholder="Search for courses"

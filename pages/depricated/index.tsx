@@ -1,6 +1,6 @@
 import CategoryCard from "@/components/depricated/CoursesComponents/CategoryCard";
 import PlaylistCard from "@/components/depricated/CoursesComponents/PlaylistCard";
-import Topbar from "@/components/depricated/CoursesComponents/Topbar";
+import Topbar from "@/components/navbars/Topbar";
 import { HomeSidebar } from "@/components/components";
 import { CourseContext } from "@/context/CourseContext";
 import { useContext, useEffect } from "react";

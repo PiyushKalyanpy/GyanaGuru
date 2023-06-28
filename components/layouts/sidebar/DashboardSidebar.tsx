@@ -118,8 +118,8 @@ const Navbar = ({ selectedItem, handleClick }: any) => {
   const { currentUser } = useAuth()
 
   return (
-    <nav className='flex flex-col gap-4 h-fit w-64 bg-white p-4'>
-      {currentUser ? (
+    <nav className='flex flex-col gap-4 w-64 bg-white p-4 dark:bg-zinc-900 h-full '>
+      {currentUser.email == 'kalyanpiyush560@gmail.com' ? (
         <DashboardSidebarItem
           href='/admin'
           icon='shield_person'

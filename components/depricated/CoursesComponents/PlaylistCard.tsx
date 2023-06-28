@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Rating from "../Utils/Rating";
+import Rating from "../../util/Rating";
 
 const PlaylistCard = ({ playlist }: any) => {
   const {

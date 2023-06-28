@@ -294,6 +294,7 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
 // form for adding new video
 const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
   const userId = currentUser && currentUser.uid
+  console.log(playlists)
   const [video, setVideo] = useState({
     id: 0,
     name: '',
@@ -316,14 +317,7 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
   )
 
   const isVideoFormFilled = () => {
-    return (
-      video.name.length > 0 &&
-      video.description.length > 0 &&
-      video.imageUrl.length > 0 &&
-      video.categoryId.length > 0 &&
-      video.playlistId.length > 0 &&
-      video.url.length > 0
-    )
+    return video.categoryId.length > 0 && video.playlistId.length > 0
   }
 
   const clearAll = () => {
@@ -363,11 +357,12 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
     const response = await fetch(url)
     const data = await response.json()
     const videoData = data.items[0].snippet
+    console.log(data)
     setVideo({
       ...video,
       name: videoData.title,
       description: videoData.description,
-      imageUrl: videoData.thumbnails.default.url
+      imageUrl: videoData.thumbnails.standard.url
     })
     console.log(video)
   }
