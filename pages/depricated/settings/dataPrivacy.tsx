@@ -1,6 +1,6 @@
-import SettingsBarItem from "@/components/SettingsBar/Item";
-import HomeSidebar from "@/components/Utils/HomeSidebar";
-import SettingsBar from "@/components/SettingsBar";
+import SettingsBarItem from "@/components/depricated/SettingsBar/Item";
+import HomeSidebar from "@/components/depricated/Utils/HomeSidebar";
+import SettingsBar from "@/components/depricated/SettingsBar";
 
 
 const DataPrivacy = () => {

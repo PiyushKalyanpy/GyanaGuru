@@ -1,9 +1,9 @@
-import SettingsBarItem from "@/components/SettingsBar/Item";
-import HomeSidebar from "@/components/Utils/HomeSidebar";
-import SettingsBar from "@/components/SettingsBar";
+import SettingsBarItem from "@/components/depricated/SettingsBar/Item";
+import HomeSidebar from "@/components/depricated/Utils/HomeSidebar";
+import SettingsBar from "@/components/depricated/SettingsBar";
 
 
-const PaymentBilling = () => {
+const LearningPreferences = () => {
   return (
     <div className="grid grid-cols-12 w-full h-screen bg-gradient-to-b from-slate-100 to-white">
       <div className="col-span-2">
@@ -11,11 +11,11 @@ const PaymentBilling = () => {
       </div>
       <div className="col-span-3 p-2">
         <SettingsBar
-          activeItem={7}
+          activeItem={6}
         />
       </div>
     </div>
   );
 };
 
-export default PaymentBilling;
+export default LearningPreferences;

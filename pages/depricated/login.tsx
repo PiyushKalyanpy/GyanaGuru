@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { setCookie, getCookie } from "cookies-next";
 import { DarkModeToggle } from "../../components/components";
-import { AuthContext } from "@/context/AuthContext";
+import { AuthContext } from "@/context/authContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

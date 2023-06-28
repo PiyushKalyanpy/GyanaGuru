@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
 import { CourseContext } from "../../../context/CourseContext";
-import PlaylistCard from "@/components/CoursesComponents/PlaylistCard";
+import PlaylistCard from "@/components/depricated/CoursesComponents/PlaylistCard";
 import { Topbar } from "@/components/components";
 
 const PlaylistPages = () => {

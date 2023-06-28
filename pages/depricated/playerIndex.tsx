@@ -2,8 +2,8 @@ import { CourseContext } from "@/context/CourseContext";
 import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import YouTube, { YouTubeProps } from "react-youtube";
-import Commets from "@/components/VideoPlayer/Commets";
-import CourseContent from "@/components/CoursesComponents/CourseContent";
+import Commets from "@/components/depricated/VideoPlayer/Commets";
+import CourseContent from "@/components/depricated/CoursesComponents/CourseContent";
 
 const VideosPage = () => {
   const router = useRouter();
