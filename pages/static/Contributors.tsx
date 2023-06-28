@@ -33,7 +33,7 @@ const Contributors = () => {
         fetchContributors();
     }, []);
 
-    return (
+       return (
         <>
              <div className="  text-center">
             <PageHeader  headingText=" Meet Our Contributors " onBackClick={onBackClick} />
@@ -52,5 +52,6 @@ const Contributors = () => {
         </>
     );
 };
+
 
 export default Contributors;
