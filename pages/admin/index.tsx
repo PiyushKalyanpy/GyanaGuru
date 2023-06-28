@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import {
   Sidebar,
   AddCourse,
@@ -13,6 +14,10 @@ const Admin = () => {
 
   return (
     <div className="grid w-screen h-screen grid-cols-12 bg-zinc-100">
+      <div className="absolute">
+      <ToastContainer />
+
+      </div>
       {/* sidebar */}
       <div className="col-span-2 shadow-2xl shadow-zinc-200">
         <Sidebar pageNumber={1} active={active} setActive={setActive} />
@@ -28,6 +33,7 @@ const Admin = () => {
           if (active == 5) return <ManageSite />;
         })()}
       </div>
+      
     </div>
   );
 };

@@ -15,6 +15,7 @@ import {
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import { getCookie } from "cookies-next";
+import { showToast } from "@/components/util/Toast";
 
 export const CourseContext = React.createContext();
 
@@ -32,7 +33,9 @@ export function CourseProvider({ children }) {
   // Category CRUD ----------------------------------------------
 
   function addCategory(category) {
-    addDoc(collection(db, "categories"), category);
+    addDoc(collection(db, "categories"), category).catch((error) => {
+      showToast(error.message, "error");
+    });
   }
 
   function deleteCategory(id) {

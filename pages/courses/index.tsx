@@ -1,6 +1,6 @@
-import { NextPageWithLayout } from "../../page";
+import { NextPageWithLayout } from "../page";
 import { PrimaryLayoutWithSidebar } from "@/components/layouts/exporter";
-import { SidebarItem } from "../../../util/types";
+import { SidebarItem } from "../../util/types";
 
 const Courses: NextPageWithLayout = () => {
   return (

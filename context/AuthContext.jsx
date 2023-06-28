@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React, { useState, useContext, useEffect } from "react";
 import { auth, db } from "../database/firebase";
@@ -18,9 +18,9 @@ import { showToast } from "@/components/util/Toast";
 
 export const AuthContext = React.createContext();
 
-// export function useAuth() {
-//   return useContext(AuthContext);
-// }
+export function useAuth() {
+  return useContext(AuthContext);
+}
 
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
@@ -30,23 +30,39 @@ export function AuthProvider({ children }) {
   const loginWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider).then((result) => {
-      // if user is new then create a new user in database
-      const isNewUser = result.additionalUserInfo.isNewUser;
-      console.log(isNewUser);
-      if (isNewUser) {
-        const user = result.user;
-        const userRef = doc(db, "users", user.uid);
-        setDoc(userRef, {
-          name: user.displayName,
-          email: user.email,
-          photoURL: user.photoURL,
-          uid: user.uid,
-          createdAt: new Date(),
-        });
-      }
+      // check if user is present in user firestore database
+      const docRef = doc(db, "users", result.user.uid);
+      getDoc(docRef).then((docSnap) => {
+        if (docSnap.exists()) {
+          // user exists
+          console.log("user exists");
+          router.push("/courses");
+        } else {
+          // user does not exist
+          console.log("user does not exist");
+          setDoc(doc(db, "users", result.user.email), {
+            email: result.user.email,
+            name: result.user.displayName,
+            photoURL: result.user.photoURL,
+            uid: result.user.uid,
+            role: "user",
+            createdAt: new Date(),
+            isVerified: result.user.emailVerified,
+            isActive: false,
+            isOnline: false,
+          });
+          router.push("/courses");
+        }
+      });
     });
   };
 
+  const logout = () => {
+    signOut(auth).then(() => {
+      setCurrentUser(null);
+      router.push("/login");
+    });
+  };
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
@@ -63,7 +79,13 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ value }}>
+    <AuthContext.Provider
+      value={{
+        currentUser,
+        loginWithGoogle,
+        logout,
+      }}
+    >
       {!loading && children}
     </AuthContext.Provider>
   );

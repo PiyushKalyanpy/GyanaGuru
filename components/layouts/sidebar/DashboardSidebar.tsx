@@ -2,7 +2,7 @@ import Link from 'next/link'
 import DashboardSidebarItem from './DashboardSidebarItem'
 import React, { useState, useContext } from 'react'
 import { DarkModeToggle } from '@/components/components'
-import { UserContext } from '@/context/authContext'
+import { AuthContext } from '../../../context/authContext'
 
 export interface IDashboardSidebar {}
 
@@ -17,10 +17,10 @@ enum SidebarItem {
 const DashboardSidebar: React.FC<IDashboardSidebar> = () => {
   const [selectedItem, setSelectedItem] = useState<SidebarItem | null>(null)
   const [sidebarExpanded, setSidebarExpanded] = useState<boolean>(false)
-  const {logout} = useContext(UserContext);
-
+  const { loginWithGoogle, currentUser , logout} = useContext(AuthContext)
+  
   const handleClick = (selectedItem: any) => {
-    if (selectedItem === SidebarItem.Logout) {
+    if (selectedItem == SidebarItem.Logout) {
       console.log('logout')
       logout()
     }
@@ -82,7 +82,7 @@ const Navbar = ({ selectedItem, handleClick }: any) => {
       // onItemClick: () => handleClick(SidebarItem.Settings),
     },
     {
-      href: '/v2/courses',
+      href: '/courses',
       icon: 'book',
       badge: '2',
       label: 'Courses',
@@ -101,7 +101,8 @@ const Navbar = ({ selectedItem, handleClick }: any) => {
       href: '/login',
       icon: 'logout',
       label: 'Logout',
-      selected: selectedItem === SidebarItem.Logout
+      selected: selectedItem === SidebarItem.Logout,
+      onItemClick: () => handleClick(SidebarItem.Logout)
     }
   ]
 
