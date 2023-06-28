@@ -8,7 +8,7 @@ import Script from 'next/script'
 import { ThemeProvider } from 'next-themes'
 import { CourseProvider } from '@/context/CourseContext'
 import { CookiesProvider } from 'react-cookie'
-import { NextPageWithLayout } from './page'
+import { NextPageWithLayout } from '../util/page'
 import { AuthProvider } from '../context/authContext'
 
 interface AppPropsWithLayout extends AppProps {

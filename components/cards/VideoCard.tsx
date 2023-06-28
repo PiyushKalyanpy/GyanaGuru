@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import React from 'react'
 
-const CategoryCard = ({ imageUrl, title, id }: any) => {
+const VideoCard = ({ imageUrl, title, id }: any) => {
   const router = useRouter()
   const handleClick = () => {
     router.push(`/course/${id}`)
@@ -16,7 +17,7 @@ const CategoryCard = ({ imageUrl, title, id }: any) => {
           src={imageUrl}
           alt={title}
           layout='fill'
-          quality={50}
+          quality={100}
           objectFit='cover'
           className='rounded-xl'
         />
@@ -26,4 +27,4 @@ const CategoryCard = ({ imageUrl, title, id }: any) => {
   )
 }
 
-export default CategoryCard
+export default VideoCard

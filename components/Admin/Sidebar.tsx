@@ -18,7 +18,7 @@ const Sidebar = ({ pageNumber, active, setActive }: any) => {
     <div className="flex flex-col justify-between h-full py-8 overflow-hidden bg-white dark:bg-zinc-950">
       {/* Menu icons  */}
       <div className="flex flex-col gap-4 px-4">
-        <DarkModeToggle/>
+        {/* <DarkModeToggle/> */}
         <SidebarItem
           Icon={AddIcon}
           text="Add Course"

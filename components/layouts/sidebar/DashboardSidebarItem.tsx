@@ -32,10 +32,10 @@ const DashboardSidebarItem: React.FC<IDashboardSidebarItem> = ({
       <div
         onClick={handleClick}
         className={`flex items-center gap-4 py-2 px-4 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 ${
-          selected ? 'bg-zinc-100 dark:bg-zinc-800' : ''
+          selected ? 'bg-zinc-200 dark:bg-zinc-800' : ''
         }`}
       >
-        <span className='material-icons-outlined'>{icon}</span>
+        <span className='material-symbols-outlined'>{icon}</span>
         <span className={`${sidebarExpanded ? 'hidden' : 'block'}`}>
           {label}
         </span>

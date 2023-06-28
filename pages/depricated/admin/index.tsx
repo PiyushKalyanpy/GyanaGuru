@@ -6,7 +6,7 @@ import {
   StudentReport,
   ManageSite,
   DeleteCourse,
-} from "../../components/Admin/allcomponents";
+} from "../../../components/admin/exporter";
 import { useState } from "react";
 
 const Admin = () => {

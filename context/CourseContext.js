@@ -14,7 +14,6 @@ import {
 } from "firebase/firestore";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { getCookie } from "cookies-next";
 import { showToast } from "@/components/util/Toast";
 
 export const CourseContext = React.createContext();
@@ -28,14 +27,18 @@ export function CourseProvider({ children }) {
   const [playlist, setPlaylist] = useState([]);
   const [videos, setVideos] = useState([]);
   const router = useRouter();
-  const getData = false;
+  const getData = 1;
 
   // Category CRUD ----------------------------------------------
 
   function addCategory(category) {
-    addDoc(collection(db, "categories"), category).catch((error) => {
-      showToast(error.message, "error");
-    });
+    addDoc(collection(db, "categories"), category)
+      .then(() => {
+        showToast("Category added successfully", "success");
+      })
+      .catch((error) => {
+        showToast(error.message, "error");
+      });
   }
 
   function deleteCategory(id) {
@@ -64,7 +67,13 @@ export function CourseProvider({ children }) {
   // Playlist CRUD ----------------------------------------------
 
   function addPlaylist(playlist) {
-    addDoc(collection(db, "playlists"), playlist);
+    addDoc(collection(db, "playlists"), playlist)
+      .then(() => {
+        showToast("Playlist added successfully", "success");
+      })
+      .catch((error) => {
+        showToast(error.message, "error");
+      });
   }
 
   function deletePlaylist(id) {
@@ -95,17 +104,22 @@ export function CourseProvider({ children }) {
   // Video CRUD ----------------------------------------------
 
   function addVideo(video) {
-    addDoc(collection(db, "videos"), video);
+    addDoc(collection(db, "videos"), video)
+      .then(() => {
+        showToast("Video added successfully", "success");
+      })
+      .catch((error) => {
+        showToast(error.message, "error");
+      });
   }
 
   function deleteVideo(id) {
     deleteDoc(doc(db, "videos", id));
   }
 
-  const getVideos = (id) => {
-    onSnapshot(
-      query(collection(db, "videos"), where("playlistId", "==", id)),
-      (querySnapshot) => {
+  const { data: video, error: videoError } = useSWR("videos", () => {
+    if (videos.length === 0 && getData) {
+      getDocs(collection(db, "videos")).then((querySnapshot) => {
         const data = querySnapshot.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
@@ -113,9 +127,10 @@ export function CourseProvider({ children }) {
         setVideos(data);
         console.log("🧑 Video data downloaded");
         return data;
-      }
-    );
-  };
+      }),
+        null;
+    }
+  });
 
   const value = {
     categories,
@@ -129,7 +144,6 @@ export function CourseProvider({ children }) {
     deletePlaylist,
     addVideo,
     deleteVideo,
-    getVideos,
   };
 
   return (

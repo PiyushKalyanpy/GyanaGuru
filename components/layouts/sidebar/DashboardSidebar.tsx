@@ -1,8 +1,7 @@
-import Link from 'next/link'
 import DashboardSidebarItem from './DashboardSidebarItem'
 import React, { useState, useContext } from 'react'
-import { DarkModeToggle } from '@/components/components'
-import { AuthContext } from '../../../context/authContext'
+import { AuthContext, useAuth } from '../../../context/authContext'
+import { useEffect } from 'react'
 
 export interface IDashboardSidebar {}
 
@@ -11,14 +10,17 @@ enum SidebarItem {
   Settings = 'settings',
   Courses = 'courses',
   Profile = 'profile',
-  Logout = 'logout'
+  Logout = 'logout',
+  Admin = 'admin'
 }
 
 const DashboardSidebar: React.FC<IDashboardSidebar> = () => {
-  const [selectedItem, setSelectedItem] = useState<SidebarItem | null>(null)
+  const [selectedItem, setSelectedItem] = useState<SidebarItem | string | null>(
+    null
+  )
   const [sidebarExpanded, setSidebarExpanded] = useState<boolean>(false)
-  const { loginWithGoogle, currentUser , logout} = useContext(AuthContext)
-  
+  const { loginWithGoogle, currentUser, logout } = useContext(AuthContext)
+
   const handleClick = (selectedItem: any) => {
     if (selectedItem == SidebarItem.Logout) {
       console.log('logout')
@@ -29,15 +31,22 @@ const DashboardSidebar: React.FC<IDashboardSidebar> = () => {
     setSidebarExpanded(false)
   }
 
+  // set selected by route query
+  useEffect(() => {
+    const query = window.location.pathname.split('/')[1]
+    if (query) {
+      setSelectedItem(query)
+    }
+  }, [])
+
   return (
-    <div>
+    <div className='border-r border-zinc-200'>
       {/* navbar for desktop */}
-      <div className='hidden md:hidden w-64 h-fit lg:block'>
+      <div className='hidden md:hidden w-64 h-fit lg:block '>
         <Navbar
           selectedItem={selectedItem}
           handleClick={(e: any) => handleClick(e)}
         />
-        <DarkModeToggle />
       </div>
 
       {/* navbar for mobile  */}
@@ -106,8 +115,19 @@ const Navbar = ({ selectedItem, handleClick }: any) => {
     }
   ]
 
+  const { currentUser } = useAuth()
+
   return (
-    <nav className='flex flex-col gap-4 h-fit w-64 bg-white'>
+    <nav className='flex flex-col gap-4 h-fit w-64 bg-white p-4'>
+      {currentUser ? (
+        <DashboardSidebarItem
+          href='/admin'
+          icon='shield_person'
+          label='Admin'
+          selected={selectedItem === SidebarItem.Admin}
+          onItemClick={() => handleClick(SidebarItem.Admin)}
+        />
+      ) : null}
       {sidebarItems.map((item, index) => (
         <DashboardSidebarItem
           key={index}

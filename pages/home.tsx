@@ -1,4 +1,4 @@
-import { NextPageWithLayout } from './page'
+import { NextPageWithLayout } from '../util/page'
 import {
   PrimaryLayoutWithSidebar,
   DashboardSidebar
