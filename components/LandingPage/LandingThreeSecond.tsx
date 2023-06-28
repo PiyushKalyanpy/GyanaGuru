@@ -106,7 +106,7 @@ const Contributors = () => {
           />
         </a>
       </div>
-      <LinkItem title="Our Contributors" />
+      <Link title="Our Contributors" />
     </div>
   );
 };
