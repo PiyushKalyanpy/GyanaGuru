@@ -115,11 +115,21 @@ To fix this follow the below steps:
 
 > **Note:** Don't check in for the firebse hosting checkbox!.
 
-7. Copy the code under the firebase config object and paste that in the firebase file in your forked project.
+7. Copy the firebase keys and paste into the .env file as shown in point 8.
 
 ![IMG_20230531_031134](https://github.com/PiyushKalyanpy/GyanaGuru/assets/119070798/c0190b10-8f46-4326-bdc9-4846e050be08)
 
-8. Run the development server.
+8. Make a `.env` file in root folder and paste the values in from of the given keys. make sure to keep the keys name as given below.
+```
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+NEXT_PUBLIC_FIREBASE_APP_ID=
+```
+  
+10. Run the development server.
 
 ```
 npm run dev
