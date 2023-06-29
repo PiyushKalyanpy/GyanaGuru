@@ -9,6 +9,7 @@ import {
   AddCourse,
   UpdateCourse,
   DeleteCourse,
+  Sidebar,
   StudentReport,
   ManageSite
 } from '@/components/admin/exporter'
