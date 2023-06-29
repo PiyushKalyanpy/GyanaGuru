@@ -5,6 +5,14 @@ import {
 } from '@/components/layouts/exporter'
 import { ToastContainer } from 'react-toastify'
 import { useState } from 'react'
+import {
+  AddCourse,
+  UpdateCourse,
+  DeleteCourse,
+  StudentReport,
+  ManageSite
+} from '@/components/admin/exporter'
+
 
 const Admin: NextPageWithLayout = () => {
   const [active, setActive] = useState(1)
