@@ -5,12 +5,12 @@ import {
 } from '@/components/layouts/exporter'
 import { ToastContainer } from 'react-toastify'
 import { useState } from 'react'
-import AddCourse from '@/components/admin/AddCourse'
-import UpdateCourse from '@/components/admin/UpdateCourse'
-import DeleteCourse from '@/components/admin/DeleteCourse'
-import StudentReport from '@/components/admin/StudentReport'
-import ManageSite from '@/components/admin/ManageSite'
-import Sidebar from '@/components/admin/Sidebar'
+import AddCourse from '@/components/adminHandle/AddCourse'
+import UpdateCourse from '@/components/adminHandle/UpdateCourse'
+import DeleteCourse from '@/components/adminHandle/DeleteCourse'
+import StudentReport from '@/components/adminHandle/StudentReport'
+import ManageSite from '@/components/adminHandle/ManageSite'
+import Sidebar from '@/components/adminHandle/Sidebar'
 
 const Admin: NextPageWithLayout = () => {
   const [active, setActive] = useState(1)
