@@ -3,16 +3,7 @@ import {
   PrimaryLayoutWithSidebar,
   DashboardSidebar
 } from '@/components/layouts/exporter'
-import { SidebarItem } from '../util/types'
 import { ToastContainer } from 'react-toastify'
-import {
-  Sidebar,
-  AddCourse,
-  UpdateCourse,
-  StudentReport,
-  ManageSite,
-  DeleteCourse
-} from '@/components/admin/exporter'
 import { useState } from 'react'
 
 const Admin: NextPageWithLayout = () => {
