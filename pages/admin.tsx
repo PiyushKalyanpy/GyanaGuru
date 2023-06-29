@@ -12,7 +12,7 @@ import {
   Sidebar,
   StudentReport,
   ManageSite
-} from '@/components/admin/exporter'
+} from '@/components/admin/components'
 
 
 const Admin: NextPageWithLayout = () => {
