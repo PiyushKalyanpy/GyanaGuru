@@ -18,6 +18,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/depricated/courses/[courseId]", "context/CoursesContext.js", "context/UserContext.js", "context/AuthContext.jsx", "context/CourseContext.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/depricated/courses/[courseId]", "context/CoursesContext.js", "context/UserContext.js", "context/AuthContext.jsx", "context/CourseContext.js", "comopnrnts/admin/*.tsx"],
   "exclude": ["node_modules"]
 }
