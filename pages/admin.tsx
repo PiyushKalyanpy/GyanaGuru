@@ -12,7 +12,7 @@ import {
   StudentReport,
   ManageSite,
   DeleteCourse
-} from '@/components/admin/exporter'
+} from '@/components/admin/Exporter'
 import { useState } from 'react'
 
 const Admin: NextPageWithLayout = () => {
