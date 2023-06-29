@@ -17,6 +17,8 @@ import CourseCardList from './depricated/CoursesComponents/CourseCardList'
 import DarkModeToggle from './util/DarkModeToggle'
 import RightSideBar from './depricated/RightSideBar/RightSideBar'
 import VideoCard from './cards/VideoCard'
+import CategoryCard from './cards/CategoryCard'
+import PlaylistCard from './cards/PlaylistCard'
 
 export {
   PageHeader,
@@ -37,5 +39,7 @@ export {
   HeroSection,
   LandingThreeSecond,
   RightSideBar,
+  CategoryCard,
+  PlaylistCard,
   DarkModeToggle
 }

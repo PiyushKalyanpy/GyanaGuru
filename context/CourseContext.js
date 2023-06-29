@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { db } from "../database/firebase";
 import {
   collection,
@@ -6,15 +6,11 @@ import {
   getDocs,
   deleteDoc,
   doc,
-  onSnapshot,
-  limit,
-  where,
-  query,
   updateDoc,
 } from "firebase/firestore";
 import { useRouter } from "next/router";
-import useSWR from "swr";
 import { showToast } from "@/components/util/Toast";
+import { useAuth } from "./authContext";
 
 export const CourseContext = React.createContext();
 
@@ -27,7 +23,9 @@ export function CourseProvider({ children }) {
   const [playlist, setPlaylist] = useState([]);
   const [videos, setVideos] = useState([]);
   const router = useRouter();
-  const getData = 0;
+  const { currentUser } = useAuth();
+  const getData =
+    currentUser && 1 && ["/courses", "/admin"].includes(router.pathname);
 
   // Category CRUD ----------------------------------------------
 
@@ -49,7 +47,7 @@ export function CourseProvider({ children }) {
     updateDoc(doc(db, "categories", id), course);
   }
 
-  const { data: category, error: categoryError } = useSWR("categories", () => {
+  useEffect(() => {
     if (categories.length === 0 && getData) {
       getDocs(collection(db, "categories")).then((querySnapshot) => {
         const data = querySnapshot.docs.map((doc) => ({
@@ -58,11 +56,9 @@ export function CourseProvider({ children }) {
         }));
         setCategories(data);
         console.log("🧑 Category data downloaded");
-        return data;
-      }),
-        null;
+      });
     }
-  });
+  }, [categories, getData]);
 
   // Playlist CRUD ----------------------------------------------
 
@@ -84,22 +80,18 @@ export function CourseProvider({ children }) {
     updateDoc(doc(db, "playlists", id), playlist);
   }
 
-  const { data: playlists, error: playlistError } = useSWR("playlists", () => {
+  useEffect(() => {
     if (playlist.length === 0 && getData) {
-      getDocs(query(collection(db, "playlists"), limit(4))).then(
-        (querySnapshot) => {
-          const data = querySnapshot.docs.map((doc) => ({
-            ...doc.data(),
-            id: doc.id,
-          }));
-          setPlaylist(data);
-          console.log("🧑 Playlist data downloaded");
-          return data;
-        }
-      ),
-        null;
+      getDocs(collection(db, "playlists")).then((querySnapshot) => {
+        const data = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setPlaylist(data);
+        console.log("🧑 Playlist data downloaded");
+      });
     }
-  });
+  }, [playlist, getData]);
 
   // Video CRUD ----------------------------------------------
 
@@ -117,7 +109,7 @@ export function CourseProvider({ children }) {
     deleteDoc(doc(db, "videos", id));
   }
 
-  const { data: video, error: videoError } = useSWR("videos", () => {
+  useEffect(() => {
     if (videos.length === 0 && getData) {
       getDocs(collection(db, "videos")).then((querySnapshot) => {
         const data = querySnapshot.docs.map((doc) => ({
@@ -126,11 +118,9 @@ export function CourseProvider({ children }) {
         }));
         setVideos(data);
         console.log("🧑 Video data downloaded");
-        return data;
-      }),
-        null;
+      });
     }
-  });
+  }, [videos, getData]);
 
   const value = {
     categories,

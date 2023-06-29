@@ -1,5 +1,5 @@
-import CategoryCard from "@/components/depricated/CoursesComponents/CategoryCard";
-import PlaylistCard from "@/components/depricated/CoursesComponents/PlaylistCard";
+import CategoryCard from "@/components/cards/CategoryCard";
+import PlaylistCard from "@/components/cards/PlaylistCard";
 import Topbar from "@/components/navbars/Topbar";
 import { HomeSidebar } from "@/components/components";
 import { CourseContext } from "@/context/CourseContext";

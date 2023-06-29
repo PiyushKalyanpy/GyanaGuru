@@ -1,12 +1,12 @@
 import { PrimaryLayoutWithSidebar } from '@/components/layouts/exporter'
 import { useContext } from 'react'
-import { VideoCard } from '@/components/components'
+import { VideoCard, CategoryCard, PlaylistCard } from '@/components/components'
 import { NextPageWithLayout } from '@/util/page'
 import { CourseContext } from '@/context/CourseContext'
 import { Topbar } from '@/components/components'
 
 const Courses: NextPageWithLayout = () => {
-  let { videos } = useContext(CourseContext)
+  let { videos, categories, playlist } = useContext(CourseContext)
   // let videos = [
   //   {
   //     id: 'H3n75nHN5qY',
@@ -118,15 +118,62 @@ const Courses: NextPageWithLayout = () => {
   //   }
   // ]
   videos = videos.filter((video: any) => video.restriction === 1)
-  return ( 
-    <section className='w-full h-screen bg-white dark:bg-zinc-950'>
+  return (
+    <section className='w-full h-full bg-zinc-100 dark:bg-zinc-950 border-3 border-red-500 overflow-y-scroll'>
       <Topbar />
-      <div className='grid grid-cols-3   gap-4 p-4 '>
-        {videos.map((video: any) => (
-          <VideoCard key={video.id} video={video} />
-        ))}
-      </div>
+      <CategoryList categories={categories} />
+      <PlaylistList playlists={playlist} playlistTitle={`Popular playlists`} />
+      <VideoList videos={videos} videoTitle={`Popular videos`} />
     </section>
+  )
+}
+
+const CategoryList = ({ categories }: any) => {
+  return (
+    <div className='flex flex-col p-4 space-y-4 overflow-hidden w-full'>
+      <h2>Categories</h2>
+      <div className='flex gap-4 overflow-x-scroll hide-scrollbar'>
+        {categories.length > 0 &&
+          categories.map((category: any) => (
+            <CategoryCard
+              key={category.id}
+              imageUrl={category.imageUrl}
+              name={category.name}
+              id={category.id}
+            />
+          ))}
+      </div>
+    </div>
+  )
+}
+
+const PlaylistList = ({ playlists, playlistTitle }: any) => {
+  return (
+    <div className='flex flex-col p-4 space-y-4'>
+      <h2>{playlistTitle} </h2>
+      <div className='grid grid-cols-4 gap-4'>
+        {playlists &&
+          playlists.length > 0 &&
+          playlists.map((playlist: any) => (
+            <PlaylistCard key={playlist.id} playlist={playlist} />
+          ))}
+      </div>
+    </div>
+  )
+}
+
+const VideoList = ({ videos, videoTitle }: any) => {
+  return (
+    <div className='flex flex-col p-4 space-y-4'>
+      <h2>{videoTitle} </h2>
+      <div className='grid grid-cols-4 gap-4'>
+        {videos &&
+          videos.length > 0 &&
+          videos.map((video: any) => (
+            <VideoCard key={video.id} video={video} />
+          ))}
+      </div>
+    </div>
   )
 }
 

@@ -146,7 +146,6 @@ const AddCategory = ({ addCategory }: any) => {
 
 // form for adding new playlist
 const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
-  console.log(categories)
   const userId = currentUser && currentUser.uid
   const [playlist, setPlaylist] = useState<Playlist>({
     id: 0,
@@ -294,7 +293,6 @@ const AddPlaylist = ({ addPlaylist, categories, currentUser }: any) => {
 // form for adding new video
 const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
   const userId = currentUser && currentUser.uid
-  console.log(playlists)
   const [video, setVideo] = useState({
     id: 0,
     name: '',
@@ -357,14 +355,12 @@ const AddVideo = ({ addVideo, categories, playlists, currentUser }: any) => {
     const response = await fetch(url)
     const data = await response.json()
     const videoData = data.items[0].snippet
-    console.log(data)
     setVideo({
       ...video,
       name: videoData.title,
       description: videoData.description,
       imageUrl: videoData.thumbnails.standard.url
     })
-    console.log(video)
   }
 
   return (

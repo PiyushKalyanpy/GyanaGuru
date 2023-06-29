@@ -40,7 +40,7 @@ const DashboardSidebar: React.FC<IDashboardSidebar> = () => {
   }, [])
 
   return (
-    <div className='border-r border-zinc-200'>
+    <div className='flex border-r border-zinc-200'>
       {/* navbar for desktop */}
       <div className='hidden md:hidden w-64 h-fit lg:block '>
         <Navbar

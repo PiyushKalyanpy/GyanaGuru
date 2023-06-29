@@ -26,7 +26,7 @@ const VideoCard = ({ video }: any) => {
       onClick={handleClick}
       className='w-full overflow-hidden bg-white cursor-pointer select-none  dark:bg-zinc-900 rounded-xl'
     >
-      <div className='relative h-48'>
+      <div className='relative h-40'>
         <Image
           src={imageUrl}
           alt='Thumbnail'

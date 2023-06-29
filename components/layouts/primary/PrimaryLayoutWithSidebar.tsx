@@ -19,10 +19,9 @@ const PrimaryLayoutWithSidebar: React.FC<IPrimaryLayoutWithSidebar> = ({
       <Head>
         <title>Sidebar</title>
       </Head>
-      <main className='flex flex-col  lg:flex-row'>
+      <main className=' w-screen h-screen flex flex-col  lg:flex-row  overflow-hidden'>
         <DashboardSidebar />
-        <div className='w-full'
-        >{children}</div>
+        <div className='w-full overflow-hidden'>{children}</div>
       </main>
     </>
   )

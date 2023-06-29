@@ -94,6 +94,14 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   background: #c8c7c7;
 }
 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
