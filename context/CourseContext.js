@@ -10,7 +10,7 @@ import {
 } from "firebase/firestore";
 import { useRouter } from "next/router";
 import { showToast } from "@/components/util/Toast";
-import { useAuth } from "./authContext";
+import { useAuth } from "./AuthContext";
 
 export const CourseContext = React.createContext();
 

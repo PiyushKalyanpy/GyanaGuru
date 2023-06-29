@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState, useEffect, ChangeEvent } from "react";
 import { useContext } from "react";
-import { AuthContext } from "../../context/authContext";
+import { AuthContext } from "../../context/AuthContext";
 import { DarkModeToggle } from "../components";
 
 const Topbar = () => {

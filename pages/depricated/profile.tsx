@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import Image from 'next/image'
-import {  useAuth } from '../../context/authContext'
+import {  useAuth } from '../../context/AuthContext'
 import { showToast } from '@/components/util/Toast'
 import { ToastContainer } from 'react-toastify'
 import { PrimaryLayout } from '@/components/layouts/exporter'

@@ -1,6 +1,6 @@
 import DashboardSidebarItem from './DashboardSidebarItem'
 import React, { useState, useContext } from 'react'
-import { AuthContext, useAuth } from '../../../context/authContext'
+import { AuthContext, useAuth } from '../../../context/AuthContext'
 import { useEffect } from 'react'
 
 export interface IDashboardSidebar {}

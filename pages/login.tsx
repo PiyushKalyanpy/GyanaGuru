@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useContext, useState } from 'react'
 import Link from 'next/link'
 import { ToastContainer, toast } from 'react-toastify'
-import { AuthContext } from '@/context/authContext'
+import { AuthContext } from '@/context/AuthContext'
 
 const Login = () => {
   const router = useRouter()
