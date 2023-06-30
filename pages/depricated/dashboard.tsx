@@ -15,12 +15,11 @@ const Dashboard = () => {
     { label: "Science", value: 60 },
     { label: "Hindi", value: 300 },
   ];
-  
+
   useEffect(() => {
     setCookie("reachedDashboard", true);
     console.log("reached dashboard");
-  }
-  , []);
+  }, []);
 
   return (
     <div className="grid w-screen h-screen grid-cols-12 overflow-hidden bg-zinc-100 dark:bg-zinc-900">

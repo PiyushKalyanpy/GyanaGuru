@@ -87,13 +87,12 @@ const Navbar = ({ selectedItem, handleClick }: any) => {
       label: "Profile",
       selected: selectedItem === SidebarItem.Profile,
       onItemClick: () => handleClick(SidebarItem.Profile),
-    }, 
+    },
     {
-      href : "/login",
-      icon : "logout", 
-      label : "Logout", 
-    
-    }
+      href: "/login",
+      icon: "logout",
+      label: "Logout",
+    },
   ];
 
   return (

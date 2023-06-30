@@ -1,7 +1,5 @@
 import React from "react";
-import {
-  PrimaryLayoutWithSidebar,
-} from "@/components/layouts/exporter";
+import { PrimaryLayoutWithSidebar } from "@/components/layouts/exporter";
 import { NextPageWithLayout } from "../../util/page";
 
 const Settings: NextPageWithLayout = () => {
