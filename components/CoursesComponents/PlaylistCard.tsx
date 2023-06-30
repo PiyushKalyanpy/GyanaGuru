@@ -50,3 +50,4 @@ const PlaylistCard = ({ playlist }: any) => {
 };
 
 export default PlaylistCard;
+

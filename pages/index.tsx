@@ -66,7 +66,7 @@ export default function Home() {
                 Your contribution matters!
               </h6>
             </div>
-            <span className="mx-10 text-xl text-center  text-zinc-600">
+            <span className='mx-10 text-xl text-center  text-zinc-600'>
               Kindly note that we kindly request you to wait until August 1,
               2023, before raising any new issues. We are actively engaged in
               the project and will be prepared to accept both issues and pull
@@ -75,10 +75,10 @@ export default function Home() {
             <div className="flex flex-row space-x-6">
               <button
                 onClick={() => setShowPopup(false)}
-                className="flex px-4 py-2 text-xl border rounded-full text-zinc-600"
                 // a11y
                 role="button"
                 aria-label="Navigate to Contributors Page"
+                className='flex px-4 py-2 text-xl text-white bg-black rounded-full'
               >
                 Ok 👍
               </button>
