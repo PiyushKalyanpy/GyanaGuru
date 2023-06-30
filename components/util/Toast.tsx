@@ -12,9 +12,15 @@ const toastOptions = {
   theme: "light" as Theme,
 };
 
-const showToast = (message: string, type: "success" | "error" | "info") => {
-  console.log(message);
-  return <div>{toast[type](message, toastOptions)}</div>;
+
+
+const showToast = (message: string, type: "success" | "error" | "info"  ) => {
+    console.log(message)
+  return (
+    <div>
+      {toast[type](message, toastOptions)}
+    </div>
+  )
 };
 
 export { showToast };

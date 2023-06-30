@@ -9,7 +9,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }: any) => {
       <Head>
         <title>Dashboard</title>
       </Head>
-
+      
       <main>{children}</main>
     </>
   );
