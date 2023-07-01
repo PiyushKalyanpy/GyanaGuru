@@ -1,9 +1,5 @@
 const ManageSite = () => {
-    return (
-        <div>
-            manageSite
-        </div>
-    );
-}
+  return <div>manageSite</div>;
+};
 
 export default ManageSite;

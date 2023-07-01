@@ -1,7 +1,6 @@
-import SettingsBarItem from "@/components/depricated/SettingsBar/Item";
-import HomeSidebar from "@/components/depricated/Utils/HomeSidebar";
-import SettingsBar from "@/components/depricated/SettingsBar";
-
+import SettingsBarItem from '@/components/depricated/SettingsBar/Item';
+import HomeSidebar from '@/components/depricated/Utils/HomeSidebar';
+import SettingsBar from '@/components/depricated/SettingsBar';
 
 const PaymentBilling = () => {
   return (
@@ -10,9 +9,7 @@ const PaymentBilling = () => {
         <HomeSidebar pageNumber={4} />
       </div>
       <div className="col-span-3 p-2">
-        <SettingsBar
-          activeItem={7}
-        />
+        <SettingsBar activeItem={7} />
       </div>
     </div>
   );

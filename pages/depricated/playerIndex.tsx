@@ -1,9 +1,9 @@
-import { CourseContext } from "@/context/CourseContext";
-import React, { useContext, useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import YouTube, { YouTubeProps } from "react-youtube";
-import Commets from "@/components/depricated/VideoPlayer/Commets";
-import CourseContent from "@/components/depricated/CoursesComponents/CourseContent";
+import { CourseContext } from '@/context/CourseContext';
+import React, { useContext, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import YouTube, { YouTubeProps } from 'react-youtube';
+import Commets from '@/components/depricated/VideoPlayer/Commets';
+import CourseContent from '@/components/depricated/CoursesComponents/CourseContent';
 
 const VideosPage = () => {
   const router = useRouter();
@@ -38,8 +38,7 @@ const VideosPage = () => {
       <div className="flex w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-bl-2xl rounded-r-3xl">
         {/* video section */}
         <div className="flex flex-col h-full p-4 md:w-full lg:w-3/4 ">
-          <div className="flex w-full overflow-hidden h-3/4 rounded-3xl bg-zinc-200">
-          </div>
+          <div className="flex w-full overflow-hidden h-3/4 rounded-3xl bg-zinc-200"></div>
           {/* comment section */}
           <div className="flex w-full h-1/4 rounded-xl ">
             <div className="flex w-full overflow-y-scroll ">

@@ -1,10 +1,10 @@
-import Image from "next/image";
-import { useRouter } from "next/router";
-import { useEffect, useContext, useState } from "react";
-import { AuthContext } from "../../context/AuthContext";
-import Link from "next/link";
-import { ToastContainer, toast } from "react-toastify";
-import { showToast } from "@/components/util/Toast";
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useEffect, useContext, useState } from 'react';
+import { AuthContext } from '../../context/AuthContext';
+import Link from 'next/link';
+import { ToastContainer, toast } from 'react-toastify';
+import { showToast } from '@/components/util/Toast';
 
 const SignUp = () => {
   const router = useRouter();
@@ -25,7 +25,7 @@ const SignUp = () => {
           </div>
           <div className="flex flex-col items-center space-y-2">
             <h2 className="text-2xl font-bold font-archivo text-black ">
-              Create Account{" "}
+              Create Account{' '}
             </h2>
             <p className="text-center text-zinc-500">
               Discover the magic of Gyanaguru with just one click!

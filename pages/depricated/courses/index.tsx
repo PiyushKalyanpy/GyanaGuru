@@ -1,13 +1,13 @@
-import { NextPageWithLayout } from '../../../util/page'
-import { PrimaryLayoutWithSidebar } from '@/components/layouts/exporter'
-import { useContext } from 'react'
-import { CourseContext } from '../../../context/CourseContext'
-import { VideoCard } from '@/components/components'
+import { NextPageWithLayout } from '../../../util/page';
+import { PrimaryLayoutWithSidebar } from '@/components/layouts/exporter';
+import { useContext } from 'react';
+import { CourseContext } from '../../../context/CourseContext';
+import { VideoCard } from '@/components/components';
 
 const Courses: NextPageWithLayout = () => {
-  const { videos } = useContext(CourseContext)
+  const { videos } = useContext(CourseContext);
   return (
-    <section className='w-full h-screen bg-white'>
+    <section className="w-full h-screen bg-white">
       nknj
       {videos.map((video: any) => (
         <VideoCard
@@ -18,11 +18,11 @@ const Courses: NextPageWithLayout = () => {
         />
       ))}
     </section>
-  )
-}
+  );
+};
 
-export default Courses
+export default Courses;
 
 Courses.getLayout = page => {
-  return <PrimaryLayoutWithSidebar>{page}</PrimaryLayoutWithSidebar>
-}
+  return <PrimaryLayoutWithSidebar>{page}</PrimaryLayoutWithSidebar>;
+};

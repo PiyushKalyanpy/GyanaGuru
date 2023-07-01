@@ -1,5 +1,4 @@
-    export enum SidebarItem {
-        Dashboard = "dashboard",
-        Settings = "settings",
-    }
-
+export enum SidebarItem {
+  Dashboard = 'dashboard',
+  Settings = 'settings',
+}

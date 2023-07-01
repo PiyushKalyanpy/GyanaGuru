@@ -1,4 +1,4 @@
-import { ToastContainer } from "react-toastify";
+import { ToastContainer } from 'react-toastify';
 import {
   Sidebar,
   AddCourse,
@@ -6,8 +6,8 @@ import {
   StudentReport,
   ManageSite,
   DeleteCourse,
-} from "../../../components/adminHandle/components";
-import { useState } from "react";
+} from '../../../components/adminHandle/components';
+import { useState } from 'react';
 
 const Admin = () => {
   const [active, setActive] = useState(1);
@@ -15,8 +15,7 @@ const Admin = () => {
   return (
     <div className="grid w-screen h-screen grid-cols-12 bg-zinc-100">
       <div className="absolute">
-      <ToastContainer />
-
+        <ToastContainer />
       </div>
       {/* sidebar */}
       <div className="col-span-2 shadow-2xl shadow-zinc-200">
@@ -33,7 +32,6 @@ const Admin = () => {
           if (active == 5) return <ManageSite />;
         })()}
       </div>
-      
     </div>
   );
 };

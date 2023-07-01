@@ -1,4 +1,4 @@
-import { HomeSidebar } from "../../components/components";
+import { HomeSidebar } from '../../components/components';
 
 const Settings = () => {
   return (

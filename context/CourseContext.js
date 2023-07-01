@@ -1,5 +1,5 @@
-import React, { useState, useContext, useEffect } from "react";
-import { db } from "../database/firebase";
+import React, { useState, useContext, useEffect } from 'react';
+import { db } from '../database/firebase';
 import {
   collection,
   addDoc,
@@ -7,10 +7,10 @@ import {
   deleteDoc,
   doc,
   updateDoc,
-} from "firebase/firestore";
-import { useRouter } from "next/router";
-import { showToast } from "@/components/util/Toast";
-import { useAuth } from "./AuthContext";
+} from 'firebase/firestore';
+import { useRouter } from 'next/router';
+import { showToast } from '@/components/util/Toast';
+import { useAuth } from './AuthContext';
 
 export const CourseContext = React.createContext();
 
@@ -25,37 +25,37 @@ export function CourseProvider({ children }) {
   const router = useRouter();
   const { currentUser } = useAuth();
   const getData =
-    currentUser && 1 && ["/courses", "/admin"].includes(router.pathname);
+    currentUser && 1 && ['/courses', '/admin'].includes(router.pathname);
 
   // Category CRUD ----------------------------------------------
 
   function addCategory(category) {
-    addDoc(collection(db, "categories"), category)
+    addDoc(collection(db, 'categories'), category)
       .then(() => {
-        showToast("Category added successfully", "success");
+        showToast('Category added successfully', 'success');
       })
-      .catch((error) => {
-        showToast(error.message, "error");
+      .catch(error => {
+        showToast(error.message, 'error');
       });
   }
 
   function deleteCategory(id) {
-    deleteDoc(doc(db, "categories", id));
+    deleteDoc(doc(db, 'categories', id));
   }
 
   function updateCategory(id, course) {
-    updateDoc(doc(db, "categories", id), course);
+    updateDoc(doc(db, 'categories', id), course);
   }
 
   useEffect(() => {
     if (categories.length === 0 && getData) {
-      getDocs(collection(db, "categories")).then((querySnapshot) => {
-        const data = querySnapshot.docs.map((doc) => ({
+      getDocs(collection(db, 'categories')).then(querySnapshot => {
+        const data = querySnapshot.docs.map(doc => ({
           ...doc.data(),
           id: doc.id,
         }));
         setCategories(data);
-        console.log("🧑 Category data downloaded");
+        console.log('🧑 Category data downloaded');
       });
     }
   }, [categories, getData]);
@@ -63,32 +63,32 @@ export function CourseProvider({ children }) {
   // Playlist CRUD ----------------------------------------------
 
   function addPlaylist(playlist) {
-    addDoc(collection(db, "playlists"), playlist)
+    addDoc(collection(db, 'playlists'), playlist)
       .then(() => {
-        showToast("Playlist added successfully", "success");
+        showToast('Playlist added successfully', 'success');
       })
-      .catch((error) => {
-        showToast(error.message, "error");
+      .catch(error => {
+        showToast(error.message, 'error');
       });
   }
 
   function deletePlaylist(id) {
-    deleteDoc(doc(db, "playlists", id));
+    deleteDoc(doc(db, 'playlists', id));
   }
 
   function updatePlaylist(id, playlist) {
-    updateDoc(doc(db, "playlists", id), playlist);
+    updateDoc(doc(db, 'playlists', id), playlist);
   }
 
   useEffect(() => {
     if (playlist.length === 0 && getData) {
-      getDocs(collection(db, "playlists")).then((querySnapshot) => {
-        const data = querySnapshot.docs.map((doc) => ({
+      getDocs(collection(db, 'playlists')).then(querySnapshot => {
+        const data = querySnapshot.docs.map(doc => ({
           ...doc.data(),
           id: doc.id,
         }));
         setPlaylist(data);
-        console.log("🧑 Playlist data downloaded");
+        console.log('🧑 Playlist data downloaded');
       });
     }
   }, [playlist, getData]);
@@ -96,28 +96,28 @@ export function CourseProvider({ children }) {
   // Video CRUD ----------------------------------------------
 
   function addVideo(video) {
-    addDoc(collection(db, "videos"), video)
+    addDoc(collection(db, 'videos'), video)
       .then(() => {
-        showToast("Video added successfully", "success");
+        showToast('Video added successfully', 'success');
       })
-      .catch((error) => {
-        showToast(error.message, "error");
+      .catch(error => {
+        showToast(error.message, 'error');
       });
   }
 
   function deleteVideo(id) {
-    deleteDoc(doc(db, "videos", id));
+    deleteDoc(doc(db, 'videos', id));
   }
 
   useEffect(() => {
     if (videos.length === 0 && getData) {
-      getDocs(collection(db, "videos")).then((querySnapshot) => {
-        const data = querySnapshot.docs.map((doc) => ({
+      getDocs(collection(db, 'videos')).then(querySnapshot => {
+        const data = querySnapshot.docs.map(doc => ({
           ...doc.data(),
           id: doc.id,
         }));
         setVideos(data);
-        console.log("🧑 Video data downloaded");
+        console.log('🧑 Video data downloaded');
       });
     }
   }, [videos, getData]);

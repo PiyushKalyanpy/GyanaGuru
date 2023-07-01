@@ -1,9 +1,9 @@
-import { NextPageWithLayout } from "../util/page";
+import { NextPageWithLayout } from '../util/page';
 import {
   PrimaryLayoutWithSidebar,
   DashboardSidebar,
-} from "@/components/layouts/exporter";
-import { SidebarItem } from "../util/types";
+} from '@/components/layouts/exporter';
+import { SidebarItem } from '../util/types';
 
 const Dashboard: NextPageWithLayout = () => {
   return (
@@ -15,6 +15,6 @@ const Dashboard: NextPageWithLayout = () => {
 
 export default Dashboard;
 
-Dashboard.getLayout = (page) => {
+Dashboard.getLayout = page => {
   return <PrimaryLayoutWithSidebar>{page}</PrimaryLayoutWithSidebar>;
 };

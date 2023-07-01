@@ -1,26 +1,25 @@
-import ContributionButton from "@/components/depricated/Utils/ContributionButton";
-import { HomeSidebar } from "../../components/components";
-import { RightSideBar } from "../../components/components";
-import NumberInfo from "@/components/depricated/Dashboard/NumberInfo";
-import { setCookie } from "cookies-next";
-import { useEffect } from "react";
+import ContributionButton from '@/components/depricated/Utils/ContributionButton';
+import { HomeSidebar } from '../../components/components';
+import { RightSideBar } from '../../components/components';
+import NumberInfo from '@/components/depricated/Dashboard/NumberInfo';
+import { setCookie } from 'cookies-next';
+import { useEffect } from 'react';
 
 const Dashboard = () => {
   const data = [
     // label as subject name and value as time spent in minutes
-    { label: "Computer", value: 360 },
-    { label: "Maths", value: 120 },
-    { label: "Social", value: 240 },
-    { label: "English", value: 180 },
-    { label: "Science", value: 60 },
-    { label: "Hindi", value: 300 },
+    { label: 'Computer', value: 360 },
+    { label: 'Maths', value: 120 },
+    { label: 'Social', value: 240 },
+    { label: 'English', value: 180 },
+    { label: 'Science', value: 60 },
+    { label: 'Hindi', value: 300 },
   ];
-  
+
   useEffect(() => {
-    setCookie("reachedDashboard", true);
-    console.log("reached dashboard");
-  }
-  , []);
+    setCookie('reachedDashboard', true);
+    console.log('reached dashboard');
+  }, []);
 
   return (
     <div className="grid w-screen h-screen grid-cols-12 overflow-hidden bg-zinc-100 dark:bg-zinc-900">
@@ -52,11 +51,11 @@ const BarChart = ({
   data: { label: string; value: number }[];
   title: any;
 }) => {
-  const maxDataValue = Math.max(...data.map((item) => item.value));
+  const maxDataValue = Math.max(...data.map(item => item.value));
   // array of values in decreasing order
   const sortedData = data.sort((a, b) => b.value - a.value);
   // adding a empty value at last
-  sortedData.push({ label: "", value: 0 });
+  sortedData.push({ label: '', value: 0 });
 
   return (
     <div className="flex flex-col w-3/4 h-full gap-8 p-8 bg-white rounded-xl dark:bg-zinc-800">
@@ -84,7 +83,7 @@ const BarChart = ({
       <div className="flex items-end justify-between w-full h-full p-4">
         {/* div showing the values in sidebar */}
         <div className="flex flex-col justify-center h-full">
-          {sortedData.map((item) => (
+          {sortedData.map(item => (
             <div
               key={item.label}
               className="flex flex-col h-full gap-4 place-content-start w-fit"
@@ -98,7 +97,7 @@ const BarChart = ({
           ))}
         </div>
 
-        {data.map((item) => (
+        {data.map(item => (
           <div
             key={item.label}
             className="flex flex-col items-center justify-end h-full gap-4 w-fit"

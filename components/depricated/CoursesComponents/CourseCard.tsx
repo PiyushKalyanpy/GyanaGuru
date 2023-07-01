@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { useRouter } from "next/router";
+import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const CourseCard = ({ item }: any) => {
   const router = useRouter();
@@ -7,17 +7,20 @@ const CourseCard = ({ item }: any) => {
     router.push(`/courses/${item.youtubeId}`);
   };
   const courseData = {
-    tagTitle: "Web Development",
+    tagTitle: 'Web Development',
     thumbnailUrl:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2ViJTIwZGV2bG9wbWVudCUyMGNvdXJzZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-    courseTitle: "Web development Bootcamp with MERN stack",
-    duration: "2 hr 23 m",
-    lectures: "12 lectures",
+      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2ViJTIwZGV2bG9wbWVudCUyMGNvdXJzZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+    courseTitle: 'Web development Bootcamp with MERN stack',
+    duration: '2 hr 23 m',
+    lectures: '12 lectures',
     ratingCount: 4,
     voteCount: 34,
   };
   return (
-    <div onClick={() => handleCardClick()} className="flex select-none flex-auto gap-4 p-4 m-4 transition bg-white snap-start rounded-3xl hover:bg-gray-100 shrink-0 w-fit">
+    <div
+      onClick={() => handleCardClick()}
+      className="flex select-none flex-auto gap-4 p-4 m-4 transition bg-white snap-start rounded-3xl hover:bg-gray-100 shrink-0 w-fit"
+    >
       {/* course image */}
       <div className="relative w-32 h-full p-6 rounded-3xl ">
         <Image
@@ -39,17 +42,24 @@ const CourseCard = ({ item }: any) => {
             {item && item.courseTitle}
           </h3>
           <div className="flex flex-row space-x-8">
-            <CourseSubTag Icon={<DurationIcon />} text={item && item.duration} courseText="duration"/>
-            <CourseSubTag Icon={<CourseIcon />} text={item && item.lectures} courseText="lectures"/>
+            <CourseSubTag
+              Icon={<DurationIcon />}
+              text={item && item.duration}
+              courseText="duration"
+            />
+            <CourseSubTag
+              Icon={<CourseIcon />}
+              text={item && item.lectures}
+              courseText="lectures"
+            />
           </div>
         </div>
         <div className="flex items-center justify-between pt-2 border-t-2 ">
-            
-        <Rating
-          ratingCount={item && item.ratingCount}
-          voteCount={item && item.voteCount}
-        />
-        <span className="text-blue-500 material-icons">chevron_right</span>
+          <Rating
+            ratingCount={item && item.ratingCount}
+            voteCount={item && item.voteCount}
+          />
+          <span className="text-blue-500 material-icons">chevron_right</span>
         </div>
       </div>
     </div>
@@ -68,7 +78,7 @@ const CourseTag = ({ tagTitle }: any) => {
     </>
   );
 };
-const CourseSubTag = ({ Icon, text , courseText}: any) => {
+const CourseSubTag = ({ Icon, text, courseText }: any) => {
   return (
     <div className="flex flex-row space-x-2 text-gray-600">
       {/* <span className="text-xs material-icons">{iconClass}</span> */}
@@ -83,11 +93,11 @@ const Rating = ({ ratingCount, voteCount }: any) => {
   return (
     <div className="flex flex-row space-x-2 ">
       <div className="flex text-yellow-400 ">
-        <FullStarIcon/>
-        <FullStarIcon/>
-        <FullStarIcon/>
-        <FullStarIcon/>
-        <FullStarIcon/>
+        <FullStarIcon />
+        <FullStarIcon />
+        <FullStarIcon />
+        <FullStarIcon />
+        <FullStarIcon />
       </div>
 
       <p>·</p>

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React, { useState, useContext, useEffect } from "react";
-import { auth, db } from "../database/firebase";
+import React, { useState, useContext, useEffect } from 'react';
+import { auth, db } from '../database/firebase';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -9,12 +9,12 @@ import {
   signOut,
   signInWithPopup,
   GoogleAuthProvider,
-} from "firebase/auth";
-import { setCookie } from "cookies-next";
-import { doc, getDoc, setDoc } from "firebase/firestore";
-import { toast } from "react-toastify";
-import { useRouter } from "next/router";
-import { showToast } from "@/components/util/Toast";
+} from 'firebase/auth';
+import { setCookie } from 'cookies-next';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/router';
+import { showToast } from '@/components/util/Toast';
 
 export const AuthContext = React.createContext();
 
@@ -29,29 +29,29 @@ export function AuthProvider({ children }) {
 
   const loginWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider).then((result) => {
+    signInWithPopup(auth, provider).then(result => {
       // check if user is present in user firestore database
-      const docRef = doc(db, "users", result.user.uid);
-      getDoc(docRef).then((docSnap) => {
+      const docRef = doc(db, 'users', result.user.uid);
+      getDoc(docRef).then(docSnap => {
         if (docSnap.exists()) {
           // user exists
-          console.log("user exists");
-          router.push("/courses");
+          console.log('user exists');
+          router.push('/courses');
         } else {
           // user does not exist
-          console.log("user does not exist");
-          setDoc(doc(db, "users", result.user.email), {
+          console.log('user does not exist');
+          setDoc(doc(db, 'users', result.user.email), {
             email: result.user.email,
             name: result.user.displayName,
             photoURL: result.user.photoURL,
             uid: result.user.uid,
-            role: "user",
+            role: 'user',
             createdAt: new Date(),
             isVerified: result.user.emailVerified,
             isActive: false,
             isOnline: false,
           });
-          router.push("/courses");
+          router.push('/courses');
         }
       });
     });
@@ -60,15 +60,15 @@ export function AuthProvider({ children }) {
   const logout = () => {
     signOut(auth).then(() => {
       setCurrentUser(null);
-      router.push("/login");
+      router.push('/login');
     });
   };
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
       setCurrentUser(user);
       setLoading(false);
       if (user) {
-        setCookie("uid", user.uid);
+        setCookie('uid', user.uid);
       }
     });
   }, []);

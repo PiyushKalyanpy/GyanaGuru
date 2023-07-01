@@ -1,17 +1,17 @@
-import DashboardSidebar from '../sidebar/DashboardSidebar'
-import Head from 'next/head'
-import { useAuth } from '../../../context/AuthContext'
+import DashboardSidebar from '../sidebar/DashboardSidebar';
+import Head from 'next/head';
+import { useAuth } from '../../../context/AuthContext';
 
 export interface IPrimaryLayoutWithSidebar {
-  children: any
+  children: any;
 }
 
 const PrimaryLayoutWithSidebar: React.FC<IPrimaryLayoutWithSidebar> = ({
-  children
+  children,
 }: any) => {
-  const { currentUser } = useAuth()
+  const { currentUser } = useAuth();
   if (!currentUser) {
-    return <div>loading...</div>
+    return <div>loading...</div>;
   }
 
   return (
@@ -19,12 +19,12 @@ const PrimaryLayoutWithSidebar: React.FC<IPrimaryLayoutWithSidebar> = ({
       <Head>
         <title>Sidebar</title>
       </Head>
-      <main className=' w-screen h-screen flex flex-col  lg:flex-row  overflow-hidden'>
+      <main className=" w-screen h-screen flex flex-col  lg:flex-row  overflow-hidden">
         <DashboardSidebar />
-        <div className='w-full overflow-hidden'>{children}</div>
+        <div className="w-full overflow-hidden">{children}</div>
       </main>
     </>
-  )
-}
+  );
+};
 
-export default PrimaryLayoutWithSidebar
+export default PrimaryLayoutWithSidebar;

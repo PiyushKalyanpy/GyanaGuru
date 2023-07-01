@@ -2,23 +2,23 @@ const CourseContent = () => {
   const sampleChapters = [
     {
       id: 0,
-      chapterName: "Introuction",
-      timestamp: "01 : 22",
+      chapterName: 'Introuction',
+      timestamp: '01 : 22',
     },
     {
       id: 1,
-      chapterName: "Installing code editor",
-      timestamp: "01 : 22",
+      chapterName: 'Installing code editor',
+      timestamp: '01 : 22',
     },
     {
       id: 2,
-      chapterName: "How internet works",
-      timestamp: "01 : 22",
+      chapterName: 'How internet works',
+      timestamp: '01 : 22',
     },
     {
       id: 3,
-      chapterName: "Level 1",
-      timestamp: "01 : 22",
+      chapterName: 'Level 1',
+      timestamp: '01 : 22',
     },
   ];
 
@@ -32,7 +32,7 @@ const CourseContent = () => {
   return (
     <div className="flex w-full h-full">
       <div className="flex flex-col w-full space-y-4 ">
-        {sampleChapters.map((chapter) => {
+        {sampleChapters.map(chapter => {
           return (
             <ChapterComponent
               chapterData={chapter}
@@ -52,10 +52,10 @@ const ChapterComponent = ({ chapterData, doneStatus }: any) => {
       className={
         `flex flex-row justify-between w-full px-4 py-2 items-center  rounded-xl ` +
         (doneStatus === 1
-          ? "bg-zinc-50"
+          ? 'bg-zinc-50'
           : doneStatus === 0
-          ? "bg-black"
-          : "bg-white")
+          ? 'bg-black'
+          : 'bg-white')
       }
     >
       <div className="flex flex-row items-center space-x-4 ">
@@ -72,10 +72,10 @@ const ChapterComponent = ({ chapterData, doneStatus }: any) => {
           className={
             `` +
             (doneStatus === 1
-              ? "text-black"
+              ? 'text-black'
               : doneStatus === 0
-              ? "text-white"
-              : "text-black")
+              ? 'text-white'
+              : 'text-black')
           }
         >
           {chapterData.chapterName}
@@ -85,10 +85,10 @@ const ChapterComponent = ({ chapterData, doneStatus }: any) => {
         className={
           `` +
           (doneStatus === 1
-            ? "text-black"
+            ? 'text-black'
             : doneStatus === 0
-            ? "text-white"
-            : "text-black")
+            ? 'text-white'
+            : 'text-black')
         }
       >
         {chapterData.timestamp}
@@ -102,8 +102,8 @@ const CheckCircleIcon = () => {
     <div>
       <span
         style={{
-          color: "#0BB312",
-          fontSize: "40px",
+          color: '#0BB312',
+          fontSize: '40px',
         }}
         className="text-green-600 material-icons "
       >
@@ -118,8 +118,8 @@ const CurrentPlayingIcon = () => {
     <div className="">
       <span
         style={{
-          color: "white",
-          fontSize: "40px",
+          color: 'white',
+          fontSize: '40px',
         }}
         className="text-green-600 material-icons-outlined "
       >
@@ -134,8 +134,8 @@ const PlayIcon = () => {
     <div>
       <span
         style={{
-          color: "black",
-          fontSize: "40px",
+          color: 'black',
+          fontSize: '40px',
         }}
         className="text-green-600 material-icons-outlined "
       >

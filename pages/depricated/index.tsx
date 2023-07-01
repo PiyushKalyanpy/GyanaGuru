@@ -1,11 +1,11 @@
-import CategoryCard from "@/components/cards/CategoryCard";
-import PlaylistCard from "@/components/cards/PlaylistCard";
-import Topbar from "@/components/navbars/Topbar";
-import { HomeSidebar } from "@/components/components";
-import { CourseContext } from "@/context/CourseContext";
-import { useContext, useEffect } from "react";
-import { useState } from "react";
-import { useCollection } from "react-firebase-hooks/firestore";
+import CategoryCard from '@/components/cards/CategoryCard';
+import PlaylistCard from '@/components/cards/PlaylistCard';
+import Topbar from '@/components/navbars/Topbar';
+import { HomeSidebar } from '@/components/components';
+import { CourseContext } from '@/context/CourseContext';
+import { useContext, useEffect } from 'react';
+import { useState } from 'react';
+import { useCollection } from 'react-firebase-hooks/firestore';
 import {
   collection,
   query,
@@ -15,8 +15,8 @@ import {
   doc,
   setDoc,
   limit,
-} from "firebase/firestore";
-import { db } from "@/database/firebase";
+} from 'firebase/firestore';
+import { db } from '@/database/firebase';
 
 const Course = () => {
   const { categories, playlist } = useContext(CourseContext);

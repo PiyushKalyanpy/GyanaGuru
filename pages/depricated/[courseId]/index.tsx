@@ -1,15 +1,15 @@
-import { useRouter } from "next/router";
-import { useContext, useEffect } from "react";
-import { CourseContext } from "../../../context/CourseContext";
-import PlaylistCard from "@/components/cards/PlaylistCard";
-import { Topbar } from "@/components/components";
+import { useRouter } from 'next/router';
+import { useContext, useEffect } from 'react';
+import { CourseContext } from '../../../context/CourseContext';
+import PlaylistCard from '@/components/cards/PlaylistCard';
+import { Topbar } from '@/components/components';
 
 const PlaylistPages = () => {
   const router = useRouter();
   const { courseId } = router.query;
   const { playlist } = useContext(CourseContext);
   const curretPlaylist = playlist.filter(
-    (item: any) => item.categoryId === courseId
+    (item: any) => item.categoryId === courseId,
   );
 
   return (

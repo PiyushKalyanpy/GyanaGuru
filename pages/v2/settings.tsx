@@ -1,8 +1,6 @@
-import React from "react";
-import {
-  PrimaryLayoutWithSidebar,
-} from "@/components/layouts/exporter";
-import { NextPageWithLayout } from "../../util/page";
+import React from 'react';
+import { PrimaryLayoutWithSidebar } from '@/components/layouts/exporter';
+import { NextPageWithLayout } from '../../util/page';
 
 const Settings: NextPageWithLayout = () => {
   return <section>this is the settings page</section>;
@@ -10,6 +8,6 @@ const Settings: NextPageWithLayout = () => {
 
 export default Settings;
 
-Settings.getLayout = (page) => {
+Settings.getLayout = page => {
   return <PrimaryLayoutWithSidebar>{page}</PrimaryLayoutWithSidebar>;
 };
