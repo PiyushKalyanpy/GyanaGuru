@@ -11,8 +11,8 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@tailwindcss/line-clamp": "^0.4.4",
-    "@types/react-dom": "18.0.11",
     "appwrite": "^10.2.0",
+    "context": "^3.0.7",
     "cookie-cutter": "^0.2.0",
     "cookies-next": "^2.1.2",
     "eslint": "8.37.0",
@@ -23,6 +23,7 @@
     "material-symbols": "^0.8.0",
     "next": "13.2.4",
     "next-themes": "^0.2.1",
+    "npm": "^9.7.2",
     "react": "18.2.0",
     "react-cookie": "^4.1.1",
     "react-dom": "18.2.0",
@@ -38,7 +39,8 @@
   "devDependencies": {
     "@heroicons/react": "^2.0.18",
     "@types/node": "20.3.1",
-    "@types/react": "18.2.6",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.6",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.0",
