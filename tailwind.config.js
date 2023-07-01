@@ -25,6 +25,6 @@ module.exports = {
         "4xl": "2.5rem",
       },
     },
-    plugins: [require("@tailwindcss/line-clamp")],
+    plugins: [require("@tailwindcss/line-clamp", "@tailwindcss/forms")],
   },
 };
