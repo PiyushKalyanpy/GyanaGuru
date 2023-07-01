@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+
 type NotesCard = {
   heading: any;
   courseLink: any;
