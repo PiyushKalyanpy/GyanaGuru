@@ -159,7 +159,7 @@ const PlaylistList = ({ playlists, playlistTitle }: any) => {
   return (
     <div className='flex flex-col p-4 space-y-4'>
       <h2 className='text-zinc-600'>{playlistTitle} </h2>
-      <div className='grid grid-cols-3 gap-4'>
+      <div className='grid  lg:grid-cols-3 gap-4'>
         {playlists && playlists.length > 0 ? (
           playlists.map((playlist: any) => (
             <PlaylistCard key={playlist.id} playlist={playlist} />
@@ -176,7 +176,7 @@ const VideoList = ({ videos, videoTitle }: any) => {
   return (
     <div className='flex flex-col p-4 space-y-4'>
       <h2 className='text-zinc-600'>{videoTitle} </h2>
-      <div className='grid grid-cols-3 gap-6'>
+      <div className='grid lg:grid-cols-3 gap-6'>
         {videos && videos.length > 0 ? (
           videos.map((video: any) => <VideoCard key={video.id} video={video} />)
         ) : (

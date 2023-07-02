@@ -43,9 +43,9 @@ const Topbar = () => {
 
         {/* Notificaton and profile  */}
         <div className="flex h-full gap-4 w-fit">
-          <TopBarButtons iconAvailable={true} />
+          {/* <TopBarButtons iconAvailable={true} /> */}
           <TopBarButtons imageAvailable={true} imageUrl={currentUser ? currentUser.photoURL ? currentUser.photoURL : "/images/empty_profile.png" :null } />
-          <DarkModeToggle/>
+          {/* <DarkModeToggle/> */}
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@ interface SearchBarProps {
 
 const SearchBar = ({ searchQuery, handleInputChange }: SearchBarProps) => {  
   return (
-    <div className="flex flex-row items-center w-1/4 p-1 pl-4 pr-1 overflow-hidden dark:bg-zinc-800 bg-white  rounded-2xl h-fit font-archivo">
+    <div className="flex flex-row items-center w-3/4 w-1/4 p-1 pl-4 pr-1 overflow-hidden dark:bg-zinc-800 bg-white  rounded-2xl h-fit font-archivo">
       <input
         type="text"
         placeholder="Search for courses"
