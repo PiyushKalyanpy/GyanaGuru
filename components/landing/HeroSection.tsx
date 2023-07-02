@@ -42,7 +42,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full mt-35 lg:mb-20 p-12 px-4 space-y-10 bg-white dark:bg-neutral-950 ">
+    <div className="flex flex-col items-center justify-center w-full mt-40 lg:mb-20 p-12 px-4 space-y-10 bg-white dark:bg-neutral-950 ">
       <div className="flex flex-col space-y-10 items-center lg:items-start transition duration-500 ease-in-out transform -translate-x-full opacity-0 lg:flex-col  lg:space-x-8 lg:justify-between lg:px-20">
         <div className="text-center lg:text-left">
           <h1 className="text-4xl font-bold text-black lg:text-6xl font-archivo dark:text-zinc-50 leading-snug space-y-10">
