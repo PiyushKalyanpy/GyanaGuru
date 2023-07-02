@@ -25,7 +25,7 @@ export function CourseProvider({ children }) {
   const router = useRouter();
   const { currentUser } = useAuth();
   const getData =
-    currentUser && 1 && ["/courses", "/admin"].includes(router.pathname);
+    currentUser && 0 && ["/courses", "/admin"].includes(router.pathname);
 
   // Category CRUD ----------------------------------------------
 

@@ -4,9 +4,13 @@ import { VideoCard, CategoryCard, PlaylistCard } from '@/components/components'
 import { NextPageWithLayout } from '@/util/page'
 import { CourseContext } from '@/context/CourseContext'
 import { Topbar } from '@/components/components'
+import Loading from '@/components/util/Loading'
+import { useAuth } from '@/context/AuthContext'
 
 const Courses: NextPageWithLayout = () => {
   let { videos, categories, playlist } = useContext(CourseContext)
+  const { currentUser } = useAuth()
+
   // let videos = [
   //   {
   //     id: 'H3n75nHN5qY',
@@ -134,7 +138,7 @@ const CategoryList = ({ categories }: any) => {
     <div className='flex flex-col p-4 space-y-4 overflow-hidden w-full'>
       <h2 className='text-zinc-600'>Categories</h2>
       <div className='flex w-full overflow-x-scroll gap-4 hide-scrollbar snap-x'>
-        {categories.length > 0 &&
+        {categories.length > 0 ? (
           categories.map((category: any) => (
             <CategoryCard
               key={category.id}
@@ -142,7 +146,10 @@ const CategoryList = ({ categories }: any) => {
               name={category.name}
               id={category.id}
             />
-          ))}
+          ))
+        ) : (
+          <Loading />
+        )}
       </div>
     </div>
   )
@@ -153,11 +160,13 @@ const PlaylistList = ({ playlists, playlistTitle }: any) => {
     <div className='flex flex-col p-4 space-y-4'>
       <h2 className='text-zinc-600'>{playlistTitle} </h2>
       <div className='grid grid-cols-3 gap-4'>
-        {playlists &&
-          playlists.length > 0 &&
+        {playlists && playlists.length > 0 ? (
           playlists.map((playlist: any) => (
             <PlaylistCard key={playlist.id} playlist={playlist} />
-          ))}
+          ))
+        ) : (
+          <Loading />
+        )}
       </div>
     </div>
   )
@@ -168,11 +177,11 @@ const VideoList = ({ videos, videoTitle }: any) => {
     <div className='flex flex-col p-4 space-y-4'>
       <h2 className='text-zinc-600'>{videoTitle} </h2>
       <div className='grid grid-cols-3 gap-6'>
-        {videos &&
-          videos.length > 0 &&
-          videos.map((video: any) => (
-            <VideoCard key={video.id} video={video} />
-          ))}
+        {videos && videos.length > 0 ? (
+          videos.map((video: any) => <VideoCard key={video.id} video={video} />)
+        ) : (
+          <Loading />
+        )}
       </div>
     </div>
   )

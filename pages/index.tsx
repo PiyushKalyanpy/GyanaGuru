@@ -10,14 +10,14 @@ import {
   LandingContact,
   LandingFooter
 } from '../components/components'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Head from 'next/head'
 import { setCookie } from 'cookies-next'
 import Image from 'next/image'
 
 export default function Home () {
   const [showNav, setShowNav] = useState(true)
-  const [showPopup, setShowPopup] = useState(true)
+  const [showPopup, setShowPopup] = useState(false)
   const router = useRouter()
   useEffect(() => {
     setCookie('reachedDashboard', false)
@@ -55,46 +55,16 @@ export default function Home () {
       </Head>
 
       {/* popup */}
-      {showPopup && (
-        <div className='fixed z-50 flex items-center w-full h-screen  bg-black/50 backdrop-blur-sm'>
-          <div className='flex flex-col items-center w-1/2 p-8 m-auto space-y-10 bg-white h-fit rounded-3xl'>
-            <div className='flex flex-col items-center space-y-5 '>
-              <h1 className='text-5xl font-bold font-inter dark:text-black'>
-                Hey Contributors{' '}
-              </h1>
-              <h6 className='text-3xl  text-zinc-700'>
-                Your contribution matters!
-              </h6>
-            </div>
-            <span className='mx-10 text-xl text-center  text-zinc-600'>
-            We are  <strong>ready to accept </strong> both issues and pull requests. However, please ensure that you pull the latest changes, resolve any conflicts that may arise, and push only the correct code.
-            </span>
-            <div className='flex flex-row space-x-6'>
-              <button
-                onClick={() => setShowPopup(false)}
-                // className='flex px-4 py-2 text-xl border rounded-full text-zinc-600'
-                className='flex px-4 py-2 text-xl text-white bg-black rounded-full'
-              >
-                Ok 👍
-              </button>
-              {/* <button
-                onClick={() => router.push("/dashboard")}
-                className="flex px-4 py-2 text-xl text-white bg-black rounded-full"
-              >
-                Go to dashboard
-              </button> */}
-            </div>
-          </div>
-        </div>
-      )}
+      {showPopup && MessagePopup('already given', setShowPopup)}
+      <div className='cursor'></div>
 
-      <main className='hidden w-screen overflow-hidden lg:block h-fit gap-y-10 dark:bg-neutral-950'>
-        <div className='fixed right-0 z-10 top-40'>
+      <main className=' w-screen overflow-hidden lg:block h-fit gap-y-10 dark:bg-neutral-950'>
+        <div className='hidden md:block fixed right-0 z-10 top-40'>
           <ConnectWithMe />
         </div>
         <div className='fixed z-40 w-full transition '>
           <LandingNav />
-          {showNav && <MessageComponnent />}
+          {showNav && <MessageComponent />}
         </div>
         <HeroSection />
         <LandingThreeGrid />
@@ -104,17 +74,105 @@ export default function Home () {
         <LandingContact />
         <LandingFooter />
       </main>
-      <div className='text-2xl lg:hidden'>
-        Not For MOBILE SCREENS , Please Check on Laptop or Desktop
-      </div>
     </>
   )
 }
-const MessageComponnent = () => {
+
+const MessagePopup = (message: string, setShowPopup: any) => {
   return (
-    <div className='left-0 z-40 w-full p-4 transition bg-gray-100 dark:bg-neutral-900/70 backdrop-blur-2xl'>
-      <div className='overflow-hidden marquee'>
-        <span className='flex flex-row space-x-2 text-xl text-black font-archivo dark:text-zinc-100'>
+    // <div className='fixed z-50 flex items-center w-full h-screen bg-black/50 backdrop-blur-sm'>
+    //   <div className='flex flex-col items-center w-1/2 p-8 m-auto space-y-10 bg-white h-fit rounded-3xl'>
+    //     <div className='flex flex-col items-center space-y-5 '>
+    //       <h1 className='text-5xl font-bold font-inter dark:text-black'>
+    //         Hey Contributors{' '}
+    //       </h1>
+    //       <h6 className='text-3xl text-zinc-700'>
+    //         Your contribution matters!
+    //       </h6>
+    //     </div>
+    //     <span className='mx-10 text-xl text-center text-zinc-600'>
+    //       We are <strong>ready to accept </strong> both issues and pull
+    //       requests. However, please ensure that you pull the latest changes,
+    //       resolve any conflicts that may arise, and push only the correct code.
+    //     </span>
+    //     <div className='flex flex-row space-x-6'>
+    //       <button
+    //         onClick={() => setShowPopup(false)}
+    //         // className='flex px-4 py-2 text-xl border rounded-full text-zinc-600'
+    //         className='flex px-4 py-2 text-xl text-white bg-black rounded-full'
+    //       >
+    //         Ok 👍
+    //       </button>
+    //       {/* <button
+    //     onClick={() => router.push("/dashboard")}
+    //     className="flex px-4 py-2 text-xl text-white bg-black rounded-full"
+    //   >
+    //     Go to dashboard
+    //   </button> */}
+    //     </div>
+    //   </div>
+    // </div>
+    <div className='fixed z-50 flex items-center w-full h-screen p-4 bg-black/50 backdrop-blur-sm'>
+      <div className='flex flex-col items-center w-full p-8 m-auto space-y-10 bg-white lg:w-1/2 rounded-3xl'>
+        <div className='flex flex-col items-center space-y-5'>
+          <h1 className='text-2xl font-bold md:text-5xl font-inter dark:text-black'>
+            Hey Contributors{' '}
+          </h1>
+          <h6 className='text-xl text-center lg:text-3xl text-zinc-700'>
+            Your contribution matters!
+          </h6>
+        </div>
+        <span className='text-center text-md lg:mx-10 lg:text-xl text-zinc-600'>
+          We are <strong>ready to accept </strong> both issues and pull
+          requests. However, please ensure that you pull the latest changes,
+          resolve any conflicts that may arise, and push only the correct code.
+        </span>
+        <div className='flex flex-col '>
+          <button
+            onClick={() => setShowPopup(false)}
+            className='flex px-4 py-2 text-white bg-black rounded-full lg:text-xl'
+          >
+            Ok 👍
+          </button>
+          {/* <button
+        onClick={() => router.push("/dashboard")}
+        className="flex px-4 py-2 text-xl text-white bg-black rounded-full"
+      >
+        Go to dashboard
+      </button> */}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// const MessageComponent = () => {
+//   return (
+//     <div className='left-0 z-40 w-full py-4 transition bg-gray-100 dark:bg-neutral-900/70 backdrop-blur-2xl'>
+//       <div className='overflow-hidden marquee'>
+//         <span className='flex flex-row space-x-2 lg:text-xl text-black font-archivo dark:text-zinc-100'>
+//           <a
+//             className='text-blue-600 dark:text-blue-400 '
+//             href='https://github.com/PiyushKalyanpy/GyanaGuru'
+//             target='_blank'
+//           >
+//             Join us &nbsp;
+//           </a>
+//           in developing our open source project on GitHub by reporting issues,
+//           submitting bug fixes, or adding new features to the ongoing
+//           development.
+//         </span>
+//       </div>
+//     </div>
+//   )
+// }
+const MessageComponent = () => {
+  const marqueeRef = useRef(null)
+
+  return (
+    <div className='left-0 z-40 w-full py-4 transition bg-gray-100 dark:bg-neutral-900/70 backdrop-blur-2xl'>
+      <div className='flex w-fit marquee'>
+        <span className='flex w-fit flex-row space-x-2 lg:text-xl text-black font-archivo dark:text-zinc-100'>
           <a
             className='text-blue-600 dark:text-blue-400 '
             href='https://github.com/PiyushKalyanpy/GyanaGuru'
