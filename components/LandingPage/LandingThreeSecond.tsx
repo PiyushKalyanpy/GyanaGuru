@@ -2,7 +2,7 @@ import CourseData from "../../data/course_categories.json";
 import ContributorsData from "../../data/contributors.json";
 import Image from "next/image";
 // import Router from "next/router";
-// import Link from "next/link";
+ import Link from "next/link";
 
 const LandingThreeSecond = () => {
   return (
@@ -49,7 +49,7 @@ const Card01 = () => {
     </div>
   );
 };
-const Link = ({ title }: any) => {
+const Link1 = ({ title }: any) => {
   return (
     <div className="w-full border-b p-4 hover:bg-white/20 border-white">
       <a href="../static/Contributors" target="_blank" rel="noopener" className="flex justify-between">
@@ -106,7 +106,7 @@ const Contributors = () => {
           />
         </a>
       </div>
-      <Link title="Our Contributors" />
+      <Link1 title="Our Contributors" />
     </div>
   );
 };
