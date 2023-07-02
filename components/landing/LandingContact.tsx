@@ -48,7 +48,7 @@ const LandingContact = () => {
     //         }}>
 
     //           <input
-    //             className="w-full bg-champange h-12 mt-4 p-4 outline-none focus:outline-orange-200 text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50 "
+    //             className="w-full bg-zinc-100 h-12 mt-4 p-4 outline-none focus:outline-zinc-200 text-zinc-800 font-archivo text-lg rounded-lg placeholder:text-zinc-800/50 "
     //             type="text"
     //             placeholder="Name"
     //             required
@@ -56,7 +56,7 @@ const LandingContact = () => {
     //             onChange={(e) => setName(e.target.value)}
     //           />
     //           <input
-    //             className="w-full bg-champange h-12 mt-4 p-4 outline-none focus:outline-orange-200 text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50 "
+    //             className="w-full bg-zinc-100 h-12 mt-4 p-4 outline-none focus:outline-zinc-200 text-zinc-800 font-archivo text-lg rounded-lg placeholder:text-zinc-800/50 "
     //             type="email"
     //             placeholder="E-mail"
     //             required
@@ -64,14 +64,14 @@ const LandingContact = () => {
     //             onChange={(e) => setEmail(e.target.value)}
     //           />
     //           <textarea
-    //             className="w-full bg-champange h-40 mt-4 p-4 outline-none focus:outline-orange-200 text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50 resize-none"
+    //             className="w-full bg-zinc-100 h-40 mt-4 p-4 outline-none focus:outline-zinc-200 text-zinc-800 font-archivo text-lg rounded-lg placeholder:text-zinc-800/50 resize-none"
     //             placeholder="Message"
     //             required
     //             value={message}
     //             onChange={(e) => setMessage(e.target.value)}
     //           />
     //           <button
-    //             className="w-20% bg-champange h-12 mt-4 p-2 outline-none hover:outline-orange-200 transition text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50 hover:scale-[1.04]"
+    //             className="w-20% bg-zinc-100 h-12 mt-4 p-2 outline-none hover:outline-zinc-200 transition text-zinc-800 font-archivo text-lg rounded-lg placeholder:text-zinc-800/50 hover:scale-[1.04]"
     //             type="submit"
     //           >
     //             Send Message
@@ -105,7 +105,7 @@ const LandingContact = () => {
           }}
         >
           <input
-            className="w-full bg-champange h-12 mt-4 p-4 outline-none focus:outline-orange-200 text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50"
+            className="w-full bg-zinc-100 h-12 mt-4 p-4 outline-none focus:outline-zinc-200 text-zinc-800 font-archivo text-lg rounded-lg placeholder:text-zinc-800/50"
             type="text"
             placeholder="Name"
             required
@@ -113,7 +113,7 @@ const LandingContact = () => {
             onChange={(e) => setName(e.target.value)}
           />
           <input
-            className="w-full bg-champange h-12 mt-4 p-4 outline-none focus:outline-orange-200 text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50"
+            className="w-full bg-zinc-100 h-12 mt-4 p-4 outline-none focus:outline-zinc-200 text-zinc-800 font-archivo text-lg rounded-lg placeholder:text-zinc-800/50"
             type="email"
             placeholder="E-mail"
             required
@@ -121,14 +121,14 @@ const LandingContact = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
           <textarea
-            className="w-full bg-champange h-40 mt-4 p-4 outline-none focus:outline-orange-200 text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50 resize-none"
+            className="w-full bg-zinc-100 h-40 mt-4 p-4 outline-none focus:outline-zinc-200 text-zinc-800 font-archivo text-lg rounded-lg placeholder:text-zinc-800/50 resize-none"
             placeholder="Message"
             required
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
           <button
-            className="w-20% bg-champange h-12 mt-4 p-2 outline-none hover:outline-orange-200 transition text-orange-800 font-archivo text-lg rounded-lg placeholder:text-orange-800/50 hover:scale-[1.04]"
+            className="w-20% bg-black text-white dark:bg-white dark:text-black  h-12 mt-4 p-2 outline-none hover:outline-zinc-200 transition  text-lg rounded-lg placeholder:text-zinc-800/50 hover:scale-[1.04]"
             type="submit"
           >
             Send Message

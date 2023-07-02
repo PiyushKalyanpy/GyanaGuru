@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { useContext } from 'react'
-import { CourseContext } from '../../../context/CourseContext'
+import { CourseContext } from '../../context/CourseContext'
 import YouTube from 'react-youtube'
 
 const VideoPlayer = () => {

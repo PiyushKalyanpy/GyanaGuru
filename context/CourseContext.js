@@ -3,6 +3,7 @@ import { db } from "../database/firebase";
 import {
   collection,
   addDoc,
+  getDoc,
   getDocs,
   deleteDoc,
   doc,
@@ -25,7 +26,8 @@ export function CourseProvider({ children }) {
   const router = useRouter();
   const { currentUser } = useAuth();
   const getData =
-    currentUser && 1 && ["/courses", "/admin"].includes(router.pathname);
+    currentUser && 0 && (router.pathname.startsWith("/courses") ||
+    router.pathname.startsWith("/admin"));
 
   // Category CRUD ----------------------------------------------
 
@@ -122,6 +124,23 @@ export function CourseProvider({ children }) {
     }
   }, [videos, getData]);
 
+  // video updation functions, (likes, views, dislike, rating, comment)
+
+  const updateVideoLike = async (id, likes) => {
+    if (likes) {
+      const docRef = doc(db, "videos", id);
+      await updateDoc(docRef, {
+        likes: 1,
+      })
+        .then(() => {
+          showToast("Video liked successfully", "success");
+        })
+        .catch((error) => {
+          showToast(error.message, "error");
+        });
+    }
+  };
+
   const value = {
     categories,
     addCategory,
@@ -133,6 +152,7 @@ export function CourseProvider({ children }) {
     videos,
     deletePlaylist,
     addVideo,
+    updateVideoLike,
     deleteVideo,
   };
 

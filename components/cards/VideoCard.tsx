@@ -18,7 +18,7 @@ const VideoCard = ({ video }: any) => {
   } = video
 
   const handleClick = () => {
-    router.push(`/courses/${id}`)
+    router.push(`/courses/playlist/video/${id}`)
   }
 
   return (

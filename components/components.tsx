@@ -18,6 +18,7 @@ import DarkModeToggle from './util/DarkModeToggle'
 import RightSideBar from './depricated/RightSideBar/RightSideBar'
 import VideoCard from './cards/VideoCard'
 import CategoryCard from './cards/CategoryCard'
+import BackNavButton from './buttons/BackNavButton'
 import PlaylistCard from './cards/PlaylistCard'
 
 export {

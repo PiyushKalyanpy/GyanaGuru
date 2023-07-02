@@ -9,25 +9,6 @@
   scroll-behavior: smooth;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  /* font-family: 'Inter', sans-serif; */
-}
-
-p,
-a,
-li,
-span,
-input,
-textarea,
-button {
-  /* font-family: 'Inter', sans-serif; */
-}
-
 .marquee {
   white-space: nowrap;
 }
