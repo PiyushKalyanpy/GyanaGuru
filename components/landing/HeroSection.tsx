@@ -63,7 +63,7 @@ const HeroSection = () => {
           </div>
         </div>
         <div
-          onClick={() => router.push('/courses')}
+          onClick={() => router.push('/login')}
           className="relative flex items-center justify-center w-fit p-4 text-white duration-700 ease-out bg-black border-2 border-black rounded-full cursor-pointer h-fit dark:bg-zinc-50 hover:scale-110"
         >
           <h4 className="flex items-center text-xl font-archivo dark:text-zinc-800">
