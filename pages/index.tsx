@@ -11,6 +11,7 @@ import {
   WhyChooseUs,
   LandingThreeSecond,
   LandingContact,
+  Achivements,
   LandingFooter,
 } from '../components/components';
 
@@ -78,7 +79,9 @@ export default function Home() {
           <LandingNav />
           {showNav && <MessageComponent />}
         </div>
+        
         <HeroSection />
+        {/* <Achivements /> */}
         <LandingThreeGrid />
         <OurServices />
         <WhyChooseUs />

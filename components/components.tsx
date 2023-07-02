@@ -19,6 +19,7 @@ import RightSideBar from './depricated/RightSideBar/RightSideBar'
 import VideoCard from './cards/VideoCard'
 import CategoryCard from './cards/CategoryCard'
 import BackNavButton from './buttons/BackNavButton'
+import Achivements from './landing/Achivements'
 import PlaylistCard from './cards/PlaylistCard'
 
 export {
@@ -29,6 +30,7 @@ export {
   HeadingParagraph,
   Topbar,
   ButtonWithImage,
+  Achivements,
   HomeSidebar,
   CourseCardList,
   LandingFooter,
