@@ -140,7 +140,7 @@ const VideoPlayer = () => {
             <VideoButttons />{' '}
           </div>
           {/* comments section  */}
-          <div className='w-full lg:w-1/4 h-full p-4 space-y-10  lg:grid grid-row-2 '>
+          <div className='w-full sm:w-full lg:w-1/4 h-full p-4 space-y-10  lg:grid grid-row-2 '>
             <div className='w-full h-3/4'>
               <CommentSection videoId={videoId}  comments={comments}/>
             </div>

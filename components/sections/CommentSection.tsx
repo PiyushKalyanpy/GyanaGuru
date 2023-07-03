@@ -43,7 +43,6 @@ const CommentSection = ({ comments, videoId }: any) => {
     reactions: []
   })
   const handleCommentClick = () => {
-    console.log(userComment)
     addComment(videoId, userComment)
     setUserComment({ ...userComment, comment: '' })
   }
@@ -72,7 +71,6 @@ const CommentSection = ({ comments, videoId }: any) => {
             return (
               <>
                 {Object.values(commentItem).map((comment: any) => {
-                  console.log(comment)
                   return (
                     <SingleCommentThread
                       key={2}
