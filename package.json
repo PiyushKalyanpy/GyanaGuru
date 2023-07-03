@@ -15,7 +15,7 @@
     "context": "^3.0.7",
     "cookie-cutter": "^0.2.0",
     "cookies-next": "^2.1.2",
-    "eslint": "8.37.0",
+    "eslint": "8.44.0",
     "eslint-config-next": "13.2.4",
     "firebase": "^9.22.2",
     "framer-motion": "^10.12.17",
