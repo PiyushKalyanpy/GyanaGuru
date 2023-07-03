@@ -76,7 +76,7 @@ const VideoPlayer = () => {
       <ToastContainer />
       <div className='w-screen h-full p-4 overflow-y-scroll bg-zinc-200 dark:bg-zinc-900'>
         {/* top bar with title and buttons */}
-        <div className='flex'>
+        <div className='hidden lg:flex'>
           <div className='flex items-center px-4 pt-4 space-x-4 bg-zinc-100 dark:bg-zinc-800 w-fit rounded-t-4xl'>
             <span
               onClick={() => router.back()}
@@ -111,10 +111,36 @@ const VideoPlayer = () => {
                 />
               </div>
             </div>
+            {/* video details */}
+            <div className='flex lg:hidden flex-col p-4 space-y-4'>
+              <div className='flex items-center justify-between'>
+                <div className='flex items-center space-x-4'>
+                  <div className='flex items-center space-x-4'>
+                    <img
+                      src={imageUrl}
+                      alt=''
+                      className='w-12 h-12 rounded-full'
+                    />
+                    <div className='flex flex-col'>
+                      <h1 className='text-lg font-archivo'>{name}</h1>
+                    </div>
+                  </div>
+                  <div className='flex items-center space-x-4'>
+                    <span className='text-sm text-gray-500'>
+                      {viewCount} views
+                    </span>
+                    <span className='text-sm text-gray-500'>
+                      {duration} mins
+                    </span>
+                  </div>
+                </div>
+             
+              </div>
+            </div>
             <VideoButttons />{' '}
           </div>
           {/* comments section  */}
-          <div className='w-1/4 h-full p-4 space-y-10 md:hidden lg:grid grid-row-2 '>
+          <div className='w-full lg:w-1/4 h-full p-4 space-y-10  lg:grid grid-row-2 '>
             <div className='w-full h-3/4'>
               <CommentSection videoId={videoId}  comments={comments}/>
             </div>
