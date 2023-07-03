@@ -2,7 +2,7 @@ export const calculateTime = (inputTime: string) => {
     console.log(inputTime);
     const currentTime: Date = new Date();
     const inputDateTime: Date = new Date(inputTime.replace("Z", "+00:00"));
-    const timeDifference = currentTime - inputDateTime;
+    const timeDifference = currentTime.getTime() - inputDateTime.getTime();
 
     if (timeDifference < 60000) {
         // Seconds ago
