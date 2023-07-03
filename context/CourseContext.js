@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { db } from "../database/firebase";
+import { db, rtdb } from "../database/firebase";
 import {
   collection,
   addDoc,
@@ -8,7 +8,9 @@ import {
   deleteDoc,
   doc,
   updateDoc,
+  arrayUnion,
 } from "firebase/firestore";
+import { serverTimestamp, ref, push, set, get } from "firebase/database";
 import { useRouter } from "next/router";
 import { showToast } from "@/components/util/Toast";
 import { useAuth } from "./AuthContext";
@@ -23,11 +25,16 @@ export function CourseProvider({ children }) {
   const [categories, setCategories] = useState([]);
   const [playlist, setPlaylist] = useState([]);
   const [videos, setVideos] = useState([]);
+  const [comments, setComments] = useState([]);
   const router = useRouter();
   const { currentUser } = useAuth();
+  const stopDBCalls = 1;
   const getData =
-    currentUser && 1 && (router.pathname.startsWith("/courses") ||
-    router.pathname.startsWith("/admin"));
+    currentUser &&
+    1 && stopDBCalls &&
+    (router.pathname.startsWith("/courses") ||
+      router.pathname.startsWith("/admin"));
+  const getRData = currentUser && 1 && router.pathname.startsWith("/courses") && stopDBCalls;
 
   // Category CRUD ----------------------------------------------
 
@@ -128,15 +135,63 @@ export function CourseProvider({ children }) {
 
   const updateVideoLike = async (id, likes) => {
     if (likes) {
+      // logic that one user can like only once
+
       const docRef = doc(db, "videos", id);
       await updateDoc(docRef, {
-        likes: 1,
+        likes: likes,
       })
         .then(() => {
           showToast("Video liked successfully", "success");
+          // update the like in video state
+
+          updateDoc(doc(db, "videos", id), {
+            // add user id in likedBy array
+            likedBy: arrayUnion(currentUser.uid),
+          });
+          setVideos((prev) => {
+            const index = prev.findIndex((item) => item.id === id);
+            const updated = [...prev];
+            updated[index].likes = likes;
+            return updated;
+          });
         })
         .catch((error) => {
           showToast(error.message, "error");
+        });
+    }
+  };
+
+  // comment on video with realtime database ----------------------
+  const addComment = (videoId, comment) => {
+    console.log(videoId, comment);
+    if (videoId) {
+      push(ref(rtdb, `comments/${videoId}/${currentUser.uid}`), {
+        comment: comment,
+        createdAt: serverTimestamp(),
+      })
+        .then(() => {
+          showToast("Comment added successfully", "success");
+        })
+        .catch((error) => {
+          showToast(error.message, "error");
+        });
+    }
+  };
+
+  const getComments = (videoId) => {
+    if (videoId && getRData) {
+      get(ref(rtdb, `comments/${videoId}`))
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            setComments(snapshot.val());
+            console.log("🧑 Comment data downloaded",comments );
+          } else {
+            console.log("No data available");
+          }
+        })
+        .catch((error) => {
+          console.error(error);
         });
     }
   };
@@ -145,10 +200,13 @@ export function CourseProvider({ children }) {
     categories,
     addCategory,
     addPlaylist,
+    addComment,
     deleteCategory,
+    comments,
     updateCategory,
     playlist,
     updatePlaylist,
+    getComments,
     videos,
     deletePlaylist,
     addVideo,

@@ -14,7 +14,7 @@ const Videos = () => {
   return (
     <div className='flex flex-col w-full min-h-screen'>
       <Topbar showBackIcon />
-      <div className='grid grid-cols-4 gap-4 p-4'>
+      <div className='grid lg:grid-cols-4 gap-4 p-4'>
       {filteredVideos && filteredVideos.length > 0 ? (
         filteredVideos.map((video: any) => <VideoCard key={video.id} video={video} />)
       ) : (

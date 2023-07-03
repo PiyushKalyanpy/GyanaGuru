@@ -21,6 +21,8 @@ import CategoryCard from './cards/CategoryCard'
 import BackNavButton from './buttons/BackNavButton'
 import Achivements from './landing/Achivements'
 import PlaylistCard from './cards/PlaylistCard'
+import CommentSection from './sections/CommentSection'
+import ReactEmojiButton from './buttons/ReactEmojiButton'
 
 export {
   PageHeader,
@@ -40,9 +42,13 @@ export {
   LandingContact,
   VideoCard,
   HeroSection,
+  CommentSection,
   LandingThreeSecond,
   RightSideBar,
   CategoryCard,
   PlaylistCard,
+  BackNavButton,
+  ReactEmojiButton,
   DarkModeToggle
+
 }

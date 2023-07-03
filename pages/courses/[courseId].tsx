@@ -19,7 +19,7 @@ const Playlist = () => {
   return (
     <div className='flex flex-col w-full min-h-screen '>
       <Topbar showBackIcon />
-      <div className='grid grid-cols-3 gap-4 p-4'>
+      <div className='grid lg:grid-cols-4 gap-4 p-4'>
       {filteredPlaylist && filteredPlaylist.length > 0 ? (
         filteredPlaylist.map((playlist: any) => (
           <PlaylistCard key={playlist.id} playlist={playlist} />

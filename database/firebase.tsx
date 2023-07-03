@@ -6,6 +6,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { getDatabase } from 'firebase/database'
 
 
 
@@ -27,6 +28,7 @@ if (!getApps().length) {
 const provider = new GoogleAuthProvider();
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+export const rtdb = getDatabase(app);
 
 export const LoginWithGooglePopUp = async () => {
   try {

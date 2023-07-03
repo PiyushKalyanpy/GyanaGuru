@@ -1,15 +1,14 @@
 import { useRouter } from 'next/router'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { CourseContext } from '@/context/CourseContext'
 import YouTube from 'react-youtube'
-import { useEffect } from 'react'
-import { showToast } from '@/components/util/Toast'
 import { ToastContainer } from 'react-toastify'
+import { CommentSection, ReactEmojiButton } from '@/components/components'
 
 const VideoPlayer = () => {
   const router = useRouter()
   const { videoId } = router.query
-  const { videos, updateVideoLike } = useContext(CourseContext)
+  const { videos, updateVideoLike, getComments, comments } = useContext(CourseContext)
   const video = videos.find((video: any) => video.id === videoId)
   const {
     name,
@@ -21,6 +20,12 @@ const VideoPlayer = () => {
     imageUrl,
     url
   } = video || {}
+
+  useEffect(() => {
+    getComments(videoId)
+
+  }, []);
+
   const videoYTId = url?.split('v=')[1]
 
   const opts = {
@@ -32,17 +37,39 @@ const VideoPlayer = () => {
     }
   }
 
-  const handleReady = (event: any) => {
-    // Perform any actions when the YouTube player is ready
-    // For example, event.target.playVideo();
-  }
+  const handleReady = (event: any) => {}
 
   const handleLike = () => {
-    // setTimeout(() => {
-    // }, 1000)
-    updateVideoLike(videoId, likes + 1)
-    console.log(likes)
+    const likeCount = likes + 1
+    updateVideoLike(videoId, likeCount)
+    console.log(likeCount)
   }
+//   const comments = {
+//     "csCtDDoZWlVhQ7OZYXTXOvTvyQF3": {
+//         "-NZSuEJexWk_xTNZ3oBa": {
+//             "comment": {
+//                 "comment": "thi asdn",
+//                 "createdAt": "2023-07-03T22:38:29.839Z",
+//                 "name": "Piyush Kalyan",
+//                 "photoURL": "https://lh3.googleusercontent.com/a/AGNmyxaORNFuhul9r_Mh1V-RAeUXmVaW7-oKL-W6x3W_sA=s96-c",
+//                 "uid": "csCtDDoZWlVhQ7OZYXTXOvTvyQF3",
+//                 "videoId": "3mgLPKWKtBldVL5lFgQk"
+//             },
+//             "createdAt": 1688423954007
+//         },
+//         "-NZSuzMdw3OuRPdltBVv": {
+//             "comment": {
+//                 "comment": "unkonw comment control the game ",
+//                 "createdAt": "2023-07-03T22:42:20.773Z",
+//                 "name": "Piyush Kalyan",
+//                 "photoURL": "https://lh3.googleusercontent.com/a/AGNmyxaORNFuhul9r_Mh1V-RAeUXmVaW7-oKL-W6x3W_sA=s96-c",
+//                 "uid": "csCtDDoZWlVhQ7OZYXTXOvTvyQF3",
+//                 "videoId": "3mgLPKWKtBldVL5lFgQk"
+//             },
+//             "createdAt": 1688424150807
+//         }
+//     }
+// }
 
   return (
     <div className='h-screen'>
@@ -67,27 +94,55 @@ const VideoPlayer = () => {
           </div>
         </div>
         {/* video content with comment + notes */}
-        <div className='flex flex-col w-full h-full border-red-500 border-3 bg-zinc-100 dark:bg-zinc-800 rounded-bl-2xl rounded-r-3xl'>
+        <div className='flex flex-col w-full h-full border-red-500 lg:flex-row border-3 bg-zinc-100 dark:bg-zinc-800 rounded-bl-2xl rounded-r-3xl'>
           {/* video section */}
-          <div className='flex flex-col h-full p-4 md:w-full lg:w-3/4  '>
-            <div className='flex w-full overflow-hidden h-full rounded-3xl bg-zinc-200'>
-              <YouTube
-                videoId={videoYTId}
-                opts={opts}
-                onReady={handleReady}
-                className='w-full h-full'
-                onPause={e => {
-                  console.log(e)
-                  e.target.currentTime = 33
-                }}
-              />
+          <div className='w-full lg:w-3/4'>
+            <div className='flex flex-col p-4 h-3/4 '>
+              <div className='flex w-full h-full overflow-hidden rounded-3xl bg-zinc-200'>
+                <YouTube
+                  videoId={videoYTId}
+                  opts={opts}
+                  onReady={handleReady}
+                  className='w-full h-full'
+                  onPause={e => {
+                    console.log(e)
+                    e.target.currentTime = 33
+                  }}
+                />
+              </div>
+            </div>
+            <VideoButttons />{' '}
+          </div>
+          {/* comments section  */}
+          <div className='w-1/4 h-full p-4 space-y-10 md:hidden lg:grid grid-row-2 '>
+            <div className='w-full h-3/4'>
+              <CommentSection videoId={videoId}  comments={comments}/>
             </div>
           </div>
-          {/* like button  */}
-          <span onClick={handleLike} className='p-4 text-xl material-icons cursor-pointer'> thumb_up_alt </span>
-          <div className='w-1/4 h-full p-4 space-y-10 md:hidden lg:grid grid-row-2 '></div>
         </div>
       </div>
+    </div>
+  )
+}
+
+const VideoButttons = () => {
+  return (
+    <div>
+      <span className='p-4 text-xl cursor-pointer material-icons'>
+        {' '}
+        thumb_up_alt{' '}
+      </span>
+      <span className='p-4 text-xl cursor-pointer material-icons'>
+        {' '}
+        thumb_down_alt{' '}
+      </span>
+
+      <span className='p-4 text-xl cursor-pointer material-icons'> share </span>
+
+      <span className='p-4 text-xl cursor-pointer material-icons'>
+        {' '}
+        whatshot{' '}
+      </span>
     </div>
   )
 }
