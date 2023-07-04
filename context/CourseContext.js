@@ -10,7 +10,7 @@ import {
   updateDoc,
   arrayUnion,
 } from "firebase/firestore";
-import { serverTimestamp, ref, push, set, get } from "firebase/database";
+import { update, ref, push, onValue, get } from "firebase/database";
 import { useRouter } from "next/router";
 import { showToast } from "@/components/util/Toast";
 import { useAuth } from "./AuthContext";
@@ -31,10 +31,12 @@ export function CourseProvider({ children }) {
   const stopDBCalls = 1;
   const getData =
     currentUser &&
-    1 && stopDBCalls &&
+    1 &&
+    stopDBCalls &&
     (router.pathname.startsWith("/courses") ||
       router.pathname.startsWith("/admin"));
-  const getRData = currentUser && 1 && router.pathname.startsWith("/courses") && stopDBCalls;
+  const getRData =
+    currentUser && 1 && router.pathname.startsWith("/courses") && stopDBCalls;
 
   // Category CRUD ----------------------------------------------
 
@@ -166,9 +168,8 @@ export function CourseProvider({ children }) {
   const addComment = (videoId, comment) => {
     console.log(videoId, comment);
     if (videoId) {
-      push(ref(rtdb, `comments/${videoId}/${currentUser.uid}`), {
+      push(ref(rtdb, `comments/${videoId}`), {
         comment: comment,
-        createdAt: serverTimestamp(),
       })
         .then(() => {
           showToast("Comment added successfully", "success");
@@ -181,17 +182,50 @@ export function CourseProvider({ children }) {
 
   const getComments = (videoId) => {
     if (videoId && getRData) {
-      get(ref(rtdb, `comments/${videoId}`))
+      onValue(ref(rtdb, `comments/${videoId}`), (snapshot) => {
+        const data = snapshot.val();
+        console.log("🧑 Comment data downloaded");
+        console.log(data);
+        setComments(data);
+      });
+    }
+  };
+
+  const addReactionOnComment = (videoId, commentId, reaction) => {
+    if (videoId && commentId) {
+      const commentRef = ref(rtdb, `comments/${videoId}/${commentId}/comment`);
+
+      // Retrieve the current reaction object from the comment
+      get(commentRef)
         .then((snapshot) => {
-          if (snapshot.exists()) {
-            setComments(snapshot.val());
-            console.log("🧑 Comment data downloaded",comments );
+          const currentReaction = snapshot.val()?.reaction || {};
+          console.log(currentReaction, "from db");
+
+          // Increment the count if the emoji is already present
+          if (currentReaction[reaction]) {
+            currentReaction[reaction].reactionCount += 1;
           } else {
-            console.log("No data available");
+            // Add a new emoji with count 1 if it doesn't exist
+            currentReaction[reaction] = {
+              reactionIcon: reaction,
+              reactionCount: 1,
+              uid: currentUser?.uid,
+            };
           }
+
+          // Update the reaction field in the comment with the modified reaction object
+          update(commentRef, {
+            reaction: currentReaction,
+          })
+            .then(() => {
+              showToast("Reaction added successfully", "success");
+            })
+            .catch((error) => {
+              showToast(error.message, "error");
+            });
         })
         .catch((error) => {
-          console.error(error);
+          showToast(error.message, "error");
         });
     }
   };
@@ -210,6 +244,7 @@ export function CourseProvider({ children }) {
     videos,
     deletePlaylist,
     addVideo,
+    addReactionOnComment,
     updateVideoLike,
     deleteVideo,
   };

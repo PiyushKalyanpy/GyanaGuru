@@ -2,34 +2,11 @@ import Image from 'next/image'
 import { ReactEmojiButton } from '../components'
 import { calculateTime } from '@/util/calculateTime'
 import { Emoji, EmojiStyle } from 'emoji-picker-react'
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { useAuth } from '@/context/AuthContext'
 import { CourseContext } from '@/context/CourseContext'
 
 const CommentSection = ({ comments, videoId }: any) => {
-  const sampleCommnet = {
-    userProfileUrl: '/images/empty_profile.png',
-    userName: 'John Doe',
-    comment:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
-    time: '2021-09-01T12:00:00.000Z',
-    likes: 10,
-    dislikes: 2,
-    reactions: [
-      {
-        reactionIcon: '1fac0',
-        reactionCount: 10
-      },
-      {
-        reactionIcon: '1f609',
-        reactionCount: 10
-      },
-      {
-        reactionIcon: '1fac0',
-        reactionCount: 10
-      }
-    ]
-  }
   const { currentUser } = useAuth()
   const { addComment } = useContext(CourseContext)
   const [userComment, setUserComment] = useState({
@@ -67,21 +44,23 @@ const CommentSection = ({ comments, videoId }: any) => {
             Be the first to comment
           </p>
         ) : (
-          Object.values(comments).map((commentItem: any) => {
-            return (
-              <>
-                {Object.values(commentItem).map((comment: any) => {
-                  return (
+          <>
+            {Object.entries(comments)
+              
+              .map(([key, commentItem]: any) => {
+                console.log(commentItem)
+                return (
+                  <>
                     <SingleCommentThread
-                      key={2}
-                      comments={comment.comment}
+                      comments={commentItem.comment}
                       videoId={videoId}
+                      commentId={key}
+                      key={key}
                     />
-                  )
-                })}
-              </>
-            )
-          })
+                  </>
+                )
+              })}
+          </>
         )}
       </div>
       <div className='flex items-center space-x-4 w-full bg-zinc-100 p-2'>
@@ -117,7 +96,7 @@ const CommentSection = ({ comments, videoId }: any) => {
   )
 }
 
-const SingleCommentThread = ({ comments }: any) => {
+const SingleCommentThread = ({ comments, videoId, commentId }: any) => {
   let {
     photoURL,
     name,
@@ -126,9 +105,14 @@ const SingleCommentThread = ({ comments }: any) => {
     likes,
     dislikes,
     replies,
-    reactions
+    reaction
   } = comments
-  const timeInAgoFormat = calculateTime(createdAt)
+  let timeInAgoFormat = calculateTime(createdAt)
+
+  // update time after every 30 seconds
+  setInterval(() => {
+    timeInAgoFormat = calculateTime(createdAt)
+  }, 60000)
 
   return (
     <div className='flex w-full'>
@@ -144,15 +128,18 @@ const SingleCommentThread = ({ comments }: any) => {
                 className='rounded-full filter zincscale'
               />
             </div>
-            <h1 className='text-md font-archivo font-medium'>{name}</h1>
-            <p>·</p>
-            <p className='text-sm text-zinc-500'>{timeInAgoFormat}</p>
+            <div className='flex space-x-1 items-center'>
+              <h1 className='text-md font-archivo font-medium'>{name}</h1>
+              <p>·</p>
+              <p className='text-sm text-zinc-500'>{timeInAgoFormat}</p>
+            </div>
           </div>
+
           <p className='text-sm text-zinc-900'>{comment}</p>
           <div className='flex justify-between items-center '>
             <div className='flex space-x-2'>
-              <ReactEmojiButton />
-             { reactions && <ReactionsDisplay reactions={reactions} />}
+              <ReactEmojiButton videoId={videoId} commentId={commentId} />
+              {reaction && <ReactionsDisplay reactions={reaction} />}
             </div>
             {/* reply button */}
             <button className='text-sm text-zinc-500 hover:text-blue-500'>
@@ -166,23 +153,45 @@ const SingleCommentThread = ({ comments }: any) => {
 }
 
 const ReactionsDisplay = ({ reactions }: any) => {
+  const length = Object.keys(reactions).length
+  const [totalReactionCount, setTotalReactionCount] = useState(0)
+
+  useEffect(() => {
+    const calculateTotalReactionCount = () => {
+      let count = 0
+      Object.entries(reactions).forEach(([key, reaction]: any) => {
+        count += reaction.reactionCount
+      })
+      setTotalReactionCount(count)
+    }
+
+    calculateTotalReactionCount()
+  }, [reactions])
+
   return (
     <div className='flex border-2 rounded-xl w-fit space-x-1 items-center p-1 cursor-pointer'>
-      {/* limit reactions to 3 and if exceed show +{other reaction count} */}
-      {reactions && reactions.map((reaction: any) => {
-        return (
-          <div
-            key={reaction.reactionIcon}
-            className='hover:scale-110 transition active:scale-50'
-          >
-            <Emoji
-              unified={reaction.reactionIcon}
-              emojiStyle={EmojiStyle.NATIVE}
-              size={16}
-            />
-          </div>
-        )
-      })}
+      {Object.entries(reactions)
+        .slice(0, 3)
+        .map(([key, reaction]: any) => {
+          return (
+            <div
+              key={reaction.reactionIcon}
+              className='hover:scale-110 transition active:scale-50'
+            >
+              <Emoji
+                unified={reaction.reactionIcon}
+                emojiStyle={EmojiStyle.NATIVE}
+                size={16}
+              />
+            </div>
+          )
+        })}
+      {totalReactionCount > 3 && (
+        <div className='flex'>
+          <p>+ </p>
+          <p>{totalReactionCount - 3}</p>
+        </div>
+      )}
     </div>
   )
 }

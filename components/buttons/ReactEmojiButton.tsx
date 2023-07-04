@@ -9,13 +9,19 @@ import EmojiPicker, {
   SuggestionMode,
   SkinTonePickerLocation
 } from 'emoji-picker-react'
-const ReactEmojiButton = () => {
+import { useContext } from 'react'
+import { CourseContext } from '@/context/CourseContext'
+
+
+const ReactEmojiButton = ({videoId, commentId} : any) => {
   const [selectedEmoji, setSelectedEmoji] = useState<string>('')
   const [showEmojiPanel, setShowEmojiPanel] = useState<boolean>(false)
+  const {addReactionOnComment} = useContext(CourseContext)
 
   function onClick (emojiData: EmojiClickData, event: MouseEvent) {
     console.log(emojiData)
     setSelectedEmoji(emojiData.unified)
+    addReactionOnComment(videoId, commentId,  emojiData.unified)
     setShowEmojiPanel(!showEmojiPanel)
   }
   return (
