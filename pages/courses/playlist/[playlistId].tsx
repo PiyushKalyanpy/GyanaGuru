@@ -12,7 +12,7 @@ const Videos = () => {
     return video.playlistId === playlistId
   })
   return (
-    <div className='flex flex-col w-full min-h-screen'>
+    <div className='flex flex-col w-full min-h-screen bg-zinc-100'>
       <Topbar showBackIcon />
       <div className='grid lg:grid-cols-4 gap-4 p-4'>
       {filteredVideos && filteredVideos.length > 0 ? (
