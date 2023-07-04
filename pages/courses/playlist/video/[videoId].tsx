@@ -1,20 +1,40 @@
 import { useRouter } from 'next/router'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { CourseContext } from '@/context/CourseContext'
 import YouTube from 'react-youtube'
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer, Zoom } from 'react-toastify'
 import {
   BackNavButton,
   CommentSection,
-  ReactEmojiButton
+  NotesContainer,
+  PdfCard,
+  PdfContainer,
+  ReactEmojiButton,
+  VideoNoteCard
 } from '@/components/components'
+import { AuthContext } from '@/context/AuthContext'
+import {
+  handleReady,
+  handleLike,
+  handleAddNote,
+  updatePlayerTime
+} from '@/components/handlers/videoHandlers'
 
 const VideoPlayer = () => {
   const router = useRouter()
   const { videoId } = router.query
-  const { videos, updateVideoLike, getComments, comments } =
-    useContext(CourseContext)
+  const {
+    videos,
+    updateVideoLike,
+    getComments,
+    comments,
+    getNote,
+    notes,
+    setNote
+  } = useContext(CourseContext)
+  const { currentUser } = useContext(AuthContext)
   const video = videos.find((video: any) => video.id === videoId)
+  const videoPlayer: any = useRef(null)
   const {
     name,
     description,
@@ -27,11 +47,12 @@ const VideoPlayer = () => {
   } = video || {}
 
   useEffect(() => {
-    getComments(videoId)
+    // getComments(videoId)
+    getNote(currentUser?.uid, videoId)
+    console.log('videoId', videoId)
   }, [])
 
   const videoYTId = url?.split('v=')[1]
-
   const opts = {
     height: '100%',
     width: '100%',
@@ -39,14 +60,6 @@ const VideoPlayer = () => {
     playerVars: {
       autoplay: 0
     }
-  }
-
-  const handleReady = (event: any) => {}
-
-  const handleLike = () => {
-    const likeCount = likes + 1
-    updateVideoLike(videoId, likeCount)
-    console.log(likeCount)
   }
 
   return (
@@ -76,19 +89,36 @@ const VideoPlayer = () => {
           <div className='flex p-4 lg:hidden'>
             <BackNavButton />
           </div>
-          <div className='flex flex-col lg:w-3/4 h-fit overflow-y-scroll hide-scrollbar'>
+          <div className='flex flex-col lg:w-3/4 h-full overflow-y-scroll hide-scrollbar'>
             {/* video section */}
             <div className='w-full h-full'>
               <div className='flex flex-col p-4 h-5/6 '>
-                <div className='flex w-full h-[300px] lg:h-[500px] overflow-hidden rounded-3xl bg-transparent'>
+                <div className='relative w-full h-[300px] lg:h-[500px] overflow-hidden rounded-3xl bg-transparent'>
+                  <div className='absolute z-10 text-white top-1/2 left-1/2'>
+                    <button
+                      onClick={() =>
+                        handleAddNote({
+                          videoPlayer,
+                          currentUser,
+                          videoId,
+                          setNote
+                        })
+                      }
+                      className='flex items-center p-1 rounded-full cursor-pointer hover:bg-zinc-100/20'
+                    >
+                      <span className='material-symbols-outlined'>add</span>
+                    </button>
+                  </div>
                   <YouTube
+                    iframeClassName='absolute z-0'
                     videoId={videoYTId}
                     opts={opts}
-                    onReady={handleReady}
+                    onReady={e => handleReady(e, videoPlayer)}
                     className='w-full h-full'
                     onPause={e => {
-                      console.log(e)
-                      e.target.currentTime = 33
+                      const playerInfo = e.target.playerInfo
+                      const currentTime = playerInfo.currentTime
+                      e.target.seekTo(currentTime + 40)
                     }}
                   />
                 </div>
@@ -118,15 +148,24 @@ const VideoPlayer = () => {
                   </div>
                 </div>
               </div>
-              {/* <VideoButttons />{' '} */}
             </div>
             {/* comments section  */}
-            <div className='w-full min-h-screen   h-fit p-4 space-y-10  lg:grid grid-row-2 '>
-              <div className='w-full h-3/4'>
+            <div className='w-full min-h-screen   h-full p-4 space-y-10  lg:grid grid-row-2 '>
+              <div className='w-full h-full'>
                 <CommentSection videoId={videoId} comments={comments} />
               </div>
             </div>
           </div>
+          {/* right sidebar */}
+          <aside className='flex flex-col  space-y-6 lg:w-1/4 p-4'>
+            <PdfContainer />
+            <NotesContainer
+              notes={notes}
+              updatePlayerTime={(time: any) =>
+                updatePlayerTime({ videoPlayer, time })
+              }
+            />
+          </aside>
         </div>
       </div>
     </div>

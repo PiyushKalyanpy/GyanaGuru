@@ -21,8 +21,12 @@ import CategoryCard from './cards/CategoryCard'
 import BackNavButton from './buttons/BackNavButton'
 import Achivements from './landing/Achivements'
 import PlaylistCard from './cards/PlaylistCard'
-import CommentSection from './sections/CommentSection'
+import CommentSection from './containers/CommentSection'
+import VideoNoteCard from './cards/VideoNoteCard'
+import PdfCard from './cards/PdfCard'
+import NotesContainer from './containers/NotesContainer'
 import ReactEmojiButton from './buttons/ReactEmojiButton'
+import PdfContainer from './containers/PdfContainer'
 
 export {
   PageHeader,
@@ -34,10 +38,14 @@ export {
   ButtonWithImage,
   Achivements,
   HomeSidebar,
+  PdfContainer,
+  NotesContainer,
   CourseCardList,
   LandingFooter,
   LandingNav,
   OurServices,
+  PdfCard,
+  VideoNoteCard,
   LandingThreeGrid,
   LandingContact,
   VideoCard,
@@ -48,6 +56,7 @@ export {
   CategoryCard,
   PlaylistCard,
   BackNavButton,
+
   ReactEmojiButton,
   DarkModeToggle
 

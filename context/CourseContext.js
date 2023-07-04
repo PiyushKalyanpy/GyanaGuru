@@ -9,8 +9,9 @@ import {
   doc,
   updateDoc,
   arrayUnion,
+  serverTimestamp,
 } from "firebase/firestore";
-import { update, ref, push, onValue, get } from "firebase/database";
+import { update, ref, push, onValue, get, set, remove } from "firebase/database";
 import { useRouter } from "next/router";
 import { showToast } from "@/components/util/Toast";
 import { useAuth } from "./AuthContext";
@@ -26,8 +27,10 @@ export function CourseProvider({ children }) {
   const [playlist, setPlaylist] = useState([]);
   const [videos, setVideos] = useState([]);
   const [comments, setComments] = useState([]);
+  const [notes, setNotes] = useState([]);
   const router = useRouter();
   const { currentUser } = useAuth();
+
   const stopDBCalls = 1;
   const getData =
     currentUser &&
@@ -133,8 +136,6 @@ export function CourseProvider({ children }) {
     }
   }, [videos, getData]);
 
-  // video updation functions, (likes, views, dislike, rating, comment)
-
   const updateVideoLike = async (id, likes) => {
     if (likes) {
       // logic that one user can like only once
@@ -164,7 +165,6 @@ export function CourseProvider({ children }) {
     }
   };
 
-  // comment on video with realtime database ----------------------
   const addComment = (videoId, comment) => {
     console.log(videoId, comment);
     if (videoId) {
@@ -185,7 +185,6 @@ export function CourseProvider({ children }) {
       onValue(ref(rtdb, `comments/${videoId}`), (snapshot) => {
         const data = snapshot.val();
         console.log("🧑 Comment data downloaded");
-        console.log(data);
         setComments(data);
       });
     }
@@ -230,13 +229,47 @@ export function CourseProvider({ children }) {
     }
   };
 
+  // user notes (set note, get note ) --------------------------
+
+  const setNote = (userId, videoId, note) => {
+    if (userId && note && videoId) {
+      const notesRef = ref(rtdb, `notes/${userId}/${videoId}`);
+      push(notesRef, {
+        note: note,
+      });
+    }
+  };
+
+  const getNote = (userId, videoId) => {
+    if (userId && videoId && getRData ) {
+      const notesRef = ref(rtdb, `notes/${userId}/${videoId}`);
+      onValue(notesRef, (snapshot) => {
+        console.log("called 📞")
+        const data = snapshot.val();
+        setNotes(data);
+        console.log("🧑 Note data downloaded");
+      });
+    }
+  };
+
+  const deleteNote = (userId, videoId, noteId) => {
+    if (userId && videoId && noteId) {
+      const notesRef = ref(rtdb, `notes/${userId}/${videoId}/${noteId}`);
+      remove(notesRef);
+    }
+  }
+
   const value = {
     categories,
     addCategory,
+    getNote,
+    setNote,
     addPlaylist,
     addComment,
     deleteCategory,
+    notes,
     comments,
+    deleteNote,
     updateCategory,
     playlist,
     updatePlaylist,

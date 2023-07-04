@@ -48,7 +48,6 @@ const CommentSection = ({ comments, videoId }: any) => {
             {Object.entries(comments)
               
               .map(([key, commentItem]: any) => {
-                console.log(commentItem)
                 return (
                   <>
                     <SingleCommentThread
@@ -109,10 +108,7 @@ const SingleCommentThread = ({ comments, videoId, commentId }: any) => {
   } = comments
   let timeInAgoFormat = calculateTime(createdAt)
 
-  // update time after every 30 seconds
-  setInterval(() => {
-    timeInAgoFormat = calculateTime(createdAt)
-  }, 60000)
+  
 
   return (
     <div className='flex w-full'>
