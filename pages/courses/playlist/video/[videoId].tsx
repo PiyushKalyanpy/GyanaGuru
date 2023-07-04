@@ -47,7 +47,7 @@ const VideoPlayer = () => {
   } = video || {}
 
   useEffect(() => {
-    // getComments(videoId)
+    getComments(videoId)
     getNote(currentUser?.uid, videoId)
     console.log('videoId', videoId)
   }, [])
