@@ -67,10 +67,7 @@ export default function Home () {
               </h6>
             </div>
             <span className='mx-10 text-xl text-center  text-zinc-600'>
-              Kindly note that we kindly request you to wait until August 1,
-              2023, before raising any new issues. We are actively engaged in
-              the project and will be prepared to accept both issues and pull
-              requests (PRs) starting from August 1, 2023.
+            We are  <strong>ready to accept </strong> both issues and pull requests. However, please ensure that you pull the latest changes, resolve any conflicts that may arise, and push only the correct code.
             </span>
             <div className='flex flex-row space-x-6'>
               <button
