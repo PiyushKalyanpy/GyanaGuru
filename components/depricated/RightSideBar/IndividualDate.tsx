@@ -1,12 +1,12 @@
 import React from "react";
 
-interface IndividualDateCard {
+interface IndividualDate {
   date: number;
   day: string;
   isTodayDate: boolean;
 }
 
-const IndividualDate = (props: IndividualDateCard) => {
+const IndividualDate = (props: IndividualDate) => {
   return (
     <div>
       <div
