@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-type Notes = {
+
+type NotesCard = {
   heading: any;
   courseLink: any;
   day: any;
@@ -8,7 +9,7 @@ type Notes = {
   date: any;
 };
 
-const Notes = (props: Notes) => {
+const Notes = (props: NotesCard) => {
   return (
     <div>
       <div className="flex flex-col dark:bg-zinc-800">
