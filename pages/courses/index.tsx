@@ -6,6 +6,7 @@ import { CourseContext } from '@/context/CourseContext'
 import { Topbar } from '@/components/components'
 import Loading from '@/components/util/Loading'
 import { useAuth } from '@/context/AuthContext'
+import { ToastContainer } from 'react-toastify'
 
 const Courses: NextPageWithLayout = () => {
   let { videos, categories, playlist } = useContext(CourseContext)
@@ -13,6 +14,7 @@ const Courses: NextPageWithLayout = () => {
   videos = videos.filter((video: any) => video.restriction === 1)
   return (
     <section className='w-full h-full bg-zinc-100 dark:bg-zinc-950 border-3 border-red-500 overflow-y-scroll'>
+      <ToastContainer />
       <Topbar />
       <CategoryList categories={categories} />
       <PlaylistList playlists={playlist} playlistTitle={`Popular playlists`} />
