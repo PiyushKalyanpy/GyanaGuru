@@ -122,7 +122,8 @@ const SingleCommentThread = ({
         showToast('You are not authorized to delete this comment', 'error')
         return
       }
-      deleteComment(videoId, commentId, comments)
+      showToast('Deleting comment is not available yet', 'info')
+      // deleteComment(videoId, commentId, comments)
     }
   }
 
