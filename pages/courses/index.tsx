@@ -23,7 +23,7 @@ const Courses: NextPageWithLayout = () => {
 
 const CategoryList = ({ categories }: any) => {
   return (
-    <div className='flex flex-col p-4 space-y-4 overflow-hidden w-full'>
+    <div className='flex flex-col p-4 space-y-4  w-full'>
       <h2 className='text-zinc-600'>Categories</h2>
       <div className='flex w-full overflow-x-scroll gap-4 hide-scrollbar snap-x'>
         {categories.length > 0 ? (

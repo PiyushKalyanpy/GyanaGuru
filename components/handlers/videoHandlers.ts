@@ -17,8 +17,8 @@ export const handleAddNote = ({ videoPlayer, currentUser, videoId, setNote }: an
             videoId: videoId,
             uid: currentUser?.uid,
             time: duration,
-            title: 'New Note',
-            description: 'New Note Description jsnkjn'
+            title: '',
+            description: ''
         });
     }
 };

@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useContext } from 'react'
 import Rating from '../../components/util/Rating'
+import { CourseContext } from '@/context/CourseContext'
 
 const VideoCard = ({ video }: any) => {
   const router = useRouter()
@@ -16,8 +17,10 @@ const VideoCard = ({ video }: any) => {
     duration,
     rating
   } = video
+  const { videoViewed } = useContext(CourseContext)
 
   const handleClick = () => {
+    videoViewed(id)
     router.push(`/courses/playlist/video/${id}`)
   }
 

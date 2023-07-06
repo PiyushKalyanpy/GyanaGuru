@@ -12,7 +12,6 @@ const Topbar = ({ showBackIcon = false }) => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value)
   }
-  console.log(currentUser)
 
   useEffect(() => {
     let debounceTimer: string | number | NodeJS.Timeout | undefined

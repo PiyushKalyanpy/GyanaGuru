@@ -64,32 +64,29 @@ const CommentContainer = ({ comments, videoId }: any) => {
         </button>
       </div>
       <div className='flex flex-col space-y-6 bg-white p-4 h-full overflow-y-scroll hide-scrollbar'>
-        {comments ? null : (
-          <p className='text-lg text-center font-medium text-zinc-700 h-full'>
-            Be the first to comment
-          </p>
-        )}
-
         {!comments || Object.values(comments).length === 0 ? (
           <p className='text-lg text-center font-medium text-zinc-700 h-full'>
             Be the first to comment
           </p>
         ) : (
           <>
-            {Object.entries(comments).map(([key, commentItem]: any) => {
-              return (
-                <>
-                  <SingleCommentThread
-                    comments={commentItem.comment}
-                    videoId={videoId}
-                    commentId={key}
-                    key={key}
-                    currentUser={currentUser}
-                    deleteComment={deleteComment}
-                  />
-                </>
-              )
-            })}
+            {comments &&
+              Object.entries(comments).map(([key, commentItem]: any) => {
+                return (
+                  <>
+                    {commentItem && (
+                      <SingleCommentThread
+                        comments={commentItem.comment}
+                        videoId={videoId}
+                        commentId={key}
+                        key={key}
+                        currentUser={currentUser}
+                        deleteComment={deleteComment}
+                      />
+                    )}
+                  </>
+                )
+              })}
           </>
         )}
       </div>
@@ -125,7 +122,7 @@ const SingleCommentThread = ({
         showToast('You are not authorized to delete this comment', 'error')
         return
       }
-      deleteComment(videoId, commentId)
+      deleteComment(videoId, commentId, comments)
     }
   }
 

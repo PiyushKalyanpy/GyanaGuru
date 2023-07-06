@@ -123,7 +123,7 @@ const VideoPlayer = () => {
                 </div>
               </div>
               {/* video details */}
-              <div className='flex lg:hidden flex-col p-4 space-y-4'>
+              <div className='flex  flex-col p-4 space-y-4'>
                 <div className='flex items-center justify-between'>
                   <div className='flex flex-col lg:flex-row items-start space-y-4 lg:space-x-4'>
                     <div className='flex items-center space-x-4'>
@@ -149,7 +149,7 @@ const VideoPlayer = () => {
               </div>
             </div>
             {/* comments section  */}
-            <div className='w-full min-h-screen   h-full p-4 space-y-10  lg:grid grid-row-2 '>
+            <div className='w-full   h-full p-4 space-y-10  lg:grid grid-row-2 '>
               <div className='w-full h-full'>
                 <CommentSection videoId={videoId} comments={comments} />
               </div>

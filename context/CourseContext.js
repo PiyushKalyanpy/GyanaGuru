@@ -8,6 +8,7 @@ import {
   deleteDoc,
   doc,
   updateDoc,
+  increment,
   arrayUnion,
   serverTimestamp,
 } from "firebase/firestore";
@@ -38,7 +39,7 @@ export function CourseProvider({ children }) {
   const [notes, setNotes] = useState([]);
   const router = useRouter();
   const { currentUser } = useAuth();
-  const [isDBValveOpen, setIsDBValveOpen] = useState(true);
+  const [isDBValveOpen, setIsDBValveOpen] = useState(1);
 
   const getData =
     currentUser &&
@@ -253,13 +254,14 @@ export function CourseProvider({ children }) {
     }
   };
 
-  const deleteComment = (videoId, commentId) => {
+  const deleteComment = (videoId, commentId, comments) => {
     if (videoId && commentId) {
       const commentRef = ref(rtdb, `comments/${videoId}/${commentId}`);
       const deletedCommentRef = ref(
         rtdb,
         `deletedComments/${videoId}/${commentId}`
       );
+      set(deletedCommentRef, comments);
       remove(commentRef)
         .then((x) => {
           showToast("Comment deleted successfully", "success");
@@ -299,10 +301,60 @@ export function CourseProvider({ children }) {
     }
   };
 
+  const updateNote = (userId, videoId, noteId, note) => {
+    if (userId && videoId && noteId && note) {
+      const notesRef = ref(
+        rtdb,
+        `notes/${currentUser.uid}/${videoId}/${noteId}`
+      );
+      update(notesRef, {
+        note: note,
+      });
+    }
+  };
+
+  // video CRUD ------------------------------
+
+  const videoViewed = (videoId) => {
+    if (videoId) {
+      const historyRef = ref(rtdb, `history/${currentUser.uid}/${videoId}`);
+      const videoRef = ref(rtdb, `videos/${videoId}`);
+      const videoDBRef = doc(db, "videos", videoId);
+      get(historyRef)
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            // if video already exists in history, then update the timestamp
+            update(historyRef, {
+              timestamp: new Date(),
+            });
+            // increment the view count of video
+            updateDoc(videoDBRef, {
+              viewCount: increment(1),
+            })
+              .then(() => {
+                console.log("🧑 Video view count incremented");
+              })
+              .catch((error) => {
+                showToast(error.message, "error");
+              });
+          } else {
+            // if video doesn't exists in history, then add it
+            set(historyRef, {
+              timestamp: serverTimestamp(),
+            });
+          }
+        })
+        .catch((error) => {
+          showToast(error.message, "error");
+        });
+    }
+  };
+
   const value = {
     categories,
     addCategory,
     getNote,
+    updateNote,
     setNote,
     addPlaylist,
     addComment,
@@ -319,6 +371,7 @@ export function CourseProvider({ children }) {
     updatePlaylist,
     getComments,
     videos,
+    videoViewed,
     deletePlaylist,
     addVideo,
     addReactionOnComment,

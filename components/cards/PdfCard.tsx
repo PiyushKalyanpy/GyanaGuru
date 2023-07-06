@@ -9,10 +9,10 @@ const PdfCard = () => {
           {/* note text content */}
           <div>
             <div className='text-lg font-semibold font-urbanist'>
-              Heading
+              No available file
             </div>
             <div className='w-full'>
-              Heading
+              🙅
             </div>
           </div>
         </>
