@@ -84,7 +84,7 @@ const VideoPlayer = () => {
           </div>
         </div>
         {/* video content with comment + notes */}
-        <div className='flex flex-col w-full h-full border-red-500 lg:flex-row border-3 bg-transparent dark:bg-zinc-800 rounded-bl-2xl rounded-r-3xl'>
+        <div className='flex flex-col pb-10 w-full h-full border-red-500 lg:flex-row border-3 bg-transparent dark:bg-zinc-800 rounded-bl-2xl rounded-r-3xl'>
           <div className='flex p-4 lg:hidden'>
             <BackNavButton />
           </div>
