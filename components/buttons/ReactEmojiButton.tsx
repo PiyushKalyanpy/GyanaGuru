@@ -12,16 +12,14 @@ import EmojiPicker, {
 import { useContext } from 'react'
 import { CourseContext } from '@/context/CourseContext'
 
-
-const ReactEmojiButton = ({videoId, commentId} : any) => {
+const ReactEmojiButton = ({ videoId, commentId }: any) => {
   const [selectedEmoji, setSelectedEmoji] = useState<string>('')
   const [showEmojiPanel, setShowEmojiPanel] = useState<boolean>(false)
-  const {addReactionOnComment} = useContext(CourseContext)
+  const { addReactionOnComment } = useContext(CourseContext)
 
   function onClick (emojiData: EmojiClickData, event: MouseEvent) {
-    console.log(emojiData)
     setSelectedEmoji(emojiData.unified)
-    addReactionOnComment(videoId, commentId,  emojiData.unified)
+    addReactionOnComment(videoId, commentId, emojiData.unified)
     setShowEmojiPanel(!showEmojiPanel)
   }
   return (
@@ -34,21 +32,23 @@ const ReactEmojiButton = ({videoId, commentId} : any) => {
           sentiment_satisfied_alt
         </span>
       </button>
-      
+
       {showEmojiPanel && (
-        <EmojiPicker
-          onEmojiClick={onClick}
-          autoFocusSearch={false}
-          theme={Theme.AUTO}
-          height={350}
-          width='100%'
-          emojiVersion='0.6'
-          lazyLoadEmojis={true}
-          suggestedEmojisMode={SuggestionMode.RECENT}
-          searchPlaceHolder='Search emoji'
-          defaultSkinTone={SkinTones.MEDIUM}
-          emojiStyle={EmojiStyle.NATIVE}
-        />
+        <div className=' top-0 left-0 fixed bg-black/30 w-screen h-screen z-10'>
+          <EmojiPicker
+            onEmojiClick={onClick}
+            autoFocusSearch={false}
+            theme={Theme.AUTO}
+            height={350}
+            width='100%'
+            emojiVersion='0.6'
+            lazyLoadEmojis={true}
+            suggestedEmojisMode={SuggestionMode.RECENT}
+            searchPlaceHolder='Search emoji'
+            defaultSkinTone={SkinTones.MEDIUM}
+            emojiStyle={EmojiStyle.NATIVE}
+          />
+        </div>
       )}
     </div>
   )

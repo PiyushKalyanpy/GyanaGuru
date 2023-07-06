@@ -53,7 +53,9 @@ const PlaylistList = ({ playlists, playlistTitle }: any) => {
             <PlaylistCard key={playlist.id} playlist={playlist} />
           ))
         ) : (
-          <Loading />
+          <div className='flex'>
+            <Loading />
+          </div>
         )}
       </div>
     </div>
@@ -68,7 +70,9 @@ const VideoList = ({ videos, videoTitle }: any) => {
         {videos && videos.length > 0 ? (
           videos.map((video: any) => <VideoCard key={video.id} video={video} />)
         ) : (
-          <Loading />
+          <div className='flex'>
+            <Loading />
+          </div>
         )}
       </div>
     </div>

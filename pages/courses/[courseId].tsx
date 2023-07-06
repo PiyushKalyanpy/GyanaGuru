@@ -11,7 +11,6 @@ const Playlist = () => {
   const { courseId } = router.query
   const { currentUser } = useAuth()
   const { videos, categories, playlist } = useContext(CourseContext)
-  console.log('playlist', playlist)
   const filteredPlaylist = playlist.filter((playlist: any) => {
     return playlist.categoryId === courseId
   })

@@ -15,7 +15,6 @@ const toastOptions = {
 
 
 const showToast = (message: string, type: "success" | "error" | "info"  ) => {
-    console.log(message)
   return (
     <div>
       {toast[type](message, toastOptions)}

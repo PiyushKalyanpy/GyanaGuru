@@ -6,7 +6,6 @@ import { ToastContainer } from 'react-toastify'
 import { PrimaryLayout } from '@/components/layouts/exporter'
 
 const ProfileHeader = ({ userDetails }: any) => {
-  console.log(userDetails.photoURL)
   return (
     <div className='flex items-center space-x-10'>
       <div className='relative'>

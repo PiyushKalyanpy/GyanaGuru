@@ -1,18 +1,18 @@
 import Image from 'next/image'
-import { useState, useEffect, ChangeEvent } from 'react'
-import { useContext } from 'react'
+import { useState, useEffect, ChangeEvent, useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext'
-import { DarkModeToggle } from '../components'
 import BackNavButton from '../buttons/BackNavButton'
+import { CourseContext } from '../../context/CourseContext'
+import { DarkModeToggle } from '../components'
 
 const Topbar = ({ showBackIcon = false }) => {
   const { currentUser } = useContext(AuthContext)
-  const imageUrl = 'https://avatars.githubusercontent.com/u/79275157?s=90&v=4'
   const [searchQuery, setSearchQuery] = useState('')
-
+  const { isDBValveOpen, setIsDBValveOpen } = useContext(CourseContext)
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value)
   }
+  console.log(currentUser)
 
   useEffect(() => {
     let debounceTimer: string | number | NodeJS.Timeout | undefined
@@ -40,6 +40,14 @@ const Topbar = ({ showBackIcon = false }) => {
           searchQuery={searchQuery}
           handleInputChange={handleInputChange}
         />
+        {/* database handler  */}
+        {currentUser.email == 'kalyanpiyush560@gmail.com' && (
+          <DBButton
+            isDBValveOpen={isDBValveOpen}
+            setIsDBValveOpen={setIsDBValveOpen}
+          />
+        )}
+        <DarkModeToggle />
         {/* Notificaton and profile  */}
         <div className='flex h-full gap-4 w-fit'>
           {/* <TopBarButtons iconAvailable={true} /> */}
@@ -55,6 +63,32 @@ const Topbar = ({ showBackIcon = false }) => {
           />
           {/* <DarkModeToggle/> */}
         </div>
+      </div>
+    </div>
+  )
+}
+
+const DBButton = ({ isDBValveOpen, setIsDBValveOpen }: any) => {
+  return (
+    <div onClick={() => setIsDBValveOpen(!isDBValveOpen)} className='relative'>
+      <span
+        className={`p-4 rounded-2xl material-symbols-outlined cursor-pointer  active:bg-zinc-200 bg-white `}
+      >
+        database
+      </span>
+      <div className='absolute top-2 right-2'>
+        <span className='relative flex h-3 w-3'>
+          <span
+            className={`animate-ping absolute inline-flex h-full w-full rounded-full  opacity-75  ${
+              isDBValveOpen ? 'bg-green-500' : ' bg-rose-500'
+            } `}
+          ></span>
+          <span
+            className={`relative inline-flex rounded-full h-3 w-3   ${
+              isDBValveOpen ? 'bg-green-500' : ' bg-rose-500'
+            } `}
+          ></span>
+        </span>
       </div>
     </div>
   )

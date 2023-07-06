@@ -13,7 +13,6 @@ const PlaylistCard = ({ playlist }: any) => {
     videos,
     rating
   } = playlist
-  console.log("pp", playlist)
   const router = useRouter()
 
   const handleClick = () => {

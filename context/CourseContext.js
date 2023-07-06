@@ -11,7 +11,15 @@ import {
   arrayUnion,
   serverTimestamp,
 } from "firebase/firestore";
-import { update, ref, push, onValue, get, set, remove } from "firebase/database";
+import {
+  update,
+  ref,
+  push,
+  onValue,
+  get,
+  set,
+  remove,
+} from "firebase/database";
 import { useRouter } from "next/router";
 import { showToast } from "@/components/util/Toast";
 import { useAuth } from "./AuthContext";
@@ -30,16 +38,16 @@ export function CourseProvider({ children }) {
   const [notes, setNotes] = useState([]);
   const router = useRouter();
   const { currentUser } = useAuth();
+  const [isDBValveOpen, setIsDBValveOpen] = useState(true);
 
-  const stopDBCalls = 1;
   const getData =
     currentUser &&
     1 &&
-    stopDBCalls &&
+    isDBValveOpen &&
     (router.pathname.startsWith("/courses") ||
       router.pathname.startsWith("/admin"));
   const getRData =
-    currentUser && 1 && router.pathname.startsWith("/courses") && stopDBCalls;
+    currentUser && 1 && router.pathname.startsWith("/courses") && isDBValveOpen;
 
   // Category CRUD ----------------------------------------------
 
@@ -165,8 +173,9 @@ export function CourseProvider({ children }) {
     }
   };
 
+  // user comments CRUD ----------------------------------------------
+
   const addComment = (videoId, comment) => {
-    console.log(videoId, comment);
     if (videoId) {
       push(ref(rtdb, `comments/${videoId}`), {
         comment: comment,
@@ -198,7 +207,6 @@ export function CourseProvider({ children }) {
       get(commentRef)
         .then((snapshot) => {
           const currentReaction = snapshot.val()?.reaction || {};
-          console.log(currentReaction, "from db");
 
           // Increment the count if the emoji is already present
           if (currentReaction[reaction]) {
@@ -229,7 +237,40 @@ export function CourseProvider({ children }) {
     }
   };
 
-  // user notes (set note, get note ) --------------------------
+  const deleteReactionOnComment = (videoId, commentId, reaction) => {
+    if (videoId && commentId) {
+      const commentRef = ref(
+        rtdb,
+        `comments/${videoId}/${commentId}/comment/${reaction}`
+      );
+      remove(commentRef)
+        .then(() => {
+          showToast("Reaction deleted successfully", "success");
+        })
+        .catch((error) => {
+          showToast(error.message, "error");
+        });
+    }
+  };
+
+  const deleteComment = (videoId, commentId) => {
+    if (videoId && commentId) {
+      const commentRef = ref(rtdb, `comments/${videoId}/${commentId}`);
+      const deletedCommentRef = ref(
+        rtdb,
+        `deletedComments/${videoId}/${commentId}`
+      );
+      remove(commentRef)
+        .then((x) => {
+          showToast("Comment deleted successfully", "success");
+        })
+        .catch((error) => {
+          showToast(error.message, "error");
+        });
+    }
+  };
+
+  // user notes CRUD --------------------------
 
   const setNote = (userId, videoId, note) => {
     if (userId && note && videoId) {
@@ -241,10 +282,9 @@ export function CourseProvider({ children }) {
   };
 
   const getNote = (userId, videoId) => {
-    if (userId && videoId && getRData ) {
+    if (userId && videoId && getRData) {
       const notesRef = ref(rtdb, `notes/${userId}/${videoId}`);
       onValue(notesRef, (snapshot) => {
-        console.log("called 📞")
         const data = snapshot.val();
         setNotes(data);
         console.log("🧑 Note data downloaded");
@@ -257,7 +297,7 @@ export function CourseProvider({ children }) {
       const notesRef = ref(rtdb, `notes/${userId}/${videoId}/${noteId}`);
       remove(notesRef);
     }
-  }
+  };
 
   const value = {
     categories,
@@ -267,11 +307,15 @@ export function CourseProvider({ children }) {
     addPlaylist,
     addComment,
     deleteCategory,
+    deleteComment,
+    deleteReactionOnComment,
     notes,
     comments,
     deleteNote,
     updateCategory,
     playlist,
+    isDBValveOpen,
+    setIsDBValveOpen,
     updatePlaylist,
     getComments,
     videos,

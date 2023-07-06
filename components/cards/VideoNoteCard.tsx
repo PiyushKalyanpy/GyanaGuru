@@ -52,7 +52,6 @@ const VideoNoteCard = ({ note, updatePlayerTime, noteId }: any) => {
             </button>
             {tags &&
               tags.map((tag: any, index: any) => {
-                console.log(tag, index, '👩‍💻')
                 return (
                   <div key={index}>
                     <TagItem tag={tag} />

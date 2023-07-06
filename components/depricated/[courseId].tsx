@@ -66,7 +66,6 @@ const VideoPlayer = () => {
                 onReady={handleReady}
                 className='w-full h-full'
                 onPause={e => {
-                  console.log(e)
                   e.target.currentTime = 33
                 }}
               />
@@ -161,7 +160,6 @@ const VideoPlayer = () => {
         className='w-full h-full'
         onPause={e => {
           console.log(e.target.playerInfo.currentTime)
-          console.log(e.target.playerInfo)
         }}
       />
     </div>

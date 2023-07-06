@@ -49,7 +49,6 @@ const VideoPlayer = () => {
   useEffect(() => {
     getComments(videoId)
     getNote(currentUser?.uid, videoId)
-    console.log('videoId', videoId)
   }, [])
 
   const videoYTId = url?.split('v=')[1]
