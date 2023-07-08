@@ -46,5 +46,9 @@
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.0",
     "typescript": "5.0.4"
+  },
+  "engines": {
+    "node": "18",
+    "npm": "9"
   }
 }
