@@ -36,6 +36,7 @@ function App ({ Component, pageProps }: AppPropsWithLayout) {
                 gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
               `}
             </Script>
+            
             {getLayout(<Component {...pageProps} />)}
           </ThemeProvider>
         </CourseProvider>

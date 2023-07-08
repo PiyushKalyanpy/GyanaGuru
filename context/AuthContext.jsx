@@ -25,6 +25,7 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [resultUser, setResultUser] = useState(null);
   const router = useRouter();
 
   const loginWithGoogle = async () => {
@@ -34,12 +35,12 @@ export function AuthProvider({ children }) {
       const docRef = doc(db, "users", result.user.uid);
       getDoc(docRef).then((docSnap) => {
         if (docSnap.exists()) {
-          // user exists
-          console.log("user exists");
+          // set current user
+          setCurrentUser(docSnap.data());
+
           router.push("/courses");
         } else {
           // user does not exist
-          console.log("user does not exist");
           setDoc(doc(db, "users", result.user.email), {
             email: result.user.email,
             name: result.user.displayName,
@@ -65,11 +66,8 @@ export function AuthProvider({ children }) {
   };
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      setCurrentUser(user);
+      setCurrentUser(user)
       setLoading(false);
-      if (user) {
-        setCookie("uid", user.uid);
-      }
     });
   }, []);
 

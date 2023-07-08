@@ -4,124 +4,18 @@ import { VideoCard, CategoryCard, PlaylistCard } from '@/components/components'
 import { NextPageWithLayout } from '@/util/page'
 import { CourseContext } from '@/context/CourseContext'
 import { Topbar } from '@/components/components'
+import Loading from '@/components/util/Loading'
+import { useAuth } from '@/context/AuthContext'
+import { ToastContainer } from 'react-toastify'
 
 const Courses: NextPageWithLayout = () => {
   let { videos, categories, playlist } = useContext(CourseContext)
-  // let videos = [
-  //   {
-  //     id: 'H3n75nHN5qY',
-  //     name: 'package-lock.json explained',
-  //     description:
-  //       '🔥 Wanna learn more? All software development courses that I teach https://stashchuk.com\n🎦 YouTube https://www.youtube.com/CodingTutorials?sub_confirmation=1\n🙍 LinkedIn https://www.linkedin.com/in/bogdanstashchuk/\n📪 Twitter  https://twitter.com/BogdanStashchuk\n\n🔥 Discord community\nhttps://discord.gg/wGv3Vu6\n\n🔥 Udemy Profile\nhttps://www.udemy.com/user/bogdanstashchuk/\n\nSUBSCRIBE IN SOCIAL NETWORKS\n🎦 YouTube https://www.youtube.com/CodingTutorials?sub_confirmation=1\n🙍 LinkedIn https://www.linkedin.com/in/bogdanstashchuk/\n📪 Twitter  https://twitter.com/BogdanStashchuk\n\nEmail 📧 in case you want to send me a notice\nbstashchuk@gmail.com',
-  //     imageUrl: 'https://i.ytimg.com/vi/y-zkxDNLa94/maxresdefault.jpg',
-  //     categoryId: '152WJYjIDAicRnfVldg9',
-  //     viewCount: 0,
-  //     createdAt: '2023-06-28T11:35:20.864Z',
-  //     rating: 0,
-  //     url: 'https://www.youtube.com/watch?v=H3n75nHN5qY',
-  //     playlistId: '0R7iRCvd07KsSDJmiGQY',
-  //     comments: [],
-  //     restriction: 1,
-  //     createdBy: 'csCtDDoZWlVhQ7OZYXTXOvTvyQF3',
-  //     likes: 0,
-  //     duration: '03:05'
-  //   },
-  //   {
-  //     id: 'H3n75nHN5qY',
-  //     name: 'package-lock.json explained',
-  //     description:
-  //       '🔥 Wanna learn more? All software development courses that I teach https://stashchuk.com\n🎦 YouTube https://www.youtube.com/CodingTutorials?sub_confirmation=1\n🙍 LinkedIn https://www.linkedin.com/in/bogdanstashchuk/\n📪 Twitter  https://twitter.com/BogdanStashchuk\n\n🔥 Discord community\nhttps://discord.gg/wGv3Vu6\n\n🔥 Udemy Profile\nhttps://www.udemy.com/user/bogdanstashchuk/\n\nSUBSCRIBE IN SOCIAL NETWORKS\n🎦 YouTube https://www.youtube.com/CodingTutorials?sub_confirmation=1\n🙍 LinkedIn https://www.linkedin.com/in/bogdanstashchuk/\n📪 Twitter  https://twitter.com/BogdanStashchuk\n\nEmail 📧 in case you want to send me a notice\nbstashchuk@gmail.com',
-  //     imageUrl: 'https://i.ytimg.com/vi/H3n75nHN5qY/maxresdefault.jpg',
-  //     categoryId: '152WJYjIDAicRnfVldg9',
-  //     viewCount: 0,
-  //     createdAt: '2023-06-28T11:35:20.864Z',
-  //     rating: 0,
-  //     url: 'https://www.youtube.com/watch?v=H3n75nHN5qY',
-  //     playlistId: '0R7iRCvd07KsSDJmiGQY',
-  //     comments: [],
-  //     restriction: 1,
-  //     createdBy: 'csCtDDoZWlVhQ7OZYXTXOvTvyQF3',
-  //     likes: 0,
-  //     duration: '03:05'
-  //   },
-  //   {
-  //     id: 'H3n75nHN5qY',
-  //     name: 'package-lock.json explained',
-  //     description:
-  //       '🔥 Wanna learn more? All software development courses that I teach https://stashchuk.com\n🎦 YouTube https://www.youtube.com/CodingTutorials?sub_confirmation=1\n🙍 LinkedIn https://www.linkedin.com/in/bogdanstashchuk/\n📪 Twitter  https://twitter.com/BogdanStashchuk\n\n🔥 Discord community\nhttps://discord.gg/wGv3Vu6\n\n🔥 Udemy Profile\nhttps://www.udemy.com/user/bogdanstashchuk/\n\nSUBSCRIBE IN SOCIAL NETWORKS\n🎦 YouTube https://www.youtube.com/CodingTutorials?sub_confirmation=1\n🙍 LinkedIn https://www.linkedin.com/in/bogdanstashchuk/\n📪 Twitter  https://twitter.com/BogdanStashchuk\n\nEmail 📧 in case you want to send me a notice\nbstashchuk@gmail.com',
-  //     imageUrl: 'https://i.ytimg.com/vi/H3n75nHN5qY/maxresdefault.jpg',
-  //     categoryId: '152WJYjIDAicRnfVldg9',
-  //     viewCount: 0,
-  //     createdAt: '2023-06-28T11:35:20.864Z',
-  //     rating: 0,
-  //     url: 'https://www.youtube.com/watch?v=H3n75nHN5qY',
-  //     playlistId: '0R7iRCvd07KsSDJmiGQY',
-  //     comments: [],
-  //     restriction: 1,
-  //     createdBy: 'csCtDDoZWlVhQ7OZYXTXOvTvyQF3',
-  //     likes: 0,
-  //     duration: '03:05'
-  //   },
-  //   {
-  //     id: 'H3n75nHN5qY',
-  //     name: 'package-lock.json explained',
-  //     description:
-  //       '🔥 Wanna learn more? All software development courses that I teach https://stashchuk.com\n🎦 YouTube https://www.youtube.com/CodingTutorials?sub_confirmation=1\n🙍 LinkedIn https://www.linkedin.com/in/bogdanstashchuk/\n📪 Twitter  https://twitter.com/BogdanStashchuk\n\n🔥 Discord community\nhttps://discord.gg/wGv3Vu6\n\n🔥 Udemy Profile\nhttps://www.udemy.com/user/bogdanstashchuk/\n\nSUBSCRIBE IN SOCIAL NETWORKS\n🎦 YouTube https://www.youtube.com/CodingTutorials?sub_confirmation=1\n🙍 LinkedIn https://www.linkedin.com/in/bogdanstashchuk/\n📪 Twitter  https://twitter.com/BogdanStashchuk\n\nEmail 📧 in case you want to send me a notice\nbstashchuk@gmail.com',
-  //     imageUrl: 'https://i.ytimg.com/vi/H3n75nHN5qY/maxresdefault.jpg',
-  //     categoryId: '152WJYjIDAicRnfVldg9',
-  //     viewCount: 0,
-  //     createdAt: '2023-06-28T11:35:20.864Z',
-  //     rating: 0,
-  //     url: 'https://www.youtube.com/watch?v=H3n75nHN5qY',
-  //     playlistId: '0R7iRCvd07KsSDJmiGQY',
-  //     comments: [],
-  //     restriction: 1,
-  //     createdBy: 'csCtDDoZWlVhQ7OZYXTXOvTvyQF3',
-  //     likes: 0,
-  //     duration: '03:05'
-  //   },
-  //   {
-  //     id: 'H3n75nHN5qY',
-  //     name: 'package-lock.json explained',
-  //     description:
-  //       '🔥 Wanna learn more? All software development courses that I teach https://stashchuk.com\n🎦 YouTube https://www.youtube.com/CodingTutorials?sub_confirmation=1\n🙍 LinkedIn https://www.linkedin.com/in/bogdanstashchuk/\n📪 Twitter  https://twitter.com/BogdanStashchuk\n\n🔥 Discord community\nhttps://discord.gg/wGv3Vu6\n\n🔥 Udemy Profile\nhttps://www.udemy.com/user/bogdanstashchuk/\n\nSUBSCRIBE IN SOCIAL NETWORKS\n🎦 YouTube https://www.youtube.com/CodingTutorials?sub_confirmation=1\n🙍 LinkedIn https://www.linkedin.com/in/bogdanstashchuk/\n📪 Twitter  https://twitter.com/BogdanStashchuk\n\nEmail 📧 in case you want to send me a notice\nbstashchuk@gmail.com',
-  //     imageUrl: 'https://i.ytimg.com/vi/H3n75nHN5qY/maxresdefault.jpg',
-  //     categoryId: '152WJYjIDAicRnfVldg9',
-  //     viewCount: 0,
-  //     createdAt: '2023-06-28T11:35:20.864Z',
-  //     rating: 0,
-  //     url: 'https://www.youtube.com/watch?v=H3n75nHN5qY',
-  //     playlistId: '0R7iRCvd07KsSDJmiGQY',
-  //     comments: [],
-  //     restriction: 1,
-  //     createdBy: 'csCtDDoZWlVhQ7OZYXTXOvTvyQF3',
-  //     likes: 0,
-  //     duration: '03:05'
-  //   },
-  //   {
-  //     id: 'H3n75nHN5qY',
-  //     name: 'package-lock.json explained',
-  //     description:
-  //       '🔥 Wanna learn more? All software development courses that I teach https://stashchuk.com\n🎦 YouTube https://www.youtube.com/CodingTutorials?sub_confirmation=1\n🙍 LinkedIn https://www.linkedin.com/in/bogdanstashchuk/\n📪 Twitter  https://twitter.com/BogdanStashchuk\n\n🔥 Discord community\nhttps://discord.gg/wGv3Vu6\n\n🔥 Udemy Profile\nhttps://www.udemy.com/user/bogdanstashchuk/\n\nSUBSCRIBE IN SOCIAL NETWORKS\n🎦 YouTube https://www.youtube.com/CodingTutorials?sub_confirmation=1\n🙍 LinkedIn https://www.linkedin.com/in/bogdanstashchuk/\n📪 Twitter  https://twitter.com/BogdanStashchuk\n\nEmail 📧 in case you want to send me a notice\nbstashchuk@gmail.com',
-  //     imageUrl: 'https://i.ytimg.com/vi/H3n75nHN5qY/maxresdefault.jpg',
-  //     categoryId: '152WJYjIDAicRnfVldg9',
-  //     viewCount: 0,
-  //     createdAt: '2023-06-28T11:35:20.864Z',
-  //     rating: 0,
-  //     url: 'https://www.youtube.com/watch?v=H3n75nHN5qY',
-  //     playlistId: '0R7iRCvd07KsSDJmiGQY',
-  //     comments: [],
-  //     restriction: 1,
-  //     createdBy: 'csCtDDoZWlVhQ7OZYXTXOvTvyQF3',
-  //     likes: 0,
-  //     duration: '03:05'
-  //   }
-  // ]
+  const { currentUser } = useAuth()
   videos = videos.filter((video: any) => video.restriction === 1)
   return (
     <section className='w-full h-full bg-zinc-100 dark:bg-zinc-950 border-3 border-red-500 overflow-y-scroll'>
+      <ToastContainer />
       <Topbar />
-
       <CategoryList categories={categories} />
       <PlaylistList playlists={playlist} playlistTitle={`Popular playlists`} />
       <VideoList videos={videos} videoTitle={`Popular videos`} />
@@ -131,10 +25,10 @@ const Courses: NextPageWithLayout = () => {
 
 const CategoryList = ({ categories }: any) => {
   return (
-    <div className='flex flex-col p-4 space-y-4 overflow-hidden w-full'>
+    <div className='flex flex-col p-4 space-y-4  w-full'>
       <h2 className='text-zinc-600'>Categories</h2>
       <div className='flex w-full overflow-x-scroll gap-4 hide-scrollbar snap-x'>
-        {categories.length > 0 &&
+        {categories.length > 0 ? (
           categories.map((category: any) => (
             <CategoryCard
               key={category.id}
@@ -142,7 +36,10 @@ const CategoryList = ({ categories }: any) => {
               name={category.name}
               id={category.id}
             />
-          ))}
+          ))
+        ) : (
+          <Loading />
+        )}
       </div>
     </div>
   )
@@ -152,12 +49,16 @@ const PlaylistList = ({ playlists, playlistTitle }: any) => {
   return (
     <div className='flex flex-col p-4 space-y-4'>
       <h2 className='text-zinc-600'>{playlistTitle} </h2>
-      <div className='grid grid-cols-3 gap-4'>
-        {playlists &&
-          playlists.length > 0 &&
+      <div className='grid  lg:grid-cols-3 gap-4'>
+        {playlists && playlists.length > 0 ? (
           playlists.map((playlist: any) => (
             <PlaylistCard key={playlist.id} playlist={playlist} />
-          ))}
+          ))
+        ) : (
+          <div className='flex'>
+            <Loading />
+          </div>
+        )}
       </div>
     </div>
   )
@@ -167,12 +68,14 @@ const VideoList = ({ videos, videoTitle }: any) => {
   return (
     <div className='flex flex-col p-4 space-y-4'>
       <h2 className='text-zinc-600'>{videoTitle} </h2>
-      <div className='grid grid-cols-3 gap-6'>
-        {videos &&
-          videos.length > 0 &&
-          videos.map((video: any) => (
-            <VideoCard key={video.id} video={video} />
-          ))}
+      <div className='grid lg:grid-cols-3 gap-6'>
+        {videos && videos.length > 0 ? (
+          videos.map((video: any) => <VideoCard key={video.id} video={video} />)
+        ) : (
+          <div className='flex'>
+            <Loading />
+          </div>
+        )}
       </div>
     </div>
   )
