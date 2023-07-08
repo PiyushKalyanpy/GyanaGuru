@@ -50,9 +50,10 @@ const LandingThreeGrid = () => {
         </div>
       </div>
       {/* Showcase 3 */}
-      <div className='lg:col-span-3 w-full h-96  row-span-3 transition duration-500 ease-in-out transform translate-x-full opacity-0 bg-slate-200 rounded-3xl'>
-        <div className='flex flex-col items-end justify-end w-full'>
-          <h1 className='p-4 m-4 text-3xl font-archivo text-slate-700'>{`We provides accessible and affordable education for all with a wide range of courses and expert instructors.`}</h1>
+
+      <div className="transform translate-x-full opacity-0 transition duration-500 ease-in-out col-span-3  bg-slate-200 rounded-3xl">
+        <div className="flex flex-col justify-end items-end w-full">
+          <h1 className="text-3xl font-archivo  text-slate-700 p-4 m-4">{`We provide accessible and affordable education for all with a wide range of courses and expert instructors.`}</h1>
         </div>
       </div>
     </div>
