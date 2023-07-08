@@ -14,6 +14,7 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { setCookie } from 'cookies-next'
 import Image from 'next/image'
+import ScrollToTopPage from '../components/ScrollToTop/ScrollToTopPage';
 
 export default function Home () {
   const [showNav, setShowNav] = useState(true)
@@ -107,6 +108,7 @@ export default function Home () {
       <div className='text-2xl lg:hidden'>
         Not For MOBILE SCREENS , Please Check on Laptop or Desktop
       </div>
+      <ScrollToTopPage />
     </>
   )
 }
