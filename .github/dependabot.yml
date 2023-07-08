@@ -3,4 +3,6 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'daily'
+      interval: 'monthly'
+      time: '01:00'
+      day-of-month: 1
