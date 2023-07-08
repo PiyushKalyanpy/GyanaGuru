@@ -106,7 +106,7 @@ const MessagePopup = ({ message, setShowPopup } : any) => {
           </h6>
         </div>
         <span className='text-center text-md lg:mx-10 lg:text-xl text-zinc-600'>
-          Please <strong>hold off </strong>  on creating new issues or pull requests as we are currently working on the website and will resume normal contributions in 2-3 days.
+          Please <strong>hold off </strong>  on creating new issues or pull requests as we are currently working on the website and will resume normal contributions by 10 July 2023.
         </span>
         <div className='flex flex-col'>
           <button
