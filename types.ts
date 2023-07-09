@@ -44,13 +44,12 @@ export interface User {
 export interface Comment {
     id: number,
     text: string,
-    dateCreated: Date,
     videoId: number,
-    userId: number,
     likes: number,
     dislikes: number,
     replies: Comment[],
     createdBy: User,
+    createdAt: Date,
     reactions: Reaction[]
 }
 

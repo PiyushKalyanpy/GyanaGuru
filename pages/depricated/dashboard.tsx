@@ -18,7 +18,6 @@ const Dashboard = () => {
   
   useEffect(() => {
     setCookie("reachedDashboard", true);
-    console.log("reached dashboard");
   }
   , []);
 

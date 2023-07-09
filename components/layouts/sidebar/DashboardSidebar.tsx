@@ -23,10 +23,8 @@ const DashboardSidebar: React.FC<IDashboardSidebar> = () => {
 
   const handleClick = (selectedItem: any) => {
     if (selectedItem == SidebarItem.Logout) {
-      console.log('logout')
       logout()
     }
-    console.log(selectedItem)
     setSelectedItem(selectedItem)
     setSidebarExpanded(false)
   }

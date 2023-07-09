@@ -4,60 +4,74 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   font-family: 'Inter', sans-serif;
   scroll-behavior: smooth;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  /* font-family: 'Inter', sans-serif; */
-}
-
-p, a, li, span, input, textarea, button {
-  /* font-family: 'Inter', sans-serif; */
-}
-
-.ytp-pause-overlay-container {
-  display: none !important;
-}
-.ytp-pause-overlay{
-  display: none !important;
-}
-
-.marquee span {
-  display: inline-block;
-  animation: marquee 20s linear infinite;
-  width: 100%;
+.marquee {
   white-space: nowrap;
-}
-
-.marquee:hover span {
-  animation-play-state: paused;
 }
 
 @keyframes marquee {
   0% {
     transform: translateX(100%);
   }
+
   100% {
     transform: translateX(-100%);
   }
 }
 
+@media (max-width: 767px) {
+  .marquee {
+    width: 100%;
+    animation: marquee-mobile 12s linear infinite;
+  }
+}
+
+@media (min-width: 768px) {
+  .marquee {
+    animation: marquee-desktop 14s linear infinite;
+  }
+}
+
+@keyframes marquee-mobile {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-300%);
+  }
+}
+
+@keyframes marquee-desktop {
+  0% {
+    transform: translateX(130%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+
 body {
   overflow-x: hidden;
 }
 
-:root{
-  --scroll-thumb:#7c7c7c;
-  --scroll-thumb-hover:rgb(103, 101, 101);
-  --scroll-track:#bdbdbd;
+:root {
+  --scroll-thumb: #7c7c7c;
+  --scroll-thumb-hover: rgb(103, 101, 101);
+  --scroll-track: #bdbdbd;
 }
 
 [data-theme="dark"] {
-  --scroll-thumb:#908f8f;
-  --scroll-thumb-hover:#c8c7c7;
-  --scroll-track:#4b4b4b;
+  --scroll-thumb: #908f8f;
+  --scroll-thumb-hover: #c8c7c7;
+  --scroll-track: #4b4b4b;
 }
 
 ::-webkit-scrollbar {
@@ -97,15 +111,19 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .hide-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .material-symbols-outlined {
   font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
 }
+
