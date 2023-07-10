@@ -14,7 +14,7 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { setCookie } from 'cookies-next'
 import Image from 'next/image'
-import ScrollToTopPage from '../components/ScrollToTop/ScrollToTopPage';
+import ScrollToTopPage from '../components/util/ScrollToTopPage';
 
 export default function Home () {
   const [showNav, setShowNav] = useState(true)
