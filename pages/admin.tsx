@@ -8,7 +8,7 @@ import { useState } from 'react'
 import AddCourse from '@/components/adminHandle/AddCourse'
 import UpdateCourse from '@/components/adminHandle/UpdateCourse'
 import DeleteCourse from '@/components/adminHandle/DeleteCourse'
-import StudentReport from '@/components/adminHandle/StudentReport'
+import StudentReport from '@/components/adminHandle/AddDesign'
 import ManageSite from '@/components/adminHandle/ManageSite'
 import Sidebar from '@/components/adminHandle/Sidebar'
 
