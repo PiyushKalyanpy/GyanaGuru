@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { motion } from 'framer-motion'
 
 export interface IDashboardSidebarItem {
   href: string

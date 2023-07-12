@@ -12,15 +12,19 @@ const DesignShowcase = () => {
   const { designId } = router.query;
   const { fetchDesign, design } = useContext(CourseContext);
 
+  useEffect(() => {
+    fetchDesign();
+  }, []);
+
   if (!design) {
     return (
       <div>
         <h3>
-          Loading... Please go
-          <Link href='/design' className='text-blue-600  underline px-1'>
+          Loading... Please wait a while
+          {/* <Link href='/design' className='text-blue-600  underline px-1'>
             Back
           </Link>
-          to the previous page
+          to the previous page */}
         </h3>
       </div>
     );
@@ -43,7 +47,7 @@ const DesignShowcase = () => {
           allowFullScreen
         ></iframe>
       </div>
-      <div className='w-3/4 h-screen'>
+      <div id={`${id}/implemention`} className='w-3/4 h-screen'>
         <h2 className='text-6xl font-archivo font-bold  text-zinc-800 p-6'>
           Implementation Guide
         </h2>
