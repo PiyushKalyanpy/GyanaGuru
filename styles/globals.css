@@ -9,6 +9,7 @@
   scroll-behavior: smooth;
 }
 
+
 .marquee {
   white-space: nowrap;
 }
@@ -56,6 +57,15 @@
   }
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
 
 
 body {
@@ -126,4 +136,3 @@ html.dark ::-webkit-scrollbar-thumb:hover {
     'GRAD' 0,
     'opsz' 48
 }
-

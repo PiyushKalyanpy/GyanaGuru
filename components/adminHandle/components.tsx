@@ -2,7 +2,7 @@ import Sidebar from './Sidebar'
 import AddCourse from './AddCourse'
 import UpdateCourse from './UpdateCourse'
 import DeleteCourse from './DeleteCourse'
-import StudentReport from './StudentReport'
+import StudentReport from './AddDesign'
 import ManageSite from './ManageSite'
 
 export {
