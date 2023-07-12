@@ -1,0 +1,34 @@
+.w30{
+    width: 30%;
+}
+
+.p1{
+    padding: 1%;
+}
+
+.shadow{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.shadow2{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+@media screen and (max-width:768px){
+    .head{
+        padding-inline: 0;
+    }
+    .flexrow{
+        flex-direction: column;
+        padding-inline: 5%;
+    }  
+    .flexrow div{
+        width: 100%;
+    }  
+    .res2{
+        margin-inline: 0;
+    }
+    .p1{
+        padding: 1rem;
+    }
+}
