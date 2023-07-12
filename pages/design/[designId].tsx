@@ -36,6 +36,7 @@ const DesignShowcase = () => {
   return (
     <div className='flex space-y-8 w-screen overflow-y-scroll bg-zinc-100 min-h-screen border-10 border-black h-full flex-col p-8 items-center'>
       {/* <GitHubComponent issueNumber={issueUrl} /> */}
+      <p>Please wait it will take load time.</p>
       <div className='w-3/4 h-screen'>
         <h2 className='text-6xl font-archivo font-bold  text-zinc-800 p-6'>
           Design
@@ -47,7 +48,7 @@ const DesignShowcase = () => {
           allowFullScreen
         ></iframe>
       </div>
-      <div id={`${id}/implemention`} className='w-3/4 h-screen'>
+      <div id={`${id}/implementation`} className='w-3/4 h-screen'>
         <h2 className='text-6xl font-archivo font-bold  text-zinc-800 p-6'>
           Implementation Guide
         </h2>
