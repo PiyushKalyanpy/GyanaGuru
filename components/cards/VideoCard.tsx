@@ -51,6 +51,7 @@ const VideoCard = ({ video }: any) => {
         <div className='flex items-center mt-2 text-gray-500'>
           <span className='mr-2'>{viewCount} views</span>
         </div>
+        <Rating value={rating} noOfVotes={likes} />
       </div>
     </div>
   )

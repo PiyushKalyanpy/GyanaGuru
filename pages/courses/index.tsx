@@ -1,17 +1,17 @@
-import { PrimaryLayoutWithSidebar } from '@/components/layouts/exporter'
-import { useContext } from 'react'
-import { VideoCard, CategoryCard, PlaylistCard } from '@/components/components'
-import { NextPageWithLayout } from '@/util/page'
-import { CourseContext } from '@/context/CourseContext'
-import { Topbar } from '@/components/components'
-import Loading from '@/components/util/Loading'
-import { useAuth } from '@/context/AuthContext'
-import { ToastContainer } from 'react-toastify'
+import { PrimaryLayoutWithSidebar } from '@/components/layouts/exporter';
+import { useContext } from 'react';
+import { VideoCard, CategoryCard, PlaylistCard } from '@/components/components';
+import { NextPageWithLayout } from '@/util/page';
+import { CourseContext } from '@/context/CourseContext';
+import { Topbar } from '@/components/components';
+import Loading from '@/components/util/Loading';
+import { useAuth } from '@/context/AuthContext';
+import { ToastContainer } from 'react-toastify';
 
 const Courses: NextPageWithLayout = () => {
-  let { videos, categories, playlist } = useContext(CourseContext)
-  const { currentUser } = useAuth()
-  videos = videos.filter((video: any) => video.restriction === 1)
+  let { videos, categories, playlist } = useContext(CourseContext);
+  const { currentUser } = useAuth();
+  videos = videos.filter((video: any) => video.restriction === 1);
   return (
     <section className='w-full h-full bg-zinc-100 dark:bg-zinc-950 border-3 border-red-500 overflow-y-scroll'>
       <ToastContainer />
@@ -20,8 +20,8 @@ const Courses: NextPageWithLayout = () => {
       <PlaylistList playlists={playlist} playlistTitle={`Popular playlists`} />
       <VideoList videos={videos} videoTitle={`Popular videos`} />
     </section>
-  )
-}
+  );
+};
 
 const CategoryList = ({ categories }: any) => {
   return (
@@ -42,8 +42,8 @@ const CategoryList = ({ categories }: any) => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
 const PlaylistList = ({ playlists, playlistTitle }: any) => {
   return (
@@ -61,8 +61,8 @@ const PlaylistList = ({ playlists, playlistTitle }: any) => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
 const VideoList = ({ videos, videoTitle }: any) => {
   return (
@@ -78,11 +78,11 @@ const VideoList = ({ videos, videoTitle }: any) => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Courses
+export default Courses;
 
 Courses.getLayout = page => {
-  return <PrimaryLayoutWithSidebar>{page}</PrimaryLayoutWithSidebar>
-}
+  return <PrimaryLayoutWithSidebar>{page}</PrimaryLayoutWithSidebar>;
+};

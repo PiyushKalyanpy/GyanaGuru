@@ -1,4 +1,4 @@
-import VideoNoteCard from '../cards/VideoNoteCard'
+import VideoNoteCard from '../cards/VideoNoteCard';
 
 const NotesContainer = ({ notes, updatePlayerTime }: any) => {
   return (
@@ -14,11 +14,11 @@ const NotesContainer = ({ notes, updatePlayerTime }: any) => {
                 noteId={key}
                 updatePlayerTime={updatePlayerTime}
               />
-            )
+            );
           })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default NotesContainer
+export default NotesContainer;

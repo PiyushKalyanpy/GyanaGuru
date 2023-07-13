@@ -33,13 +33,13 @@ const PlaylistCard = ({ playlist }: any) => {
           <div className='absolute bottom-0 z-10 w-full px-4 text-sm text-white rounded-b-xl backdrop-blur-sm bg-black/30'>
             <div className='flex items-center justify-between'>
               <span className='material-icons'>playlist_play</span>
-              <span className='ml-2'>{videoCount} videos</span>
+              <span className='ml-2 text-lg'>{videoCount} videos</span>
             </div>
           </div>
         </div>
 
         <h3 className='items-center font-medium font-inter'>{name}</h3>
-        <Rating value={rating} noOfVotes={noOfVotes} />
+        {/* <Rating value={rating} noOfVotes={noOfVotes} /> */}
         <div className=''></div>
       </div>
     </div>

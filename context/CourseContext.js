@@ -44,7 +44,7 @@ export function CourseProvider({ children }) {
 
   const getData =
     currentUser &&
-    1 &&
+    0 &&
     isDBValveOpen &&
     (router.pathname.startsWith('/courses') ||
       router.pathname.startsWith('/admin'));
@@ -149,7 +149,7 @@ export function CourseProvider({ children }) {
   const updateVideoLike = async (id, likes) => {
     if (likes) {
       // logic that one user can like only once
-
+      console.log('👍🏻 like');
       const docRef = doc(db, 'videos', id);
       await updateDoc(docRef, {
         likes: likes,
@@ -166,6 +166,34 @@ export function CourseProvider({ children }) {
             const index = prev.findIndex(item => item.id === id);
             const updated = [...prev];
             updated[index].likes = likes;
+            return updated;
+          });
+        })
+        .catch(error => {
+          showToast(error.message, 'error');
+        });
+    }
+  };
+  const updateVideoDislike = async (id, dislikes) => {
+    if (dislikes) {
+      // logic that one user can dislike only once
+      console.log('👎🏻 dislike');
+      const docRef = doc(db, 'videos', id);
+      await updateDoc(docRef, {
+        dislikes: dislikes,
+      })
+        .then(() => {
+          showToast('Video disliked successfully', 'success');
+          // update the dislike in video state
+
+          updateDoc(doc(db, 'videos', id), {
+            // add user id in dislikedBy array
+            dislikedBy: arrayUnion(currentUser.uid),
+          });
+          setVideos(prev => {
+            const index = prev.findIndex(item => item.id === id);
+            const updated = [...prev];
+            updated[index].dislikes = dislikes;
             return updated;
           });
         })
@@ -314,40 +342,32 @@ export function CourseProvider({ children }) {
     }
   };
 
-  // video CRUD ------------------------------
+  // video user history CRUD ------------------------------
 
   const videoViewed = videoId => {
     if (videoId) {
       const historyRef = ref(rtdb, `history/${currentUser.uid}/${videoId}`);
-      const videoRef = ref(rtdb, `videos/${videoId}`);
-      const videoDBRef = doc(db, 'videos', videoId);
-      get(historyRef)
-        .then(snapshot => {
-          if (snapshot.exists()) {
-            // if video already exists in history, then update the timestamp
-            update(historyRef, {
-              timestamp: new Date(),
-            });
-            // increment the view count of video
-            updateDoc(videoDBRef, {
-              viewCount: increment(1),
-            })
-              .then(() => {
-                console.log('🧑 Video view count incremented');
-              })
-              .catch(error => {
-                showToast(error.message, 'error');
-              });
-          } else {
-            // if video doesn't exists in history, then add it
-            set(historyRef, {
-              timestamp: serverTimestamp(),
-            });
-          }
-        })
-        .catch(error => {
-          showToast(error.message, 'error');
-        });
+      update(historyRef, {
+        viewed: true,
+      });
+    }
+  };
+
+  const updateUserCharge = videoId => {
+    console.log('charge Called ');
+    if (videoId) {
+      console.log('charge Called 2');
+      const historyRef = ref(rtdb, `history/${currentUser.uid}/${videoId}`);
+      get(historyRef).then(snapshot => {
+        const data = snapshot.val();
+        console.log('charge Called 3', data);
+        if (data) {
+          console.log('charge Called 4');
+          update(historyRef, {
+            charge: !data.charge,
+          });
+        }
+      });
     }
   };
 
@@ -378,6 +398,7 @@ export function CourseProvider({ children }) {
   const value = {
     categories,
     addCategory,
+    updateUserCharge,
     getNote,
     updateNote,
     design,
@@ -389,6 +410,8 @@ export function CourseProvider({ children }) {
     deleteReactionOnComment,
     notes,
     comments,
+    updateVideoDislike,
+    updateVideoLike,
     deleteNote,
     addDesign,
     updateCategory,

@@ -76,9 +76,8 @@ const Navbar = ({ selectedItem, handleClick }: any) => {
       href: '/dashboard',
       icon: 'dashboard',
       label: 'Dashboard',
-      disabled: true,
-      selected: selectedItem === SidebarItem.Dashboard
-      // onItemClick: () => handleClick(SidebarItem.Dashboard),
+      selected: selectedItem === SidebarItem.Dashboard,
+      onItemClick: () => handleClick(SidebarItem.Dashboard),
     },
     {
       href: '/v2/settings',
@@ -97,12 +96,11 @@ const Navbar = ({ selectedItem, handleClick }: any) => {
       onItemClick: () => handleClick(SidebarItem.Courses)
     },
     {
-      href: '/profile',
+      href: '/dashboard/profile',
       icon: 'person',
       label: 'Profile',
       selected: selectedItem === SidebarItem.Profile,
-      disabled: true
-      // onItemClick: () => handleClick(SidebarItem.Profile),
+      onItemClick: () => handleClick(SidebarItem.Profile),
     },
     {
       href: '/login',

@@ -31,7 +31,7 @@ const Topbar = ({ showBackIcon = false }) => {
   if (!currentUser) return <div>Loading...</div>
 
   return (
-    <div className='flex w-full p-4 h-fit'>
+    <div className='flex w-full p-4 h-fit z-10'>
       <div className='flex justify-between w-full'>
         {showBackIcon && <BackNavButton />}
         {/* Search bar  */}
