@@ -38,7 +38,7 @@ const CommentContainer = ({ comments, videoId }: any) => {
       <div className='flex items-center space-x-4 w-full bg-zinc-100 p-2'>
         <div className=''>
           <Image
-            src={currentUser?.photoURL || '/images/empty_profile.png'}
+            src={currentUser?.photoURL || '/images/empty_profile.webp'}
             alt='user'
             width={50}
             height={50}
