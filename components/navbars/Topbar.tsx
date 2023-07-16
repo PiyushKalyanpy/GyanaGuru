@@ -49,7 +49,7 @@ const Topbar = ({ showBackIcon = false }) => {
         <DarkModeToggle />
         {/* Notificaton and profile  */}
         <div className='flex h-full gap-4 w-fit'>
-          {/* <TopBarButtons iconAvailable={true} /> */}
+          <TopBarButtons iconAvailable={true} />
           <TopBarButtons
             imageAvailable={true}
             imageUrl={

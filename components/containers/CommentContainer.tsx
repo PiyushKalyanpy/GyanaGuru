@@ -12,7 +12,7 @@ const CommentContainer = ({ comments, videoId }: any) => {
   const { addComment, deleteComment } = useContext(CourseContext)
   const [userComment, setUserComment] = useState({
     uid: currentUser.uid,
-    name: currentUser.displayName,
+    name: currentUser.name,
     photoURL: currentUser.photoURL,
     comment: '',
     createdAt: new Date().toISOString(),
@@ -20,6 +20,7 @@ const CommentContainer = ({ comments, videoId }: any) => {
     videoId: videoId || 'empty',
     reactions: []
   })
+  console.log(userComment)
   const handleCommentClick = () => {
     addComment(videoId, userComment)
     setUserComment({ ...userComment, comment: '' })

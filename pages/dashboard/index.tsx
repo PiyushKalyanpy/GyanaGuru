@@ -9,7 +9,6 @@ const Dashboard: NextPageWithLayout = () => {
   return (
     <section className="w-full h-screen bg-white">
       This is the home page ui design for the dashboard
-      kdnfskdn
     </section>
   );
 };

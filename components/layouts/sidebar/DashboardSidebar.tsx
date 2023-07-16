@@ -29,6 +29,7 @@ const DashboardSidebar: React.FC<IDashboardSidebar> = () => {
     setSidebarExpanded(false)
   }
 
+  console.log(selectedItem)
   // set selected by route query
   useEffect(() => {
     const query = window.location.pathname.split('/')[1]
@@ -75,6 +76,7 @@ const Navbar = ({ selectedItem, handleClick }: any) => {
     {
       href: '/dashboard',
       icon: 'dashboard',
+      disabled: true,
       label: 'Dashboard',
       selected: selectedItem === SidebarItem.Dashboard,
       onItemClick: () => handleClick(SidebarItem.Dashboard),

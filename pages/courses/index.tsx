@@ -12,16 +12,21 @@ import { Topbar } from '@/components/components';
 import Loading from '@/components/util/Loading';
 import { useAuth } from '@/context/AuthContext';
 import { ToastContainer } from 'react-toastify';
+import { useRouter } from 'next/router';
 
 const Courses: NextPageWithLayout = () => {
   let { videos, categories, playlist } = useContext(CourseContext);
   const { currentUser } = useAuth();
   videos = videos.filter((video: any) => video.restriction === 1);
+  const router = useRouter();
+  const handleBannerClick = () => {
+    videos && router.push(`/courses/playlist/video/${videos[0].id}`);
+  };
   return (
     <section className='w-full h-full overflow-y-scroll border-red-500 bg-zinc-100 dark:bg-zinc-950 border-3'>
       <ToastContainer />
       <Topbar />
-      <BannerCard />
+      <BannerCard onClick={handleBannerClick} />
       <CategoryList categories={categories} />
       <PlaylistList playlists={playlist} playlistTitle={`Popular playlists`} />
       <VideoList videos={videos} videoTitle={`Popular videos`} />
@@ -29,7 +34,7 @@ const Courses: NextPageWithLayout = () => {
   );
 };
 
-const BannerCard = () => {
+const BannerCard = ({ onClick }: any) => {
   return (
     <div className='w-full p-4  h-60'>
       <div className='relative w-full h-full p-6 bg-white rounded-xl '>
@@ -44,7 +49,10 @@ const BannerCard = () => {
           <h6 className='text-2xl text-zinc-700'>
             Introducing our groud breaking approach to learning
           </h6>
-          <button className='flex hover:scale-105 transition px-4 py-2 space-x-2 border-2 rounded-full border-zinc-600 w-fit '>
+          <button
+            onClick={() => onClick()}
+            className='flex hover:scale-105 transition px-4 py-2 space-x-2 border-2 rounded-full border-zinc-600 w-fit '
+          >
             <p>Join Now</p>
             <span className='material-symbols-outlined'>arrow_forward</span>
           </button>
@@ -110,7 +118,9 @@ const VideoList = ({ videos, videoTitle }: any) => {
       <h2 className='text-zinc-600'>{videoTitle} </h2>
       <div className='grid gap-6 lg:grid-cols-3'>
         {videos && videos.length > 0 ? (
-          videos.slice(0,3).map((video: any) => <VideoCard key={video.id} video={video} />)
+          videos
+            .slice(0, 3)
+            .map((video: any) => <VideoCard key={video.id} video={video} />)
         ) : (
           <div className='flex'>
             <Loading />

@@ -67,8 +67,8 @@ const VideoPlayer = () => {
   console.log('video', isDisliked, isLiked);
 
   useEffect(() => {
-    // getComments(videoId);
-    // getNote(currentUser?.uid, videoId);
+    getComments(videoId);
+    getNote(currentUser?.uid, videoId);
   }, []);
 
   const videoYTId = url?.split('v=')[1];
