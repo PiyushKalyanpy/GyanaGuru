@@ -29,6 +29,7 @@ const DashboardSidebar: React.FC<IDashboardSidebar> = () => {
     setSidebarExpanded(false)
   }
 
+  console.log(selectedItem)
   // set selected by route query
   useEffect(() => {
     const query = window.location.pathname.split('/')[1]
@@ -75,10 +76,10 @@ const Navbar = ({ selectedItem, handleClick }: any) => {
     {
       href: '/dashboard',
       icon: 'dashboard',
-      label: 'Dashboard',
       disabled: true,
-      selected: selectedItem === SidebarItem.Dashboard
-      // onItemClick: () => handleClick(SidebarItem.Dashboard),
+      label: 'Dashboard',
+      selected: selectedItem === SidebarItem.Dashboard,
+      onItemClick: () => handleClick(SidebarItem.Dashboard),
     },
     {
       href: '/v2/settings',
@@ -97,12 +98,11 @@ const Navbar = ({ selectedItem, handleClick }: any) => {
       onItemClick: () => handleClick(SidebarItem.Courses)
     },
     {
-      href: '/profile',
+      href: '/dashboard/profile',
       icon: 'person',
       label: 'Profile',
       selected: selectedItem === SidebarItem.Profile,
-      disabled: true
-      // onItemClick: () => handleClick(SidebarItem.Profile),
+      onItemClick: () => handleClick(SidebarItem.Profile),
     },
     {
       href: '/login',

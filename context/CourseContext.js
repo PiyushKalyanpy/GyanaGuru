@@ -1,17 +1,18 @@
-import React, { useState, useContext, useEffect } from "react";
-import { db, rtdb } from "../database/firebase";
+import React, { useState, useContext, useEffect } from 'react';
+import { db, rtdb } from '../database/firebase';
 import {
   collection,
   addDoc,
-  getDoc,
+  orderBy,
+  limit,
   getDocs,
   deleteDoc,
+  onSnapshot,
+  query,
   doc,
   updateDoc,
-  increment,
   arrayUnion,
-  serverTimestamp,
-} from "firebase/firestore";
+} from 'firebase/firestore';
 import {
   update,
   ref,
@@ -20,10 +21,10 @@ import {
   get,
   set,
   remove,
-} from "firebase/database";
-import { useRouter } from "next/router";
-import { showToast } from "@/components/util/Toast";
-import { useAuth } from "./AuthContext";
+} from 'firebase/database';
+import { useRouter } from 'next/router';
+import { showToast } from '@/components/util/Toast';
+import { useAuth } from './AuthContext';
 
 export const CourseContext = React.createContext();
 
@@ -40,45 +41,46 @@ export function CourseProvider({ children }) {
   const router = useRouter();
   const { currentUser } = useAuth();
   const [isDBValveOpen, setIsDBValveOpen] = useState(1);
+  const [design, setDesign] = useState(null);
 
   const getData =
     currentUser &&
     1 &&
     isDBValveOpen &&
-    (router.pathname.startsWith("/courses") ||
-      router.pathname.startsWith("/admin"));
+    (router.pathname.startsWith('/courses') ||
+      router.pathname.startsWith('/admin'));
   const getRData =
-    currentUser && 1 && router.pathname.startsWith("/courses") && isDBValveOpen;
+    currentUser && 1 && router.pathname.startsWith('/courses') && isDBValveOpen;
 
   // Category CRUD ----------------------------------------------
 
   function addCategory(category) {
-    addDoc(collection(db, "categories"), category)
+    addDoc(collection(db, 'categories'), category)
       .then(() => {
-        showToast("Category added successfully", "success");
+        showToast('Category added successfully', 'success');
       })
-      .catch((error) => {
-        showToast(error.message, "error");
+      .catch(error => {
+        showToast(error.message, 'error');
       });
   }
 
   function deleteCategory(id) {
-    deleteDoc(doc(db, "categories", id));
+    deleteDoc(doc(db, 'categories', id));
   }
 
   function updateCategory(id, course) {
-    updateDoc(doc(db, "categories", id), course);
+    updateDoc(doc(db, 'categories', id), course);
   }
 
   useEffect(() => {
     if (categories.length === 0 && getData) {
-      getDocs(collection(db, "categories")).then((querySnapshot) => {
-        const data = querySnapshot.docs.map((doc) => ({
+      getDocs(collection(db, 'categories')).then(querySnapshot => {
+        const data = querySnapshot.docs.map(doc => ({
           ...doc.data(),
           id: doc.id,
         }));
         setCategories(data);
-        console.log("🧑 Category data downloaded");
+        console.log('🧑 Category data downloaded');
       });
     }
   }, [categories, getData]);
@@ -86,90 +88,146 @@ export function CourseProvider({ children }) {
   // Playlist CRUD ----------------------------------------------
 
   function addPlaylist(playlist) {
-    addDoc(collection(db, "playlists"), playlist)
+    addDoc(collection(db, 'playlists'), playlist)
       .then(() => {
-        showToast("Playlist added successfully", "success");
+        showToast('Playlist added successfully', 'success');
       })
-      .catch((error) => {
-        showToast(error.message, "error");
+      .catch(error => {
+        showToast(error.message, 'error');
       });
   }
 
   function deletePlaylist(id) {
-    deleteDoc(doc(db, "playlists", id));
+    deleteDoc(doc(db, 'playlists', id));
   }
 
   function updatePlaylist(id, playlist) {
-    updateDoc(doc(db, "playlists", id), playlist);
+    updateDoc(doc(db, 'playlists', id), playlist);
   }
+
+  // useEffect(() => {
+  //   if (playlist.length === 0 && getData) {
+  //     collection(db, 'playlists')
+  //       .orderBy('viewCount', 'desc')
+  //       .limit(3)
+  //       .get()
+  //       .then(querySnapshot => {
+  //         const data = querySnapshot.docs.map(doc => ({
+  //           ...doc.data(),
+  //           id: doc.id,
+  //         }));
+  //         setPlaylist(data);
+  //         console.log('🧑 Playlist data downloaded');
+  //       });
+  //   }
+  // }, [playlist, getData]);
 
   useEffect(() => {
     if (playlist.length === 0 && getData) {
-      getDocs(collection(db, "playlists")).then((querySnapshot) => {
-        const data = querySnapshot.docs.map((doc) => ({
+      const q = query(collection(db, 'playlists'), limit(3));
+      const unsubscribe = onSnapshot(q, querySnapshot => {
+        const data = querySnapshot.docs.map(doc => ({
           ...doc.data(),
           id: doc.id,
         }));
         setPlaylist(data);
-        console.log("🧑 Playlist data downloaded");
+        console.log('🧑 Playlist data downloaded');
       });
+      return () => unsubscribe();
     }
   }, [playlist, getData]);
 
   // Video CRUD ----------------------------------------------
 
   function addVideo(video) {
-    addDoc(collection(db, "videos"), video)
+    addDoc(collection(db, 'videos'), video)
       .then(() => {
-        showToast("Video added successfully", "success");
+        showToast('Video added successfully', 'success');
       })
-      .catch((error) => {
-        showToast(error.message, "error");
+      .catch(error => {
+        showToast(error.message, 'error');
       });
   }
 
   function deleteVideo(id) {
-    deleteDoc(doc(db, "videos", id));
+    deleteDoc(doc(db, 'videos', id));
   }
 
   useEffect(() => {
     if (videos.length === 0 && getData) {
-      getDocs(collection(db, "videos")).then((querySnapshot) => {
-        const data = querySnapshot.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
-        setVideos(data);
-        console.log("🧑 Video data downloaded");
-      });
+      const q = query(
+        collection(db, 'videos')
+        // orderBy('viewCount', 'desc'),
+        // limit(3),
+      );
+      getDocs(q)
+        .then(querySnapshot => {
+          const data = querySnapshot.docs.map(doc => ({
+            ...doc.data(),
+            id: doc.id,
+          }));
+          setVideos(data);
+          console.log('🧑 Video data downloaded');
+        })
+        .catch(error => {
+          console.log('Error fetching videos:', error);
+        });
     }
   }, [videos, getData]);
 
   const updateVideoLike = async (id, likes) => {
     if (likes) {
       // logic that one user can like only once
-
-      const docRef = doc(db, "videos", id);
+      console.log('👍🏻 like');
+      const docRef = doc(db, 'videos', id);
       await updateDoc(docRef, {
         likes: likes,
       })
         .then(() => {
-          showToast("Video liked successfully", "success");
+          showToast('Video liked successfully', 'success');
           // update the like in video state
 
-          updateDoc(doc(db, "videos", id), {
+          updateDoc(doc(db, 'videos', id), {
             // add user id in likedBy array
             likedBy: arrayUnion(currentUser.uid),
           });
-          setVideos((prev) => {
-            const index = prev.findIndex((item) => item.id === id);
+          setVideos(prev => {
+            const index = prev.findIndex(item => item.id === id);
             const updated = [...prev];
             updated[index].likes = likes;
             return updated;
           });
         })
-        .catch((error) => {
-          showToast(error.message, "error");
+        .catch(error => {
+          showToast(error.message, 'error');
+        });
+    }
+  };
+  const updateVideoDislike = async (id, dislikes) => {
+    if (dislikes) {
+      // logic that one user can dislike only once
+      console.log('👎🏻 dislike');
+      const docRef = doc(db, 'videos', id);
+      await updateDoc(docRef, {
+        dislikes: dislikes,
+      })
+        .then(() => {
+          showToast('Video disliked successfully', 'success');
+          // update the dislike in video state
+
+          updateDoc(doc(db, 'videos', id), {
+            // add user id in dislikedBy array
+            dislikedBy: arrayUnion(currentUser.uid),
+          });
+          setVideos(prev => {
+            const index = prev.findIndex(item => item.id === id);
+            const updated = [...prev];
+            updated[index].dislikes = dislikes;
+            return updated;
+          });
+        })
+        .catch(error => {
+          showToast(error.message, 'error');
         });
     }
   };
@@ -182,19 +240,19 @@ export function CourseProvider({ children }) {
         comment: comment,
       })
         .then(() => {
-          showToast("Comment added successfully", "success");
+          showToast('Comment added successfully', 'success');
         })
-        .catch((error) => {
-          showToast(error.message, "error");
+        .catch(error => {
+          showToast(error.message, 'error');
         });
     }
   };
 
-  const getComments = (videoId) => {
+  const getComments = videoId => {
     if (videoId && getRData) {
-      onValue(ref(rtdb, `comments/${videoId}`), (snapshot) => {
+      onValue(ref(rtdb, `comments/${videoId}`), snapshot => {
         const data = snapshot.val();
-        console.log("🧑 Comment data downloaded");
+        console.log('🧑 Comment data downloaded');
         setComments(data);
       });
     }
@@ -206,7 +264,7 @@ export function CourseProvider({ children }) {
 
       // Retrieve the current reaction object from the comment
       get(commentRef)
-        .then((snapshot) => {
+        .then(snapshot => {
           const currentReaction = snapshot.val()?.reaction || {};
 
           // Increment the count if the emoji is already present
@@ -226,14 +284,14 @@ export function CourseProvider({ children }) {
             reaction: currentReaction,
           })
             .then(() => {
-              showToast("Reaction added successfully", "success");
+              showToast('Reaction added successfully', 'success');
             })
-            .catch((error) => {
-              showToast(error.message, "error");
+            .catch(error => {
+              showToast(error.message, 'error');
             });
         })
-        .catch((error) => {
-          showToast(error.message, "error");
+        .catch(error => {
+          showToast(error.message, 'error');
         });
     }
   };
@@ -242,14 +300,14 @@ export function CourseProvider({ children }) {
     if (videoId && commentId) {
       const commentRef = ref(
         rtdb,
-        `comments/${videoId}/${commentId}/comment/${reaction}`
+        `comments/${videoId}/${commentId}/comment/${reaction}`,
       );
       remove(commentRef)
         .then(() => {
-          showToast("Reaction deleted successfully", "success");
+          showToast('Reaction deleted successfully', 'success');
         })
-        .catch((error) => {
-          showToast(error.message, "error");
+        .catch(error => {
+          showToast(error.message, 'error');
         });
     }
   };
@@ -259,15 +317,15 @@ export function CourseProvider({ children }) {
       const commentRef = ref(rtdb, `comments/${videoId}/${commentId}`);
       const deletedCommentRef = ref(
         rtdb,
-        `deletedComments/${videoId}/${commentId}`
+        `deletedComments/${videoId}/${commentId}`,
       );
       set(deletedCommentRef, comments);
       remove(commentRef)
-        .then((x) => {
-          showToast("Comment deleted successfully", "success");
+        .then(x => {
+          showToast('Comment deleted successfully', 'success');
         })
-        .catch((error) => {
-          showToast(error.message, "error");
+        .catch(error => {
+          showToast(error.message, 'error');
         });
     }
   };
@@ -286,10 +344,10 @@ export function CourseProvider({ children }) {
   const getNote = (userId, videoId) => {
     if (userId && videoId && getRData) {
       const notesRef = ref(rtdb, `notes/${userId}/${videoId}`);
-      onValue(notesRef, (snapshot) => {
+      onValue(notesRef, snapshot => {
         const data = snapshot.val();
         setNotes(data);
-        console.log("🧑 Note data downloaded");
+        console.log('🧑 Note data downloaded');
       });
     }
   };
@@ -305,7 +363,7 @@ export function CourseProvider({ children }) {
     if (userId && videoId && noteId && note) {
       const notesRef = ref(
         rtdb,
-        `notes/${currentUser.uid}/${videoId}/${noteId}`
+        `notes/${currentUser.uid}/${videoId}/${noteId}`,
       );
       update(notesRef, {
         note: note,
@@ -313,48 +371,66 @@ export function CourseProvider({ children }) {
     }
   };
 
-  // video CRUD ------------------------------
+  // video user history CRUD ------------------------------
 
-  const videoViewed = (videoId) => {
+  const videoViewed = videoId => {
     if (videoId) {
       const historyRef = ref(rtdb, `history/${currentUser.uid}/${videoId}`);
-      const videoRef = ref(rtdb, `videos/${videoId}`);
-      const videoDBRef = doc(db, "videos", videoId);
-      get(historyRef)
-        .then((snapshot) => {
-          if (snapshot.exists()) {
-            // if video already exists in history, then update the timestamp
-            update(historyRef, {
-              timestamp: new Date(),
-            });
-            // increment the view count of video
-            updateDoc(videoDBRef, {
-              viewCount: increment(1),
-            })
-              .then(() => {
-                console.log("🧑 Video view count incremented");
-              })
-              .catch((error) => {
-                showToast(error.message, "error");
-              });
-          } else {
-            // if video doesn't exists in history, then add it
-            set(historyRef, {
-              timestamp: serverTimestamp(),
-            });
-          }
-        })
-        .catch((error) => {
-          showToast(error.message, "error");
-        });
+      update(historyRef, {
+        viewed: true,
+      });
     }
+  };
+
+  const updateUserCharge = videoId => {
+    console.log('charge Called ');
+    if (videoId) {
+      console.log('charge Called 2');
+      const historyRef = ref(rtdb, `history/${currentUser.uid}/${videoId}`);
+      get(historyRef).then(snapshot => {
+        const data = snapshot.val();
+        console.log('charge Called 3', data);
+        if (data) {
+          console.log('charge Called 4');
+          update(historyRef, {
+            charge: !data.charge,
+          });
+        }
+      });
+    }
+  };
+
+  // design CRUD ------------------------------
+
+  const addDesign = (designId, design) => {
+    if (designId && design) {
+      const designRef = ref(rtdb, `designs/${designId}`);
+      set(designRef, {
+        id: design.id,
+        iframeUrl: design.iframeUrl,
+        implementationUrl: design.implementationUrl,
+        issueUrl: design.issueUrl,
+      });
+    }
+  };
+
+  const fetchDesign = () => {
+    const designRef = ref(rtdb, `designs`);
+    onValue(designRef, snapshot => {
+      const data = snapshot.val();
+      setDesign(data);
+      console.log('🧑 Design data downloaded', data);
+      console.log('🧑 Design data downloaded');
+    });
   };
 
   const value = {
     categories,
     addCategory,
+    updateUserCharge,
     getNote,
     updateNote,
+    design,
     setNote,
     addPlaylist,
     addComment,
@@ -363,7 +439,10 @@ export function CourseProvider({ children }) {
     deleteReactionOnComment,
     notes,
     comments,
+    updateVideoDislike,
+    updateVideoLike,
     deleteNote,
+    addDesign,
     updateCategory,
     playlist,
     isDBValveOpen,
@@ -372,6 +451,7 @@ export function CourseProvider({ children }) {
     getComments,
     videos,
     videoViewed,
+    fetchDesign,
     deletePlaylist,
     addVideo,
     addReactionOnComment,

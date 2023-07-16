@@ -7,7 +7,7 @@ function DarkModeToggle () {
   const { theme, setTheme } = useTheme()
   useEffect(() => {
     setTheme('light')
-    // setTheme(theme === "dark" ? "light" : "liht")
+    // setTheme(theme === "dark" ? "dark" : "light")
   }, [theme])
 
   return (

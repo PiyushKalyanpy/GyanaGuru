@@ -12,7 +12,7 @@ const CommentContainer = ({ comments, videoId }: any) => {
   const { addComment, deleteComment } = useContext(CourseContext)
   const [userComment, setUserComment] = useState({
     uid: currentUser.uid,
-    name: currentUser.displayName,
+    name: currentUser.name,
     photoURL: currentUser.photoURL,
     comment: '',
     createdAt: new Date().toISOString(),
@@ -20,6 +20,7 @@ const CommentContainer = ({ comments, videoId }: any) => {
     videoId: videoId || 'empty',
     reactions: []
   })
+  console.log(userComment)
   const handleCommentClick = () => {
     addComment(videoId, userComment)
     setUserComment({ ...userComment, comment: '' })
@@ -122,8 +123,8 @@ const SingleCommentThread = ({
         showToast('You are not authorized to delete this comment', 'error')
         return
       }
-      showToast('Deleting comment is not available yet', 'info')
-      // deleteComment(videoId, commentId, comments)
+      // showToast('Deleting comment is not available yet', 'info')
+      deleteComment(videoId, commentId, comments)
     }
   }
 

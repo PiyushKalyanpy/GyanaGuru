@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { motion } from 'framer-motion'
 
 export interface IDashboardSidebarItem {
   href: string
@@ -27,8 +26,9 @@ const DashboardSidebarItem: React.FC<IDashboardSidebarItem> = ({
   const handleClick = (e: any) => {
     disabled ? e.preventDefault : onItemClick()
   }
+
   return (
-    <Link href={disabled ? "" : href} className={`${disabled ? "opacity-70" : null}`}>
+    <Link href={disabled ? "" : href} className={`${disabled ? "opacity-50" : null}`}>
       <div
         onClick={handleClick}
         className={`flex items-center gap-4 py-2 px-4 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 ${

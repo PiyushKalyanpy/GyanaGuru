@@ -28,7 +28,7 @@ const Playlist = () => {
           No playlist found
         </div>
       )}
-      </div>
+      </div>  
     </div>
   )
 }

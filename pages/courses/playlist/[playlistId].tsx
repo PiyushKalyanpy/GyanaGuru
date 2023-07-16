@@ -12,9 +12,11 @@ const Videos = () => {
     return video.playlistId === playlistId
   })
   return (
-    <div className='flex flex-col w-full min-h-screen bg-zinc-100'>
+    <div className='flex flex-col w-full h-screen overflow-y-scroll bg-zinc-100 dark:bg-zinc-900'>
+      {/* top Playlist details */}
+     
       <Topbar showBackIcon />
-      <div className='grid lg:grid-cols-4 gap-4 p-4'>
+      <div className='grid lg:grid-cols-4 gap-4 p-4 z-10'>
       {filteredVideos && filteredVideos.length > 0 ? (
         filteredVideos.map((video: any) => <VideoCard key={video.id} video={video} />)
       ) : (

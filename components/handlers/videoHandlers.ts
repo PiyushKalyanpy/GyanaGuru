@@ -1,12 +1,17 @@
 import { convertTimeToDuration } from '@/util/conversion';
 
+
 export const handleReady = (e: any, videoPlayer: any) => {
     videoPlayer.current = e.target;
 };
 
+
 export const handleLike = ({ videoId, likes, updateVideoLike }: any) => {
-    const likeCount = likes + 1;
-    updateVideoLike(videoId, likeCount);
+    updateVideoLike(videoId, likes + 1);
+};
+
+export const handleDislike = ({ videoId, dislikes, updateVideoDislike }: any) => {
+    updateVideoDislike(videoId, dislikes + 1);
 };
 
 export const handleAddNote = ({ videoPlayer, currentUser, videoId, setNote }: any) => {
@@ -28,4 +33,11 @@ export const updatePlayerTime = ({ videoPlayer, time }: any) => {
         videoPlayer.current.seekTo(time);
         videoPlayer.current.playVideo();
     }
+};
+
+export const handleShare = ({videoId} : any) => {
+    const videoUrl = `https://gyanaguru.vercel.app/courses/playlist/video/${videoId}`; 
+    const message = `🔥 Check out this *amazing* video! \n *${name}* \n Don't miss out, click here to watch now: ${videoUrl}`;
+    const whatsappUrl = `whatsapp://send?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl);
 };

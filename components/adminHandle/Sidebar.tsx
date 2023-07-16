@@ -47,7 +47,7 @@ const Sidebar = ({ pageNumber, active, setActive }: any) => {
         />
         <SidebarItem
           Icon={StudentReportIcon}
-          text="Student Report"
+          text="Add Design"
           active={4 == active}
           onClick={() => {
             setActive(4);

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React, { useState, useContext, useEffect } from "react";
-import { auth, db } from "../database/firebase";
+import React, { useState, useContext, useEffect } from 'react';
+import { auth, db } from '../database/firebase';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -9,12 +9,12 @@ import {
   signOut,
   signInWithPopup,
   GoogleAuthProvider,
-} from "firebase/auth";
-import { setCookie } from "cookies-next";
-import { doc, getDoc, setDoc } from "firebase/firestore";
-import { toast } from "react-toastify";
-import { useRouter } from "next/router";
-import { showToast } from "@/components/util/Toast";
+} from 'firebase/auth';
+import { setCookie } from 'cookies-next';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/router';
+import { showToast } from '@/components/util/Toast';
 
 export const AuthContext = React.createContext();
 
@@ -24,35 +24,55 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [resultUser, setResultUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
+
+  const clear = async () => {
+    try {
+      setCurrentUser(null);
+      setIsLoading(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const authStateChanged = async user => {
+    setIsLoading(true);
+    if (!user) {
+      clear();
+      return;
+    }
+    console.log("aa")
+    const userDoc = await getDoc(doc(db, 'users', user.email));
+    setCurrentUser(userDoc.data());
+    setIsLoading(false);
+  };
 
   const loginWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider).then((result) => {
+    signInWithPopup(auth, provider).then(result => {
       // check if user is present in user firestore database
-      const docRef = doc(db, "users", result.user.uid);
-      getDoc(docRef).then((docSnap) => {
+      const docRef = doc(db, 'users', result.user.uid);
+      getDoc(docRef).then(docSnap => {
         if (docSnap.exists()) {
           // set current user
           setCurrentUser(docSnap.data());
 
-          router.push("/courses");
+          router.push('/courses');
         } else {
           // user does not exist
-          setDoc(doc(db, "users", result.user.email), {
+          setDoc(doc(db, 'users', result.user.email), {
             email: result.user.email,
             name: result.user.displayName,
             photoURL: result.user.photoURL,
             uid: result.user.uid,
-            role: "user",
+            role: 'user',
             createdAt: new Date(),
             isVerified: result.user.emailVerified,
             isActive: false,
             isOnline: false,
           });
-          router.push("/courses");
+          router.push('/courses');
         }
       });
     });
@@ -61,13 +81,12 @@ export function AuthProvider({ children }) {
   const logout = () => {
     signOut(auth).then(() => {
       setCurrentUser(null);
-      router.push("/login");
+      router.push('/login');
     });
   };
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setCurrentUser(user)
-      setLoading(false);
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      authStateChanged(user)
     });
   }, []);
 
@@ -82,9 +101,10 @@ export function AuthProvider({ children }) {
         currentUser,
         loginWithGoogle,
         logout,
+        isLoading,
       }}
     >
-      {!loading && children}
+      {!isLoading && children}
     </AuthContext.Provider>
   );
 }
