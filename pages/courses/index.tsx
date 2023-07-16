@@ -36,7 +36,7 @@ const Courses: NextPageWithLayout = () => {
 
 const BannerCard = ({ onClick }: any) => {
   return (
-    <div className='w-full p-4  h-60'>
+    <div className='sm:hidden md:flex w-full p-4  h-60'>
       <div className='relative w-full h-full p-6 bg-white rounded-xl '>
         <div className='z-10 relative flex flex-col space-y-4 '>
           <h2 className='text-5xl font-bold font-archivo text-zinc-900'>

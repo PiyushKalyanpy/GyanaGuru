@@ -16,23 +16,22 @@ const VideoNoteCard = ({ note, updatePlayerTime, noteId }: any) => {
     tags: tags || [],
   });
   const [isNoteChanged, setIsNoteChanged] = useState(false);
-  
-  function arraysEqual({arr1, arr2 } : any) {
+
+  function arraysEqual ({ arr1, arr2 }: any) {
     // Check if both arrays are defined and have the same length
     if (!arr1 || !arr2 || arr1.length !== arr2.length) {
       return false;
     }
-  
+
     // Compare each element of the arrays
     for (let i = 0; i < arr1.length; i++) {
       if (arr1[i] !== arr2[i]) {
         return false;
       }
     }
-  
+
     return true;
   }
-  
 
   useEffect(() => {
     const detectChanges = () => {
@@ -90,7 +89,7 @@ const VideoNoteCard = ({ note, updatePlayerTime, noteId }: any) => {
               className='text-lg font-semibold outline-none font-urbanist'
               contentEditable
               defaultValue={title}
-              value={localNote.title}
+              value={localNote.title} 
               placeholder='Note title'
               onChange={e => {
                 setLocalNote({
@@ -115,7 +114,7 @@ const VideoNoteCard = ({ note, updatePlayerTime, noteId }: any) => {
             />
           </div>
           {/* tags  */}
-          <div className='flex flex-wrap gap-2 items-center'>
+          <div className='hidden flex flex-wrap gap-2 items-center'>
             {/* add button  */}
             <div className='flex '>
               <button
@@ -129,16 +128,13 @@ const VideoNoteCard = ({ note, updatePlayerTime, noteId }: any) => {
               <input
                 className='w-full outline-none bg-zinc-100 rounded-full px-4 py-1'
                 placeholder='Add tag'
-                value={
-                  localNote.tags[localNote.tags.length - 1] || ''
-                }
+                value={localNote.tags[localNote.tags.length - 1] || ''}
                 onChange={e => {
                   setLocalNote({
                     ...localNote,
                     tags: e.target.value.split(' '),
                   });
                 }}
-                
               />
               <button
                 onClick={() => {
