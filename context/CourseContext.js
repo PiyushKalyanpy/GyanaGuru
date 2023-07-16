@@ -3,14 +3,15 @@ import { db, rtdb } from '../database/firebase';
 import {
   collection,
   addDoc,
-  getDoc,
+  orderBy,
+  limit,
   getDocs,
   deleteDoc,
+  onSnapshot,
+  query,
   doc,
   updateDoc,
-  increment,
   arrayUnion,
-  serverTimestamp,
 } from 'firebase/firestore';
 import {
   update,
@@ -44,7 +45,7 @@ export function CourseProvider({ children }) {
 
   const getData =
     currentUser &&
-    0 &&
+    1 &&
     isDBValveOpen &&
     (router.pathname.startsWith('/courses') ||
       router.pathname.startsWith('/admin'));
@@ -104,9 +105,27 @@ export function CourseProvider({ children }) {
     updateDoc(doc(db, 'playlists', id), playlist);
   }
 
+  // useEffect(() => {
+  //   if (playlist.length === 0 && getData) {
+  //     collection(db, 'playlists')
+  //       .orderBy('viewCount', 'desc')
+  //       .limit(3)
+  //       .get()
+  //       .then(querySnapshot => {
+  //         const data = querySnapshot.docs.map(doc => ({
+  //           ...doc.data(),
+  //           id: doc.id,
+  //         }));
+  //         setPlaylist(data);
+  //         console.log('🧑 Playlist data downloaded');
+  //       });
+  //   }
+  // }, [playlist, getData]);
+
   useEffect(() => {
     if (playlist.length === 0 && getData) {
-      getDocs(collection(db, 'playlists')).then(querySnapshot => {
+      const q = query(collection(db, 'playlists'), limit(3));
+      const unsubscribe = onSnapshot(q, querySnapshot => {
         const data = querySnapshot.docs.map(doc => ({
           ...doc.data(),
           id: doc.id,
@@ -114,6 +133,7 @@ export function CourseProvider({ children }) {
         setPlaylist(data);
         console.log('🧑 Playlist data downloaded');
       });
+      return () => unsubscribe();
     }
   }, [playlist, getData]);
 
@@ -135,14 +155,23 @@ export function CourseProvider({ children }) {
 
   useEffect(() => {
     if (videos.length === 0 && getData) {
-      getDocs(collection(db, 'videos')).then(querySnapshot => {
-        const data = querySnapshot.docs.map(doc => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
-        setVideos(data);
-        console.log('🧑 Video data downloaded');
-      });
+      const q = query(
+        collection(db, 'videos')
+        // orderBy('viewCount', 'desc'),
+        // limit(3),
+      );
+      getDocs(q)
+        .then(querySnapshot => {
+          const data = querySnapshot.docs.map(doc => ({
+            ...doc.data(),
+            id: doc.id,
+          }));
+          setVideos(data);
+          console.log('🧑 Video data downloaded');
+        })
+        .catch(error => {
+          console.log('Error fetching videos:', error);
+        });
     }
   }, [videos, getData]);
 
