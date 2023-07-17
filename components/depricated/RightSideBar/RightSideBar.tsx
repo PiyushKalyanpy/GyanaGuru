@@ -14,7 +14,7 @@ const RightSideBar = (props: Props) => {
   const [user] = useAuthState(auth);
 
 
-  const imageUrl = user&& user.photoURL || "/images/empty_profile.png";
+  const imageUrl = user&& user.photoURL || "/images/empty_profile.webp";
   return (
     <div className="dark:bg-zinc-800 flex w-full top-0 flex-col h-screen p-4 bg-white ">
       <div className="w-full max-w-sm p-4 mb-12">
