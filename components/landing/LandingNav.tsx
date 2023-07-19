@@ -33,9 +33,9 @@ const LandingNav = () => {
           className='flex flex-row items-center cursor-pointer'
           onClick={handleClick}
         >
-          <img src='./logo.svg' alt='logo' className='dark:hidden' />
+          <img src='/logo.svg' alt='logo' className='dark:hidden' />
           <img
-            src='./logodark.svg'
+            src='/logodark.svg'
             alt='dark mode logo'
             className='hidden dark:block'
           />
