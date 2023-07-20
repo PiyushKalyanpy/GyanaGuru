@@ -40,7 +40,7 @@ export function CourseProvider({ children }) {
   const [notes, setNotes] = useState([]);
   const router = useRouter();
   const { currentUser } = useAuth();
-  const [isDBValveOpen, setIsDBValveOpen] = useState(0);
+  const [isDBValveOpen, setIsDBValveOpen] = useState(1);
   const [design, setDesign] = useState(null);
 
   const getData =
