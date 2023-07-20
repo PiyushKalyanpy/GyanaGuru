@@ -8,11 +8,11 @@ const LandingThreeSecond = () => {
   return (
     <div className="hidden lg:grid grid-cols-10 w-full h-[580px] gap-4 mb-20 mt-40 dark:bg-neutral-950">
       {/* Showcase 01 */}
-      <div className="flex  items-center col-span-3  bg-cover bg-[url('/images/landing0201.png')]">
+      <div className="flex  items-center col-span-3  bg-cover bg-[url('/images/landing0201.webp')]">
         <Card01 />
       </div>
       {/* Showcase 02 */}
-      <div className="flex items-end col-span-3 bg-cover bg-[url('/images/landing0202.png')]">
+      <div className="flex items-end col-span-3 bg-cover bg-[url('/images/landing0202.webp')]">
         <div className="flex w-full flex-col space-y-4 p-4 backdrop-blur-md bg-pink-500/10 ">
           {CourseData.slice(0, 4).map((item, index) => {
             return <LinkItem key={index} title={item.categoryName} />;
@@ -20,7 +20,7 @@ const LandingThreeSecond = () => {
         </div>
       </div>
       {/* Showcase 03 */}
-      <div className="flex col-span-4 bg-cover items-end bg-[url('/images/landing0203.png')]">
+      <div className="flex col-span-4 bg-cover items-end bg-[url('/images/landing0203.webp')]">
         <div className="flex w-full flex-col space-y-4 p-4   ">
           <Contributors />
         </div>
