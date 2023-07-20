@@ -49,7 +49,7 @@ const HeroSection = () => {
           <h1 className='space-y-10 text-4xl font-bold leading-snug text-black lg:font-semibold lg:text-6xl dark:text-zinc-50 lg:text-start'>
             <h2>
               Empower Yourself Through Knowledge with&nbsp;
-              <span className='underline text-zinc-600 dark:text-zinc-200'>
+              <span className=' animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-5xl font-black'>
                 Gyanaguru
               </span>
             </h2>
