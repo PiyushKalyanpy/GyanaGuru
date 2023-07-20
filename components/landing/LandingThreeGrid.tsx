@@ -35,7 +35,7 @@ const LandingThreeGrid = () => {
       <div className='transform translate-x-full opacity-0 transition duration-500 ease-in-out flex  lg:col-span-4 w-full h-96 row-span-4   bg-orange-50 rounded-3xl overflow-hidden'>
         <div className='flex flex-col items-end justify-end  '>
           <Image
-            src='/images/landing0101.webp'
+            src='/images/landing0101.jpg'
             width={800}
             height={800}
             alt='landing '
@@ -44,7 +44,7 @@ const LandingThreeGrid = () => {
         </div>
       </div>
       {/* Showcase 4 */}
-      <div className="transform translate-x-full opacity-0 transition duration-500 ease-in-out  flex lg:col-span-4 w-full h-96 row-span-4  bg-[url('/images/landing0102.webp')] object-cover overflow-hidden bg-orange-100 rounded-3xl">
+      <div className="transform translate-x-full opacity-0 transition duration-500 ease-in-out  flex lg:col-span-4 w-full h-96 row-span-4  bg-[url('/images/landing0102.jpg')] object-cover overflow-hidden bg-orange-100 rounded-3xl">
         <div className='flex flex-col items-end justify-end w-full'>
           <h1 className='w-full h-20 p-4 text-lg text-white font-archivo bg-orange-700/20 backdrop-blur-lg '>{`With our platform, you can learn anytime, anywhere, and at your own pace.`}</h1>
         </div>

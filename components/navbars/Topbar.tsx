@@ -56,7 +56,7 @@ const Topbar = ({ showBackIcon = false }) => {
               currentUser
                 ? currentUser.photoURL
                   ? currentUser.photoURL
-                  : '/images/empty_profile.webp'
+                  : '/images/empty_profile.png'
                 : null
             }
           />
