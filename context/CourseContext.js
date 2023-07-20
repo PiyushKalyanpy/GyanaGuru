@@ -3,7 +3,6 @@ import { db, rtdb } from '../database/firebase';
 import {
   collection,
   addDoc,
-  orderBy,
   limit,
   getDocs,
   deleteDoc,
@@ -26,6 +25,7 @@ import { useRouter } from 'next/router';
 import { showToast } from '@/components/util/Toast';
 import { useAuth } from './AuthContext';
 
+
 export const CourseContext = React.createContext();
 
 export function useCourse() {
@@ -40,7 +40,7 @@ export function CourseProvider({ children }) {
   const [notes, setNotes] = useState([]);
   const router = useRouter();
   const { currentUser } = useAuth();
-  const [isDBValveOpen, setIsDBValveOpen] = useState(1);
+  const [isDBValveOpen, setIsDBValveOpen] = useState(0);
   const [design, setDesign] = useState(null);
 
   const getData =
@@ -451,7 +451,7 @@ export function CourseProvider({ children }) {
     getComments,
     videos,
     videoViewed,
-    fetchDesign,
+    fetchDesign,  
     deletePlaylist,
     addVideo,
     addReactionOnComment,

@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { useEffect, useContext, useState } from 'react'
+import { useContext } from 'react';
 import Link from 'next/link'
-import { ToastContainer, toast } from 'react-toastify'
+import { ToastContainer } from 'react-toastify';
 import { AuthContext } from '@/context/AuthContext'
 
 const Login = () => {
