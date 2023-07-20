@@ -37,7 +37,8 @@
     "redux-toolkit": "^1.1.2",
     "remark-gfm": "^3.0.1",
     "swr": "^2.1.5",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "vanilla-tilt": "^1.8.0"
   },
   "devDependencies": {
     "@heroicons/react": "^2.0.18",
