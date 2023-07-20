@@ -305,14 +305,14 @@ const LandingFooter = () => {
       <Image
         width={40}
         height={40}
-        src="./logo.svg"
+        src="/logo.svg"
         alt="logo"
         className="dark:hidden"
       />
       <Image
         width={40}
         height={40}
-        src="./logodark.svg"
+        src="/logodark.svg"
         alt="logo"
         className="hidden dark:block"
       />
