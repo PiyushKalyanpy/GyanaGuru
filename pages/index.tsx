@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import { useEffect, useState, useRef } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-
 import {
   LandingNav,
   HeroSection,
@@ -13,31 +12,24 @@ import {
   LandingContact,
   LandingFooter,
 } from '../components/components';
-
 export default function Home() {
   const [showNav, setShowNav] = useState(true);
   const [showPopup, setShowPopup] = useState(0);
   const router = useRouter();
-
   useEffect(() => {
     document.cookie = 'reachedDashboard=false';
     let prevScrollPos = window.pageYOffset;
-
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
       setShowNav(prevScrollPos > currentScrollPos);
       prevScrollPos = currentScrollPos;
     };
-
     window.addEventListener('scroll', handleScroll);
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   const handleClick = () => {
     setShowNav(!showNav);
   };
-
   return (
     <>
       <Head>
@@ -54,7 +46,6 @@ export default function Home() {
         <meta name="revisit-after" content="7 days" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.svg" />
-
         {/* Open Graph meta tags for website preview */}
         <meta property="og:title" content="GyanaGuru - Empower Yourself Through Knowledge" />
         <meta property="og:description" content="Join GyanaGuru and empower yourself through knowledge. Explore a wide range of high-quality educational resources, interactive quizzes, and social features for active learning and collaboration." />
@@ -62,20 +53,16 @@ export default function Home() {
         <meta property="og:url" content="https://gyanaguru.vercel.app" /> {/* Replace with the actual URL of the page */}
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="GyanaGuru" />
-
         {/* Twitter meta tags for website preview */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="GyanaGuru - Empower Yourself Through Knowledge" />
         <meta property="twitter:description" content="Join GyanaGuru and empower yourself through knowledge. Explore a wide range of high-quality educational resources, interactive quizzes, and social features for active learning and collaboration." />
         <meta property="twitter:image" content="https://gyanaguru.vercel.app/icons/logo128.svg" /> {/* Replace with the actual preview image URL */}
       </Head>
-
       {showPopup && (
         <MessagePopup message='already given' setShowPopup={setShowPopup} />
       )}
-
       <div className='cursor'></div>
-
       <main className='w-screen overflow-hidden lg:block h-fit gap-y-10 dark:bg-neutral-950'>
         <div className='hidden md:block fixed right-0 z-10 top-40'>
           <ConnectWithMe />
@@ -84,7 +71,6 @@ export default function Home() {
           <LandingNav />
           {showNav && <MessageComponent />}
         </div>
-        
         <HeroSection />
         {/* <Achivements /> */}
         <LandingThreeGrid />
@@ -97,7 +83,6 @@ export default function Home() {
     </>
   );
 }
-
 const MessagePopup = ({ message, setShowPopup } : any) => {
   return (
     <div className='fixed z-50 flex items-center w-full h-screen p-4 bg-black/50 backdrop-blur-sm'>
@@ -125,10 +110,8 @@ const MessagePopup = ({ message, setShowPopup } : any) => {
     </div>
   );
 };
-
 const MessageComponent = () => {
   const marqueeRef = useRef(null);
-
   return (
     <div className='left-0 z-40 w-full py-4 transition bg-gray-100 dark:bg-neutral-900/70 backdrop-blur-2xl'>
       <div className='flex w-fit marquee'>
@@ -146,7 +129,6 @@ const MessageComponent = () => {
     </div>
   );
 };
-
 const ConnectWithMe = () => {
   return (
     <div className='flex items-center px-2 py-2 pr-10 transition translate-x-40 border-2 rounded-tl-full rounded-bl-full h-fit bg-gray-200/40 backdrop-blur-sm border-zinc-100 w-fit hover:translate-x-6'>
@@ -176,7 +158,6 @@ const ConnectWithMe = () => {
     </div>
   );
 };
-
 const LinkedInIcon = () => {
   return (
     <svg

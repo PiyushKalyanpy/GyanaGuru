@@ -1,13 +1,10 @@
 import Image from 'next/image'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-
 const HeroSection = () => {
   const router = useRouter()
-
   useEffect(() => {
     const elements = document.querySelectorAll('.transform')
-
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -35,15 +32,12 @@ const HeroSection = () => {
         }
       })
     })
-
     elements.forEach(element => {
       observer.observe(element)
     })
   }, [])
-
   return (
     <div className='flex flex-row items-center justify-center w-full lg:pr-12 lg:pt-12 lg:pl-12 mb-20 px-4 bg-white mt-40 dark:bg-neutral-950 '>
-       
       <div className='flex flex-col items-center w-full space-y-10 transition duration-500 ease-in-out transform -translate-x-full opacity-0 lg:items-start lg:flex-col  lg:justify-between lg:pr-16 lg:pl-20'>
         <div className='flex-col text-center font-inter space-y-10'>
           <h1 className='space-y-10 text-4xl font-bold leading-snug text-black lg:font-semibold lg:text-6xl dark:text-zinc-50 lg:text-start'>
@@ -92,5 +86,4 @@ const HeroSection = () => {
     </div>
   )
 }
-
 export default HeroSection
