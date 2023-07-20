@@ -59,7 +59,7 @@ const BannerCard = ({ onClick }: any) => {
         </div>
         <div className='absolute right-0 top-0 z-0 h-full w-fit'>
           <img
-            src='./images/bannerBackground.webp'
+            src='./images/bannerBackground.png'
             alt=''
             className='w-full h-full rounded-xl '
           />

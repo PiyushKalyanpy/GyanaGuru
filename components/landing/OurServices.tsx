@@ -44,7 +44,7 @@ const OurServices = () => {
     //       <div className='hidden lg:block row-span-2 lg:col-span-2  items-center px-20'>
     //         <Image
     //           className='m-auto select-none'
-    //           src='/images/ourservices.webp'
+    //           src='/images/ourservices.png'
     //           alt='Picture of the author'
     //           width={400}
     //           height={400}
@@ -105,7 +105,7 @@ const OurServices = () => {
       <div className="hidden lg:block flex-shrink-0 lg:col-span-2 items-center px-20">
         <Image
           className="m-auto select-none"
-          src="/images/ourservices.webp"
+          src="/images/ourservices.png"
           alt="Picture of the author"
           width={400}
           height={400}
