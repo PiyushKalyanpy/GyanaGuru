@@ -18,7 +18,7 @@
     "axios": "^1.4.0",
     "context": "^3.0.7",
     "cookies-next": "^2.1.2",
-    "emoji-picker-react": "^4.4.9",
+    "emoji-picker-react": "^4.4.10",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "firebase": "^9.22.2",
