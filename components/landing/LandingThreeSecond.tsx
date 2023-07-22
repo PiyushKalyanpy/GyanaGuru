@@ -50,13 +50,13 @@ const Card01 = () => {
   );
 };
 
-const LinkItem = ({ title }: any) => {
+const LinkItem = ({ title, hrefInfo="#" }: any) => {
   const handleClick = () => {};
 
   return (
     <div className="w-full border-b p-4 hover:bg-white/20 border-white">
       <a
-        href="#"
+        href={hrefInfo}
         target="_blank"
         rel="noopener"
         className="flex justify-between"
@@ -97,7 +97,7 @@ const Contributors = () => {
           />
         </a>
       </div>
-      <LinkItem title="Our Contributors" />
+      <LinkItem title="Our Contributors"  hrefInfo="/static/contributors" />
     </div>
   );
 };

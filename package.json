@@ -15,6 +15,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@tailwindcss/line-clamp": "^0.4.4",
+    "axios": "^1.4.0",
     "context": "^3.0.7",
     "cookies-next": "^2.1.2",
     "emoji-picker-react": "^4.4.9",
