@@ -46,16 +46,6 @@ const Login = () => {
             </span>
           </button>
         </div>
-        <div className='flex place-content-center w-full'>
-          <p className='text-sm text-center text-zinc-600'>
-            Don{`'`}t have an account? &nbsp;
-            <Link href='/signup'>
-              <span className='text-blue-500  underline text-medium '>
-                Sign up
-              </span>
-            </Link>
-          </p>
-        </div>
       </div>
     </div>
   )
