@@ -1,6 +1,6 @@
 import DashboardSidebarItem from './DashboardSidebarItem'
 import React, { useState, useContext } from 'react'
-import { AuthContext, useAuth } from '../../../context/AuthContext'
+import { AuthContext, useAuth } from '@/context/AuthContext'
 import { useEffect } from 'react'
 
 export interface IDashboardSidebar {}
@@ -76,7 +76,6 @@ const Navbar = ({ selectedItem, handleClick }: any) => {
     {
       href: '/dashboard',
       icon: 'dashboard',
-      disabled: true,
       label: 'Dashboard',
       selected: selectedItem === SidebarItem.Dashboard,
       onItemClick: () => handleClick(SidebarItem.Dashboard),
