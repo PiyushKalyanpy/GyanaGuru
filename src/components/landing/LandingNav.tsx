@@ -50,7 +50,7 @@ const LandingNav = () => {
           />
         </div>
         {/* Get Started Button and Dark Mode Button*/}
-        <div className='flex-row items-center hidden gap-4 md:flex'>
+        <div className='flex-row items-center hidden gap-4 lg:flex'>
           <div
             onClick={handleGetStartedClick}
             className='flex flex-row items-center gap-4 p-1 border-2 border-black rounded-full cursor-pointer dark:border-zinc-50'
@@ -66,7 +66,7 @@ const LandingNav = () => {
         </div>
 
         {/* menu button for smaller screens */}
-        <div className='md:hidden space-x-4'>
+        <div className='lg:hidden space-x-4'>
           {/* <DarkModeToggle/> */}
           <span
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -77,7 +77,7 @@ const LandingNav = () => {
         </div>
       </div>
       <div
-        className={`md:hidden justify-center py-10 ${
+        className={`lg:hidden justify-center py-10 ${
           isMenuOpen ? 'flex' : 'hidden'
         }`}
       >
@@ -95,7 +95,7 @@ const NavLinks = ({ navLinkStyle, handleNavLinkClick }: any) => {
     <div className='flex flex-col items-center gap-8  lg:flex-row transiton '>
       <Link
         className={navLinkStyle}
-        href='#'
+        href='/'
         onClick={() => handleNavLinkClick('')}
       >
         Home
@@ -105,14 +105,14 @@ const NavLinks = ({ navLinkStyle, handleNavLinkClick }: any) => {
       </Link>
       <Link
         className={navLinkStyle}
-        href='#ourservices'
+        href='/#ourservices'
         onClick={() => handleNavLinkClick('ourservices')}
       >
         Our Services
       </Link>
       <Link
         className={navLinkStyle}
-        href='#benefits'
+        href='/#benefits'
         onClick={() => handleNavLinkClick('whychooseus')}
       >
         Benefits
@@ -143,3 +143,4 @@ const MenuIcon = () => (
 )
 
 export default LandingNav
+
