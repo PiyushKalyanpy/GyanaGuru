@@ -43,12 +43,14 @@ const LandingNav = () => {
         </div>
         {/* Nav Links */}
 
+
         <div className='hidden lg:flex'>
           <NavLinks
             navLinkStyle={navLinkStyle}
             handleNavLinkClick={handleNavLinkClick}
           />
         </div>
+        
         {/* Get Started Button and Dark Mode Button*/}
         <div className='flex-row items-center hidden gap-4 lg:flex'>
           <div
