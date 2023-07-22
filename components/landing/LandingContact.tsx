@@ -32,7 +32,7 @@ const LandingContact = () => {
         <div className='hidden lg:flex items-center md:col-span-2'>
           <Image
             className='m-auto h-96 object-cover rounded-3xl select-none'
-            src='/images/contact.webp'
+            src='/images/contact.png'
             alt='Picture of the author'
             width={400}
             height={400}

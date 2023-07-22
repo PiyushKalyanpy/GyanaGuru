@@ -20,7 +20,7 @@ const WhyChooseUs = () => {
         <div className='col-span-2 flex justify-self-end'>
           <Image
             className=' '
-            src='/images/whychooseus.webp'
+            src='/images/whychooseus.png'
             alt='Picture of the author'
             width={300}
             height={300}

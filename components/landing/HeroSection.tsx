@@ -82,7 +82,7 @@ const HeroSection = () => {
       </div>
       <div className='hidden w-3/4 h-full pr-10 lg:flex'>
         <Image
-          src='/images/hero.webp'
+          src='/images/hero.png'
           alt='Hero Section Image'
           width={1000}
           height={1000}

@@ -19,6 +19,10 @@ module.exports = {
         source: "/about-us",
         destination: "/static/about-us",
       },
+      {
+        source: '/faq',
+        destination: '/static/faq'
+      }
     ];
   },
 };
