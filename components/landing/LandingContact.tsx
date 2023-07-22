@@ -58,6 +58,7 @@ const LandingContact = () => {
                 className='w-full bg-zinc-100 h-12 mt-4 p-4 outline-none focus:outline-zinc-200 text-zinc-800 font-archivo text-lg rounded-lg placeholder:text-zinc-800/50'
                 type='text'
                 placeholder='Name'
+                aria-label='Enter your Name'
                 required
                 value={name}
                 onChange={e => setName(e.target.value)}
@@ -66,6 +67,7 @@ const LandingContact = () => {
                 className='w-full bg-zinc-100 h-12 mt-4 p-4 outline-none focus:outline-zinc-200 text-zinc-800 font-archivo text-lg rounded-lg placeholder:text-zinc-800/50'
                 type='email'
                 placeholder='E-mail'
+                aria-label='Enter your Email'
                 required
                 value={email}
                 onChange={e => setEmail(e.target.value)}
@@ -73,6 +75,7 @@ const LandingContact = () => {
               <textarea
                 className='w-full bg-zinc-100 h-40 mt-4 p-4 outline-none focus:outline-zinc-200 text-zinc-800 font-archivo text-lg rounded-lg placeholder:text-zinc-800/50 resize-none'
                 placeholder='Message'
+                aria-label='Enter the message you like to send'
                 required
                 value={message}
                 onChange={e => setMessage(e.target.value)}
@@ -80,6 +83,8 @@ const LandingContact = () => {
               <button
                 className='w-20% bg-black text-white dark:bg-white dark:text-black  h-12 mt-4 p-2 outline-none hover:outline-zinc-200 transition  text-lg rounded-lg placeholder:text-zinc-800/50 hover:scale-[1.04]'
                 type='submit'
+                aria-describedby='submit your form'
+                role='button'
               >
                 Send Message
               </button>

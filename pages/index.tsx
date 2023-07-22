@@ -11,10 +11,10 @@ import {
   LandingThreeSecond,
   LandingContact,
   LandingFooter,
-} from '../components/components';
+} from '@/components/components';
 export default function Home() {
   const [showNav, setShowNav] = useState(true);
-  const [showPopup, setShowPopup] = useState(0);
+  const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
   useEffect(() => {
     document.cookie = 'reachedDashboard=false';

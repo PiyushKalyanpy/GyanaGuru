@@ -36,17 +36,17 @@ const Courses: NextPageWithLayout = () => {
 
 const BannerCard = ({ onClick }: any) => {
   return (
-    <div className='sm:hidden md:flex w-full p-4  h-60'>
+    <div className='md:flex w-full p-4'>
       <div className='relative w-full h-full p-6 bg-white rounded-xl '>
         <div className='z-10 relative flex flex-col space-y-4 '>
-          <h2 className='text-5xl font-bold font-archivo text-zinc-900'>
+          <h2 className='text-4xl sm:text-5xl font-bold font-archivo text-zinc-900'>
             Discover the power of{' '}
             <span className='text-transparent bg-clip-text bg-gradient-to-br from-violet-500 via-pink-500 to-sky-600'>
               AI
             </span>{' '}
             with Education
           </h2>
-          <h6 className='text-2xl text-zinc-700'>
+          <h6 className='text-xl sm:text-2xl text-zinc-700'>
             Introducing our groud breaking approach to learning
           </h6>
           <button
