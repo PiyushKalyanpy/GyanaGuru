@@ -19,6 +19,18 @@ module.exports = {
         source: "/about-us",
         destination: "/static/about-us",
       },
+      {
+        source: '/faq',
+        destination: '/static/faq'
+      },
+      {
+        source:'/disclaimer',
+        destination:"/static/disclaimer"
+      },
+      {
+        source:'/privacy-policy',
+        destination:"/static/privacy-policy"
+      }
     ];
   },
 };
