@@ -104,7 +104,7 @@ const UserCard = ({
       : 'bg-violet-100 text-violet-800';
 
   return (
-    login != 'PiyushKalyanpy' && (
+    login != 'PiyushKalyanpy' ? (
       <div className='relative p-4 transition bg-white rounded-2xl hover:scale-105'>
         {/* {userType && (
           <div className=' cursor-pointer absolute top-4 right-4  p-2 text-xs font-bold text-white bg-blue-100  rounded-full hover:scale-110 transition '>
@@ -141,7 +141,7 @@ const UserCard = ({
           </h2>
         </div>
       </div>
-    )
+    ) : null
   );
 };
 export default Contributors;
