@@ -8,7 +8,7 @@ import { AuthContext } from '@/context/AuthContext'
 const Login = () => {
   const router = useRouter()
   const { loginWithGoogle, currentUser } = useContext(AuthContext)
-  if (currentUser) router.replace('/courses')
+  if (currentUser) router.replace('/dashboard')
 
   return (
     <div className='flex w-screen h-screen bg-zinc-100 p-8'>

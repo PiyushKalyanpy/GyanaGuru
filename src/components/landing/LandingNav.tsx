@@ -100,7 +100,7 @@ const NavLinks = ({ navLinkStyle, handleNavLinkClick }: any) => {
       >
         Home
       </Link>
-      <Link className={navLinkStyle} href='/static/about-us'>
+      <Link className={navLinkStyle} href='/about-us'>
         About Us
       </Link>
       <Link
@@ -117,7 +117,7 @@ const NavLinks = ({ navLinkStyle, handleNavLinkClick }: any) => {
       >
         Benefits
       </Link>
-      <Link className={navLinkStyle} href='/static/faq'>
+      <Link className={navLinkStyle} href='/faq'>
         {/* adding badge on div for new */}
         <div>FAQ</div>
       </Link>
