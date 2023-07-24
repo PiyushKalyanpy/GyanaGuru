@@ -1,5 +1,5 @@
-import CourseData from "../../data/course_categories.json";
-import ContributorsData from "../../data/contributors.json";
+import CourseData from "@/data/course_categories.json";
+import ContributorsData from "@/data/contributors.json";
 import Image from "next/image";
 // import Router from "next/router";
 import Link from "next/link";
@@ -55,15 +55,14 @@ const LinkItem = ({ title, hrefInfo="#" }: any) => {
 
   return (
     <div className="w-full border-b p-4 hover:bg-white/20 border-white">
-      <a
+      <Link
         href={hrefInfo}
-        target="_blank"
         rel="noopener"
         className="flex justify-between"
       >
         <p className="text-white text-2xl font-archivo">{title}</p>
         <span className="material-icons text-white ">arrow_outward</span>
-      </a>
+      </Link>
     </div>
   );
 };
@@ -86,7 +85,7 @@ const Contributors = () => {
             )
           })}
         </div> */}
-        <a
+        <Link
           href="https://github.com/PiyushKalyanpy/GyanaGuru/graphs/contributors"
           target="_blank"
           rel="noopener"
@@ -95,7 +94,7 @@ const Contributors = () => {
             alt="Profile pictures of the contributers"
             src="https://contrib.rocks/image?repo=PiyushKalyanpy/GyanaGuru"
           />
-        </a>
+        </Link>
       </div>
       <LinkItem title="Our Contributors"  hrefInfo="/static/contributors" />
     </div>
