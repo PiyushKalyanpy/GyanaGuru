@@ -11,6 +11,7 @@ import { CourseProvider } from '@/context/CourseContext';
 import { CookiesProvider } from 'react-cookie';
 import { NextPageWithLayout } from '../util/page';
 import { AuthProvider } from '../context/AuthContext';
+import { ToastContainer } from 'react-toastify';
 
 interface AppPropsWithLayout extends AppProps {
   Component: NextPageWithLayout;
@@ -25,6 +26,7 @@ function App ({ Component, pageProps }: AppPropsWithLayout) {
       <AuthProvider>
         <CourseProvider>
           <ThemeProvider attribute='class'>
+            <ToastContainer />
             <Script
               strategy='lazyOnload'
               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}

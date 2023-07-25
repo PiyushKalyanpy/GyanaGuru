@@ -27,8 +27,6 @@ const LandingNav = () => {
   }
 
   return (
-    <>
-    <ToastContainer />
     <div className='sticky top-0 z-20 w-full border-b-2 border-white bg-white/30 backdrop-blur-md dark:bg-neutral-950/50 dark:border-zinc-700'>
       <div className='flex flex-row items-center justify-between w-full px-6 py-4 lg:px-20 '>
         {/* Logo with Title */}
@@ -90,7 +88,6 @@ const LandingNav = () => {
         />
       </div>
     </div>
-    </>
   )
 }
 
