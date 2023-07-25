@@ -12,7 +12,7 @@ function DarkModeToggle () {
 
   return (
     
-    <button onClick={() => showToast('Functionality removed', 'info')}>
+    <button onClick={() => showToast('Functionality removed due to bugs', 'info')}>
     
       <Image
         width={36}
