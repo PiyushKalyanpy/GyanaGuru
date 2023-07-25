@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { DarkModeToggle } from '../components'
 import { useState } from 'react'
-import { ToastContainer } from 'react-toastify'
 
 const LandingNav = () => {
   const router = useRouter()
