@@ -102,7 +102,7 @@ function StillHaveQuestions() {
           </Link>
         </div>
       </div>
-      <div className="w-full lg:w-[50%] self-end mt-4 lg:mt-0 flex justify-end">
+      <div className="w-full lg:w-1/2 self-end mt-4 lg:mt-0 flex justify-end">
         <Image
           className="max-h-full max-lg:w-full h-auto lg:max-w-sm"
           src="/images/faqsection.png"
