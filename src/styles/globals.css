@@ -10,6 +10,9 @@
 }
 
 
+.marquee:hover {
+  animation-play-state: paused;
+}
 .marquee {
   white-space: nowrap;
 }
