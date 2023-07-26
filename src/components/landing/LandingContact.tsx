@@ -27,7 +27,7 @@ const LandingContact = () => {
       })
   }
   return (
-    <div className='w-full h-fit lg:p-20 dark:bg-neutral-950'>
+    <div id='contact' className='w-full h-fit lg:p-20 dark:bg-neutral-950'>
       <div className='flex flex-col  md:flex-row gap-8 w-full items-center'>
         <div className='hidden lg:flex items-center md:col-span-2'>
           <Image
