@@ -96,7 +96,7 @@ const MessagePopup = ({ message, setShowPopup } : any) => {
           </h6>
         </div>
         <span className='text-center text-md lg:mx-10 lg:text-xl text-zinc-600'>
-Attention contributors: Please refrain from pushing your code for now as we are in the process of migrating from Next.js 12 to Next.js 13. This will help minimize conflicts and ensure a smoother transition. Thank you for your cooperation!        </span>
+ Please refrain from pushing your code for now as we are in the process of migrating from Next.js 12 to Next.js 13. This will help minimize conflicts and ensure a smoother transition. Thank you for your cooperation!        </span>
         <div className='flex flex-col'>
           <button
             onClick={() => setShowPopup(false)}
