@@ -128,8 +128,25 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
 NEXT_PUBLIC_FIREBASE_APP_ID=
 ```
+
+9. Set up firebase authentication
+    1. <img width="967" alt="Screenshot 2023-07-31 at 9 57 15 PM" src="https://github.com/Chaitanya-Shahare/GyanaGuru/assets/108579856/030d2526-09c5-49ad-80cc-ab7f6174c836">
+    2. <img width="1676" alt="Screenshot 2023-07-31 at 9 57 26 PM" src="https://github.com/Chaitanya-Shahare/GyanaGuru/assets/108579856/b4a4c3e9-843c-4d41-bd31-b5e0f4381981">
+    3. <img width="1673" alt="Screenshot 2023-07-31 at 9 57 36 PM" src="https://github.com/Chaitanya-Shahare/GyanaGuru/assets/108579856/96857255-9637-4cc4-bf4d-ef23008c3576">
+    4. <img width="1676" alt="Screenshot 2023-07-31 at 9 58 00 PM" src="https://github.com/Chaitanya-Shahare/GyanaGuru/assets/108579856/6bfea575-3a2a-439a-931a-d04369c39f73">
+    5. <img width="1676" alt="Screenshot 2023-07-31 at 9 58 31 PM" src="https://github.com/Chaitanya-Shahare/GyanaGuru/assets/108579856/5ee188f1-2da0-4da6-874d-2c2bb9828033">
+
+
+
+
+
+
+
+
+
+ 
   
-10. Run the development server.
+11. Run the development server.
 
 ```
 npm run dev
