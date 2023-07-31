@@ -11,13 +11,12 @@ export default function DashboardLayout({
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
     const { currentUser, isLoading } = UserAuth()
-    console.log(isLoading)
+
     if (isLoading) {
         return (
             <div className="flex items-center w-screen h-screen ">
                 <div className="flex m-auto  scale-150">
                     <span className="material-symbols-outlined animate-spin">refresh</span>
-
                 </div>
             </div>
         )

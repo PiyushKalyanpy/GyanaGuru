@@ -2,15 +2,19 @@
 
 import { ThemeProvider } from 'next-themes'
 import { AuthContextProvider } from '../context/authContext'
+import { CourseContextProvider } from '@/context/courseContext'
 
 
 export function Providers({ children }: any) {
     return (
-        <AuthContextProvider>
-            <ThemeProvider defaultTheme='light' >
-                {children}
-            </ThemeProvider>
-        </AuthContextProvider>
+        <CourseContextProvider>
+            <AuthContextProvider>
+                <ThemeProvider defaultTheme='light' >
+                    {children}
+                </ThemeProvider>
+            </AuthContextProvider>
+        </CourseContextProvider>
+
     )
 
 }

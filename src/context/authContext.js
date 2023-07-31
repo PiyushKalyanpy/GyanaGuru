@@ -17,9 +17,7 @@ export const AuthContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const authStateChanged = async user => {
-    console.log('authStateChanged', user);
     if (!user) {
-      console.log('authStateChangesdfd', user);
       setCurrentUser(null);
       setIsLoading(false);
       return;
