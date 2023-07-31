@@ -1,8 +1,8 @@
 "use client"
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import SearchBar from './SearchBar';
 import { UserAuth } from '@/context/authContext'
-import UserAvatar from './UserAvatar';
+import SearchBar from './SearchBar'
+import UserAvatar from './UserAvatar'
 
 const TopBar = () => {
     const [searchQuery, setSearchQuery] = useState('')

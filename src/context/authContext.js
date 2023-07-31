@@ -1,20 +1,16 @@
 'use client';
 import { useContext, createContext, useState, useEffect } from 'react';
-import {
-  signInWithPopup,
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  signOut,
-} from 'firebase/auth';
 import { auth, db } from '../data/online/firebase';
-import { getDoc, doc, setDoc, updateDoc } from 'firebase/firestore';
-import { useRouter } from 'next/navigation';
+import { GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+
 
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
 
   const authStateChanged = async user => {
     if (!user) {
@@ -32,6 +28,7 @@ export const AuthContextProvider = ({ children }) => {
         name: user.displayName,
         photoURL: user.photoURL,
         role: 'user',
+        isInstructor: false,
         createdAt: new Date(),
         lastSignIn: new Date(),
       });
@@ -67,7 +64,9 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ currentUser, googleSignIn, logout, isLoading, updateCurrentUser }}>
+    <AuthContext.Provider value={{
+      currentUser, googleSignIn, logout, isLoading, updateCurrentUser
+    }}>
       {children}
     </AuthContext.Provider>
   );

@@ -3,6 +3,7 @@ import ThemeToggle from "@/components/buttons/ThemeToggle";
 import LoginCard from "@/components/cards/LoginCard";
 import {UserAuth} from "@/context/authContext";
 import { redirect } from "next/navigation";
+import dynamic from "next/dynamic";
 
 const Login = () => {
     const { currentUser, googleSignIn, logout, isLoading } = UserAuth(); 

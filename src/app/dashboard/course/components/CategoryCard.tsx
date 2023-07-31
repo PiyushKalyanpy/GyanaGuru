@@ -8,7 +8,7 @@ interface CategoryCardProps {
 }
 
 const CategoryCard = (item: any) => {
-    const { imageUrl, name, id } = item[0]
+    const { imageUrl, name, id } = item
     console.log(imageUrl)
     const router = useRouter()
     const handleClick = () => {

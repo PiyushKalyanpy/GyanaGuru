@@ -24,7 +24,7 @@ const ProfileForm = (currentUser: any) => {
         }
     }
     return (
-        <div className=" w-full p-4 border rounded-2xl  space-y-4">
+        <div className="w-full p-4 space-y-4 bg-white  rounded-2xl">
             <h1 className="font-semibold">Edit profile</h1>
             <form className="flex flex-col gap-4">
                 <div className="flex flex-col space-y-2">
@@ -42,7 +42,7 @@ const ProfileForm = (currentUser: any) => {
                         className="p-2 border rounded-md" />
                 </div>
                 <div className="flex flex-col space-y-2">
-                    <button onClick={updateUserProfile} className="p-2 text-white bg-violet-600 rounded-md">Save</button>
+                    <button onClick={updateUserProfile} className="p-2 text-white rounded-md bg-black">Save</button>
                 </div>
             </form>
         </div>

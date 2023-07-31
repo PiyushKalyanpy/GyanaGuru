@@ -1,15 +1,18 @@
 "use client"
 import { UserAuth } from "@/context/authContext";
 import { useState } from "react";
-import ProfileCard from "./components/ProfileCard";
-import ProfileForm from "./components/ProfileForm";
-import BecomeAnInstructor from "./components/BecomeAnInstructor";
+import dynamic from "next/dynamic"
+const BecomeAnInstructor = dynamic(() => import("./components/BecomeAnInstructor"), { ssr: false })
+const ProfileCard = dynamic(() => import("./components/ProfileCard"), { ssr: false })
+const ProfileForm = dynamic(() => import("./components/ProfileForm"), { ssr: false })
+
 
 const Profile = () => {
     const { currentUser } = UserAuth()
     const [editProfile, setEditProfile] = useState(false)
 
     const toggleEdit = () => {
+        console.log("toggle edit")
         setEditProfile(!editProfile)
     }
 

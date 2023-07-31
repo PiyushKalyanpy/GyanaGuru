@@ -3,8 +3,14 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-module.exports = {
-  nextConfig,
+// next.config.js
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
+
+module.exports = withBundleAnalyzer(
+  {
   images: {
     domains: [
       "images.unsplash.com",
@@ -13,24 +19,9 @@ module.exports = {
       "lh3.googleusercontent.com",
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: "/about-us",
-        destination: "/static/about-us",
-      },
-      {
-        source: '/faq',
-        destination: '/static/faq'
-      },
-      {
-        source:'/disclaimer',
-        destination:"/static/disclaimer"
-      },
-      {
-        source:'/privacy-policy',
-        destination:"/static/privacy-policy"
-      }
-    ];
+   experimental: {
+    nextScriptWorkers: true,
   },
-};
+ 
+}
+)

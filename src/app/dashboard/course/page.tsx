@@ -1,9 +1,10 @@
 "use client"
 import { useEffect, useState } from "react";
-import AiBanner from "./components/AiBanner";
-import TopBar from "./components/TopBar";
-import CategoryList from "./components/CategoryList";
+import dynamic from "next/dynamic";
 import { useCourse } from "@/context/courseContext";
+const TopBar = dynamic(() => import("./components/TopBar"), { ssr: false });
+const AiBanner = dynamic(() => import("./components/AiBanner"), { ssr: false });
+const CategoryList = dynamic(() => import("./components/CategoryList"), { ssr: false });
 
 
 const Course = () => {
@@ -24,5 +25,6 @@ const Course = () => {
         </div>
     );
 }
+
 
 export default Course;

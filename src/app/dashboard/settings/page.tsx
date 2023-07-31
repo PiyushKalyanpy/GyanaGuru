@@ -1,6 +1,6 @@
 const Settings = () => {
     return (
-        <div>
+        <div className="w-full bg-zinc-100">
             setting
         </div>
     );
