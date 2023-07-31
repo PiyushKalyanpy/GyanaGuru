@@ -56,12 +56,12 @@ export const AuthContextProvider = ({ children }) => {
   };
 
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, authStateChanged);
-    return () => {
-      unsubscribe();
-    };
-  }, []);
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, authStateChanged);
+  //   return () => {
+  //     unsubscribe();
+  //   };
+  // }, []);
 
   return (
     <AuthContext.Provider value={{

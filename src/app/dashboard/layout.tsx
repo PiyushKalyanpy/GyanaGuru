@@ -12,16 +12,16 @@ export default function DashboardLayout({
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
     const { currentUser, isLoading } = UserAuth()
-    
-    if (isLoading) {
-        return (
-            <div className="flex items-center w-screen h-screen ">
-                <div className="flex m-auto  scale-150">
-                    <span className="material-symbols-outlined animate-spin">refresh</span>
-                </div>
-            </div>
-        )
-    }
+
+    // if (isLoading) {
+    //     return (
+    //         <div className="flex items-center w-screen h-screen ">
+    //             <div className="flex m-auto  scale-150">
+    //                 <span className="material-symbols-outlined animate-spin">refresh</span>
+    //             </div>
+    //         </div>
+    //     )
+    // }
 
     return (
         <section className="flex flex-col min-h-screen bg-white md:flex-row">
@@ -30,9 +30,8 @@ export default function DashboardLayout({
                     <span onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="material-symbols-outlined">menu</span>
                 </div>
                 <div className={`${isSidebarOpen ? "flex " : "hidden"} md:flex  `} >
-                    <Sidebar showInstructor sidebarItemData={SidebarData} />                    
+                    <Sidebar showInstructor sidebarItemData={SidebarData} />
                 </div>
-
             </nav>
             {children}
         </section>

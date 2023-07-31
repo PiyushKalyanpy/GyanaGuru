@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "@builder.io/partytown": "^0.8.0",
+    "@hookform/resolvers": "^3.1.1",
     "@next/bundle-analyzer": "^13.4.12",
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-toast": "^1.1.4",
     "@tailwindcss/line-clamp": "^0.4.4",
@@ -30,8 +33,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.1.1",
+    "react-hook-form": "^7.45.2",
     "tailwind-merge": "^1.14.0",
-    "tailwindcss-animate": "^1.0.6"
+    "tailwindcss-animate": "^1.0.6",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",

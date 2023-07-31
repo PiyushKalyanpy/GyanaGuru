@@ -13,15 +13,7 @@ export default function InstructorSidebar({
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
     const { currentUser, isLoading } = UserAuth()
 
-    if (isLoading) {
-        return (
-            <div className="flex items-center w-screen h-screen ">
-                <div className="flex m-auto  scale-150">
-                    <span className="material-symbols-outlined animate-spin">refresh</span>
-                </div>
-            </div>
-        )
-    }
+  
 
     return (
         <section className="flex flex-col h-screen bg-zinc-100 w-full md:flex-row p-4 gap-4 ">

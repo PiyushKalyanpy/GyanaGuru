@@ -28,7 +28,9 @@ const Sidebar = ({ showInstructor = false, sidebarItemData }: SidebarProps) => {
             {sidebarItemData.map((item: SidebarInterface) => {
                 return <SidebarItem key={item.icon} {...item} selected={pathname == item.href} />
             })}
-            {currentUser && currentUser.isInstructor && showInstructor && <SidebarItem {...sidebarItemDataInstructor} selected={pathname == sidebarItemDataInstructor.href} />}
+            {
+                // currentUser && currentUser.isInstructor && showInstructor &&
+                <SidebarItem {...sidebarItemDataInstructor} selected={pathname == sidebarItemDataInstructor.href} />}
                   </div>
     )
 }
