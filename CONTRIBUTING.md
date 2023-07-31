@@ -1,4 +1,4 @@
-# Contribution Guidelines 🌟
+<img width="1680" alt="Screenshot 2023-07-31 at 10 21 50 PM" src="https://github.com/Chaitanya-Shahare/GyanaGuru/assets/108579856/609cb92f-03b6-40ec-a14e-e4cb4582188a"># Contribution Guidelines 🌟
 
 ## Introduction
 
@@ -137,7 +137,17 @@ NEXT_PUBLIC_FIREBASE_APP_ID=
     5. <img width="1676" alt="Screenshot 2023-07-31 at 9 58 31 PM" src="https://github.com/Chaitanya-Shahare/GyanaGuru/assets/108579856/5ee188f1-2da0-4da6-874d-2c2bb9828033">
 
 
+10. Set up firebase firestore database
+    1. <img width="954" alt="Screenshot 2023-07-31 at 10 23 24 PM" src="https://github.com/Chaitanya-Shahare/GyanaGuru/assets/108579856/5132b2c4-b2d5-4f60-818a-c0ec52cedfc3">
+    2. <img width="1680" alt="Screenshot 2023-07-31 at 10 21 34 PM" src="https://github.com/Chaitanya-Shahare/GyanaGuru/assets/108579856/f4ce594c-10e2-4ec1-a2c0-f15ab38b057c">
+    3. <img width="1680" alt="Screenshot 2023-07-31 at 10 21 50 PM" src="https://github.com/Chaitanya-Shahare/GyanaGuru/assets/108579856/94025d18-4fb9-4ae6-83aa-0b1c745dbe68">
+    4. <img width="1680" alt="Screenshot 2023-07-31 at 10 21 59 PM" src="https://github.com/Chaitanya-Shahare/GyanaGuru/assets/108579856/45c87fb1-a0f1-4777-8435-f47c2ac00708">
+    5. <img width="1680" alt="Screenshot 2023-07-31 at 10 22 18 PM" src="https://github.com/Chaitanya-Shahare/GyanaGuru/assets/108579856/e51c80a4-56ac-4e1f-bbbc-e41413ea57ab">
 
+
+
+
+ 
 
 
 
