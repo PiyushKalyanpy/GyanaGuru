@@ -4,24 +4,20 @@ const nextConfig = {
 };
 
 // next.config.js
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true",
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
 });
 
-
-module.exports = withBundleAnalyzer(
-  {
+module.exports = withBundleAnalyzer({
   images: {
     domains: [
-      "images.unsplash.com",
-      "avatars.githubusercontent.com",
-      "i.ytimg.com",
-      "lh3.googleusercontent.com",
+      'images.unsplash.com',
+      'avatars.githubusercontent.com',
+      'i.ytimg.com',
+      'lh3.googleusercontent.com',
     ],
   },
-   experimental: {
+  experimental: {
     nextScriptWorkers: true,
   },
- 
-}
-)
+});

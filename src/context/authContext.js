@@ -1,16 +1,19 @@
 'use client';
 import { useContext, createContext, useState, useEffect } from 'react';
 import { auth, db } from '../data/online/firebase';
-import { GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged,
+} from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-
 
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-
 
   const authStateChanged = async user => {
     if (!user) {
@@ -49,12 +52,11 @@ export const AuthContextProvider = ({ children }) => {
     signOut(auth);
   };
 
-  const updateCurrentUser = async() => {
+  const updateCurrentUser = async () => {
     const userRef = doc(db, 'users', currentUser.uid);
     const newUserDoc = await getDoc(userRef);
     setCurrentUser(newUserDoc.data());
   };
-
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, authStateChanged);
@@ -64,9 +66,15 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{
-      currentUser, googleSignIn, logout, isLoading, updateCurrentUser
-    }}>
+    <AuthContext.Provider
+      value={{
+        currentUser,
+        googleSignIn,
+        logout,
+        isLoading,
+        updateCurrentUser,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

@@ -1,10 +1,7 @@
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 
 const DashbardCardContainer = () => {
-    return (
-        <div>
-        </div>
-    );
-}
+  return <div></div>;
+};
 
 export default DashbardCardContainer;
