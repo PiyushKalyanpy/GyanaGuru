@@ -3,7 +3,6 @@ import Image from 'next/image';
 
 const ProfileCard = (currentUser: any) => {
   const { photoURL, name, role, bio, toggleEdit } = currentUser;
-  console.log(currentUser);
   return (
     <div className="relative w-full p-4  rounded-2xl bg-white ">
       <button

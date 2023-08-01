@@ -7,19 +7,6 @@ import Curriculum from './components/Curriculum';
 import CourseLandingPage from './components/CourseLandingPage';
 import Pricing from './components/Pricing';
 
-const Instructor = () => {
-  const { currentUser } = UserAuth();
-  const router = useRouter();
-  if (currentUser && !currentUser.isInstructor) {
-    redirect('/dashboard');
-  }
-  return (
-    <div className="bg-zinc-100 w-full h-full ">
-      <CourseAddition />
-    </div>
-  );
-};
-
 const CourseAddition = () => {
   const steps = [
     {
@@ -44,6 +31,18 @@ const CourseAddition = () => {
   return (
     <div className="bg-white rounded-2xl w-full h-full overflow-hidden overflow-y-scroll ">
       <Stepper steps={steps} />
+    </div>
+  );
+};
+
+const Instructor = () => {
+  const { currentUser } = UserAuth();
+  if (currentUser && !currentUser.isInstructor) {
+    redirect('/dashboard');
+  }
+  return (
+    <div className="bg-zinc-100 w-full h-full ">
+      <CourseAddition />
     </div>
   );
 };

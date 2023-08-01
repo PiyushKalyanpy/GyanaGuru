@@ -9,7 +9,6 @@ import { toast } from '@/components/ui/use-toast';
 const BecomeAnInstructor = () => {
   const { currentUser, updateCurrentUser } = UserAuth();
   const [checked, setChecked] = useState(currentUser.isInstructor);
-  console.log('isInstructor', currentUser.isInstructor);
   const toggleInstructor = async () => {
     await updateDoc(doc(db, 'users', currentUser.uid), {
       isInstructor: !currentUser.isInstructor,
@@ -34,7 +33,7 @@ const BecomeAnInstructor = () => {
       <Switch
         className="mt-4"
         checked={checked}
-        onCheckedChange={e => {
+        onCheckedChange={() => {
           toggleInstructor();
           setChecked(!checked);
         }}

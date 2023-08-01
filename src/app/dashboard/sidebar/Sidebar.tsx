@@ -25,15 +25,13 @@ const Sidebar = ({ showInstructor = false, sidebarItemData }: SidebarProps) => {
 
   return (
     <div className="flex flex-col w-full h-full space-y-2 p-2">
-      {sidebarItemData.map((item: SidebarInterface) => {
-        return (
-          <SidebarItem
-            key={item.icon}
-            {...item}
-            selected={pathname == item.href}
-          />
-        );
-      })}
+      {sidebarItemData.map((item: SidebarInterface) => (
+        <SidebarItem
+          key={item.icon}
+          {...item}
+          selected={pathname == item.href}
+        />
+      ))}
       {currentUser && currentUser.isInstructor && showInstructor && (
         <SidebarItem
           {...sidebarItemDataInstructor}

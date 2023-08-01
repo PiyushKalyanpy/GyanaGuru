@@ -1,5 +1,3 @@
-const Settings = () => {
-  return <div className="w-full bg-zinc-100">setting</div>;
-};
+const Settings = () => <div className="w-full bg-zinc-100">setting</div>;
 
 export default Settings;

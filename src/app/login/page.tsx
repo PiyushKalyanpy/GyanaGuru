@@ -1,9 +1,7 @@
 'use client';
-import ThemeToggle from '@/components/buttons/ThemeToggle';
 import LoginCard from '@/components/cards/LoginCard';
 import { UserAuth } from '@/context/authContext';
 import { redirect } from 'next/navigation';
-import dynamic from 'next/dynamic';
 
 const Login = () => {
   const { currentUser, googleSignIn, logout, isLoading } = UserAuth();
@@ -11,7 +9,7 @@ const Login = () => {
     try {
       googleSignIn();
     } catch (error) {
-      console.log(error);
+      throw new Error('error');
     }
   };
   if (isLoading) {

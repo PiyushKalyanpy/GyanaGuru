@@ -1,15 +1,8 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-interface CategoryCardProps {
-  imageUrl: string;
-  name: string;
-  id: string;
-}
-
 const CategoryCard = (item: any) => {
   const { imageUrl, name, id } = item;
-  console.log(imageUrl);
   const router = useRouter();
   const handleClick = () => {
     router.push(`/courses/${id}`);

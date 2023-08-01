@@ -1,5 +1,3 @@
-const Curriculum = () => {
-  return <div>Curri</div>;
-};
+const Curriculum = () => <div>Curri</div>;
 
 export default Curriculum;

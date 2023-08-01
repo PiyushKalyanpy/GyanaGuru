@@ -43,42 +43,33 @@ const Stepper: React.FC<{ steps: StepData[] }> = ({ steps }) => {
       </div>
       <div className="relative">
         <div className="flex items-center w-full">
-          {steps.map((step, index) => {
-            return (
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className={`flex items-center ${
+                index !== steps.length - 1 ? 'w-full' : 'w-fit'
+              }`}
+            >
               <div
-                key={index}
-                className={`flex items-center ${
-                  index !== steps.length - 1 ? 'w-full' : 'w-fit'
-                }`}
+                className={`rounded-full h-8 w-8 flex items-center justify-center ${
+                  currentStep > index
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-white text-zinc-500 border'
+                }  ${currentStep === index && 'border-2 border-blue-500'}`}
               >
-                <div
-                  className={`rounded-full h-8 w-8 flex items-center justify-center ${
-                    currentStep > index
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-white text-zinc-500 border'
-                  } 
-                                    ${
-                                      currentStep === index &&
-                                      'border-2 border-blue-500'
-                                    }
-                                    `}
-                >
-                  {index + 1}
-                </div>
-                {index !== steps.length - 1 ? (
-                  <div
-                    className={`flex h-1 rounded-full ${
-                      currentStep > index ? 'bg-blue-500' : 'bg-gray-200'
-                    } ${
-                      index !== steps.length - 1
-                        ? 'w-full'
-                        : 'w-auto bg-red-400'
-                    }`}
-                  />
-                ) : null}
+                {index + 1}
               </div>
-            );
-          })}
+              {index !== steps.length - 1 ? (
+                <div
+                  className={`flex h-1 rounded-full ${
+                    currentStep > index ? 'bg-blue-500' : 'bg-gray-200'
+                  } ${
+                    index !== steps.length - 1 ? 'w-full' : 'w-auto bg-red-400'
+                  }`}
+                />
+              ) : null}
+            </div>
+          ))}
         </div>
       </div>
       <div className="mt-4">

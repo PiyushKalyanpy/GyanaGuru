@@ -27,5 +27,6 @@
     ],
     "prefer-template": 2,
     "require-yield": 0
-  }
+  },
+  "ignorePatterns": ["src/components/ui/**"]
 }
