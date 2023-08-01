@@ -24,7 +24,7 @@
     "eslint-config-next": "13.2.4",
     "firebase": "^9.22.2",
     "material-icons": "^1.13.3",
-    "material-symbols": "^0.8.0",
+    "material-symbols": "^0.10.2",
     "next": "13.2.4",
     "next-themes": "^0.2.1",
     "npm": "^9.7.2",
