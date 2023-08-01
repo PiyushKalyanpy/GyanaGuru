@@ -20,7 +20,7 @@ const Stepper: React.FC<{ steps: StepData[] }> = ({ steps }) => {
 
     return (
         <div className="w-full max-w-screen-lg p-4 mx-auto">
-            <div className="flex items-center justify-between mb-4">
+            <div className=" flex items-center justify-between mb-4">
                 <div>
                     <h2 className="text-xl font-semibold">{steps[currentStep].stepName}</h2>
                 </div>
@@ -47,7 +47,6 @@ const Stepper: React.FC<{ steps: StepData[] }> = ({ steps }) => {
             <div className="relative">
                 <div className="flex items-center w-full">
                     {steps.map((step, index) => {
-                        console.log(index);
                         return (
                             <div
                                 key={index}

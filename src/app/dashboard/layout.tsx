@@ -13,18 +13,18 @@ export default function DashboardLayout({
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
     const { currentUser, isLoading } = UserAuth()
 
-    // if (isLoading) {
-    //     return (
-    //         <div className="flex items-center w-screen h-screen ">
-    //             <div className="flex m-auto  scale-150">
-    //                 <span className="material-symbols-outlined animate-spin">refresh</span>
-    //             </div>
-    //         </div>
-    //     )
-    // }
+    if (isLoading) {
+        return (
+            <div className="flex items-center w-screen h-screen ">
+                <div className="flex m-auto  scale-150">
+                    <span className="material-symbols-outlined animate-spin">refresh</span>
+                </div>
+            </div>
+        )
+    }
 
     return (
-        <section className="flex flex-col min-h-screen bg-white md:flex-row">
+        <section className="flex flex-col h-screen overflow-hidden bg-white md:flex-row">
             <nav className=" md:w-1/3  lg:w-1/5">
                 <div className="flex w-full p-4 border-b md:hidden ">
                     <span onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="material-symbols-outlined">menu</span>

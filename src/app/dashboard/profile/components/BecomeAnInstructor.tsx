@@ -4,6 +4,7 @@ import { useState } from "react";
 import { updateDoc, doc } from "firebase/firestore";
 import { UserAuth } from "@/context/authContext";
 import { db } from "@/data/online/firebase";
+import { toast } from "@/components/ui/use-toast";
 
 const BecomeAnInstructor = () => {
     const { currentUser, updateCurrentUser } = UserAuth()
@@ -15,6 +16,9 @@ const BecomeAnInstructor = () => {
         }).then(() => {
             updateCurrentUser()
             const toastMessage = currentUser.isInstructor ? "You are no longer an instructor" : "You are now an instructor"
+            toast({
+                description: toastMessage,
+            })
           
         })
     }

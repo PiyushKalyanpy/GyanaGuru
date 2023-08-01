@@ -16,7 +16,7 @@ export default function InstructorSidebar({
   
 
     return (
-        <section className="flex flex-col h-screen bg-zinc-100 w-full md:flex-row p-4 gap-4 ">
+        <section className="flex flex-col h-screen bg-zinc-100 w-full md:flex-row p-4 gap-4  overflow-hidden ">
             <nav className=" md:w-1/4 bg-white rounded-2xl">
                 <div className="flex w-full p-4 border-b md:hidden ">
                     <span onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="material-symbols-outlined">menu</span>
