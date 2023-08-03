@@ -14,7 +14,7 @@ import {
 } from '@/components/components';
 export default function Home() {
   const [showNav, setShowNav] = useState(true);
-  const [showPopup, setShowPopup] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
   useEffect(() => {
     document.cookie = 'reachedDashboard=false';
