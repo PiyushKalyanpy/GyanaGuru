@@ -1,6 +1,5 @@
 import {
-  PageHeader,
-  HeadingParagraph,
+
   LandingNav,
   LandingFooter,
 } from '@/components/components';
@@ -23,9 +22,15 @@ const AboutUs = () => {
           </p>
         </section>
         <section className="flex flex-col space-y-14 text-center">
-          {AboutUsData.map((item: any, index: number) => {
-            return <>{item && <HeadingParagraph key={index} data={item} />}</>;
-          })}
+          {AboutUsData.map((data, index) => (
+            <div key={index}>
+              <h2 className="text-2xl sm:text-3xl font-bold text-zinc-800">
+                {data.heading}
+              </h2>
+              <p className="text-zinc-700">{data.paragraph}</p>
+            </div>
+          ))}
+
         </section>
         <section className="space-y-12 grid place-items-center">
           <h3 className="text-center font-semibold text-xl text-zinc-800">

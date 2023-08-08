@@ -4,7 +4,6 @@ import {
   VideoCard,
   CategoryCard,
   PlaylistCard,
-  Banner,
 } from '@/components/components';
 import { NextPageWithLayout } from '@/util/page';
 import { CourseContext } from '@/context/CourseContext';
