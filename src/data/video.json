@@ -1,20 +1,18 @@
 {
-    "videos" : [
-        {
-            "title" : "Adobe Photoshop",
-            "url" : "http://www.youtube.com/watch?v=Q8t4Z6JYfzY",
-            "description" : "Adobe Photoshop is a raster graphics editor developed and published by Adobe Systems for Windows and OS X. It was originally created in 1988 by Thomas and John Knoll. Since then, it has become the de facto industry standard in raster graphics editing, to the point that Photoshop has become a generic trademark leading to its use as a verb such as \"to photoshop an image,\" \"photoshopping,\" and \"photoshopped.\"",
-            "thumbnail" : "http://i.ytimg.com/vi/Q8t4Z6JYfzY/default.jpg",
-            "duration" : "00:03:00",
-            "uploaded" : "2011-08-31T18:00:00.000Z",
-            "viewCount" : 1000000,
-            "likeCount" : 1000,
-            "dislikeCount" : 10,
-            "favoriteCount" : 0,
-            "commentCount" : 100,
-            "playlistId" : "ps101"
-        
-
-        }
-    ]
+	"videos": [
+		{
+			"title": "Adobe Photoshop",
+			"url": "http://www.youtube.com/watch?v=Q8t4Z6JYfzY",
+			"description": "Adobe Photoshop is a raster graphics editor developed and published by Adobe Systems for Windows and OS X. It was originally created in 1988 by Thomas and John Knoll. Since then, it has become the de facto industry standard in raster graphics editing, to the point that Photoshop has become a generic trademark leading to its use as a verb such as \"to photoshop an image,\" \"photoshopping,\" and \"photoshopped.\"",
+			"thumbnail": "http://i.ytimg.com/vi/Q8t4Z6JYfzY/default.jpg",
+			"duration": "00:03:00",
+			"uploaded": "2011-08-31T18:00:00.000Z",
+			"viewCount": 1000000,
+			"likeCount": 1000,
+			"dislikeCount": 10,
+			"favoriteCount": 0,
+			"commentCount": 100,
+			"playlistId": "ps101"
+		}
+	]
 }

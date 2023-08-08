@@ -6,10 +6,10 @@ import StudentReport from './AddDesign'
 import ManageSite from './ManageSite'
 
 export {
-  Sidebar,
-  AddCourse,
-  UpdateCourse,
-  DeleteCourse,
-  StudentReport,
-  ManageSite
+	Sidebar,
+	AddCourse,
+	UpdateCourse,
+	DeleteCourse,
+	StudentReport,
+	ManageSite,
 }

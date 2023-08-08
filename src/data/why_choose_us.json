@@ -1,16 +1,16 @@
 {
-    "whyChooseUs" : [
-        {
-            "title" : "Free Education",
-            "description" : "At GyanaGuru, we believe that education should be accessible to everyone, regardless of their financial background. "
-        },
-        {
-            "title" : "Wide Range of Courses",
-            "description" : "We offer a diverse range of courses across a variety of disciplines, from programming and data science to marketing and design."
-        },
-        {
-            "title" : "Interactive Learning Experience",
-            "description" : "Our courses are designed to be engaging and interactive, with a focus on hands-on learning and practical applications."
-        }
-    ]
+	"whyChooseUs": [
+		{
+			"title": "Free Education",
+			"description": "At GyanaGuru, we believe that education should be accessible to everyone, regardless of their financial background. "
+		},
+		{
+			"title": "Wide Range of Courses",
+			"description": "We offer a diverse range of courses across a variety of disciplines, from programming and data science to marketing and design."
+		},
+		{
+			"title": "Interactive Learning Experience",
+			"description": "Our courses are designed to be engaging and interactive, with a focus on hands-on learning and practical applications."
+		}
+	]
 }

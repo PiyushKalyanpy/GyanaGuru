@@ -1,125 +1,124 @@
 {
-    "courses": [
-      {
-        "title": "Introduction to Python",
-        "description": "Learn the basics of Python programming language with this introductory course.",
-        "creator": "John Doe",
-        "imageUrl": "https://source.unsplash.com/random/400x250/?programming",
-        "rating": 4.5,
-        "duration": "2 hours",
-        "totalViews": 1200,
-        "category": "development",
-        "level": "Beginner",
-        "courseCode": "PY101"
-      },
-      {
-        "title": "React Fundamentals",
-        "description": "Learn the basics of React and how to build web applications with it.",
-        "creator": "Jane Smith",
-        "imageUrl": "https://source.unsplash.com/random/400x250/?react",
-        "rating": 4.2,
-        "duration": "3 hours",
-        "totalViews": 2300,
-        "category": "It & Software",
-        "level": "Intermediate",
-        "courseCode": "RE101"
-      },
-      {
-        "title": "Data Science with Python",
-        "description": "Learn how to use Python for data analysis and visualization.",
-        "creator": "Bob Johnson",
-        "imageUrl": "https://source.unsplash.com/random/400x250/?data",
-        "rating": 4.8,
-        "duration": "4 hours",
-        "totalViews": 3500,
-        "category": "Data Science",
-        "level": "Advanced",
-        "courseCode": "DS101"
-      },
-      {
-        "title": "UI/UX Design Fundamentals",
-        "description": "Learn the basics of user interface and user experience design.",
-        "creator": "Sarah Lee",
-        "imageUrl": "https://source.unsplash.com/random/400x250/?design",
-        "rating": 4.0,
-        "duration": "2 hours",
-        "totalViews": 800,
-        "category": "Design",
-        "level": "Beginner",
-        "courseCode": "UX101"
-      },
-      {
-        "title": "Machine Learning with Python",
-        "description": "Learn how to build machine learning models using Python and popular libraries like scikit-learn and TensorFlow.",
-        "creator": "Alex Kim",
-        "imageUrl": "https://source.unsplash.com/random/400x250/?machinelearning",
-        "rating": 4.7,
-        "duration": "5 hours",
-        "totalViews": 4500,
-        "category": "Data Science",
-        "level": "Advanced",
-        "courseCode": "ML101"
-      },
-      {
-        "title": "iOS App Development",
-        "description": "Learn how to build iOS apps using Swift and Xcode.",
-        "creator": "Mike Smith",
-        "imageUrl": "https://source.unsplash.com/random/400x250/?ios",
-        "rating": 4.2,
-        "duration": "4 hours",
-        "totalViews": 3200,
-        "category": "Mobile Development",
-        "level": "Intermediate",
-        "courseCode": "IO101"
-      },
-      {
-        "title": "Digital Marketing 101",
-        "description": "Learn the basics of digital marketing, including SEO, social media marketing, email marketing, and more.",
-        "creator": "Emily Chen",
-        "imageUrl": "https://images.unsplash.com/random/400x250/?marketing",
-        "rating": 4.3,
-        "duration": "3 hours",
-        "totalViews": 2800,
-        "category": "Marketing",
-        "level": "Beginner",
-        "courseCode": "DM101"
-      },
-      {
-        "title": "Full-Stack It & Software",
-        "description": "Learn how to build full-stack web applications using modern tools and frameworks like React, Node.js, and MongoDB.",
-        "creator": "Tom Lee",
-        "imageUrl": "https://source.unsplash.com/random/400x250/?webdevelopment",
-        "rating": 4.6,
-        "duration": "6 hours",
-        "totalViews": 5800,
-        "category": "It & Software",
-        "level": "Advanced",
-        "courseCode": "FS101"
-      },
-      {
-        "title": "Adobe Photoshop Masterclass",
-        "description": "Learn how to use Adobe Photoshop to create stunning digital graphics, illustrations, and photos.",
-        "creator": "Kate Johnson",
-        "imageUrl": "https://source.unsplash.com/random/400x250/?photoshop",
-        "rating": 4.0,
-        "duration": "4 hours",
-        "totalViews": 1900,
-        "category": "Design",
-        "level": "Intermediate",
-        "courseCode": "PS101"
-      },
-      {
-        "title": "Introduction to Artificial Intelligence",
-        "description": "Learn the basics of artificial intelligence, including machine learning, neural networks, and natural language processing.",
-        "creator": "David Kim",
-        "imageUrl": "https://source.unsplash.com/random/400x250/?artificialintelligence",
-        "rating": 4.5,
-        "duration": "3 hours",
-        "totalViews": 3700,
-        "category": "Data Science",
-        "level": "Intermediate",
-        "courseCode": "AI101"
-      }
-    ]
-  }
-  
+	"courses": [
+		{
+			"title": "Introduction to Python",
+			"description": "Learn the basics of Python programming language with this introductory course.",
+			"creator": "John Doe",
+			"imageUrl": "https://source.unsplash.com/random/400x250/?programming",
+			"rating": 4.5,
+			"duration": "2 hours",
+			"totalViews": 1200,
+			"category": "development",
+			"level": "Beginner",
+			"courseCode": "PY101"
+		},
+		{
+			"title": "React Fundamentals",
+			"description": "Learn the basics of React and how to build web applications with it.",
+			"creator": "Jane Smith",
+			"imageUrl": "https://source.unsplash.com/random/400x250/?react",
+			"rating": 4.2,
+			"duration": "3 hours",
+			"totalViews": 2300,
+			"category": "It & Software",
+			"level": "Intermediate",
+			"courseCode": "RE101"
+		},
+		{
+			"title": "Data Science with Python",
+			"description": "Learn how to use Python for data analysis and visualization.",
+			"creator": "Bob Johnson",
+			"imageUrl": "https://source.unsplash.com/random/400x250/?data",
+			"rating": 4.8,
+			"duration": "4 hours",
+			"totalViews": 3500,
+			"category": "Data Science",
+			"level": "Advanced",
+			"courseCode": "DS101"
+		},
+		{
+			"title": "UI/UX Design Fundamentals",
+			"description": "Learn the basics of user interface and user experience design.",
+			"creator": "Sarah Lee",
+			"imageUrl": "https://source.unsplash.com/random/400x250/?design",
+			"rating": 4.0,
+			"duration": "2 hours",
+			"totalViews": 800,
+			"category": "Design",
+			"level": "Beginner",
+			"courseCode": "UX101"
+		},
+		{
+			"title": "Machine Learning with Python",
+			"description": "Learn how to build machine learning models using Python and popular libraries like scikit-learn and TensorFlow.",
+			"creator": "Alex Kim",
+			"imageUrl": "https://source.unsplash.com/random/400x250/?machinelearning",
+			"rating": 4.7,
+			"duration": "5 hours",
+			"totalViews": 4500,
+			"category": "Data Science",
+			"level": "Advanced",
+			"courseCode": "ML101"
+		},
+		{
+			"title": "iOS App Development",
+			"description": "Learn how to build iOS apps using Swift and Xcode.",
+			"creator": "Mike Smith",
+			"imageUrl": "https://source.unsplash.com/random/400x250/?ios",
+			"rating": 4.2,
+			"duration": "4 hours",
+			"totalViews": 3200,
+			"category": "Mobile Development",
+			"level": "Intermediate",
+			"courseCode": "IO101"
+		},
+		{
+			"title": "Digital Marketing 101",
+			"description": "Learn the basics of digital marketing, including SEO, social media marketing, email marketing, and more.",
+			"creator": "Emily Chen",
+			"imageUrl": "https://images.unsplash.com/random/400x250/?marketing",
+			"rating": 4.3,
+			"duration": "3 hours",
+			"totalViews": 2800,
+			"category": "Marketing",
+			"level": "Beginner",
+			"courseCode": "DM101"
+		},
+		{
+			"title": "Full-Stack It & Software",
+			"description": "Learn how to build full-stack web applications using modern tools and frameworks like React, Node.js, and MongoDB.",
+			"creator": "Tom Lee",
+			"imageUrl": "https://source.unsplash.com/random/400x250/?webdevelopment",
+			"rating": 4.6,
+			"duration": "6 hours",
+			"totalViews": 5800,
+			"category": "It & Software",
+			"level": "Advanced",
+			"courseCode": "FS101"
+		},
+		{
+			"title": "Adobe Photoshop Masterclass",
+			"description": "Learn how to use Adobe Photoshop to create stunning digital graphics, illustrations, and photos.",
+			"creator": "Kate Johnson",
+			"imageUrl": "https://source.unsplash.com/random/400x250/?photoshop",
+			"rating": 4.0,
+			"duration": "4 hours",
+			"totalViews": 1900,
+			"category": "Design",
+			"level": "Intermediate",
+			"courseCode": "PS101"
+		},
+		{
+			"title": "Introduction to Artificial Intelligence",
+			"description": "Learn the basics of artificial intelligence, including machine learning, neural networks, and natural language processing.",
+			"creator": "David Kim",
+			"imageUrl": "https://source.unsplash.com/random/400x250/?artificialintelligence",
+			"rating": 4.5,
+			"duration": "3 hours",
+			"totalViews": 3700,
+			"category": "Data Science",
+			"level": "Intermediate",
+			"courseCode": "AI101"
+		}
+	]
+}
