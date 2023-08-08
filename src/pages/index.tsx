@@ -12,6 +12,7 @@ import {
   LandingContact,
   LandingFooter,
 } from '@/components/components';
+import Link from 'next/link';
 export default function Home() {
   const [showNav, setShowNav] = useState(true);
   const [showPopup, setShowPopup] = useState(false);
@@ -70,6 +71,20 @@ export default function Home() {
         <div className='fixed z-40 w-full transition'>
           <LandingNav />
           {showNav && <MessageComponent />}
+        </div>
+        <div className="fixed bottom-8 z-40 left-1/2 -translate-x-1/2 grid place-items-center w-max">
+          <div className="absolute bg-black w-2/3 h-2/3 -z-10 rounded-full animate-ping"></div>
+          <Link href="/login"
+            className="flex items-center justify-center p-4 text-white duration-700 ease-out bg-black border-2 border-black rounded-full cursor-pointer w-fit h-fit  dark:bg-zinc-50 hover:scale-110"
+          >
+            <h4 className="flex items-center text-xl font-archivo dark:text-zinc-800 space-x-3">
+              <span className="hidden lg:block">Explore Courses</span>
+              <span className="lg:hidden">Get Started</span>
+              <span className="text-white material-icons dark:text-black">
+                north_east
+              </span>
+            </h4>
+          </Link>
         </div>
         <HeroSection />
         {/* <Achivements /> */}

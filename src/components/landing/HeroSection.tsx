@@ -59,20 +59,6 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-        <div className='flex'>
-        <div
-          onClick={() => router.push('/login')}
-          className=' flex items-center justify-center p-4 text-white duration-700 ease-out bg-black border-2 border-black rounded-full cursor-pointer w-fit h-fit  dark:bg-zinc-50 hover:scale-110'
-        >
-          <h4 className='flex items-center text-xl font-archivo dark:text-zinc-800 space-x-3'>
-            <span className='hidden lg:block'>Explore Courses</span>
-            <span className='lg:hidden'>Get Started</span>
-            <span className='text-white material-icons dark:text-black'>
-              north_east
-            </span>
-          </h4>
-        </div>
-        </div>
       </div>
       <div className='hidden w-3/4 h-full pr-10 lg:flex'>
         <Image
