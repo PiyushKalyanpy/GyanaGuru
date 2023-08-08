@@ -25,7 +25,7 @@
     "emoji-picker-react": "^4.4.9",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
-    "firebase": "^9.22.2",
+    "firebase": "^10.1.0",
     "framer-motion": "^10.15.1",
     "material-icons": "^1.13.3",
     "material-symbols": "^0.8.0",
