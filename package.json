@@ -24,7 +24,7 @@
     "cookies-next": "^2.1.2",
     "emoji-picker-react": "^4.4.9",
     "eslint": "8.37.0",
-    "eslint-config-next": "13.2.4",
+    "eslint-config-next": "13.4.13",
     "firebase": "^9.22.2",
     "framer-motion": "^10.15.1",
     "material-icons": "^1.13.3",
