@@ -50,7 +50,7 @@ function FaqSection () {
       <Accordion allowToggle className="grid gap-4 max-w-xl mx-auto">
         {faqData.map((faq, index) => (
           <AccordionItem key={index} className="py-4 border-t border-zinc-300">
-            {({ isExpanded }) => (
+            {({ isExpanded } : any) => (
               <>
                 <AccordionButton className="text-lg font-semibold flex justify-between gap-2">
                   <h3 className="text-left">{faq.question}</h3>
