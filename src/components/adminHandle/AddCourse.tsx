@@ -1,8 +1,7 @@
 import React, {useState} from 'react'
-import {CourseContext} from '../../context/CourseContext'
+import {CourseContext} from '@/context/CourseContext'
 import {useContext} from 'react'
-import {Category, Playlist, Video, Comment} from '../../types'
-import {AuthContext} from '../../context/AuthContext'
+import {AuthContext} from '@/context/AuthContext'
 import {showToast} from '../util/Toast'
 
 const AddCourseItems = () => {
@@ -148,7 +147,7 @@ const AddCategory = ({addCategory}: any) => {
 // form for adding new playlist
 const AddPlaylist = ({addPlaylist, categories, currentUser}: any) => {
 	const userId = currentUser && currentUser.uid
-	const [playlist, setPlaylist] = useState<Playlist>({
+	const [playlist, setPlaylist] = useState({
 		id: 0,
 		name: '',
 		description: '',
@@ -212,7 +211,7 @@ const AddPlaylist = ({addPlaylist, categories, currentUser}: any) => {
 									categoryId: e.target.value,
 								})
 							}>
-							{categories.map((category: Category) => (
+							{categories.map((category : any)  => (
 								<option key={category.id} value={category.id}>
 									{category.name}
 								</option>
@@ -333,7 +332,7 @@ const AddVideo = ({addVideo, categories, playlists, currentUser}: any) => {
 		duration: 0, // in seconds
 	})
 	const playlistBelongsCategory = playlists.filter(
-		(playlist: Playlist) => playlist.categoryId === video.categoryId,
+		(playlist: any) => playlist.categoryId === video.categoryId,
 	)
 
 	const isVideoFormFilled = () => {
@@ -398,7 +397,7 @@ const AddVideo = ({addVideo, categories, playlists, currentUser}: any) => {
 							onChange={(e) =>
 								setVideo({...video, categoryId: e.target.value})
 							}>
-							{categories.map((category: Category) => (
+							{categories.map((category: any) => (
 								<option key={category.id} value={category.id}>
 									{category.name}
 								</option>
@@ -413,7 +412,7 @@ const AddVideo = ({addVideo, categories, playlists, currentUser}: any) => {
 							onChange={(e) =>
 								setVideo({...video, playlistId: e.target.value})
 							}>
-							{playlistBelongsCategory.map((playlist: Playlist) => (
+							{playlistBelongsCategory.map((playlist: any) => (
 								<option key={playlist.id} value={playlist.id}>
 									{playlist.name}
 								</option>

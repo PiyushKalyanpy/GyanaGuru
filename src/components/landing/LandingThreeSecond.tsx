@@ -1,7 +1,4 @@
-import CourseData from '@/data/course_categories.json'
-import ContributorsData from '@/data/contributors.json'
-import Image from 'next/image'
-// import Router from "next/router";
+import CourseData from '@/data/local/course_categories.json'
 import Link from 'next/link'
 
 const LandingThreeSecond = () => {

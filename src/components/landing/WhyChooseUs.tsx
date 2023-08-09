@@ -2,7 +2,7 @@ import Image from 'next/image'
 import VanillaTilt from 'vanilla-tilt'
 import {useEffect, useRef} from 'react'
 import {useTheme} from 'next-themes'
-import WhyChooseUsData from '../../data/why_choose_us.json'
+import WhyChooseUsData from '@/data/local/why_choose_us.json'
 
 const WhyChooseUs = () => {
 	return (

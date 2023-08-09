@@ -1,17 +1,17 @@
-import {PrimaryLayoutWithSidebar} from '@/components/layouts/exporter'
-import {useContext} from 'react'
-import {VideoCard, CategoryCard, PlaylistCard} from '@/components/components'
-import {NextPageWithLayout} from '@/util/page'
-import {CourseContext} from '@/context/CourseContext'
-import {Topbar} from '@/components/components'
+import { PrimaryLayoutWithSidebar } from '@/components/layouts/exporter'
+import { useContext } from 'react'
+import { VideoCard, CategoryCard, PlaylistCard } from '@/components/components'
+import { NextPageWithLayout } from '@/util/page'
+import { CourseContext } from '@/context/CourseContext'
+import { Topbar } from '@/components/components'
 import Loading from '@/components/util/Loading'
-import {useAuth} from '@/context/AuthContext'
-import {ToastContainer} from 'react-toastify'
-import {useRouter} from 'next/router'
+import { useAuth } from '@/context/AuthContext'
+import { ToastContainer } from 'react-toastify'
+import { useRouter } from 'next/router'
 
 const Courses: NextPageWithLayout = () => {
-	let {videos, categories, playlist} = useContext(CourseContext)
-	const {currentUser} = useAuth()
+	let { videos, categories, playlist } = useContext(CourseContext)
+	const { currentUser } = useAuth()
 	videos = videos.filter((video: any) => video.restriction === 1)
 	const router = useRouter()
 	const handleBannerClick = () => {
@@ -22,14 +22,14 @@ const Courses: NextPageWithLayout = () => {
 			<ToastContainer />
 			<Topbar />
 			<BannerCard onClick={handleBannerClick} />
-			<CategoryList categories={categories} />
+			{/* <CategoryList categories={categories} /> */}
 			<PlaylistList playlists={playlist} playlistTitle={`Popular playlists`} />
-			<VideoList videos={videos} videoTitle={`Popular videos`} />
+			{/* <VideoList videos={videos} videoTitle={`Popular videos`} /> */}
 		</section>
 	)
 }
 
-const BannerCard = ({onClick}: any) => {
+const BannerCard = ({ onClick }: any) => {
 	return (
 		<div className="md:flex w-full p-4">
 			<div className="relative w-full h-full p-6 bg-white rounded-xl ">
@@ -63,7 +63,7 @@ const BannerCard = ({onClick}: any) => {
 	)
 }
 
-const CategoryList = ({categories}: any) => {
+const CategoryList = ({ categories }: any) => {
 	return (
 		<div className="flex flex-col w-full p-4 space-y-4">
 			<h2 className="text-zinc-600">Categories</h2>
@@ -85,7 +85,7 @@ const CategoryList = ({categories}: any) => {
 	)
 }
 
-const PlaylistList = ({playlists, playlistTitle}: any) => {
+const PlaylistList = ({ playlists, playlistTitle }: any) => {
 	return (
 		<div className="flex flex-col p-4 space-y-4">
 			<h2 className="text-zinc-600">{playlistTitle} </h2>
@@ -104,7 +104,7 @@ const PlaylistList = ({playlists, playlistTitle}: any) => {
 	)
 }
 
-const VideoList = ({videos, videoTitle}: any) => {
+const VideoList = ({ videos, videoTitle }: any) => {
 	// sort videos by viewCount in descending order
 	videos = videos.sort((a: any, b: any) => b.viewCount - a.viewCount)
 	return (

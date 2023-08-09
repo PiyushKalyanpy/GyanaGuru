@@ -1,7 +1,7 @@
 'use client'
 
 import React, {useState, useContext, useEffect} from 'react'
-import {auth, db} from '../database/firebase'
+import {auth, db} from '../data/remote/firebase'
 import {signOut, signInWithPopup, GoogleAuthProvider} from 'firebase/auth'
 import {doc, getDoc, setDoc} from 'firebase/firestore'
 import {useRouter} from 'next/router'
