@@ -1,23 +1,32 @@
 {
 	"compilerOptions": {
-	  "target": "es5",
-	  "lib": ["dom", "dom.iterable", "esnext"],
-	  "allowJs": true,
-	  "skipLibCheck": true,
-	  "strict": true,
-	  "forceConsistentCasingInFileNames": true,
-	  "noEmit": true,
-	  "esModuleInterop": true,
-	  "module": "esnext",
-	  "moduleResolution": "node",
-	  "resolveJsonModule": true,
-	  "isolatedModules": true,
-	  "jsx": "preserve",
-	  "incremental": true,
-	  "paths": {
-		"@/*": ["./src/*"]
-	  }
+		"target": "es5",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"incremental": true,
+		"paths": {
+			"@/*": ["./src/*"]
+		}
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/depricated/courses/[courseId]", "context/CoursesContext.js", "context/UserContext.js", "context/AuthContext.jsx", "context/CourseContext.js", ],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"pages/depricated/courses/[courseId]",
+		"context/CoursesContext.js",
+		"context/UserContext.js",
+		"context/AuthContext.jsx",
+		"context/CourseContext.js"
+	],
 	"exclude": ["node_modules"]
-  }
+}

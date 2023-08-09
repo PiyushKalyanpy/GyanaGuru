@@ -1,39 +1,35 @@
-import { NextPageWithLayout } from '@/util/page'
-import { PrimaryLayoutWithSidebar } from '@/components/layouts/exporter'
+import {NextPageWithLayout} from '@/util/page'
+import {PrimaryLayoutWithSidebar} from '@/components/layouts/exporter'
 import ProfileGraph from './comp/ProfileGraph'
-import { useAuth } from '@/context/AuthContext'
+import {useAuth} from '@/context/AuthContext'
 import Calander from './comp/Calander'
 import UpcommingClass from './comp/UpcommingClass'
 
 const Dashboard: NextPageWithLayout = () => {
-	const { currentUser } = useAuth()
-
-
+	const {currentUser} = useAuth()
 
 	return (
-		<section className="w-full h-screen bg-gray-100 flex flex-col gap-4 p-4	">
-
-			<div className='flex gap-4 h-full'>
+		<section className="w-full h-screen bg-gray-100 flex flex-col gap-4 p-4 overflow-y-scroll	">
+			<div className="flex flex-col lg:flex-row gap-4 h-full">
 				{/* left side */}
-				<div className='flex flex-col w-3/4 h-fit gap-4 '>
-					<div className="flex flex-col md:flex-row gap-4">
-						<StatCard title="Courses enrolled " value="40" icon="user" />
-						<StatCard title="Courses completed" value="23" icon="product" />
-						<StatCard title="Courses enrolled" value="15" icon="order" />
-						<StatCard title="Time spent (toady)" value="154" icon="order" />
+				<div className="flex flex-col w-full lg:w-3/4 h-fit gap-4 ">
+					<div className="flex  md:flex-row gap-4">
+						<StatCard title="Courses enrolled " value="0" icon="user" />
+						<StatCard title="Courses completed" value="0" icon="product" />
+						<StatCard title="Courses enrolled" value="0" icon="order" />
+						<StatCard title="Time spent (toady)" value="0" icon="order" />
 					</div>
 
 					<ProfileGraph />
-				</div >
+				</div>
 				{/* right side */}
-				<div className='flex flex-col w-1/4  rounded-2xl p-4  h-fit gap-4'>
+				<div className="flex flex-col w-full lg:w-1/4 bg-white rounded-2xl  h-fit gap-4">
 					<Calander />
-					{
-						UpcommingClasses.map((item, index) => {
+					<div className="flex flex-col gap-2 p-2 ">
+						{UpcommingClasses.map((item, index) => {
 							return <UpcommingClass key={index} {...item} />
-						}
-						)
-					}
+						})}
+					</div>
 				</div>
 			</div>
 		</section>
@@ -42,25 +38,23 @@ const Dashboard: NextPageWithLayout = () => {
 
 const UpcommingClasses = [
 	{
-		time: "10:00 AM",
-		title: "Introduction to UI/UX",
-		progress: "20%",
-		tasks: "2/10"
+		time: '10:00 AM',
+		title: 'Introduction to UI/UX',
+		progress: '20%',
+		tasks: '2/10',
 	},
 	{
-		time: "11:00 AM",
-		title: "Data Structures and Algorithms",
-		progress: "20%",
-		tasks: "2/10"
+		time: '11:00 AM',
+		title: 'Data Structures and Algorithms',
+		progress: '20%',
+		tasks: '2/10',
 	},
 	{
-
-		time: "12:00 AM",
-		title: "CI/CD and DevOps",
-		progress: "20%",
-		tasks: "2/10"
+		time: '12:00 AM',
+		title: 'CI/CD and DevOps',
+		progress: '20%',
+		tasks: '2/10',
 	},
-
 ]
 
 const StatCard = ({
@@ -79,10 +73,8 @@ const StatCard = ({
 			<div className="">{title}</div>
 
 			<div className="flex items-end gap-2 ">
-				<span className='text-4xl  font-archivo font-semibold'>
-					{value}
-				</span>
-				<span className='text-sm text-gray-500'>{side}</span>
+				<span className="text-4xl  font-archivo font-semibold">{value}</span>
+				<span className="text-sm text-gray-500">{side}</span>
 			</div>
 		</div>
 	)
