@@ -2,19 +2,9 @@
 
 import React, {useState, useContext, useEffect} from 'react'
 import {auth, db} from '../database/firebase'
-import {
-	createUserWithEmailAndPassword,
-	signInWithEmailAndPassword,
-	sendEmailVerification,
-	signOut,
-	signInWithPopup,
-	GoogleAuthProvider,
-} from 'firebase/auth'
-import {setCookie} from 'cookies-next'
+import {signOut, signInWithPopup, GoogleAuthProvider} from 'firebase/auth'
 import {doc, getDoc, setDoc} from 'firebase/firestore'
-import {toast} from 'react-toastify'
 import {useRouter} from 'next/router'
-import {showToast} from '@/components/util/Toast'
 
 export const AuthContext = React.createContext()
 

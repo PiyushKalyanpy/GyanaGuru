@@ -5,12 +5,11 @@ import {
 	AccordionItem,
 	AccordionButton,
 	AccordionPanel,
-	AccordionIcon,
 } from '@chakra-ui/accordion'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function FAQ() {
+export default function FAQ(): JSX.Element {
 	return (
 		<main className="w-screen overflow-hidden lg:block h-fit gap-y-10 dark:bg-neutral-950">
 			<div className="fixed z-40 w-full transition">
@@ -22,7 +21,7 @@ export default function FAQ() {
 						Gyanaguru’s Frequently Asked Question
 					</h1>
 					<p className="text-lg font-medium">
-						Have a question in mind? We've got the answers!
+						Have a question in mind? We&apos; ve got the answers!
 					</p>
 				</section>
 				<FaqSection />
@@ -33,7 +32,7 @@ export default function FAQ() {
 	)
 }
 
-function FaqSection() {
+function FaqSection(): JSX.Element {
 	return (
 		<div className="space-y-24">
 			<form className="grid gap-4 max-w-xs mx-auto border-b border-zinc-300">
@@ -49,13 +48,13 @@ function FaqSection() {
 			<Accordion allowToggle className="grid gap-4 max-w-xl mx-auto">
 				{faqData.map((faq, index) => (
 					<AccordionItem key={index} className="py-4 border-t border-zinc-300">
-						{({isExpanded}: any) => (
+						{({isExpanded}) => (
 							<>
 								<AccordionButton className="text-lg font-semibold flex justify-between gap-2">
 									<h3 className="text-left">{faq.question}</h3>
 									<span
 										className={`material-symbols-outlined text-zinc-500 transition ${
-											isExpanded && 'rotate-90'
+											isExpanded ? 'rotate-90' : ''
 										}`}>
 										{isExpanded
 											? 'add_circle_outline'
@@ -74,7 +73,7 @@ function FaqSection() {
 	)
 }
 
-function StillHaveQuestions() {
+function StillHaveQuestions(): JSX.Element {
 	return (
 		<section className="bg-zinc-900 text-zinc-200 px-8 lg:px-16 pt-10 rounded-3xl flex flex-wrap lg:flex-nowrap justify-between">
 			<div className="pb-8 w-full lg:w-1/2">
@@ -82,7 +81,7 @@ function StillHaveQuestions() {
 					Still have questions?
 				</h3>
 				<p className="text-zinc-200 mt-1">
-					We're here to help! Reach out to us for any further inquiries or
+					We&apos; re here to help! Reach out to us for any further inquiries or
 					assistance.
 				</p>
 				<div className="flex gap-4 mt-6 text-center">

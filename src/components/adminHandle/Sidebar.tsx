@@ -1,9 +1,5 @@
-import {useState, useEffect} from 'react'
 import {useRouter} from 'next/router'
-import {setCookie} from 'cookies-next'
-import Image from 'next/image'
-import {LogoutFromGoogleAuth} from '@/database/firebase'
-import {DarkModeToggle} from '../components'
+import {useEffect} from 'react'
 
 const Sidebar = ({pageNumber, active, setActive}: any) => {
 	const router = useRouter()

@@ -8,11 +8,13 @@ export const convertDurationToTime = (duration: string): number => {
 }
 
 export const convertTimeToDuration = (time: number): string => {
-	const addZero = (time: any) => {
-		return time < 10 ? '0' + time : time
+	const addZero = (time: number): string => {
+		return time < 10 ? `0${time}` : String(time)
 	}
+
 	const hours = addZero(Math.floor(time / 3600))
 	const minutes = addZero(Math.floor((time % 3600) / 60))
 	const seconds = addZero(Math.floor((time % 3600) % 60))
+
 	return `${hours}:${minutes}:${seconds}`
 }

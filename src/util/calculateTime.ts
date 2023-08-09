@@ -1,4 +1,4 @@
-export const calculateTime = (inputTime: string) => {
+export const calculateTime = (inputTime: string): string => {
 	const currentTime: Date = new Date()
 	const inputDateTime: Date = new Date(inputTime.replace('Z', '+00:00'))
 	const timeDifference = currentTime.getTime() - inputDateTime.getTime()

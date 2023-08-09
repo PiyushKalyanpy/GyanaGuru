@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import {CourseContext} from '@/context/CourseContext'
+import {CourseContext} from '../../context/CourseContext'
 import {useContext} from 'react'
 import {Category, Playlist, Video, Comment} from '../../types'
-import {AuthContext} from '@/context/AuthContext'
+import {AuthContext} from '../../context/AuthContext'
 import {showToast} from '../util/Toast'
 
 const AddCourseItems = () => {

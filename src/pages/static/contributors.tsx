@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import {useRouter} from 'next/router'
 import {BackNavButton} from '@/components/components'
 const PAGE_SIZE = 17
@@ -10,34 +10,39 @@ enum UserType {
 	CONTRIBUTOR = 'Contributor',
 }
 
-const Contributors = ({contributorsData}: any) => {
+const Contributors = ({contributorsData}: any): JSX.Element => {
 	const router = useRouter()
 	const [pageNumber, setPageNumber] = useState(1)
-	const handlePreviousPage = () => {
+	const handlePreviousPage = async () => {
 		if (pageNumber > 1) {
 			setPageNumber((prevPageNumber) => prevPageNumber - 1)
-			router.push(`/static/contributors?page=${pageNumber - 1}`)
+			try {
+				await router.push(`/static/contributors?page=${pageNumber - 1}`)
+			} catch (error) {
+				// Handle the error here if needed
+				console.error('An error occurred:', error)
+			}
 		}
 	}
-	const handleNextPage = () => {
+	const handleNextPage = async (): Promise<void> => {
 		setPageNumber((prevPageNumber) => prevPageNumber + 1)
-		router.push(`/static/contributors?page=${Number(pageNumber) + 1}`)
+		await router.push(`/static/contributors?page=${Number(pageNumber) + 1}`)
 	}
 
 	const adminAndMentors = [
 		{
-			avatar_url: 'https://avatars.githubusercontent.com/u/79275157?v=4',
+			avatarUrl: 'https://avatars.githubusercontent.com/u/79275157?v=4',
 			login: 'Piyush Kalyan',
 
 			userType: UserType.ADMIN,
 		},
 		{
-			avatar_url: 'https://avatars.githubusercontent.com/u/10762218?v=4',
+			avatarUrl: 'https://avatars.githubusercontent.com/u/10762218?v=4',
 			login: 'Lalit Kumar',
 			userType: UserType.MENTOR,
 		},
 		{
-			avatar_url: 'https://avatars.githubusercontent.com/u/89184872?v=4',
+			avatarUrl: 'https://avatars.githubusercontent.com/u/89184872?v=4',
 			login: 'Vaishnavi Mokadam',
 			userType: UserType.MENTOR,
 		},
@@ -52,13 +57,16 @@ const Contributors = ({contributorsData}: any) => {
 				</div>
 				<div className="flex justify-between mt-4 space-x-4  flex-rowitems-center">
 					<button
-						onClick={handlePreviousPage}
+						onClick={() => {
+							handlePreviousPage()
+						}}
 						disabled={pageNumber === 1}
-						className="px-4 py-2 text-white bg-black rounded-full border-black ">
+						className="px-4 py-2 text-white bg-black rounded-full border-black">
 						Previous
 					</button>
+
 					<button
-						onClick={handleNextPage}
+						onClick={() => handleNextPage}
 						disabled={contributorsData.length < PAGE_SIZE}
 						className="px-4 py-2 text-white bg-black rounded-full border-black ">
 						Next
@@ -72,7 +80,7 @@ const Contributors = ({contributorsData}: any) => {
 							<UserCard
 								key={contributor.login}
 								login={contributor.login}
-								avatar_url={contributor.avatar_url}
+								avatarUrl={contributor.avatarUrl}
 								userType={contributor.userType}
 							/>
 						)
@@ -84,7 +92,7 @@ const Contributors = ({contributorsData}: any) => {
 							<UserCard
 								key={contributor.id}
 								login={contributor.login}
-								avatar_url={contributor.avatar_url}
+								avatarUrl={contributor.avatarUrl}
 								contributionsURL={contributor.contributions_url}
 								numReposContributed={contributor.contributions}
 							/>
@@ -97,63 +105,55 @@ const Contributors = ({contributorsData}: any) => {
 }
 const UserCard = ({
 	login,
-	avatar_url,
+	avatarUrl,
 	userType,
 	contributionsURL,
 	numReposContributed,
-}: any) => {
+}: any): JSX.Element => {
 	console.log(login, userType)
 	const color =
-		userType && userType === UserType.ADMIN
+		userType === UserType.ADMIN
 			? 'bg-cyan-100 text-cyan-800'
 			: 'bg-violet-100 text-violet-800'
 
-	return login != 'PiyushKalyanpy' ? (
+	return login !== 'PiyushKalyanpy' ? (
 		<div
 			className={`relative p-4 w-full transition  rounded-2xl hover:scale-105 bg-white`}>
-			{/* {userType && (
-          <div className=' cursor-pointer absolute top-4 right-4  p-2 text-xs font-bold text-white bg-blue-100  rounded-full hover:scale-110 transition '>
-            <div className='flex items-center'>
-              <span className='material-symbols-outlined text-blue-600 m-auto -rotate-45'>
-                link
-              </span>
-            </div>
-          </div>
-        )} */}
 			<div className={`flex space-y-2  flex-col  items-center `}>
 				<img
-					src={avatar_url}
-					alt={`Profile of ${login}`}
+					src={avatarUrl as string}
+					alt={`Profile of ${login as string}`}
 					className="w-16 h-16 mx-auto mb-4 rounded-full"
 				/>
-				{
-					// tag
-					(userType && userType === 'Project Admin') ||
-					userType === 'Mentor' ? (
-						<div className={`px-2   rounded-full ${color}`}>{userType}</div>
-					) : (
-						<div className="px-2 text-zinc-900 bg-zinc-100  rounded-full">
-							Contributor
-						</div>
-					)
-				}
+				{(userType && userType === 'Project Admin') || userType === 'Mentor' ? (
+					<div className={`px-2   rounded-full ${color}`}>{userType}</div>
+				) : (
+					<div className="px-2 text-zinc-900 bg-zinc-100  rounded-full">
+						Contributor
+					</div>
+				)}
 				<h2 className="text-xl font-semibold text-center font-urbanist">
 					{login}
 				</h2>
 			</div>
 		</div>
-	) : null
+	) : (
+		<div>loading</div>
+	)
 }
 export default Contributors
 
-export async function getServerSideProps(context: any) {
-	const page = context.query.page || 1
+export async function getServerSideProps({context}: any): Promise<any> {
+	const pageQueryParam = context.query.page
+	const page = typeof pageQueryParam === 'string' ? Number(pageQueryParam) : 1
 	try {
 		const response = await axios.get(
 			`https://api.github.com/repos/PiyushKalyanpy/GyanaGuru/contributors?page=${page}&per_page=${PAGE_SIZE}`,
 			{
 				headers: {
-					Authorization: `token ${process.env.NEXT_PUBLIC_GITHUB_API_TOKEN}`,
+					Authorization: `token ${
+						process.env.NEXT_PUBLIC_GITHUB_API_TOKEN ?? ''
+					}`,
 				},
 			},
 		)
