@@ -1,5 +1,5 @@
 import React, {useState, useContext, useEffect} from 'react'
-import {db, rtdb} from '../data/remote/firebase'
+import {db, rtdb} from '@/data/remote/firebase'
 import {
 	collection,
 	addDoc,

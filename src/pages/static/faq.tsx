@@ -1,5 +1,5 @@
 import {LandingFooter, LandingNav} from '@/components/components'
-import faqData from '@/data/faq.json'
+import faqData from '@/data/local/faq.json'
 import {
 	Accordion,
 	AccordionItem,

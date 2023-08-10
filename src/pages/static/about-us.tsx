@@ -1,7 +1,7 @@
 import {LandingNav, LandingFooter} from '@/components/components'
-import AboutUsData from '@/data/about_us.json'
+import AboutUsData from '@/data/local/about_us.json'
 import WhyChooseGyanGuru from '@/components/cards/WhyChooseGyanGuruCard'
-import WhyChooseData from '@/data/about_why_choose.json'
+import WhyChooseData from '@/data/local/about_why_choose.json'
 
 const AboutUs = () => {
 	return (
