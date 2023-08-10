@@ -1,0 +1,26 @@
+[
+	{
+		"name": "Diverse Course Library",
+		"icon": "layers"
+	},
+	{
+		"name": "Interactive Learning",
+		"icon": "emoji_objects"
+	},
+	{
+		"name": "Community of Learners",
+		"icon": "group"
+	},
+	{
+		"name": "Expert Instructors",
+		"icon": "school"
+	},
+	{
+		"name": "Flexibility and Convenience",
+		"icon": "schedule"
+	},
+	{
+		"name": "Progress Tracking",
+		"icon": "trending_up"
+	}
+]
