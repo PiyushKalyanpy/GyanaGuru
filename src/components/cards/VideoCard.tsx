@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import {useRouter} from 'next/router'
 import React, {useContext} from 'react'
-import Rating from '../../components/util/Rating'
+import Rating from '@/components/util/Rating'
 import {CourseContext} from '@/context/CourseContext'
 
 const VideoCard = ({video}: any) => {

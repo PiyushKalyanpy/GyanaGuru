@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import {useState, useEffect, ChangeEvent, useContext} from 'react'
-import {AuthContext} from '../../context/AuthContext'
-import BackNavButton from '../buttons/BackNavButton'
-import {CourseContext} from '../../context/CourseContext'
+import {AuthContext} from '@/context/AuthContext'
+import BackNavButton from '@/components/buttons/BackNavButton'
+import {CourseContext} from '@/context/CourseContext'
 import {DarkModeToggle} from '../components'
 
 const Topbar = ({showBackIcon = false}) => {

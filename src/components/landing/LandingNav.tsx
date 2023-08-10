@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import {useRouter} from 'next/router'
-import {DarkModeToggle} from '../components'
 import {useState} from 'react'
+import DarkModeToggle from '@/components/util/DarkModeToggle'
 
 const LandingNav = () => {
 	const router = useRouter()

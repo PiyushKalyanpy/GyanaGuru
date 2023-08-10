@@ -1,9 +1,5 @@
 import React, {useContext, useEffect, useState, useRef} from 'react'
 import {useRouter} from 'next/router'
-import designsData from '../../data/designs.json'
-import Link from 'next/link'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faGithub} from '@fortawesome/free-brands-svg-icons'
 import {CourseContext} from '@/context/CourseContext'
 import {fetchIssueData} from '@/util/githubData'
 
@@ -19,13 +15,7 @@ const DesignShowcase = () => {
 	if (!design) {
 		return (
 			<div>
-				<h3>
-					Loading... Please wait a while
-					{/* <Link href='/design' className='text-blue-600  underline px-1'>
-            Back
-          </Link>
-          to the previous page */}
-				</h3>
+				<h3>Loading... Please wait a while</h3>
 			</div>
 		)
 	}
@@ -35,7 +25,6 @@ const DesignShowcase = () => {
 
 	return (
 		<div className="flex space-y-8 w-screen overflow-y-scroll bg-zinc-100 min-h-screen border-10 border-black h-full flex-col p-8 items-center">
-			{/* <GitHubComponent issueNumber={issueUrl} /> */}
 			<p>Please wait it will take load time.</p>
 			<div className="w-3/4 h-screen">
 				<h2 className="text-6xl font-archivo font-bold  text-zinc-800 p-6">
@@ -57,7 +46,6 @@ const DesignShowcase = () => {
 					onLoad={(e) => console.log('🎉🎉')}
 					allowFullScreen></iframe>
 			</div>
-			<div>{/* connected issue on github */}</div>
 		</div>
 	)
 }

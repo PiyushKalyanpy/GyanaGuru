@@ -1,6 +1,6 @@
 import DashboardSidebar from '../sidebar/DashboardSidebar'
 import Head from 'next/head'
-import {useAuth} from '../../../context/AuthContext'
+import {useAuth} from '@/context/AuthContext'
 
 export interface IPrimaryLayoutWithSidebar {
 	children: any

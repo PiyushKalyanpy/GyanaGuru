@@ -211,7 +211,7 @@ const AddPlaylist = ({addPlaylist, categories, currentUser}: any) => {
 									categoryId: e.target.value,
 								})
 							}>
-							{categories.map((category : any)  => (
+							{categories.map((category: any) => (
 								<option key={category.id} value={category.id}>
 									{category.name}
 								</option>
