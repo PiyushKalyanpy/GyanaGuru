@@ -2,10 +2,6 @@
 
 # GyanaGuru
 
-Gyanaguru website provides you an online learning platform that provides access to high-quality educational resources in a wide range of subjects.
-It offers a vast library of courses, interactive quizzes and exercises, gamification elements, and social features to encourage active participation and collaboration among learners.
-You can checkout our website [here](https://gyanaguru.vercel.app/)
-
 ![GitHub](https://img.shields.io/github/forks/PiyushKalyanpy/GyanaGuru)
 ![GitHub](https://img.shields.io/github/stars/PiyushKalyanpy/GyanaGuru)
 ![GitHub](https://img.shields.io/github/license/PiyushKalyanpy/GyanaGuru)
@@ -15,7 +11,12 @@ You can checkout our website [here](https://gyanaguru.vercel.app/)
 ![GitHub](https://img.shields.io/github/last-commit/PiyushKalyanpy/GyanaGuru)
 ![GitHub](https://img.shields.io/github/issues-pr-closed/PiyushKalyanpy/GyanaGuru)
 
-This repository contains the source code for the GyanaGuru website, an online learning platform that provides access to high-quality educational resources in a wide range of subjects.
+Gyanaguru website provides you an online learning platform that provides access to high-quality educational resources in a wide range of subjects.
+It offers a vast library of courses, interactive quizzes and exercises, gamification elements, and social features to encourage active participation and collaboration among learners.
+You can checkout our website [here](https://gyanaguru.vercel.app/)
+
+
+
 
 # Tech Stack Used
 
