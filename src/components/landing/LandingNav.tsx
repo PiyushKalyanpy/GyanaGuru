@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import {useRouter} from 'next/router'
-import {useState} from 'react'
+import {useState, useRef, useEffect} from 'react'
 import DarkModeToggle from '@/components/util/DarkModeToggle'
 
 const LandingNav = () => {
@@ -8,6 +8,28 @@ const LandingNav = () => {
 	const navLinkStyle =
 		"font-archivo relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black dark:after:bg-white after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:rounded-full after:duration-500 after:origin-center"
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
+	const menuButtonRef = useRef(null)
+
+	// Function to handle the click outside the menu
+	const handleClickOutside = (event: MouseEvent) => {
+		if (
+			menuButtonRef.current &&
+			!(menuButtonRef.current as unknown as HTMLElement).contains(
+				event.target as unknown as Node,
+			)
+		) {
+			setIsMenuOpen(false)
+		}
+	}
+
+	useEffect(() => {
+		document.body.addEventListener('click', handleClickOutside)
+
+		// Clean up the event listener when the component unmounts
+		return () => {
+			document.body.removeEventListener('click', handleClickOutside)
+		}
+	}, [])
 
 	const handleNavLinkClick = (sectionId: any) => {
 		setIsMenuOpen(!isMenuOpen)
@@ -68,6 +90,7 @@ const LandingNav = () => {
 				<div className="lg:hidden space-x-4">
 					{/* <DarkModeToggle/> */}
 					<span
+						ref={menuButtonRef}
 						onClick={() => setIsMenuOpen(!isMenuOpen)}
 						className="material-icons text-2xl cursor-pointer dark:text-white">
 						<MenuIcon />
@@ -113,7 +136,7 @@ const NavLinks = ({navLinkStyle, handleNavLinkClick}: any) => {
 			</Link>
 			<Link className={navLinkStyle} href="/faq">
 				{/* adding badge on div for new */}
-				<div>FAQ</div>
+				FAQ
 			</Link>
 		</div>
 	)
