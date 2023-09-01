@@ -27,7 +27,7 @@
     "eslint-config-next": "13.2.4",
     "eslint-plugin-prettier": "^5.0.0",
     "firebase": "^9.22.2",
-    "framer-motion": "^10.15.1",
+    "framer-motion": "^10.16.2",
     "material-icons": "^1.13.3",
     "material-symbols": "^0.8.0",
     "next": "13.2.4",
