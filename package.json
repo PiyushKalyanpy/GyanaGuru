@@ -44,7 +44,7 @@
     "react-youtube": "^10.1.0",
     "redux-toolkit": "^1.1.2",
     "remark-gfm": "^3.0.1",
-    "swr": "^2.1.5",
+    "swr": "^2.2.2",
     "uuid": "^9.0.0",
     "vanilla-tilt": "^1.8.0"
   },
