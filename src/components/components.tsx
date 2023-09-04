@@ -19,6 +19,7 @@ import PdfCard from './cards/PdfCard'
 import NotesContainer from './containers/NotesContainer'
 import ReactEmojiButton from './buttons/ReactEmojiButton'
 import PdfContainer from './containers/PdfContainer'
+import OurTeam from './OurTeam'
 
 export {
 	WhyChooseUs,

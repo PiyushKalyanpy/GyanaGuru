@@ -2,6 +2,7 @@ import {LandingNav, LandingFooter} from '@/components/components'
 import AboutUsData from '@/data/local/about_us.json'
 import WhyChooseGyanGuru from '@/components/cards/WhyChooseGyanGuruCard'
 import WhyChooseData from '@/data/local/about_why_choose.json'
+import OurTeam from '@/components/OurTeam'
 
 const AboutUs = () => {
 	return (
@@ -40,6 +41,7 @@ const AboutUs = () => {
 					</div>
 				</section>
 			</main>
+			<OurTeam/>
 			<LandingFooter />
 		</main>
 	)
