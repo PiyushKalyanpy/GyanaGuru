@@ -9,27 +9,7 @@ const LandingNav = () => {
 		"font-archivo relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black dark:after:bg-white after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:rounded-full after:duration-500 after:origin-center"
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 	const menuButtonRef = useRef(null)
-
-	// Function to handle the click outside the menu
-	const handleClickOutside = (event: MouseEvent) => {
-		if (
-			menuButtonRef.current &&
-			!(menuButtonRef.current as unknown as HTMLElement).contains(
-				event.target as unknown as Node,
-			)
-		) {
-			setIsMenuOpen(false)
-		}
-	}
-
-	useEffect(() => {
-		document.body.addEventListener('click', handleClickOutside)
-
-		// Clean up the event listener when the component unmounts
-		return () => {
-			document.body.removeEventListener('click', handleClickOutside)
-		}
-	}, [])
+	const menuRef = useRef(null)
 
 	const handleNavLinkClick = (sectionId: any) => {
 		setIsMenuOpen(!isMenuOpen)
@@ -45,6 +25,9 @@ const LandingNav = () => {
 
 	const handleClick = () => {
 		router.push('/')
+	}
+	const handleMenuButtonClick = () => {
+		setIsMenuOpen(!isMenuOpen)
 	}
 
 	return (
@@ -91,7 +74,7 @@ const LandingNav = () => {
 					{/* <DarkModeToggle/> */}
 					<span
 						ref={menuButtonRef}
-						onClick={() => setIsMenuOpen(!isMenuOpen)}
+						onClick={handleMenuButtonClick}
 						className="material-icons text-2xl cursor-pointer dark:text-white">
 						<MenuIcon />
 					</span>
@@ -100,7 +83,8 @@ const LandingNav = () => {
 			<div
 				className={`lg:hidden justify-center py-10 ${
 					isMenuOpen ? 'flex' : 'hidden'
-				}`}>
+				}`}
+				ref={menuRef}>
 				<NavLinks
 					handleNavLinkClick={handleNavLinkClick}
 					navLinkStyle={navLinkStyle}
