@@ -30,7 +30,7 @@ const WhyChooseUs = () => {
 							<div
 								ref={cardRef}
 								key={index}
-								className="inline-block w-full rounded border border-stone-300 shadow p-4">
+								className="inline-block w-full rounded-3xl border border-stone-300 shadow p-4">
 								<InfoCard
 									key={index}
 									title={item.title}
