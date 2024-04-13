@@ -1,0 +1,11 @@
+section h2 {
+  line-height: 1.2 !important;
+  font-weight: 100 !important;
+  font-size: 72px;
+  background: -webkit-linear-gradient(
+    rgb(255, 255, 255),
+    rgba(255, 255, 255, 0.321)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
