@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import Background from "@/components/Background";
 import HomeNav from "@/components/navbar/HomeNav";
 import HeroSection from "@/components/landing/HeroSection";
 
