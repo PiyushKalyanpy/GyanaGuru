@@ -4,7 +4,7 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 const manrope = Manrope({
-  weight: "300",
+  weight: "400",
   subsets: ["latin"],
   display: "swap",
 });
