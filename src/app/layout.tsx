@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${manrope.className} dark`}>{children}</body>
+      <body className={`${inter.className} dark`}>{children}</body>
     </html>
   );
 }
