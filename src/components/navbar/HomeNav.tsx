@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 const HomeNav = () => {
+  const router = useRouter();
   return (
     <header className="fixed z-20 flex flex-row items-center justify-between w-full px-10 ">
       {/* logo link */}
@@ -34,7 +36,7 @@ const HomeNav = () => {
             </Link>
             <Link
               className="p-2 transition hover:text-indigo-400"
-              href="/what's-new"
+              href="/courses"
             >
               Courses
             </Link>
@@ -52,7 +54,10 @@ const HomeNav = () => {
             </Link>
           </ul>
           {/* login */}
-          <button className="px-4 py-2 border border-gray-200 cursor-pointer rounded-xl h-fit">
+          <button
+            onClick={() => router.push("/login")}
+            className="px-4 py-2 border border-gray-200 cursor-pointer rounded-xl h-fit"
+          >
             Log In
           </button>
         </div>

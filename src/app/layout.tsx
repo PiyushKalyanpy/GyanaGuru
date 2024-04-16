@@ -8,6 +8,17 @@ const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
 });
+const roboto = Roboto({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -24,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} dark`}>{children}</body>
+      <body className={`${manrope.className} dark`}>{children}</body>
     </html>
   );
 }
