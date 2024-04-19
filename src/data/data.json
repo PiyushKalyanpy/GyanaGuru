@@ -1,0 +1,431 @@
+{
+    "count": 14,
+    "next": "https://www.udemy.com/api-2.0/users/18341410/taught-courses/?context=landing-page&fields%5Bcourse%5D=%40default%2Cdiscount%2Cnum_published_lectures%2Cheadline%2Cinstructional_level_simple%2Cavg_rating%2Cnum_reviews%2Cbuyable_object_type%2Ccontent_info%2Cis_wishlisted%2Crating%2Cimage_100x100%2Cis_recently_published%2Ccaption_locales%2Ccaption_languages%2Clocale%2Cis_in_user_subscription%2Cis_in_premium&filter_hq_courses=true&ordering=lang%2C-course_performance__revenue_30days&organizationCoursesOnly=false&page=2&page_size=4&subcontext=morefrominstructor",
+    "previous": null,
+    "results": [
+        {
+            "_class": "course",
+            "id": 5048858,
+            "title": "Photoshop plus : 30 days challenge to learn adobe photoshop",
+            "url": "/course/photoshop-plus/",
+            "is_paid": true,
+            "price": "₹2,699",
+            "price_detail": {
+                "amount": 2699.0,
+                "currency": "INR",
+                "price_string": "₹2,699",
+                "currency_symbol": "₹"
+            },
+            "price_serve_tracking_id": "O99y4n6cQp6equEeoi3riw",
+            "visible_instructors": [
+                {
+                    "_class": "user",
+                    "title": "Joseph adam",
+                    "name": "Joseph",
+                    "display_name": "Joseph adam",
+                    "job_title": "graphic designer",
+                    "image_50x50": "https://img-c.udemycdn.com/user/50x50/18341410_ab4c_12.jpg",
+                    "image_100x100": "https://img-c.udemycdn.com/user/100x100/18341410_ab4c_12.jpg",
+                    "initials": "JA",
+                    "url": "/user/joseph-adam/"
+                }
+            ],
+            "image_125_H": "https://img-c.udemycdn.com/course/125_H/5048858_f62a_2.jpg",
+            "image_240x135": "https://img-c.udemycdn.com/course/240x135/5048858_f62a_2.jpg",
+            "is_practice_test_course": false,
+            "image_480x270": "https://img-c.udemycdn.com/course/480x270/5048858_f62a_2.jpg",
+            "published_title": "photoshop-plus",
+            "tracking_id": "35VaIvWPT46STtvodkavKw",
+            "locale": {
+                "_class": "locale",
+                "locale": "en_US",
+                "title": "English (US)",
+                "english_title": "English (US)",
+                "simple_english_title": "English"
+            },
+            "headline": "after this course you will become a professional graphic designer",
+            "caption_locales": [
+                {
+                    "_class": "locale",
+                    "locale": "en_US",
+                    "title": "English (US)",
+                    "english_title": "English (US)"
+                }
+            ],
+            "discount": {
+                "price_serve_tracking_id": "O99y4n6cQp6equEeoi3riw",
+                "price": {
+                    "amount": 549.0,
+                    "currency": "INR",
+                    "price_string": "₹549",
+                    "currency_symbol": "₹"
+                },
+                "list_price": {
+                    "amount": 2699.0,
+                    "currency": "INR",
+                    "price_string": "₹2,699",
+                    "currency_symbol": "₹"
+                },
+                "saving_price": {
+                    "amount": 2150.0,
+                    "currency": "INR",
+                    "price_string": "₹2,150",
+                    "currency_symbol": "₹"
+                },
+                "has_discount_saving": true,
+                "discount_percent": 80,
+                "discount_percent_for_display": 80,
+                "buyable": {
+                    "id": 5048858,
+                    "type": "course"
+                },
+                "campaign": {
+                    "code": "NVDPRODIN35",
+                    "end_time": "2024-04-17T13:28:10-07:00",
+                    "is_instructor_created": false,
+                    "is_public": true,
+                    "start_time": "2023-08-24T07:00:00Z",
+                    "campaign_type": "deal",
+                    "uses_remaining": null,
+                    "maximum_uses": null,
+                    "show_code": true
+                },
+                "code": "NVDPRODIN35",
+                "is_public": true
+            },
+            "avg_rating": 4.4333334,
+            "rating": 4.592722,
+            "num_reviews": 194,
+            "is_wishlisted": false,
+            "num_published_lectures": 152,
+            "image_100x100": "https://img-c.udemycdn.com/course/100x100/5048858_f62a_2.jpg",
+            "is_in_user_subscription": false,
+            "caption_languages": [
+                "English [Auto]"
+            ],
+            "instructional_level_simple": "Beginner",
+            "content_info": "7 total hours",
+            "buyable_object_type": "course",
+            "is_recently_published": false,
+            "is_in_premium": false
+        },
+        {
+            "_class": "course",
+            "id": 5286470,
+            "title": "Photo Manipulation With Adobe Photoshop : Amazing Designs",
+            "url": "/course/photo-manipulation-with-adobe-photoshop/",
+            "is_paid": true,
+            "price": "₹799",
+            "price_detail": {
+                "amount": 799.0,
+                "currency": "INR",
+                "price_string": "₹799",
+                "currency_symbol": "₹"
+            },
+            "price_serve_tracking_id": "PQT7tCNWQke9Q1iYk-fG7w",
+            "visible_instructors": [
+                {
+                    "_class": "user",
+                    "title": "Joseph adam",
+                    "name": "Joseph",
+                    "display_name": "Joseph adam",
+                    "job_title": "graphic designer",
+                    "image_50x50": "https://img-c.udemycdn.com/user/50x50/18341410_ab4c_12.jpg",
+                    "image_100x100": "https://img-c.udemycdn.com/user/100x100/18341410_ab4c_12.jpg",
+                    "initials": "JA",
+                    "url": "/user/joseph-adam/"
+                }
+            ],
+            "image_125_H": "https://img-c.udemycdn.com/course/125_H/5286470_1dcb_2.jpg",
+            "image_240x135": "https://img-c.udemycdn.com/course/240x135/5286470_1dcb_2.jpg",
+            "is_practice_test_course": false,
+            "image_480x270": "https://img-c.udemycdn.com/course/480x270/5286470_1dcb_2.jpg",
+            "published_title": "photo-manipulation-with-adobe-photoshop",
+            "tracking_id": "A_vLEQSuRWaMqZT8WB3cRw",
+            "locale": {
+                "_class": "locale",
+                "locale": "en_US",
+                "title": "English (US)",
+                "english_title": "English (US)",
+                "simple_english_title": "English"
+            },
+            "headline": "Learn to create professional and great designs step by step from A to Z",
+            "caption_locales": [
+                {
+                    "_class": "locale",
+                    "locale": "en_US",
+                    "title": "English (US)",
+                    "english_title": "English (US)"
+                }
+            ],
+            "discount": {
+                "price_serve_tracking_id": "PQT7tCNWQke9Q1iYk-fG7w",
+                "price": {
+                    "amount": 449.0,
+                    "currency": "INR",
+                    "price_string": "₹449",
+                    "currency_symbol": "₹"
+                },
+                "list_price": {
+                    "amount": 799.0,
+                    "currency": "INR",
+                    "price_string": "₹799",
+                    "currency_symbol": "₹"
+                },
+                "saving_price": {
+                    "amount": 350.0,
+                    "currency": "INR",
+                    "price_string": "₹350",
+                    "currency_symbol": "₹"
+                },
+                "has_discount_saving": true,
+                "discount_percent": 44,
+                "discount_percent_for_display": 44,
+                "buyable": {
+                    "id": 5286470,
+                    "type": "course"
+                },
+                "campaign": {
+                    "code": "NVDPRODIN35",
+                    "end_time": "2024-04-17T13:28:10-07:00",
+                    "is_instructor_created": false,
+                    "is_public": true,
+                    "start_time": "2023-08-24T07:00:00Z",
+                    "campaign_type": "deal",
+                    "uses_remaining": null,
+                    "maximum_uses": null,
+                    "show_code": true
+                },
+                "code": "NVDPRODIN35",
+                "is_public": true
+            },
+            "avg_rating": 4.875,
+            "rating": 4.922919,
+            "num_reviews": 100,
+            "is_wishlisted": false,
+            "num_published_lectures": 245,
+            "image_100x100": "https://img-c.udemycdn.com/course/100x100/5286470_1dcb_2.jpg",
+            "is_in_user_subscription": false,
+            "caption_languages": [
+                "English [Auto]"
+            ],
+            "instructional_level_simple": "All Levels",
+            "content_info": "16 total hours",
+            "buyable_object_type": "course",
+            "is_recently_published": false,
+            "is_in_premium": false
+        },
+        {
+            "_class": "course",
+            "id": 5097994,
+            "title": "Introduction To Color Correction & Grade In Premiere Pro",
+            "url": "/course/color-correction-premiere-pro/",
+            "is_paid": true,
+            "price": "₹1,799",
+            "price_detail": {
+                "amount": 1799.0,
+                "currency": "INR",
+                "price_string": "₹1,799",
+                "currency_symbol": "₹"
+            },
+            "price_serve_tracking_id": "Ut3MGsbsQZ29-5B8fyDKew",
+            "visible_instructors": [
+                {
+                    "_class": "user",
+                    "title": "Joseph adam",
+                    "name": "Joseph",
+                    "display_name": "Joseph adam",
+                    "job_title": "graphic designer",
+                    "image_50x50": "https://img-c.udemycdn.com/user/50x50/18341410_ab4c_12.jpg",
+                    "image_100x100": "https://img-c.udemycdn.com/user/100x100/18341410_ab4c_12.jpg",
+                    "initials": "JA",
+                    "url": "/user/joseph-adam/"
+                }
+            ],
+            "image_125_H": "https://img-c.udemycdn.com/course/125_H/5097994_2d5e_2.jpg",
+            "image_240x135": "https://img-c.udemycdn.com/course/240x135/5097994_2d5e_2.jpg",
+            "is_practice_test_course": false,
+            "image_480x270": "https://img-c.udemycdn.com/course/480x270/5097994_2d5e_2.jpg",
+            "published_title": "color-correction-premiere-pro",
+            "tracking_id": "I6r0wGZpT1yhFBrl0W2Vng",
+            "locale": {
+                "_class": "locale",
+                "locale": "en_US",
+                "title": "English (US)",
+                "english_title": "English (US)",
+                "simple_english_title": "English"
+            },
+            "headline": "Learning Color Grading And Color Correction For Beginners",
+            "caption_locales": [
+                {
+                    "_class": "locale",
+                    "locale": "en_US",
+                    "title": "English (US)",
+                    "english_title": "English (US)"
+                }
+            ],
+            "discount": {
+                "price_serve_tracking_id": "Ut3MGsbsQZ29-5B8fyDKew",
+                "price": {
+                    "amount": 449.0,
+                    "currency": "INR",
+                    "price_string": "₹449",
+                    "currency_symbol": "₹"
+                },
+                "list_price": {
+                    "amount": 1799.0,
+                    "currency": "INR",
+                    "price_string": "₹1,799",
+                    "currency_symbol": "₹"
+                },
+                "saving_price": {
+                    "amount": 1350.0,
+                    "currency": "INR",
+                    "price_string": "₹1,350",
+                    "currency_symbol": "₹"
+                },
+                "has_discount_saving": true,
+                "discount_percent": 75,
+                "discount_percent_for_display": 75,
+                "buyable": {
+                    "id": 5097994,
+                    "type": "course"
+                },
+                "campaign": {
+                    "code": "NVDPRODIN35",
+                    "end_time": "2024-04-17T13:28:10-07:00",
+                    "is_instructor_created": false,
+                    "is_public": true,
+                    "start_time": "2023-08-24T07:00:00Z",
+                    "campaign_type": "deal",
+                    "uses_remaining": null,
+                    "maximum_uses": null,
+                    "show_code": true
+                },
+                "code": "NVDPRODIN35",
+                "is_public": true
+            },
+            "avg_rating": 4.6,
+            "rating": 4.6980214,
+            "num_reviews": 12,
+            "is_wishlisted": false,
+            "num_published_lectures": 25,
+            "image_100x100": "https://img-c.udemycdn.com/course/100x100/5097994_2d5e_2.jpg",
+            "is_in_user_subscription": false,
+            "caption_languages": [
+                "English [Auto]"
+            ],
+            "instructional_level_simple": "All Levels",
+            "content_info": "1.5 total hours",
+            "buyable_object_type": "course",
+            "is_recently_published": false,
+            "is_in_premium": false
+        },
+        {
+            "_class": "course",
+            "id": 5466860,
+            "title": "Premiere Plus: 30 days challenge to learn Adobe Premiere Pro",
+            "url": "/course/premiere-plus-30-days-challenge-to-learn-adobe-premiere-pro/",
+            "is_paid": true,
+            "price": "₹799",
+            "price_detail": {
+                "amount": 799.0,
+                "currency": "INR",
+                "price_string": "₹799",
+                "currency_symbol": "₹"
+            },
+            "price_serve_tracking_id": "1j6PfZW9TF6I321fFR8LCQ",
+            "visible_instructors": [
+                {
+                    "_class": "user",
+                    "title": "Joseph adam",
+                    "name": "Joseph",
+                    "display_name": "Joseph adam",
+                    "job_title": "graphic designer",
+                    "image_50x50": "https://img-c.udemycdn.com/user/50x50/18341410_ab4c_12.jpg",
+                    "image_100x100": "https://img-c.udemycdn.com/user/100x100/18341410_ab4c_12.jpg",
+                    "initials": "JA",
+                    "url": "/user/joseph-adam/"
+                }
+            ],
+            "image_125_H": "https://img-c.udemycdn.com/course/125_H/5466860_87b8_3.jpg",
+            "image_240x135": "https://img-c.udemycdn.com/course/240x135/5466860_87b8_3.jpg",
+            "is_practice_test_course": false,
+            "image_480x270": "https://img-c.udemycdn.com/course/480x270/5466860_87b8_3.jpg",
+            "published_title": "premiere-plus-30-days-challenge-to-learn-adobe-premiere-pro",
+            "tracking_id": "93hJWjIXRvqqfbxT7qh9KA",
+            "locale": {
+                "_class": "locale",
+                "locale": "en_US",
+                "title": "English (US)",
+                "english_title": "English (US)",
+                "simple_english_title": "English"
+            },
+            "headline": "After this course you will become a professional video editor",
+            "caption_locales": [
+                {
+                    "_class": "locale",
+                    "locale": "en_US",
+                    "title": "English (US)",
+                    "english_title": "English (US)"
+                }
+            ],
+            "discount": {
+                "price_serve_tracking_id": "1j6PfZW9TF6I321fFR8LCQ",
+                "price": {
+                    "amount": 499.0,
+                    "currency": "INR",
+                    "price_string": "₹499",
+                    "currency_symbol": "₹"
+                },
+                "list_price": {
+                    "amount": 799.0,
+                    "currency": "INR",
+                    "price_string": "₹799",
+                    "currency_symbol": "₹"
+                },
+                "saving_price": {
+                    "amount": 300.0,
+                    "currency": "INR",
+                    "price_string": "₹300",
+                    "currency_symbol": "₹"
+                },
+                "has_discount_saving": true,
+                "discount_percent": 38,
+                "discount_percent_for_display": 38,
+                "buyable": {
+                    "id": 5466860,
+                    "type": "course"
+                },
+                "campaign": {
+                    "code": "NVDPRODIN35",
+                    "end_time": "2024-04-17T13:28:10-07:00",
+                    "is_instructor_created": false,
+                    "is_public": true,
+                    "start_time": "2023-08-24T07:00:00Z",
+                    "campaign_type": "deal",
+                    "uses_remaining": null,
+                    "maximum_uses": null,
+                    "show_code": true
+                },
+                "code": "NVDPRODIN35",
+                "is_public": true
+            },
+            "avg_rating": 4.7,
+            "rating": 4.6126113,
+            "num_reviews": 15,
+            "is_wishlisted": false,
+            "num_published_lectures": 113,
+            "image_100x100": "https://img-c.udemycdn.com/course/100x100/5466860_87b8_3.jpg",
+            "is_in_user_subscription": false,
+            "caption_languages": [
+                "English [Auto]"
+            ],
+            "instructional_level_simple": "Beginner",
+            "content_info": "6.5 total hours",
+            "buyable_object_type": "course",
+            "is_recently_published": false,
+            "is_in_premium": false
+        }
+    ]
+}

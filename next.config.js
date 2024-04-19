@@ -1,11 +1,19 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {};
 
-module.exports = nextConfig
+module.exports = nextConfig;
 
-// domains: [
-// 			'images.unsplash.com',
-// 			'avatars.githubusercontent.com',
-// 			'i.ytimg.com',
-// 			'lh3.googleusercontent.com',
-// 		],
+module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "d3njjcbhbojbot.cloudfront.net",
+      }
+    ],
+  },
+};
