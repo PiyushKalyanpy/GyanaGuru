@@ -1,7 +1,7 @@
 name: 🐛 Bug Report
 description: Report a bug report
-title: '[Bug]: '
-labels: ['🔧 goal: fix']
+title: "[Bug]: "
+labels: ["🔧 goal: fix"]
 body:
   - type: textarea
     id: what-happened
@@ -32,7 +32,7 @@ body:
   - type: checkboxes
     id: terms
     attributes:
-      label: 'Record'
+      label: "Record"
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true

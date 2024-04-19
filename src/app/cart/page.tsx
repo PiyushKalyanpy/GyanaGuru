@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Cart = () => {
   return (
-    <main className="flex flex-col items-center w-screen min-h-screen bg-gray-100">
+    <main className="flex flex-col items-center w-screen min-h-screen ">
       <HomeNav />
       <div className="flex flex-col w-10/12 h-full gap-8 mt-20">
         <div className="flex w-full h-full gap-8">
@@ -53,16 +53,6 @@ const Cart = () => {
     </main>
   );
 };
-/*
-cardItem :: 
-image 
-title 
-instructor name · number of videos · total hours 
-move to wishlist 
-price 
-remove
-save for later
-*/
 
 interface CartItemProps {
   image: string;

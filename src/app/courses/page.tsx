@@ -5,7 +5,6 @@ import HomeNav from "@/components/navbar/HomeNav";
 import { useSearchParams } from "next/navigation";
 
 const Courses = () => {
-  const query = useSearchParams().get("query");
   return (
     <main className="flex flex-col gap-4 ">
       <HomeNav />

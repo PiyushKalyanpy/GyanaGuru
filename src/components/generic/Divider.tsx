@@ -1,9 +1,5 @@
 const Divider = () => {
-    return (
-        <div>
-            Enter
-        </div>
-    );
-}
+  return <div>Enter</div>;
+};
 
 export default Divider;

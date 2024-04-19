@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
+import { PersonIcon } from "@radix-ui/react-icons";
 
 const HomeNav = () => {
   const router = useRouter();
@@ -65,17 +66,21 @@ const HomeNav = () => {
       <div className="flex gap-4">
         <button
           onClick={() => router.push("/login")}
-          className="px-4 py-2 border border-gray-200 cursor-pointer rounded-xl h-fit"
+          className="flex items-center px-4 py-2 border border-gray-200 cursor-pointer rounded-xl"
         >
           Log In
         </button>
         <button
           onClick={() => router.push("/cart")}
-          className="px-4 py-2 border border-gray-200 cursor-pointer rounded-xl h-fit"
+          className="flex items-center px-4 py-2 border border-gray-200 cursor-pointer rounded-xl"
         >
-          <span className="text-gray-700 material-icons-outlined">
-            shopping_cart
-          </span>
+          <span className="material-symbols-outlined">shopping_cart</span>
+        </button>
+        <button
+          onClick={() => router.push("/dashboard")}
+          className="flex items-center px-4 py-2 border border-gray-200 cursor-pointer rounded-xl"
+        >
+          <PersonIcon />{" "}
         </button>
       </div>
     </header>

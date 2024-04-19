@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Inter, Roboto, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import "material-icons/iconfont/material-icons.css";
+import "material-symbols";
 
 const inter = Inter({ subsets: ["latin"] });
 const manrope = Manrope({

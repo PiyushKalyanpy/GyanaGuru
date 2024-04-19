@@ -1,18 +1,19 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { VideoIcon, ClockIcon } from "@radix-ui/react-icons";
 
 const CourseCard = () => {
   const amount = 0;
   const router = useRouter();
   const navigate = () => {
     router.push(
-      "/courses/topic?query=" + "Build a free website with WordPress"
+      "/courses/topic?query=" + "Build a free website with WordPress",
     );
   };
   return (
     <div
       onClick={navigate}
-      className="relative h-full text-sm transition-all border border-white cursor-pointer hover:shadow-2xl rounded-2xl hover:scale-105 hover:shadow-gray-100 "
+      className="relative h-full p-3 text-sm transition-all border border-gray-200 cursor-pointer hover:shadow-2xl rounded-2xl hover:scale-105 hover:shadow-gray-100 "
     >
       <Image
         src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D"
@@ -29,16 +30,19 @@ const CourseCard = () => {
         <h4 className="text-lg font-semibold">
           Build a free website with WordPress
         </h4>
+        <p className="text-gray-500">
+          by{" "}
+          <span className="font-medium text-gray-950"> Google brains team</span>
+        </p>
 
         {/* time and lessons */}
-        <div className="flex gap-4 text-gray-800">
+        <div className="flex gap-4 text-gray-600">
           <div className="flex items-center gap-2 ">
-            <span className="material-icons-outlined">smart_display</span>
+            <VideoIcon />
             <span>12 lessons</span>
           </div>
           <div className="flex items-center gap-2 ">
-            <span className="material-icons-outlined">schedule</span>
-
+            <ClockIcon />
             <span>12 hours</span>
           </div>
         </div>
@@ -58,8 +62,4 @@ const CourseCard = () => {
   );
 };
 
-/*
-title 
-ratings 
-*/
 export default CourseCard;

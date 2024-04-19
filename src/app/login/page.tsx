@@ -8,7 +8,7 @@ const Login = () => {
         <div className="flex flex-col gap-2 text-gray-700">
           <h1 className="text-2xl font-bold">Login </h1>
           <h2 className="text-normal">Login to continue with Gyanaguru</h2>
-        </div> 
+        </div>
         <button className="flex items-center p-2 text-center text-white bg-indigo-500 hover:bg-indigo-600 rounded-xl ">
           <span className="w-full font-medium text-center outline-none ">
             Login with Google
