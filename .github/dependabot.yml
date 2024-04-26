@@ -1,7 +1,7 @@
 version: 2
 updates:
-  - package-ecosystem: 'npm'
-    directory: '/'
+  - package-ecosystem: "npm"
+    directory: "/"
     schedule:
-      interval: 'monthly'
-      time: '01:00'
+      interval: "monthly"
+      time: "01:00"

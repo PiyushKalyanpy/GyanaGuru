@@ -15,9 +15,6 @@ Gyanaguru website provides you an online learning platform that provides access 
 It offers a vast library of courses, interactive quizzes and exercises, gamification elements, and social features to encourage active participation and collaboration among learners.
 You can checkout our website [here](https://gyanaguru.vercel.app/)
 
-
-
-
 # Tech Stack Used
 
 - [Next.js](https://nextjs.org/) - a framework for building server-rendered React applications

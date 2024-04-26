@@ -1,7 +1,7 @@
 name: 📄 Documentation issue
 description: Found an issue in the documentation? You can use this one!
-title: '[Docs]:'
-labels: ['documentation']
+title: "[Docs]:"
+labels: ["documentation"]
 body:
   - type: textarea
     id: description
@@ -27,7 +27,7 @@ body:
   - type: checkboxes
     id: terms
     attributes:
-      label: 'Record'
+      label: "Record"
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true

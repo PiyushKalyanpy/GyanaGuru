@@ -1,36 +1,19 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-	reactStrictMode: true,
-}
+const nextConfig = {};
+
+module.exports = nextConfig;
 
 module.exports = {
-	nextConfig,
-	images: {
-		domains: [
-			'images.unsplash.com',
-			'avatars.githubusercontent.com',
-			'i.ytimg.com',
-			'lh3.googleusercontent.com',
-		],
-	},
-	async rewrites() {
-		return [
-			{
-				source: '/about-us',
-				destination: '/static/about-us',
-			},
-			{
-				source: '/faq',
-				destination: '/static/faq',
-			},
-			{
-				source: '/disclaimer',
-				destination: '/static/disclaimer',
-			},
-			{
-				source: '/privacy-policy',
-				destination: '/static/privacy-policy',
-			},
-		]
-	},
-}
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "d3njjcbhbojbot.cloudfront.net",
+      },
+    ],
+  },
+};
