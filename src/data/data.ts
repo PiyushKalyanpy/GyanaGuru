@@ -102,6 +102,24 @@ export const courseVideoNavItems = [
     id: "testimonials",
   },
 ];
+export const myCoursesNavItems = [
+  {
+    itemName: "All",
+    id: "all",
+  },
+  {
+    itemName: "Ongoing",
+    id: "ongoing",
+  },
+  {
+    itemName: "Completed",
+    id: "completed",
+  },
+  {
+    itemName: "Saved for later",
+    id: "saved_for_later",
+  },
+];
 
 export const courses = {
   id: "JN(#*UR*(j3j9H8",

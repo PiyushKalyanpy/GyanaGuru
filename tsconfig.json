@@ -22,11 +22,13 @@
     }
   },
   "include": [
+    "video.d.ts",
+    "video.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/components/navbar/HomeNav.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"] 
 }
