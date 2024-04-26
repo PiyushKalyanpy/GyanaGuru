@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { VideoIcon, ClockIcon } from "@radix-ui/react-icons";
+import { VideoIcon, ClockIcon, StarIcon } from "@radix-ui/react-icons";
 
 const CourseCard = () => {
   const amount = 0;
@@ -22,9 +22,9 @@ const CourseCard = () => {
         height={300}
         className="object-cover w-full h-40 rounded-2xl"
       />
-      <p className="absolute flex items-center gap-2 px-2 py-1 text-white rounded-lg shadow-sm bg-black/40 shadow-gray-100 backdrop-blur-sm left-4 itleems-center top-4">
+      <p className="absolute flex items-center gap-2 px-2 py-1 text-white rounded-full shadow-sm bg-black/40 shadow-gray-100 backdrop-blur-sm left-6 itleems-center top-6">
         <span className=""> 4.5</span>
-        <span className="text-sm text-yellow-300 material-icons">star</span>
+        <StarIcon />
       </p>
       <div className="flex flex-col gap-2 py-4 ">
         <h4 className="text-lg font-semibold">
@@ -56,6 +56,17 @@ const CourseCard = () => {
               <span className="font-bold text-green-700">Free</span>
             )}
           </span>
+        </div>
+
+        {/* progress : if enrolled */}
+        <div className="flex items-center gap-2 text-indigo-600">
+          <div className="w-full h-2 bg-gray-200 rounded-full">
+            <div
+              className="h-full bg-indigo-500 rounded-full"
+              style={{ width: "90%" }}
+            ></div>
+          </div>
+          28%
         </div>
       </div>
     </div>

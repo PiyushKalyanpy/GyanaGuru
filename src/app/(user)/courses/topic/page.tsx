@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import Image from "next/image";
 import HomeNav from "@/components/navbar/HomeNav";
 import { useState } from "react";
@@ -187,9 +188,12 @@ const Topic = () => {
               <h5 className="mt-10 text-2xl font-bold text-green-700">
                 {course.is_paid ? course.price : "Free"}
               </h5>
-              <button className="px-4 py-3 text-white bg-black rounded-2xl">
+              <Link
+                href="/learn"
+                className="px-4 py-3 text-white bg-black rounded-2xl"
+              >
                 Enroll for {course.price}
-              </button>
+              </Link>
             </div>
           </div>
         </aside>
