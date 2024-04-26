@@ -89,8 +89,6 @@
   background: transparent; /* Color of the track */
 }
 
-
-
 /* Fallback stuff */
 progress[value] {
   appearance: none;
