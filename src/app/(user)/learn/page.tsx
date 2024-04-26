@@ -13,7 +13,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@radix-ui/react-separator";
 import { Button } from "@/components/ui/button";
 
-function useky(key: any, cb: any) {
+const UseKey = (key: any, cb: any) => {
   const callbackRef = useRef(cb);
 
   useEffect(() => {
@@ -28,17 +28,17 @@ function useky(key: any, cb: any) {
     document.addEventListener("keypress", handle);
     return () => document.removeEventListener("keypress", handle);
   }, [key]);
-}
+};
 
 const LearnPage = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const video: any = videoRef.current;
-  useky("Enter", () => {
+  UseKey("Enter", () => {
     video && video!.paused ? video && video.play() : video && video.pause();
   });
-  useky("KeyK", () => {
+  UseKey("KeyK", () => {
     video && video!.paused ? video && video.play() : video && video.pause();
   });
 
@@ -59,7 +59,7 @@ const LearnPage = () => {
         <Accordion type="single" collapsible className="w-full">
           {courseItems &&
             courseItems.videos.map((item: any) => (
-              <AccordionItem value={item.subtitle}>
+              <AccordionItem key={item.title} value={item.subtitle}>
                 <AccordionTrigger>{item.subtitle}</AccordionTrigger>
                 <AccordionContent>
                   <div className="flex flex-col gap-4">
