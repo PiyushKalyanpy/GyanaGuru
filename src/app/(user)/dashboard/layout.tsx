@@ -8,7 +8,7 @@ const DashbaordLayout = ({
   return (
     <div className="flex w-screen h-screen overflow-x-hidden ">
       <Sidebar />
-      <main className="w-full h-full bg-zinc-100 ">{children}</main>
+      <main className="w-full h-full ">{children}</main>
     </div>
   );
 };

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Elsie&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -66,19 +68,6 @@
   }
 }
 
-* {
-  font-weight: 400;
-}
-
-.hero-main {
-  font-family: "Elsie", "serif" !important;
-  font-weight: 900;
-}
-
-.banner-head {
-  font-family: "IBM Plex Sans";
-}
-
 /* Style the scrollbar track */
 ::-webkit-scrollbar {
   width: 6px; /* Width of the scrollbar */
@@ -100,10 +89,40 @@
   background: transparent; /* Color of the track */
 }
 
-.material-symbols-outlined {
-  font-variation-settings:
-    "FILL" 0,
-    "wght" 100,
-    "GRAD" 0,
-    "opsz" NaN;
+
+
+/* Fallback stuff */
+progress[value] {
+  appearance: none;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
+  color: dodgerblue;
+  display: inline;
+  height: 15px;
+  order: 1;
+  position: relative;
+  width: 100%;
+}
+
+/* WebKit styles */
+progress[value]::-webkit-progress-bar {
+  background-color: whiteSmoke;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+  background-image: linear-gradient(to right, #ff8a00, #e52e71);
+  border-radius: 3px;
+  position: relative;
+  transition: width 1s linear;
+}
+
+/* Firefox styles */
+progress[value]::-moz-progress-bar {
+  background-image: -moz-linear-gradient(to right, #ff8a00, #e52e71);
+  border-radius: 3px;
+  position: relative;
+  transition: width 1s linear;
 }

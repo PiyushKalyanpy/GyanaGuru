@@ -9,6 +9,12 @@ const Login = () => {
           <h1 className="text-2xl font-bold">Login </h1>
           <h2 className="text-normal">Login to continue with Gyanaguru</h2>
         </div>
+        <form action="">
+          <label htmlFor="email">Email</label>
+          <input type="email" name="email" id="email" />
+          <label htmlFor="password">Password</label>
+          <input type="password" name="password" id="password" />
+        </form>
         <button className="flex items-center p-2 text-center text-white bg-indigo-500 hover:bg-indigo-600 rounded-xl ">
           <span className="w-full font-medium text-center outline-none ">
             Login with Google

@@ -14,7 +14,6 @@ export async function GET(request: NextRequest, response: NextResponse) {
       expires: new Date(0),
     });
     return response;
-    return response
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
