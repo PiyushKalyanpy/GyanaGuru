@@ -13,34 +13,28 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@radix-ui/react-separator";
 import { Button } from "@/components/ui/button";
 
-const UseKey = (key: any, cb: any) => {
-  const callbackRef = useRef(cb);
+// const UseKey = (key: any, cb: any) => {
+//   const callbackRef = useRef(cb);
 
-  useEffect(() => {
-    callbackRef.current = cb;
-  });
-  useEffect(() => {
-    function handle(event: any) {
-      if (event.code === key) {
-        callbackRef.current(event);
-      }
-    }
-    document.addEventListener("keypress", handle);
-    return () => document.removeEventListener("keypress", handle);
-  }, [key]);
-};
+//   useEffect(() => {
+//     callbackRef.current = cb;
+//   });
+//   useEffect(() => {
+//     function handle(event: any) {
+//       if (event.code === key) {
+//         callbackRef.current(event);
+//       }
+//     }
+//     document.addEventListener("keypress", handle);
+//     return () => document.removeEventListener("keypress", handle);
+//   }, [key]);
+// };
 
 const LearnPage = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const video: any = videoRef.current;
-  UseKey("Enter", () => {
-    video && video!.paused ? video && video.play() : video && video.pause();
-  });
-  UseKey("KeyK", () => {
-    video && video!.paused ? video && video.play() : video && video.pause();
-  });
 
   useEffect(() => {
     const updateTime = () => {

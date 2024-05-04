@@ -1,8 +1,6 @@
 import { connectToMongo } from "@/database/mongo";
 import User from "@/database/models/user.model";
 import { NextRequest, NextResponse } from "next/server";
-import bcrypt from "bcryptjs";
-import { sendMail } from "@/utils/mailers";
 
 connectToMongo();
 

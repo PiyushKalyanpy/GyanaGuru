@@ -10,7 +10,7 @@ import {
   courseVideoNavItems,
   courseContent,
   learings,
-} from "@/data/data";
+} from "@/database/data/data";
 import Testimonials from "@/components/generic/Testimonials";
 import CourseViewNavItem from "@/components/courses/CourseViewNavItem";
 
@@ -21,6 +21,7 @@ const Topic = () => {
   };
   const activeItem = "about";
   const [active, setActive] = useState(activeItem);
+  
 
   const updateActive = (item: string) => {
     setActive(item);

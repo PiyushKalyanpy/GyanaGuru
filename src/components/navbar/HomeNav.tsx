@@ -12,13 +12,16 @@ const HomeNav = () => {
   return (
     <header className="sticky top-0 z-20 flex flex-row items-center justify-between w-full px-10 ">
       {/* logo link */}
-      <Image
-        src="/images/beta_logo.svg"
-        alt="12"
-        width={100}
-        height={100}
-        className="object-cover w-48 h-full p-2 cursor-pointer select-one bg-white/50 rounded-2xl backdrop-blur-sm full"
-      />
+      <Link href={"/"}>
+        <Image
+          priority
+          src="/images/beta_logo.svg"
+          alt="12"
+          width={100}
+          height={100}
+          className="object-cover w-48 h-full p-2 cursor-pointer select-one bg-white/50 rounded-2xl backdrop-blur-sm full"
+        />
+      </Link>
       {/* nav */}
       <nav className="flex items-center content-center py-2 ">
         <div className="flex flex-row items-center gap-4">

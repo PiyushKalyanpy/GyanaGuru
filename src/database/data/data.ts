@@ -126,7 +126,7 @@ export const courses = {
   title: "Advanced Python Programming",
   headline:
     "Master Python by building 100 projects in 100 days. Learn data science, automation, build websites, games and apps  ",
-  logo: "/images/bento_education.jpg",
+  logo: "/images/beta_logo.svg",
   thumbnail:
     "https://images.unsplash.com/photo-1508161250369-a7ecbdfb67fe?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   description:

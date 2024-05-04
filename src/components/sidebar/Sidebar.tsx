@@ -10,6 +10,7 @@ import {
   PersonIcon,
   VideoIcon,
   ExitIcon,
+  AvatarIcon,
 } from "@radix-ui/react-icons";
 import { useState } from "react";
 import { SidebarItemInterface } from "./SidebarItemInterface";
@@ -23,23 +24,28 @@ const Sidebar = () => {
     },
     {
       title: "My Courses",
-      path: "/dashboard/my-courses",
+      path: " /my-courses",
       icon: <VideoIcon />,
     },
     {
       title: "Brain booster",
-      path: "/dashboard/brain-booster",
+      path: " /brain-booster",
       icon: <MagicWandIcon />,
     },
     {
       title: "My Profile",
-      path: "/dashboard/profile",
+      path: " /profile",
       icon: <PersonIcon />,
     },
     {
       title: "Settings",
-      path: "/dashboard/settings",
+      path: " /settings",
       icon: <GearIcon />,
+    },
+    {
+      title: "Admin",
+      path: " /admin",
+      icon: <AvatarIcon />,
     },
     {
       title: "Logout",
@@ -60,6 +66,7 @@ const Sidebar = () => {
           src="/images/beta_logo.svg"
           width={100}
           height={100}
+          priority
           className="w-fit"
           alt="logo"
         />

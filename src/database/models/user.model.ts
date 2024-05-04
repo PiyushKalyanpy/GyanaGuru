@@ -21,6 +21,18 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now,
+  },
+  image: {
+    type: String,
+    default: "",
+  },
   forgotPasswordToken: String,
   forgotPasswordExpire: Date,
   verifyToken: String,
@@ -29,3 +41,4 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.models.user || mongoose.model("user", userSchema);
 export default User;
+
