@@ -9,7 +9,6 @@ import {
 } from "@radix-ui/react-icons";
 
 const CourseCard = ({ course }: any) => {
-  console.log(course);
   const {
     _id,
     courseId,
@@ -22,8 +21,8 @@ const CourseCard = ({ course }: any) => {
     total_modules,
     total_time,
     ratings,
-  } = course;
-  const amount = 0;
+  } = course || {};
+  console.log(course);
   const router = useRouter();
   const navigate = () => {
     router.push("/courses/topic?id=" + _id);
@@ -34,7 +33,7 @@ const CourseCard = ({ course }: any) => {
       className="relative h-full p-3 text-sm transition-all border border-gray-200 cursor-pointer hover:shadow-2xl rounded-2xl hover:scale-105 hover:shadow-gray-100 "
     >
       <Image
-        src={thumbnail}
+        src={thumbnail && thumbnail}
         alt="course"
         width={300}
         height={300}
@@ -43,7 +42,8 @@ const CourseCard = ({ course }: any) => {
       <p className="absolute flex items-center gap-2 px-2 py-1 text-white rounded-full shadow-sm bg-black/40 shadow-gray-100 backdrop-blur-sm left-6 itleems-center top-6">
         <span className="">
           {" "}
-          {ratings.average_rating} &#40;{ratings.rating_count}&#41;{" "}
+          {ratings && ratings.average_rating} &#40;
+          {ratings && ratings.rating_count}&#41;{" "}
         </span>
         <StarFilledIcon />
       </p>
@@ -51,7 +51,10 @@ const CourseCard = ({ course }: any) => {
         <h4 className="text-lg font-semibold">{title}</h4>
         <p className="text-gray-500">
           by{" "}
-          <span className="font-medium text-gray-950"> {instructor.name}</span>
+          <span className="font-medium text-gray-950">
+            {" "}
+            {instructor && instructor.name}
+          </span>
         </p>
 
         {/* time and lessons */}
