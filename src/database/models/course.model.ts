@@ -100,6 +100,10 @@ const courseSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  total_enrollments: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const Course = mongoose.models.course || mongoose.model("course", courseSchema);

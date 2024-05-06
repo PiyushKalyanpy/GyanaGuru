@@ -8,7 +8,6 @@ const Admin = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab");
-  console.log(tab);
 
   return (
     <div className="flex w-full h-full ">

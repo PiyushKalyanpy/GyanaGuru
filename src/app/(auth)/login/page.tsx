@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -21,6 +21,7 @@ import HomeNav from "@/components/navbar/HomeNav";
 import axios from "axios";
 import { Toaster, toast } from "sonner";
 import { ReloadIcon } from "@radix-ui/react-icons";
+import { signIn, useSession } from "next-auth/react";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -37,25 +38,23 @@ const Login = () => {
       password: "",
     },
   });
+  const session = useSession();
+  
+  useEffect(() => {
+    if (session?.status === "authenticated") {
+      router.push("/dashboard");
+    }
+  }, [session.status, router]);
 
   const onLogin = async () => {
-    const res = await axios
-      .post("/api/auth/login", form.getValues())
-      .then((res) => {
-        console.log(res);
-        if (res.data.error) {
-          toast.error(res.data.error);
-          return;
-        }
-        router.push("/dashboard");
-        toast.success(res.data.message);
-        return;
-      })
-      .catch((err) => {
-        toast.error(err.response.data.error);
-        return;
-      });
+    const response = await signIn("credentials", {
+      email: form.getValues().email,
+      password: form.getValues().password,
+    });
   };
+  
+  
+
   return (
     <main className="flex flex-col items-center w-screen h-screen gap-8 overflow-x-hidden bg-gray-100">
       <HomeNav />

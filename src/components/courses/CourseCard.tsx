@@ -22,7 +22,6 @@ const CourseCard = ({ course }: any) => {
     total_time,
     ratings,
   } = course || {};
-  console.log(course);
   const router = useRouter();
   const navigate = () => {
     router.push("/courses/topic?id=" + _id);

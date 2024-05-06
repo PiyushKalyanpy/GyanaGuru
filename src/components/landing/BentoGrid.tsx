@@ -1,7 +1,7 @@
 import Image from "next/image";
 const BentoGrid = () => {
   return (
-    <section className="   flex flex-col gap-8 bg-[url('D:\gyanaguru\public\images\blur_bg.svg')] ">
+    <section className="flex flex-col gap-8 ">
       <div className="flex gap-8">
         <div
           id="bento"

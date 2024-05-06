@@ -5,21 +5,18 @@ import HomeNav from "@/components/navbar/HomeNav";
 import { useEffect, useState } from "react";
 import { GlobeIcon, VideoIcon } from "@radix-ui/react-icons";
 import TagItem from "@/components/landing/sub_components/TagItem";
-import {
-  courses,
-  courseVideoNavItems,
-  courseContent,
-  learings,
-} from "@/database/data/data";
+import { courseContent } from "@/database/data/data";
 import Testimonials from "@/components/generic/Testimonials";
-import CourseViewNavItem from "@/components/courses/CourseViewNavItem";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
+import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import { Button } from "@/components/ui/button";
 
 const Topic = () => {
   const searchParams = useSearchParams();
   const courseId = searchParams.get("id");
-  const [course, setCourse] = useState({});
+  const [course, setCourse]: any = useState(null);
+  const [courseContent, setCourseContent]: any = useState(null);
   const commaFormated = (number: number) => {
     return Intl.NumberFormat().format(number);
   };
@@ -31,7 +28,7 @@ const Topic = () => {
   useEffect(() => {
     const getCourse = () => {
       console.log(course);
-      if (course) {
+      if (course == null) {
         console.log("fetching courses ⬇️");
         const data = axios.get(`/api/course/${courseId}`);
         data.then((res) => {
@@ -40,7 +37,19 @@ const Topic = () => {
         });
       }
     };
+
+    const getCourseContent = () => {
+      if (courseContent == null) {
+        console.log("fetching courses content ⬇️");
+        const data = axios.get(`/api/course/content/${courseId}`);
+        data.then((res) => {
+          console.log(res);
+          setCourseContent(res.data);
+        });
+      }
+    };
     getCourse();
+    getCourseContent();
   }, []);
 
   const {
@@ -61,6 +70,14 @@ const Topic = () => {
     total_time,
     url,
   } = (course && course!.data) || {};
+
+  const onEnroll = async () => {
+    console.log(courseId);
+    const data = axios.post(`/api/course/enroll`);
+    data.then((res) => {
+      console.log(res);
+    });
+  };
 
   return (
     <main className="w-screen h-screen overflow-x-hidden overflow-y-scroll ">
@@ -97,18 +114,22 @@ const Topic = () => {
               <span className="text-yellow-500 material-icons">star</span>
               <span>&#40;{ratings && ratings.rating_count} ratings&#41; </span>
             </div>
+
             <div className="flex flex-col gap-2 my-4">
               {/* instructors */}
+
               <div className="flex gap-2 ">
-                <Image
+                {/* <Image
                   src={instructor && instructor.image}
-                  alt="course"
+                  alt={instructor && instructor.name}
                   width={300}
                   height={300}
-                  className="object-contain w-12 h-12 rounded-full"
-                />
+                  className="object-contain w-12 h-12 bg-gray-100 rounded-full"
+                /> */}
                 <div className="flex flex-col ">
-                  <h3 className="text-xl ">{instructor && instructor.name}</h3>
+                  <h3 className="text-xl ">
+                    by {instructor && instructor.name}
+                  </h3>
                   <h4 className="text-sm ">
                     {instructor && instructor.designation}
                   </h4>
@@ -176,37 +197,36 @@ const Topic = () => {
                   <h3 className="text-xl font-bold">Course Content </h3>
                   <ul className="flex flex-wrap gap-2 p-4 overflow-hidden border rounded-xl ">
                     {courseContent &&
-                      courseContent.map((module) => (
-                        <div key={module.module_index} className="w-full">
-                          <div className="flex items-center justify-between p-2 underline">
-                            <h2 className="text-xl font-bold">
-                              {module.module_name}
-                            </h2>
-                            <p className="text-sm ">3 minutes</p>
+                      courseContent.data.content.map((module: any) => {
+                        return (
+                          <div key={module.title} className="w-full">
+                            <div className="flex items-center justify-between p-2 underline">
+                              <h2 className="text-xl font-bold">
+                                {module.title}
+                              </h2>
+                              <p className="text-sm ">3 minutes</p>
+                            </div>
+                            <div className="w-full p-4">
+                              {module.sub_content.map((chapter: any) => (
+                                <div
+                                  key={chapter.titile}
+                                  className="flex justify-between w-full mb-2"
+                                >
+                                  <p className="">{chapter.title}</p>
+                                  <span>{chapter.content_length}</span>
+                                </div>
+                              ))}
+                            </div>
                           </div>
-                          <div className="w-full p-4">
-                            {module.chapters.map((chapter) => (
-                              <div
-                                key={chapter.chapter_index}
-                                className="flex justify-between w-full mb-2"
-                              >
-                                <p className="">{chapter.chapter_name}</p>
-                                <span>{chapter.content_length}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                   </ul>
                 </div>
                 {/* testimonial  */}
                 <div className="flex flex-col gap-4">
                   <h3 className="text-xl font-bold">Testimonials </h3>
                   <ul className="flex grid flex-row grid-cols-3 gap-4 ">
-                    {skills &&
-                      skills.map((skill: string) => (
-                        <Testimonials key={skill} item={skill} />
-                      ))}
+                    No testimonials yet
                   </ul>
                 </div>
               </div>
@@ -227,12 +247,12 @@ const Topic = () => {
               <h5 className="mt-10 text-2xl font-bold text-green-700">
                 {is_paid ? price : "Free"}
               </h5>
-              <Link
-                href="/learn"
+              <Button
+                onClick={onEnroll}
                 className="px-4 py-3 text-white bg-black rounded-2xl"
               >
-                Enroll for {price}
-              </Link>
+                Enroll Now
+              </Button>
             </div>
           </div>
         </aside>

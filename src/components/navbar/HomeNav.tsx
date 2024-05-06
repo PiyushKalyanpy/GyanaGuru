@@ -4,10 +4,12 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
 import { PersonIcon } from "@radix-ui/react-icons";
+import { signOut, useSession } from "next-auth/react";
 
 const HomeNav = () => {
   const router = useRouter();
   const [courseName, setCourseName] = useState("");
+  const { data: session }: any = useSession();
 
   return (
     <header className="sticky top-0 z-20 flex flex-row items-center justify-between w-full px-10 ">
@@ -65,27 +67,32 @@ const HomeNav = () => {
           </ul>
           {/* login */}
         </div>
-      </nav>{" "}
-      <div className="flex gap-4">
-        <button
-          onClick={() => router.push("/login")}
-          className="flex items-center px-4 py-2 border border-gray-200 cursor-pointer rounded-xl"
-        >
-          Log In
-        </button>
-        <button
-          onClick={() => router.push("/cart")}
-          className="flex items-center px-4 py-2 border border-gray-200 cursor-pointer rounded-xl"
-        >
-          <span className="material-symbols-outlined">shopping_cart</span>
-        </button>
-        <button
-          onClick={() => router.push("/dashboard")}
-          className="flex items-center px-4 py-2 border border-gray-200 cursor-pointer rounded-xl"
-        >
-          <PersonIcon />{" "}
-        </button>
-      </div>
+      </nav>
+      {!session ? (
+        <div className="flex gap-4">
+          <button
+            onClick={() => router.push("/login")}
+            className="flex items-center px-4 py-2 border border-gray-200 cursor-pointer rounded-xl"
+          >
+            Log In
+          </button>
+          <button
+            onClick={() => router.push("/cart")}
+            className="flex items-center px-4 py-2 border border-gray-200 cursor-pointer rounded-xl"
+          >
+            <span className="material-symbols-outlined">shopping_cart</span>
+          </button>
+        </div>
+      ) : (
+        <div className="flex gap-4">
+          <button
+            onClick={() => router.push("/dashboard")}
+            className="flex items-center px-4 py-4 border border-gray-300 rounded-full cursor-pointer "
+          >
+            <PersonIcon />{" "}
+          </button>
+        </div>
+      )}
     </header>
   );
 };

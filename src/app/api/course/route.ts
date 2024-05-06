@@ -8,7 +8,7 @@ connectToMongo();
 export async function GET(request: NextRequest, response: NextResponse) {
   try {
     const course = await Course.find({}).select(
-      "title description instructor thumbnail total_modules total_time price is_paid ratings",
+      "title description instructor thumbnail total_modules total_time price is_paid ratings total_enrolled",
     );
 
     return NextResponse.json(

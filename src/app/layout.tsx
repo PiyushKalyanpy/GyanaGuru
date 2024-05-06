@@ -3,6 +3,9 @@ import { Manrope, Inter, Roboto, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import "material-icons/iconfont/material-icons.css";
 import "material-symbols";
+import { getServerSession } from "next-auth";
+import SessionProvider  from "./Provider";
+import { redirect } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 const manrope = Manrope({
@@ -15,13 +18,11 @@ const roboto = Roboto({
   subsets: ["latin"],
   display: "swap",
 });
-
 const ibmPlexSans = IBM_Plex_Sans({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
 });
-
 export const metadata: Metadata = {
   title: {
     default: "Gyanaguru",
@@ -30,14 +31,22 @@ export const metadata: Metadata = {
   description: "Learn for free with Gyanaguru",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getServerSession();
+  if (session) {
+    redirect("/dashboard");
+  }
   return (
     <html lang="en" className="dark">
-      <body className={`${roboto.className} dark`}>{children}</body>
+      <body className={`${roboto.className} dark`}>
+        <SessionProvider session={session}>
+          {children}
+        </SessionProvider>
+      </body>
     </html>
   );
 }
