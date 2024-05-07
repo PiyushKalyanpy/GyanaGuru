@@ -1,20 +1,20 @@
 "use client";
 import Link from "next/link";
 import { usePathname, redirect } from "next/navigation";
-import {useSession, signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import axios from "axios";
-
 
 const SidebarItem = ({ item }: any) => {
   const pathname = usePathname();
   const { data: session } = useSession();
-  
+
   const handleClick = () => {
     if (item.title == "Logout") {
       signOut();
       if (!session) {
         redirect("/login");
-      }    }
+      }
+    }
   };
   return (
     <div className="w-full" onClick={handleClick}>

@@ -32,7 +32,6 @@ const MyCourses = () => {
     };
 
     getCourses();
-    
   }, [courses]);
 
   return (

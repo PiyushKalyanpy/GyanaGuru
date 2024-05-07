@@ -30,7 +30,7 @@ export const courseFormSchema = z.object({
   requirements: z.array(z.string()),
   skills: z.array(z.string()),
   skillInput: z.string(),
-  categories : z.array(z.string()),
+  categories: z.array(z.string()),
   categoryInput: z.string(),
   course_content_id: z.string(),
   createdAt: z.string(),

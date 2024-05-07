@@ -52,5 +52,4 @@ const CoursesMain = () => {
   );
 };
 
-
 export default CoursesMain;

@@ -39,7 +39,7 @@ const Login = () => {
     },
   });
   const session = useSession();
-  
+
   useEffect(() => {
     if (session?.status === "authenticated") {
       router.push("/dashboard");
@@ -52,8 +52,6 @@ const Login = () => {
       password: form.getValues().password,
     });
   };
-  
-  
 
   return (
     <main className="flex flex-col items-center w-screen h-screen gap-8 overflow-x-hidden bg-gray-100">

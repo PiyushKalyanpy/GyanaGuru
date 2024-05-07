@@ -4,7 +4,7 @@ import "./globals.css";
 import "material-icons/iconfont/material-icons.css";
 import "material-symbols";
 import { getServerSession } from "next-auth";
-import SessionProvider  from "./Provider";
+import SessionProvider from "./providers";
 import { redirect } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -43,9 +43,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${roboto.className} dark`}>
-        <SessionProvider session={session}>
-          {children}
-        </SessionProvider>
+        <SessionProvider session={session}>{children}</SessionProvider>
       </body>
     </html>
   );

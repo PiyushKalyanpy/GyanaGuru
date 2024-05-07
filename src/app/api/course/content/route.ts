@@ -30,4 +30,3 @@ export async function POST(request: NextRequest, response: NextResponse) {
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }
-
