@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -66,6 +66,12 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
+} */
+
+@layer utilities{
+  .wrapper {
+    @apply max-w-7xl lg:mx-auto p-5 md:px-10 xl:px-0 w-full;
+  }
 }
 
 /* Style the scrollbar track */
@@ -89,38 +95,6 @@
   background: transparent; /* Color of the track */
 }
 
-/* Fallback stuff */
-progress[value] {
-  appearance: none;
-  border: none;
-  border-radius: 3px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
-  color: dodgerblue;
-  display: inline;
-  height: 15px;
-  order: 1;
-  position: relative;
-  width: 100%;
-}
-
-/* WebKit styles */
-progress[value]::-webkit-progress-bar {
-  background-color: whiteSmoke;
-  border-radius: 3px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
-}
-
-progress[value]::-webkit-progress-value {
-  background-image: linear-gradient(to right, #ff8a00, #e52e71);
-  border-radius: 3px;
-  position: relative;
-  transition: width 1s linear;
-}
-
-/* Firefox styles */
-progress[value]::-moz-progress-bar {
-  background-image: -moz-linear-gradient(to right, #ff8a00, #e52e71);
-  border-radius: 3px;
-  position: relative;
-  transition: width 1s linear;
+.cl-cardBox{
+  box-shadow: 0px 8px 40px #e4e5e6;
 }

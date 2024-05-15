@@ -28,7 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/components/navbar/HomeNav.tsx"
+    "src/components/shared/Header.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "project"]
 }
