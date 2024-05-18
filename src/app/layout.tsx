@@ -32,7 +32,7 @@ export default async function RootLayout({
   return (
     <Providers>
       <html lang="en" className="">
-        <body className={`${manrope.className} light`}>{children}</body>
+        <body className={`${ibmPlexSans.className} light`}>{children}</body>
       </html>
     </Providers>
   );

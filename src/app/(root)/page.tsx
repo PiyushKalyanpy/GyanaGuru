@@ -1,10 +1,10 @@
 "use client";
-import LandingPage from "@/components/landing/LandingPage";
+import Header from "@/components/shared/Header";
 
 export default function Home() {
   return (
-    <section>
-      <LandingPage />
-    </section>
+    <main>
+      <Header />
+    </main>
   );
 }
