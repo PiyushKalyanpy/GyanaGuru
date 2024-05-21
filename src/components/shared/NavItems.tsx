@@ -6,11 +6,11 @@ const NavItems = () => {
     <ul className="flex-col md:flex-row flex gap-8 ">
       {NavLinks &&
         NavLinks.map((navLink, index) => (
-         <li key={index}>
-           <Link href={navLink.path} key={index}>
-            {navLink.label}
-          </Link>
-         </li>
+          <li key={index}>
+            <Link href={navLink.path} key={index}>
+              {navLink.label}
+            </Link>
+          </li>
         ))}
     </ul>
   );

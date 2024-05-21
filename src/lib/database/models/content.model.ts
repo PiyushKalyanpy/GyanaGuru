@@ -1,46 +1,39 @@
-import { Schema, model, models, Document } from "mongoose";
+import { Schema, model, models } from "mongoose";
+import { ISection } from "@/lib/interfaces";
 
-export interface ICourseContent extends Document {
-  _id: string;
-  courseId: string;
-  title: string;
-  createdBy: string;
-  content: [
+const courseContentSchema = new Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  sectionIndex: {
+    type: Number,
+    required: true,
+    unique: true,
+  },
+  lectures: [
     {
-      title: string;
-      content_length: number;
-      content_type: string;
-      content_data: [
-        {
-          subtitle: string;
-          content_length: number;
-          content_type: string;
-        },
-      ];
-    },
-  ];
-}
-
-const CourseContentSchema = new Schema({
-  courseId: { type: Schema.Types.ObjectId, ref: "Course" },
-  title: { type: String, required: true },
-  createdBy: { type: Schema.Types.ObjectId, ref: "User" },
-  content: [
-    {
-      title: { type: String, required: true },
-      content_length: { type: Number, required: true },
-      content_type: { type: String },
-      content_data: [
-        {
-          subtitle: { type: String },
-          content_length: { type: Number, required: true },
-          content_type: { type: String },
-        },
-      ],
+      title: {
+        type: String,
+        required: true,
+      },
+      lectureIndex: {
+        type: Number,
+        required: true,
+        unique: true,
+      },
+      url: {
+        type: String,
+        required: true,
+      },
+      contentLength: {
+        type: String,
+        required: true,
+      },
     },
   ],
 });
 
 const CourseContent =
-  models.CourseContent || model("CourseContent", CourseContentSchema);
+  models.CourseContent || model("CourseContent", courseContentSchema);
 export default CourseContent;

@@ -7,7 +7,10 @@ const Instructor = () => {
   return (
     <div className="flex w-full min-h-scree">
       <aside className="w-1/6 bg-black min-h-screen p-4 flex items-start">
-        <Button className="bg-white text-black hover:bg-white/90 w-full text-start" onClick={() => router.push("/instructor/course")}>
+        <Button
+          className="bg-white text-black hover:bg-white/90 w-full text-start"
+          onClick={() => router.push("/instructor/course")}
+        >
           Create Course
         </Button>
       </aside>

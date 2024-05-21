@@ -1,17 +1,12 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
-import Sidebar from "@/components/course/instructor/Sidebar";
-import { courseStore } from "@/lib/store/createCourse.store";
-import Basic_Details from "@/components/course/instructor/Basic_Details";
-import Pricing from "@/components/course/instructor/Pricing";
 import AddImage from "@/components/course/instructor/AddImages";
+import Basic_Details from "@/components/course/instructor/Basic_Details";
 import Curriculum from "@/components/course/instructor/Curriculum";
+import Pricing from "@/components/course/instructor/Pricing";
+import Sidebar from "@/components/course/instructor/Sidebar";
 
-const InstructorCourse = () => {
-  const router = useRouter();
-  const pageName = useSearchParams().get("page");
-  const courseData = courseStore;
-
+const InstructorCourse = ({ params, searchParams }: any) => {
+  const pageName = searchParams.page;
   return (
     <div className="flex w-full min-h-screen">
       <Sidebar />

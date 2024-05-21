@@ -8,7 +8,7 @@ const SidebarItem = ({ item }: any) => {
 
   const handleClick = () => {
     if (item.title == "Logout") {
-     console.log("logout");
+      console.log("logout");
     }
   };
   return (

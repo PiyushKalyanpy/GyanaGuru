@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -13,7 +12,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import Dropdown from "@/components/shared/Dropdown";
-import { courseStore } from "@/lib/store/createCourse.store";
+import { courseStore } from "@/lib/store/course.store";
 import { useEffect } from "react";
 
 const Basic_Details = () => {
@@ -21,11 +20,11 @@ const Basic_Details = () => {
   const setBasicDetails = courseStore((state: any) => state.setDetails);
   const courseDetails = courseStore((state: any) => state.courseDetails);
 
-  useEffect(()=> {
-    form.setValue("title", courseDetails.title)
-    form.setValue("headline", courseDetails.headline)
-    form.setValue("description", courseDetails.description)
-  }, [courseDetails])
+  useEffect(() => {
+    form.setValue("title", courseDetails.title);
+    form.setValue("headline", courseDetails.headline);
+    form.setValue("description", courseDetails.description);
+  }, [courseDetails]);
 
   const onSubmit = () => {
     setBasicDetails(form.getValues());

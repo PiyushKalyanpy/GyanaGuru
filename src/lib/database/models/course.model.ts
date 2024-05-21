@@ -14,7 +14,7 @@ export interface ICourse extends Document {
   priceSymbol: string;
   isPaid: boolean;
   createdAt: Date;
-  stripeId : string;
+  stripeId: string;
   updatedAt: Date;
   courseContent: { _id: string; name: string };
   testimonials: { _id: string; name: string };
@@ -32,7 +32,7 @@ const CourseSchema = new Schema({
   learnings: { type: [String] },
   price: { type: Number },
   priceSymbol: { type: String },
-  stripeId : { type: String },
+  stripeId: { type: String },
   isPaid: { type: Boolean, default: false },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },

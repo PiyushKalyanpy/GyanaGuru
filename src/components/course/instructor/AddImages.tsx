@@ -1,6 +1,5 @@
 "use client";
 
-import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -10,8 +9,9 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { courseStore } from "@/lib/store/createCourse.store";
+import { courseStore } from "@/lib/store/course.store";
 import { useEffect } from "react";
+import { useForm } from "react-hook-form";
 
 const AddImage = () => {
   const form = useForm();

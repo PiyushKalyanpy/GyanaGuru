@@ -10,8 +10,7 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { courseStore } from "@/lib/store/createCourse.store";
-import { Checkbox } from "@radix-ui/react-checkbox";
+import { courseStore } from "@/lib/store/course.store";
 import { useEffect } from "react";
 
 const Pricing = () => {
@@ -19,9 +18,9 @@ const Pricing = () => {
   const setDetails = courseStore((state: any) => state.setDetails);
   const courseDetails = courseStore((state: any) => state.courseDetails);
 
-  useEffect(()=> {
-    form.setValue("price", courseDetails.price)
-  }, [courseDetails])
+  useEffect(() => {
+    form.setValue("price", courseDetails.price);
+  }, [courseDetails]);
 
   const onSubmit = () => {
     setDetails(form.getValues());
@@ -46,7 +45,7 @@ const Pricing = () => {
               </FormItem>
             )}
           />
-         
+
           <Button type="submit">Submit</Button>
         </form>
       </Form>

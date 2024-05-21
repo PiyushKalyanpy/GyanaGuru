@@ -2,13 +2,13 @@
   "name": "gyanaguru",
   "version": "0.0.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "format": "prettier --write ."
-  },
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "next lint",
+      "format": "prettier --write ."
+    },
   "dependencies": {
     "@clerk/nextjs": "^5.0.9",
     "@gsap/react": "^2.1.0",

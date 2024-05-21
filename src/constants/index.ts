@@ -9,7 +9,6 @@ export const NavLinks = [
   },
 ];
 
-
 export const instructorCourseSidebarLinks = [
   {
     title: "Plan your course",
