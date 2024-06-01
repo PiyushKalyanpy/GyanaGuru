@@ -38,7 +38,7 @@
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.372.0",
     "material-icons": "^1.13.12",
-    "material-symbols": "^0.17.2",
+    "material-symbols": "^0.19.0",
     "mongoose": "^8.3.2",
     "next": "^14.2.2",
     "next-auth": "^4.24.7",
